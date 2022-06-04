@@ -1,5 +1,6 @@
 import React from "react";
 import { Hero, Card } from "react-daisyui";
+import 'font-awesome/css/font-awesome.min.css';
 
 const Dashboard = () => {
   return (
@@ -17,20 +18,20 @@ const Dashboard = () => {
           {/* Dynamically update based on users recent posts */}
           <div className="grid grid-cols-3 gap-2 py-3">
             <Card className="card w-96 bg-base-100 shadow-xl">
-              <div class="card w-96 text-neutral-content">
+              <div className="card w-96 text-neutral-content">
                 <figure>
                   <img
                     src="https://api.lorem.space/image/shoes?w=400&h=225"
                     alt="Shoes"
                   />
                 </figure>
-                <div class="card-body items-center text-center">
-                  <h2 class="card-title">Title</h2>
-                  <div class="card-actions justify-end">
-                    <button class="btn-sm rounded-full btn-secondary">
+                <div className="card-body items-center text-center">
+                  <h2 className="card-title">Title</h2>
+                  <div className="card-actions justify-end">
+                    <button className="btn-sm rounded-full btn-primary">
                       Edit
                     </button>
-                    <button class="btn-sm rounded-full btn-secondary">
+                    <button className="btn-sm rounded-full btn-primary">
                       Delete
                     </button>
                   </div>
@@ -39,20 +40,20 @@ const Dashboard = () => {
             </Card>
 
             <Card className="card w-96 bg-base-100 shadow-xl">
-              <div class="card w-96 text-neutral-content">
+              <div className="card w-96 text-neutral-content">
                 <figure>
                   <img
                     src="https://api.lorem.space/image/shoes?w=400&h=225"
                     alt="Shoes"
                   />
                 </figure>
-                <div class="card-body items-center text-center">
-                  <h2 class="card-title">Title</h2>
-                  <div class="card-actions justify-end">
-                    <button class="btn-sm rounded-full btn-secondary">
+                <div className="card-body items-center text-center">
+                  <h2 className="card-title">Title</h2>
+                  <div className="card-actions justify-end">
+                    <button className="btn-sm rounded-full btn-primary">
                       Edit
                     </button>
-                    <button class="btn-sm rounded-full btn-secondary">
+                    <button className="btn-sm rounded-full btn-primary">
                       Delete
                     </button>
                   </div>
@@ -61,20 +62,20 @@ const Dashboard = () => {
             </Card>
 
             <Card className="card w-96 bg-base-100 shadow-xl">
-              <div class="card w-96 text-neutral-content">
+              <div className="card w-96 text-neutral-content">
                 <figure>
                   <img
                     src="https://api.lorem.space/image/shoes?w=400&h=225"
                     alt="Shoes"
                   />
                 </figure>
-                <div class="card-body items-center text-center">
-                  <h2 class="card-title">Title</h2>
-                  <div class="card-actions justify-end">
-                    <button class="btn-sm rounded-full btn-secondary">
+                <div className="card-body items-center text-center">
+                  <h2 className="card-title">Title</h2>
+                  <div className="card-actions justify-end">
+                    <button className="btn-sm rounded-full btn-primary">
                       Edit
                     </button>
-                    <button class="btn-sm rounded-full btn-secondary">
+                    <button className="btn-sm rounded-full btn-primary">
                       Delete
                     </button>
                   </div>
@@ -83,26 +84,30 @@ const Dashboard = () => {
             </Card>
 
             <Card className="card w-96 bg-base-100 shadow-xl">
-              <div class="card w-96 text-neutral-content">
+              <div className="card w-96 text-neutral-content">
                 <figure>
                   <img
                     src="https://api.lorem.space/image/shoes?w=400&h=225"
                     alt="Shoes"
                   />
                 </figure>
-                <div class="card-body items-center text-center">
-                  <h2 class="card-title">Title</h2>
-                  <div class="card-actions justify-end">
-                    <button class="btn-sm rounded-full btn-secondary">
+                <div className="card-body items-center text-center">
+                  <h2 className="card-title">Title</h2>
+                  <div className="card-actions justify-end">
+                    <button className="btn-sm rounded-full btn-primary">
                       Edit
                     </button>
-                    <button class="btn-sm rounded-full btn-secondary">
+                    <button className="btn-sm rounded-full btn-primary">
                       Delete
                     </button>
                   </div>
                 </div>
               </div>
             </Card>
+            {/* Swap button for circle plus icon */}
+            <div className="my-10 mx-10">
+            <button className="btn rounded-full btn-secondary">Add<i class="fa-solid fa-circle-plus fa-2xl ml-2"></i></button>
+            </div>
           </div>
         </div>
       </Hero>
