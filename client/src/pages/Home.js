@@ -1,10 +1,12 @@
 import React from "react";
 import { Hero, Card, Button } from "react-daisyui";
-import '../App.css';
+//import '../App.css';
+import BingMap from "../components/BingMap";
 
 const Home = () => {
   return (
     <div>
+      <BingMap></BingMap>
       <Hero className="min-h-screen bg-base-100">
         {/* <Hero.Overlay className="min-h-screen bg-base-100" /> */}
         <Hero.Content className="text-center">
