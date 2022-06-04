@@ -1,14 +1,16 @@
 import React from "react";
 import { Hero, Card, Button } from "react-daisyui";
 //import '../App.css';
-import BingMap from "../components/BingMap";
+import { ReactBingmaps } from 'react-bingmaps-plus';
 
 const Home = () => {
   return (
     <div>
-      <BingMap></BingMap>
+      <div style={{ height: "600px", width: "800px"}}>
+        <ReactBingmaps bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C" key={"A"}/>
+      </div>
       <Hero className="min-h-screen bg-base-100">
-        {/* <Hero.Overlay className="min-h-screen bg-base-100" /> */}
+        
         <Hero.Content className="text-center">
           <div className="max-w-md text-secondary-content">
             <h1 className="appName mt-5 text-7xl">ADVENTURE BOOK</h1>
