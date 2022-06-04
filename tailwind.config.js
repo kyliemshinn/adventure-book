@@ -11,27 +11,28 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        'garden': {
-           'primary' : '#5a7c65',
+        mytheme: {
+          // teal-green
+           'primary' : '#6ee7b7',
            'primary-focus' : '#48604f',
            'primary-content' : '#ffffff',
-
-           'secondary' : '#ecf4e7',
+          // light purple
+           'secondary' : '#c7d2fe',
            'secondary-focus' : '#cde2c1',
            'secondary-content' : '#24321a',
-
-           'accent' : '#f9e1e1',
+          // red-pink
+           'accent' : '#fb7185',
            'accent-focus' : '#f4bebe',
            'accent-content' : '#322020',
-
-           'neutral' : '#5c5757',
+          // light pastel blue-green
+           'neutral' : '#ccfbf1',
            'neutral-focus' : '#272525',
            'neutral-content' : '#e9e7e7',
-
+          // shades of light greys
            'base-100' : '#ffffff',
-           'base-200' : '#d1cccc',
-           'base-300' : '#b9b1b1',
-           'base-content' : '#100f0f',
+           'base-200' : '#f3f4f6',
+           'base-300' : '#e5e7eb',
+           'base-content' : '#d1d5db',
 
            'info' : '#1c92f2',
            'success' : '#009485',
