@@ -4,6 +4,7 @@ import Foot from "../Footer/footer";
 import Home from "../../pages/Home";
 import Dashboard from "../../pages/Dashboard";
 import Explore from "../../pages/Explore";
+import AddPost from "../../pages/AddPost";
 
 export default function PageContainer() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -17,6 +18,9 @@ export default function PageContainer() {
     }
     if(currentPage === "Dashboard") {
         return <Dashboard />
+    }
+    if(currentPage === "AddPost") {
+        return <AddPost />
     }
   };
 
