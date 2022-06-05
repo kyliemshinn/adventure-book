@@ -104,7 +104,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </Card>
-            {/* Swap button for circle plus icon */}
+            {/* Add onClick function to render AddPost page*/}
             <div className="my-10 mx-10">
             <button className="btn rounded-full btn-secondary">Add<i class="fa-solid fa-circle-plus fa-2xl ml-2"></i></button>
             </div>
