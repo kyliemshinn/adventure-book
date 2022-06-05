@@ -5,6 +5,7 @@ import Home from "../../pages/Home";
 import Dashboard from "../../pages/Dashboard";
 import Explore from "../../pages/Explore";
 import AddPost from "../../pages/AddPost";
+import Contact from '../../pages/Contact';
 
 export default function PageContainer() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -22,6 +23,9 @@ export default function PageContainer() {
     if(currentPage === "AddPost") {
         return <AddPost />
     }
+    if(currentPage === "Contact") {
+      return <Contact />
+    }
   };
 
   const handlePageChange = (page) => {
@@ -33,6 +37,7 @@ export default function PageContainer() {
       <Nav currentPage={currentPage} handlePageChange={handlePageChange} />
 
       {renderPage()}
+      
 
       <Foot currentPage={currentPage} handlePageChange={handlePageChange} />
     </div>

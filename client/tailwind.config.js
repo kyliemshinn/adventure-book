@@ -23,11 +23,11 @@ module.exports = {
         mytheme: {
           // teal-green
           primary: "#a7f3d0",
-          "primary-focus": "#48604f", // army green
+          "primary-focus": "#6ee7b7", // darker teal-green
           "primary-content": "#27543f", // dark green for font
           // light purple
           secondary: "#a5b4fc",
-          "secondary-focus": "#818cf8", // green
+          "secondary-focus": "#6ee7b7", // green
           "secondary-content": "#333333", // dark grey for font
           // light orange
           accent: "#ffbd9b",

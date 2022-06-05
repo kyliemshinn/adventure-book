@@ -2,7 +2,7 @@ import React from "react";
 import { Hero, Card } from "react-daisyui";
 import 'font-awesome/css/font-awesome.min.css';
 
-const Dashboard = () => {
+const Dashboard = ({ currentPage, handlePageChange }) => {
   return (
     <div>
       <div className="postContainer">

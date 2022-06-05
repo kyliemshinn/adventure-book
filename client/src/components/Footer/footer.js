@@ -1,7 +1,7 @@
 import React from "react-daisyui";
 import { Footer, Button } from "react-daisyui";
 
-const Foot = () => {
+const Foot = ({ currentPage, handlePageChange }) => {
   return (
     <Footer className="footer footer-center p-10 bg-accent rounded">
       <div>
@@ -9,11 +9,11 @@ const Foot = () => {
           <Footer.Title>Company</Footer.Title>
         </div>
         <div className="sm:flex items-stretch space-x-4 mb-4 mt-4">
-          <a href="#Home">Home</a>
-          <a href="#Explore">Explore</a>
-          <a href="#Dashboard">Dashboard</a>
+          <a href="#Home" onClick={() => handlePageChange('Home')}>Home</a>
+          <a href="#Explore" onClick={() => handlePageChange('Explore')}>Explore</a>
+          <a href="#Dashboard" onClick={() => handlePageChange('Dashboard')}>Dashboard</a>
           <a href="#About">About</a>
-          <a href="#Login">Contact</a>
+          <a href="#Login" onClick={() => handlePageChange('Contact')}>Contact</a>
           <a href="#Login">Login</a>
           <a href="#Login">Logout</a>
           <a href="#Login">Signup</a>
