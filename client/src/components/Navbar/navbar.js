@@ -12,7 +12,7 @@ const Nav = ({ currentPage, handlePageChange }) => {
         <div className="md:flex items-stretch space-x-4 font-medium">
             <a href="#Home" onClick={() => handlePageChange('Home')}>Home</a>
             <a href="#Explore" onClick={() => handlePageChange('Explore')}>Explore</a>
-            <a href="#Dashboard">Dashboard</a>
+            <a href="#Dashboard" onClick={() => handlePageChange('Dashboard')}>Dashboard</a>
             <a href="#Login">Login</a>
             <a href="#Login">Logout</a>
             <a href="#Login">Signup</a>

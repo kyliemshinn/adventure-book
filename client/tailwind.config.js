@@ -32,7 +32,7 @@ module.exports = {
           // light orange
           accent: "#ffbd9b",
           "accent-focus": "#f4bebe", // light salmon pink
-          "accent-content": "#333333", // dark grey for font
+          "accent-content": "#BFBFBF", // medium grey for font
           // light pastel blue-green
           neutral: "#ccfbf1",
           "neutral-focus": "#818cf8", // darker purple for btn hover

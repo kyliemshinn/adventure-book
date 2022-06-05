@@ -45,7 +45,7 @@ const Explore = () => {
       </Hero>
 
       <div className="postContainer">
-        <h2 className="text-semibold text-center my-4">Most Recent Posts</h2>
+        <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
         <div className="grid grid-cols-4 gap-2 py-8">
           <Card className="card w-96 bg-base-100 shadow-xl">
