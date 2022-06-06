@@ -30,9 +30,9 @@ module.exports = {
           "secondary-focus": "#6ee7b7", // green
           "secondary-content": "#333333", // dark grey for font
           // light orange
-          accent: "#3b82f6",
+          accent: "#3b82f6", 
           "accent-focus": "#f4bebe", // light salmon pink
-          "accent-content": "#BFBFBF", // medium grey for font
+          "accent-content": "#dadbdc", // medium grey for font
           // light pastel blue-green
           neutral: "#818cf8",
           "neutral-focus": "#818cf8", // darker purple for btn hover
