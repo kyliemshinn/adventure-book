@@ -1,4 +1,5 @@
 import React from "react";
+// import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -17,9 +18,12 @@ const Login = () => {
           placeholder="Type here"
           className="input input-bordered w-full max-w-xs"
         />
-        <div className="card-actions justify-end">
+        <div className="card-actions justify-center">
           <button className="btn btn-primary">Login</button>
-          {/* link sign up  page */}
+          {/* TODO: add in once router is set in App.js with page routes */}
+        {/* <Link to="Signup">
+            <p>Sign Up Today!</p>
+        </Link> */}
         </div>
       </div>
     </div>

@@ -19,7 +19,6 @@ const Signup = () => {
         />
         <div className="card-actions justify-end">
           <button className="btn btn-primary" type="submit">Signup</button>
-          {/* link sign up  page */}
         </div>
       </div>
     </div>
