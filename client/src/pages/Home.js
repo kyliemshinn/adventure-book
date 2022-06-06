@@ -1,12 +1,12 @@
 import React from "react";
 import { Hero, Card, Button } from "react-daisyui";
-import '../App.css';
+//import '../App.css';
 
 const Home = () => {
   return (
     <div>
       <Hero className="min-h-screen bg-base-100">
-        {/* <Hero.Overlay className="min-h-screen bg-base-100" /> */}
+        
         <Hero.Content className="text-center">
           <div className="max-w-md text-secondary-content">
             <h1 className="appName mt-5 text-7xl">ADVENTURE BOOK</h1>
