@@ -1,9 +1,10 @@
 const path = require("path");
 const express = require('express');
 const db = require('./config/connection');
-const { User, Post } = require('./models');
+const { User, Post, Comment } = require('./models');
 console.log(User);
 console.log(Post);
+console.log(Comment);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
