@@ -3,7 +3,8 @@ import { Navbar } from "react-daisyui";
 
 const Nav = ({ currentPage, handlePageChange }) => {
   return (
-    <Navbar className="navbar bg-primary text-primary-content">
+    <Navbar className="navbar bg-primary
+    text-primary-content">
       <Navbar.Start className="px-2 mx-2">
         <span className="text-lg font-bold">Logo</span>
       </Navbar.Start>

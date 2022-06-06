@@ -6,6 +6,7 @@ import Dashboard from "../../pages/Dashboard";
 import Explore from "../../pages/Explore";
 import AddPost from "../../pages/AddPost";
 import Contact from '../../pages/Contact';
+import About from '../../pages/About';
 import Login from '../../pages/Login';
 import Signup from "../../pages/Signup";
 
@@ -28,6 +29,8 @@ export default function PageContainer() {
     if(currentPage === "Contact") {
       return <Contact />
     }
+    if(currentPage === "About") {
+      return <About />
     if (currentPage === "Login") {
       return <Login />
     }
