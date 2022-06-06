@@ -1,16 +1,14 @@
 import React from "react";
 
+import { ReactBingmaps } from 'react-bingmaps-plus';
+
 const AddPost = () => {
-  return (
-    <div class="card lg:card-side bg-base-100 shadow-xl">
-      <div class="card-body">
-        <h2 class="card-title">New album is released!</h2>
-        <p>Click the button to listen on Spotiwhy app.</p>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary">Listen</button>
+    return (
+        <div>
+            <div style={{ height: "600px", width: "800px"}}>
+                <ReactBingmaps bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C" key={"A"}/>
+            </div>
         </div>
-      </div>
-    </div>
   );
 };
 
