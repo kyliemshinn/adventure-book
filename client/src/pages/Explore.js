@@ -1,11 +1,13 @@
 import React from "react";
 import { Hero, Card } from "react-daisyui";
+import "../App.css";
+import '../utils/CardStyles.css';
 
 const Explore = () => {
   return (
     <div>
       <Hero className="py-10 bg-base-200">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 text-secondary-content">
           <h2 className="text-xl">
             Get Inspired<br></br>
             Plan Your Next Adventure
@@ -32,9 +34,9 @@ const Explore = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
@@ -47,7 +49,7 @@ const Explore = () => {
       <div className="postContainer">
         <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
-        <div className="grid grid-cols-4 gap-3 py-8 pl-6">
+        <div className="grid grid-cols-4 gap-3 py-8 pl-6 text-secondary-content">
           <Card className="card w-96 bg-base-100 shadow-xl">
             <figure>
               <img
@@ -55,16 +57,16 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Bali</h2>
+            <div className="card-body">
+              <h2 className="card-title">Bali</h2>
               {/* create link to user profile */}
               <p>Username Link</p>
-              <div class="card-actions justify-end">
+              <div className="card-actions justify-end text-accent-content">
                 {/* convert to buttons or links to see other posts with same tags */}
-                <div class="badge badge-outline">#Surfing</div>
-                <div class="badge badge-outline">#Beach</div>
-                <div class="badge badge-outline">#Hiking</div>
-                <div class="badge badge-outline">#Spearfishing</div>
+                <div className="badge badge-outline">#Surfing</div>
+                <div className="badge badge-outline">#Beach</div>
+                <div className="badge badge-outline">#Hiking</div>
+                <div className="badge badge-outline">#Spearfishing</div>
               </div>
             </div>
           </Card>
@@ -76,13 +78,13 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Brazil</h2>
+            <div className="card-body">
+              <h2 className="card-title">Brazil</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">#Carnival</div>
-                <div class="badge badge-outline">#Beach</div>
-                <div class="badge badge-outline">#Hiking</div>
+              <div className="card-actions justify-end text-accent-content">
+                <div className="badge badge-outline">#Carnival</div>
+                <div className="badge badge-outline">#Beach</div>
+                <div className="badge badge-outline">#Hiking</div>
               </div>
             </div>
           </Card>
@@ -94,13 +96,13 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Thailand</h2>
+            <div className="card-body">
+              <h2 className="card-title">Thailand</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">#Food</div>
-                <div class="badge badge-outline">#Elephants</div>
-                <div class="badge badge-outline">#Beach</div>
+              <div className="card-actions justify-end text-accent-content">
+                <div className="badge badge-outline">#Food</div>
+                <div className="badge badge-outline">#Elephants</div>
+                <div className="badge badge-outline">#Beach</div>
               </div>
             </div>
           </Card>
@@ -112,13 +114,13 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Japan</h2>
+            <div className="card-body">
+              <h2 className="card-title">Japan</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end">
-                <div class="badge badge-outline">#Sushi</div>
-                <div class="badge badge-outline">#Snowboarding</div>
-                <div class="badge badge-outline">#Boba</div>
+              <div className="card-actions justify-end text-accent-content">
+                <div className="badge badge-outline">#Sushi</div>
+                <div className="badge badge-outline">#Snowboarding</div>
+                <div className="badge badge-outline">#Boba</div>
               </div>
             </div>
           </Card>
@@ -130,10 +132,10 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Australia</h2>
+            <div className="card-body">
+              <h2 className="card-title">Australia</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end">
+              <div class="card-actions justify-end text-accent-content">
                 <div class="badge badge-outline">#Fitness</div>
                 <div class="badge badge-outline">#Snorkling</div>
                 <div class="badge badge-outline">#Beach</div>

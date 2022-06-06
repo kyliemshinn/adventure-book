@@ -3,7 +3,8 @@ import { Navbar } from "react-daisyui";
 
 const Nav = ({ currentPage, handlePageChange }) => {
   return (
-    <Navbar className="navbar bg-primary text-primary-content">
+    <Navbar className="navbar bg-primary
+    text-primary-content">
       <Navbar.Start className="px-2 mx-2">
         <span className="text-lg font-bold">Logo</span>
       </Navbar.Start>
@@ -13,9 +14,9 @@ const Nav = ({ currentPage, handlePageChange }) => {
             <a href="#Home" onClick={() => handlePageChange('Home')}>Home</a>
             <a href="#Explore" onClick={() => handlePageChange('Explore')}>Explore</a>
             <a href="#Dashboard" onClick={() => handlePageChange('Dashboard')}>Dashboard</a>
-            <a href="#Login">Login</a>
+            <a href="#Login" onClick={() => handlePageChange('Login')}>Login</a>
             <a href="#Login">Logout</a>
-            <a href="#Login">Signup</a>
+            <a href="#Signup" onClick={() => handlePageChange('Signup')}>Signup</a>
         </div>
       </Navbar.End>
     </Navbar>

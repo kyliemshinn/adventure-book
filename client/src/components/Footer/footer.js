@@ -3,7 +3,7 @@ import { Footer, Button } from "react-daisyui";
 
 const Foot = ({ currentPage, handlePageChange }) => {
   return (
-    <Footer className="footer footer-center p-10 bg-accent rounded">
+    <Footer className="footer footer-center p-10 bg-primary rounded text-secondary-content">
       <div>
         <div className="font-semibold text-lg">
           <Footer.Title>Company</Footer.Title>
@@ -12,7 +12,7 @@ const Foot = ({ currentPage, handlePageChange }) => {
           <a href="#Home" onClick={() => handlePageChange('Home')}>Home</a>
           <a href="#Explore" onClick={() => handlePageChange('Explore')}>Explore</a>
           <a href="#Dashboard" onClick={() => handlePageChange('Dashboard')}>Dashboard</a>
-          <a href="#About">About</a>
+          <a href="#About" onClick={() => handlePageChange('About')}>About</a>
           <a href="#Login" onClick={() => handlePageChange('Contact')}>Contact</a>
           <a href="#Login">Login</a>
           <a href="#Login">Logout</a>
@@ -23,9 +23,9 @@ const Foot = ({ currentPage, handlePageChange }) => {
           <Footer.Title>Social</Footer.Title>
         </div>
         <div className="sm:flex items-stretch space-x-4 mb-5">
-        <Button className="btn-sm rounded-full border-none mt-8 bg-secondary text-base-content text-xs">Facebook</Button>
-        <Button className="btn-sm rounded-full border-none mt-8 bg-secondary text-base-content text-xs">Instagram</Button>
-        <Button className="btn-sm rounded-full border-none mt-8 bg-secondary text-base-content text-xs">Twitter</Button>
+        <Button className="btn-sm hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content text-xs">Facebook</Button>
+        <Button className="btn-sm hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content text-xs">Instagram</Button>
+        <Button className="btn-sm rounded-full hover:shadow-lg border-none mt-8 bg-base-300 text-base-content text-xs">Twitter</Button>
         </div>
         <div>
         <p>Copyright © 2022 - Made With Wanderlust</p>
