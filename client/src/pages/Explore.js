@@ -1,11 +1,13 @@
 import React from "react";
 import { Hero, Card } from "react-daisyui";
+import "../App.css";
+import '../utils/CardStyles.css';
 
 const Explore = () => {
   return (
     <div>
       <Hero className="py-10 bg-base-200">
-        <div className="text-center mb-20">
+        <div className="text-center mb-20 text-secondary-content">
           <h2 className="text-xl">
             Get Inspired<br></br>
             Plan Your Next Adventure
@@ -47,7 +49,7 @@ const Explore = () => {
       <div className="postContainer">
         <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
-        <div className="grid grid-cols-4 gap-3 py-8 pl-6">
+        <div className="grid grid-cols-4 gap-3 py-8 pl-6 text-secondary-content">
           <Card className="card w-96 bg-base-100 shadow-xl">
             <figure>
               <img
@@ -59,9 +61,9 @@ const Explore = () => {
               <h2 class="card-title">Bali</h2>
               {/* create link to user profile */}
               <p>Username Link</p>
-              <div class="card-actions justify-end">
+              <div class="card-actions justify-end text-accent-content">
                 {/* convert to buttons or links to see other posts with same tags */}
-                <div class="badge badge-outline">#Surfing</div>
+                <div class="badge badge-outline ">#Surfing</div>
                 <div class="badge badge-outline">#Beach</div>
                 <div class="badge badge-outline">#Hiking</div>
                 <div class="badge badge-outline">#Spearfishing</div>
@@ -79,7 +81,7 @@ const Explore = () => {
             <div class="card-body">
               <h2 class="card-title">Brazil</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end">
+              <div class="card-actions justify-end text-accent-content">
                 <div class="badge badge-outline">#Carnival</div>
                 <div class="badge badge-outline">#Beach</div>
                 <div class="badge badge-outline">#Hiking</div>
@@ -97,7 +99,7 @@ const Explore = () => {
             <div class="card-body">
               <h2 class="card-title">Thailand</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end">
+              <div class="card-actions justify-end text-accent-content">
                 <div class="badge badge-outline">#Food</div>
                 <div class="badge badge-outline">#Elephants</div>
                 <div class="badge badge-outline">#Beach</div>
@@ -115,7 +117,7 @@ const Explore = () => {
             <div class="card-body">
               <h2 class="card-title">Japan</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end">
+              <div class="card-actions justify-end text-accent-content">
                 <div class="badge badge-outline">#Sushi</div>
                 <div class="badge badge-outline">#Snowboarding</div>
                 <div class="badge badge-outline">#Boba</div>
@@ -133,7 +135,7 @@ const Explore = () => {
             <div class="card-body">
               <h2 class="card-title">Australia</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end">
+              <div class="card-actions justify-end text-accent-content">
                 <div class="badge badge-outline">#Fitness</div>
                 <div class="badge badge-outline">#Snorkling</div>
                 <div class="badge badge-outline">#Beach</div>

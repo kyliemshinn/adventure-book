@@ -1,6 +1,7 @@
 import React from "react";
 import { Hero, Card } from "react-daisyui";
 import 'font-awesome/css/font-awesome.min.css';
+import '../utils/CardStyles.css';
 
 const Dashboard = ({ currentPage, handlePageChange }) => {
   return (
@@ -18,7 +19,8 @@ const Dashboard = ({ currentPage, handlePageChange }) => {
           {/* Dynamically update based on users recent posts */}
           <div className="grid grid-cols-3 gap-2 py-3">
             <Card className="card w-96 bg-base-100 shadow-xl">
-              <div className="card w-96 text-neutral-content">
+              <div className="card w-96 text-secondary
+              -content">
                 <figure>
                   <img
                     src="https://api.lorem.space/image/shoes?w=400&h=225"

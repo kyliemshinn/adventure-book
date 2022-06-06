@@ -22,26 +22,26 @@ module.exports = {
       {
         mytheme: {
           // teal-green
-          primary: "#a7f3d0",
+          primary: "#6ee7b7",
           "primary-focus": "#6ee7b7", // darker teal-green
           "primary-content": "#27543f", // dark green for font
           // light purple
-          secondary: "#a5b4fc",
+          secondary: "#fb7185",
           "secondary-focus": "#6ee7b7", // green
           "secondary-content": "#333333", // dark grey for font
           // light orange
-          accent: "#ffbd9b",
+          accent: "#3b82f6",
           "accent-focus": "#f4bebe", // light salmon pink
           "accent-content": "#BFBFBF", // medium grey for font
           // light pastel blue-green
-          neutral: "#ccfbf1",
+          neutral: "#818cf8",
           "neutral-focus": "#818cf8", // darker purple for btn hover
           "neutral-content": "#333333", // dark grey for font
           // shades of light greys
           "base-100": "#ffffff", // white
           "base-200": "#f3f4f6", // lightest grey
-          "base-300": "#e5e7eb", // medium grey
-          "base-content": "#1c1c1c", // dark dark grey for font
+          "base-300": "#614CD7", // blue-purple
+          "base-content": "#ffffff", // white font
 
           info: "#1c92f2",
           success: "#009485",
