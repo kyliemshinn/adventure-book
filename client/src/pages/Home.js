@@ -26,7 +26,7 @@ const Home = () => {
       </Hero>
 
       <Hero className="bg-base-200 bg-opacity-60">
-        <Hero.Content className="text-center my-7">
+        <Hero.Content className="text-center text-neutral-content my-7">
           <div>
             <h2 className="py-6 text-2xl font-medium">
               Get Recommendations From Real People <br></br>
