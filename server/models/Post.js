@@ -3,24 +3,29 @@ const { Schema, model } = require('mongoose');
 const postSchema = new Schema(
   {
     content: {
-      type: String
+      type: String,
+      required: true
     },
     author: {
       type: Schema.Types.ObjectId,
-      ref: "user"
+      ref: "user",
+      required: true
     },
     tags: [{
-      type: String
+      type: String,
+      required: true // Must have at least one element
     }],
     location: {
-      type: Number // TODO make location schema
+      type: Number, // TODO make location schema
+      required: true
     },
     collectors: [{
       type: Schema.Types.ObjectId,
       ref: "user"
     }],
     comments: [{
-      type: String // TODO: make comment type
+      type: Schema.Types.ObjectId,
+      ref: "comment"
     }]
   }
 );
