@@ -1,5 +1,22 @@
 const { Schema, model } = require('mongoose');
 
+const locationSchema = new Schema(
+  {
+    latitude: {
+      type: Number,
+      required: true,
+      min: -90.0, // South Pole
+      max: 90.0 // North Pole
+    },
+    longitude: {
+        type: Number,
+        required: true,
+        min: -180.0,
+        max: 180.0
+    }
+  }
+)
+
 const postSchema = new Schema(
   {
     content: {
@@ -16,7 +33,7 @@ const postSchema = new Schema(
       required: true // Must have at least one element
     }],
     location: {
-      type: Number, // TODO make location schema
+      type: locationSchema,
       required: true
     },
     collectors: [{
