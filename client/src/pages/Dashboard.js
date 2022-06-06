@@ -29,10 +29,10 @@ const Dashboard = ({ currentPage, handlePageChange }) => {
                 <div className="card-body items-center text-center">
                   <h2 className="card-title">Title</h2>
                   <div className="card-actions justify-end text-base-content">
-                    <button className="btn-sm rounded-full bg-base-300">
+                    <button className="btn-sm rounded-full bg-base-300 hover:bg-secondary-focus hover:shadow-lg">
                       Edit
                     </button>
-                    <button className="btn-sm rounded-full bg-base-300">
+                    <button className="btn-sm rounded-full bg-base-300 hover:bg-secondary-focus hover:shadow-lg">
                       Delete
                     </button>
                   </div>
@@ -51,10 +51,10 @@ const Dashboard = ({ currentPage, handlePageChange }) => {
                 <div className="card-body items-center text-center">
                   <h2 className="card-title">Title</h2>
                   <div className="card-actions justify-end text-base-content">
-                    <button className="btn-sm rounded-full bg-base-300">
+                    <button className="btn-sm rounded-full bg-base-300 hover:bg-secondary-focus hover:shadow-lg">
                       Edit
                     </button>
-                    <button className="btn-sm rounded-full bg-base-300">
+                    <button className="btn-sm rounded-full bg-base-300 hover:bg-secondary-focus hover:shadow-lg">
                       Delete
                     </button>
                   </div>
@@ -73,10 +73,10 @@ const Dashboard = ({ currentPage, handlePageChange }) => {
                 <div className="card-body items-center text-center">
                   <h2 className="card-title">Title</h2>
                   <div className="card-actions justify-end text-base-content">
-                    <button className="btn-sm rounded-full bg-base-300">
+                    <button className="btn-sm rounded-full bg-base-300 hover:bg-secondary-focus hover:shadow-lg">
                       Edit
                     </button>
-                    <button className="btn-sm rounded-full bg-base-300">
+                    <button className="btn-sm rounded-full bg-base-300 hover:bg-secondary-focus hover:shadow-lg">
                       Delete
                     </button>
                   </div>
@@ -95,10 +95,10 @@ const Dashboard = ({ currentPage, handlePageChange }) => {
                 <div className="card-body items-center text-center">
                   <h2 className="card-title">Title</h2>
                   <div className="card-actions justify-end text-base-content">
-                    <button className="btn-sm rounded-full bg-base-300">
+                    <button className="btn-sm rounded-full bg-base-300 hover:bg-secondary-focus hover:shadow-lg">
                       Edit
                     </button>
-                    <button className="btn-sm rounded-full bg-base-300">
+                    <button className="btn-sm rounded-full bg-base-300 hover:bg-secondary-focus hover:shadow-lg">
                       Delete
                     </button>
                   </div>
@@ -107,7 +107,7 @@ const Dashboard = ({ currentPage, handlePageChange }) => {
             </Card>
             {/* Add onClick function to render AddPost page*/}
             <div className="my-10 mx-10">
-            <button className="btn rounded-full btn-accent text-base-content">Add<i class="fa-solid fa-circle-plus fa-2xl ml-2"></i></button>
+            <button className="btn rounded-full bg-accent border-none hover:bg-accent-focus text-base-content">Add<i class="fa-solid fa-circle-plus fa-2xl ml-2"></i></button>
             </div>
           </div>
         </div>

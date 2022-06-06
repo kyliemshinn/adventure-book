@@ -25,15 +25,15 @@ const Explore = () => {
                 placeholder="#sailing #hiking #surfing..."
                 class="input input-bordered"
               />
-              <button className="btn bg-primary hover:bg-primary-focus btn-square">
+              <button className="btn bg-secondary hover:bg-neutral-focus btn-square">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
                   fill="none"
                   viewBox="0 0 24 24"
-                  stroke="currentColor"
+                  stroke="currentColor" 
                 >
-                  <path
+                  <path 
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"

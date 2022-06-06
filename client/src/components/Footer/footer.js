@@ -23,9 +23,9 @@ const Foot = ({ currentPage, handlePageChange }) => {
           <Footer.Title>Social</Footer.Title>
         </div>
         <div className="sm:flex items-stretch space-x-4 mb-5">
-        <Button className="btn-sm hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content text-xs">Facebook</Button>
-        <Button className="btn-sm hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content text-xs">Instagram</Button>
-        <Button className="btn-sm rounded-full hover:shadow-lg border-none mt-8 bg-base-300 text-base-content text-xs">Twitter</Button>
+        <Button className="btn-sm hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content text-xs">Facebook</Button>
+        <Button className="btn-sm hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content text-xs">Instagram</Button>
+        <Button className="btn-sm rounded-full hover:bg-secondary-focus hover:shadow-lg border-none mt-8 bg-base-300 text-base-content text-xs">Twitter</Button>
         </div>
         <div>
         <p>Copyright © 2022 - Made With Wanderlust</p>

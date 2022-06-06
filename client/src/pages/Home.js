@@ -1,7 +1,5 @@
 import React from "react";
 import { Hero, Card, Button } from "react-daisyui";
-//import '../App.css';
-
 
 const Home = () => {
   return (
@@ -18,7 +16,7 @@ const Home = () => {
               Get Inspired<br></br>
               Plan Your Next Adventure
             </h2>
-            <Button className="btn hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content">
+            <Button className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content">
               Explore
             </Button>
           </div>
@@ -35,7 +33,7 @@ const Home = () => {
               Discover Hidden Gems, Live Like The Locals Do. <br></br>
               Google and Travel Advisor Don’t Always Know It All.
             </h2>
-            <Button className="btn hover:shadow-lg rounded-full border-none mt-4 bg-base-300 text-base-content">
+            <Button className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-4 bg-base-300 text-base-content">
               Explore
             </Button>
           </div>

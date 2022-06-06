@@ -31,6 +31,7 @@ export default function PageContainer() {
     }
     if(currentPage === "About") {
       return <About />
+    }
     if (currentPage === "Login") {
       return <Login />
     }
