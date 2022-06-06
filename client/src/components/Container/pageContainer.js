@@ -6,6 +6,7 @@ import Dashboard from "../../pages/Dashboard";
 import Explore from "../../pages/Explore";
 import AddPost from "../../pages/AddPost";
 import Contact from '../../pages/Contact';
+import Login from '../../pages/Login';
 
 export default function PageContainer() {
   const [currentPage, setCurrentPage] = useState("Home");
@@ -25,6 +26,9 @@ export default function PageContainer() {
     }
     if(currentPage === "Contact") {
       return <Contact />
+    }
+    if (currentPage === "Login") {
+      return <Login />
     }
   };
 
