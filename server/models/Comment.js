@@ -4,7 +4,8 @@ const commentSchema = new Schema(
   {
     content: {
       type: String,
-      required: true
+      required: true,
+      maxLength: 250
     },
     post: {
       type: Schema.Types.ObjectId,
