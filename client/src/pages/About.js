@@ -20,7 +20,7 @@ const About = () => {
     <Button className="btn hover:shadow-lg rounded-full border-none mt-4 bg-base-300 text-base-content">
       Explore
     </Button>
-  </div>;
+  </div>
 };
 
 export default About;

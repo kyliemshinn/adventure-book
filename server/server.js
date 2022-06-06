@@ -1,8 +1,9 @@
 const path = require("path");
 const express = require('express');
 const db = require('./config/connection');
-const { User } = require('./models');
+const { User, Post } = require('./models');
 console.log(User);
+console.log(Post);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
