@@ -34,9 +34,9 @@ const Explore = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                   />
                 </svg>
@@ -57,16 +57,16 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Bali</h2>
+            <div className="card-body">
+              <h2 className="card-title">Bali</h2>
               {/* create link to user profile */}
               <p>Username Link</p>
-              <div class="card-actions justify-end text-accent-content">
+              <div className="card-actions justify-end text-accent-content">
                 {/* convert to buttons or links to see other posts with same tags */}
-                <div class="badge badge-outline ">#Surfing</div>
-                <div class="badge badge-outline">#Beach</div>
-                <div class="badge badge-outline">#Hiking</div>
-                <div class="badge badge-outline">#Spearfishing</div>
+                <div className="badge badge-outline">#Surfing</div>
+                <div className="badge badge-outline">#Beach</div>
+                <div className="badge badge-outline">#Hiking</div>
+                <div className="badge badge-outline">#Spearfishing</div>
               </div>
             </div>
           </Card>
@@ -78,13 +78,13 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Brazil</h2>
+            <div className="card-body">
+              <h2 className="card-title">Brazil</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end text-accent-content">
-                <div class="badge badge-outline">#Carnival</div>
-                <div class="badge badge-outline">#Beach</div>
-                <div class="badge badge-outline">#Hiking</div>
+              <div className="card-actions justify-end text-accent-content">
+                <div className="badge badge-outline">#Carnival</div>
+                <div className="badge badge-outline">#Beach</div>
+                <div className="badge badge-outline">#Hiking</div>
               </div>
             </div>
           </Card>
@@ -96,13 +96,13 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Thailand</h2>
+            <div className="card-body">
+              <h2 className="card-title">Thailand</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end text-accent-content">
-                <div class="badge badge-outline">#Food</div>
-                <div class="badge badge-outline">#Elephants</div>
-                <div class="badge badge-outline">#Beach</div>
+              <div className="card-actions justify-end text-accent-content">
+                <div className="badge badge-outline">#Food</div>
+                <div className="badge badge-outline">#Elephants</div>
+                <div className="badge badge-outline">#Beach</div>
               </div>
             </div>
           </Card>
@@ -114,13 +114,13 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Japan</h2>
+            <div className="card-body">
+              <h2 className="card-title">Japan</h2>
               <p>Username Link</p>
-              <div class="card-actions justify-end text-accent-content">
-                <div class="badge badge-outline">#Sushi</div>
-                <div class="badge badge-outline">#Snowboarding</div>
-                <div class="badge badge-outline">#Boba</div>
+              <div className="card-actions justify-end text-accent-content">
+                <div className="badge badge-outline">#Sushi</div>
+                <div className="badge badge-outline">#Snowboarding</div>
+                <div className="badge badge-outline">#Boba</div>
               </div>
             </div>
           </Card>
@@ -132,8 +132,8 @@ const Explore = () => {
                 alt="Shoes"
               />
             </figure>
-            <div class="card-body">
-              <h2 class="card-title">Australia</h2>
+            <div className="card-body">
+              <h2 className="card-title">Australia</h2>
               <p>Username Link</p>
               <div class="card-actions justify-end text-accent-content">
                 <div class="badge badge-outline">#Fitness</div>
