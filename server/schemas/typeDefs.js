@@ -55,5 +55,6 @@ const typeDefs = gql`
         addComment(postId: ID!, content: String!): Post
         removeComment(postId: ID!, commentId: ID!): Post
         login(email: String!, password: String!): Auth
+        createUser(username: String!, email: String!, password: String!): Auth
     }
 `
