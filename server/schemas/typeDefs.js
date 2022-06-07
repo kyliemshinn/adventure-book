@@ -17,11 +17,10 @@ const typeDefs = gql`
         id: Int!
         content: String!
         author: User!
-        tags: String!
+        tags: [String]!
         location:
         collectors: [User]
         comments: [Comment]
-
     }
 
     type Comment {
@@ -34,7 +33,6 @@ const typeDefs = gql`
         user: [User]
         posts: [Post]
         post(id: Int!): Post
-
     }
 
     type Mutation {
