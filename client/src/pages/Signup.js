@@ -1,23 +1,27 @@
 import React from "react";
+import "font-awesome/css/font-awesome.min.css";
+import "../styles/Login.css";
 
 const Signup = () => {
   return (
     <div class="justify-center flex ml-4 mr-4">
       <div className="card w-96 bg-base-100 shadow-xl m-36">
-        <div className="card-body">
-          <h1 className="card-title">Sign Up</h1>
-          <h2>Username</h2>
-          <input
-            type="username"
-            placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
-          />
-          <h2>Password</h2>
-          <input
-            type="password"
-            placeholder="Type here"
-            className="input input-bordered w-full max-w-xs"
-          />
+        <div className="card-body p-10">
+        <h1 className="card-title p-4 justify-center text-secondary-content">PLEASE SIGN UP</h1>
+          <div className="input-icons">
+            <i className="fa-solid fa-user text-secondary-content icon"></i>
+            <input
+              type="username"
+              placeholder="Username"
+              className="input input-bordered w-full max-w-xs input-field text-secondary-content p-4"
+            />
+            <i class="fa-solid fa-lock text-secondary-content icon"></i>
+            <input
+              type="password"
+              placeholder="Password"
+              className="input input-bordered w-full max-w-xs input-field text-secondary-content p-4"
+            />
+          </div>
           <div className="card-actions justify-center">
             <button className="btn btn-primary" type="submit">
               Signup
