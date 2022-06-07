@@ -5,6 +5,9 @@ import "../App.css";
 import ExploreCard from "../components/Card/ExploreCard";
 import '../styles/CardStyles.css';
 
+// TO-DO: onClick of a post redirect to viewPost
+// TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
+
 const Explore = () => {
   return (
     <div>
@@ -20,6 +23,7 @@ const Explore = () => {
           </h3>
         </div>
         <div className="pt-20 relative mx-auto text-gray-600">
+          {/* handle form submit that renders posts with the tags that were searched */}
           <div className="form-control">
             <div className="input-group">
               <input
@@ -52,12 +56,12 @@ const Explore = () => {
         <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
         <div className="grid grid-cols-4 gap-3 py-8 pl-6 text-secondary-content">
-          {/* update link to view to that specific post */}
-          <Link to="viewPost"><ExploreCard /></Link>
-          <Link to="viewPost"><ExploreCard /></Link>
-          <Link to="viewPost"><ExploreCard /></Link>
-          <Link to="viewPost"><ExploreCard /></Link>
-          <Link to="viewPost"><ExploreCard /></Link>
+          {/* update link to redirect to that specific post */}
+          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
           
         </div>
       </div>

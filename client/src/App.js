@@ -60,10 +60,11 @@ export default function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/viewpost" element={<ViewPost />} />
+          <Route path="/explore/viewpost" element={<ViewPost />} />
           <Route path="/addpost" element={<AddPost />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/explore" element={<Explore />} />
+          <Route path="*" element={<p>Page Not Found</p>} />
         </Routes>
 
         <Foot />

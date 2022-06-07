@@ -9,7 +9,6 @@ export const QUERY_POSTS = gql`
       tags
       location
       collectors
-      comments
     }
   }
 `;
@@ -19,15 +18,27 @@ export const QUERY_SINGLE_POST = gql`
      post(postId: $postId) {
         _id
         name
-        skills
+        comments {
+          _id
+          content
+          post
+          author
+        }
     }
 `;
-//TODO: if we add posts to user models, add here
+
 export const QUERY_USER = gql`
     query user {
         user {
             _id
-            username  
+            username
+            posts {
+              _id
+              content
+              author
+              tags
+              location
+            }  
         }
     }
 `;
