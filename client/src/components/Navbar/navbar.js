@@ -15,6 +15,7 @@ const Nav = ({ currentPage, handlePageChange }) => {
             <a href="#Explore" onClick={() => handlePageChange('Explore')}>Explore</a>
             <a href="#Dashboard" onClick={() => handlePageChange('Dashboard')}>Dashboard</a>
             <a href="#Login" onClick={() => handlePageChange('Login')}>Login</a>
+            <a href="#AddPost" onClick={() => handlePageChange('AddPost')}>Add Post</a>
             <a href="#Login">Logout</a>
             <a href="#Signup" onClick={() => handlePageChange('Signup')}>Signup</a>
         </div>
