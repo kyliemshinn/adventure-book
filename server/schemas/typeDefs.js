@@ -18,9 +18,19 @@ const typeDefs = gql`
         content: String!
         author: User!
         tags: [String]!
-        location:
+        location: Location!
         collectors: [User]
         comments: [Comment]
+    }
+
+    type Location {
+        latitude: Float!
+        longitude: Float!
+    }
+
+    input LocationInput {
+        latitude: Float!
+        longitude: Float!
     }
 
     type Comment {
@@ -36,7 +46,7 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        createPost(id: Int!, content: String!, author: String!, tags: String! ): Post
+        createPost(id: Int!, content: String!, author: String!, tags: [String]!, location: LocationInput! ): Post
         updatePost(content: String, tags: String): Post
         removePost(postId: ID!): Post
         addComment(postId: ID!, content: String!): Post
