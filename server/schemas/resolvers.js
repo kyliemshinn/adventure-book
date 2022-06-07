@@ -1,10 +1,11 @@
 const { User } = require("../models");
+const { signToken } = require("../utils/auth");
 
 const resolvers = {
     Query: {
         user: async (parent, args, context) => {
-            //const user = await User.findById(context.user._id);
-            return "user";
+            const user = await User.findById(context.user._id);
+            return user;
         },
         posts: async () => {
             return "posts";
@@ -15,7 +16,7 @@ const resolvers = {
     },
     Mutation: {
         login: async (parent, args) => {
-            /*const user = await User.findOne({ email: args.email });
+            const user = await User.findOne({ email: args.email });
             const passwordMatches = await user.isCorrectPassword(args.password);
             if(!passwordMatches)
             {
@@ -23,14 +24,12 @@ const resolvers = {
                 return null;
             }
             const token = signToken(user);
-            return { token: token, user: user}*/
-            return "login";
+            return { token: token, user: user };
         },
         createUser: async (parent, args) => {
-            /*const user = await User.create({ username: args.username, email: args.email, password: args.password });
+            const user = await User.create({ username: args.username, email: args.email, password: args.password });
             const token = signToken(user);
-            return { token: token, user: user};*/
-            return "createUser";
+            return { token: token, user: user };
         },
         createPost: async (parent, args, context) => {
             /*const A = await User.findOneAndUpdate(
