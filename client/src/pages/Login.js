@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from "../utils/mutation"
+import Auth from '../utils/auth';
+
 import "font-awesome/css/font-awesome.min.css";
 import "../styles/Login.css";
 import { Button } from "react-daisyui";
@@ -21,13 +23,16 @@ const Login = () => {
   async function handleLogin(e)
   {
     try {
+      // TODO save user to state so that we can use it in UI
       const { token, user } = (await loginUser({ variables: { email: loginState.username, password: loginState.password } })).data.login;
-      console.log(token);
-      console.log(user);
+      //console.log(token);
+      //console.log(user);
+      Auth.login(token);
     }
     catch(e) {
       console.error(error);
     }
+    setLoginState({ username: "", password: "" });
   }
 
   return (
