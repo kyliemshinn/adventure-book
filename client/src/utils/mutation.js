@@ -3,10 +3,13 @@ import { gql } from '@apollo/client';
 export const CREATE_POST = gql`
   mutation createPost($id: Int!, $content: String!, $author: String!, tags: String!) {
     addPost(id: $id, content: $content, author: $author, tags: $tags) {
-      _id
-      content
-      author
-      tags
+      token
+      post {
+        _id
+        content
+        author
+        tags
+      }
     }
   }
 `;
@@ -27,10 +30,16 @@ mutation removePost($postId: String!) {
 `;
 
 export const ADD_COMMENT = gql`
-mutation addComment($postId: ID!, $content: String!) {
-    addComment(postId: $postId, content: $content) {
+  mutation addComment($postId: ID!, $content: String!) {
+    addComment(postId: $postId, commentText: $commentText) {
       _id
       content
+      author
+      comments {
+        _id
+        commentText
+        commentAuthor
+      }
     }
   }
 `;
@@ -39,7 +48,7 @@ export const REMOVE_COMMENT = gql`
 mutation removeComment($postId: ID!) {
     removeSkill(postId: $postId) {
       _id
-      content
+      commentText
     }
   }
 `;
