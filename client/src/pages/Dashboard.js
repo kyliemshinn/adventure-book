@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Hero } from "react-daisyui";
 import "font-awesome/css/font-awesome.min.css";
-import "../utils/CardStyles.css";
+import "../styles/CardStyles.css";
 import DashCard from "../components/Card/DashCard";
 
 const Dashboard = () => {
