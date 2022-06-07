@@ -5,6 +5,12 @@ import "../styles/Login.css";
 import { Button } from "react-daisyui";
 
 const Login = () => {
+  function handleChange(e)
+  {
+    console.log(e.target.name);
+    console.log(e.target.value);
+  }
+
   return (
     <div className="justify-center flex ml-4 mr-4">
       <div className="card w-96 bg-base-100 shadow-xl m-36">
@@ -13,19 +19,22 @@ const Login = () => {
           <div className="input-icons">
             <i className="fa-solid fa-user text-secondary-content icon"></i>
             <input
-              type="username"
+              name="username"
               placeholder="Username"
               className="input input-bordered w-full max-w-xs input-field text-secondary-content"
+              onChange={handleChange}
             />
             <i className="fa-solid fa-lock text-secondary-content icon"></i>
             <input
+              name="password"
               type="password"
               placeholder="Password"
               className="input input-bordered w-full max-w-xs input-field text-secondary-content"
+              onChange={handleChange}
             />
           </div>
           <div className="card-actions justify-center text-center">
-            <Button className="btn btn-primary">Login</Button>
+            <Button className="btn btn-primary" onClick={() => console.log("Login!")}>Login</Button>
           </div>
           <div className="text-center p-4">
             <h3 className="text-secondary-content text-lg">Don't have an account? </h3>
