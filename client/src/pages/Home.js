@@ -1,5 +1,6 @@
 import React from "react";
-import { Hero, Card, Button } from "react-daisyui";
+import { Link } from 'react-router-dom';
+import { Hero, Card } from "react-daisyui";
 import "../App.css";
 
 const Home = () => {
@@ -18,9 +19,9 @@ const Home = () => {
               Get Inspired<br></br>
               Plan Your Next Adventure
             </h2>
-            <Button className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content">
+            <Link to="/explore" className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content">
               Explore
-            </Button>
+            </Link>
           </div>
         </Hero.Content>
       </Hero>
@@ -35,9 +36,9 @@ const Home = () => {
               Discover Hidden Gems, Live Like The Locals Do. <br></br>
               Google and Travel Advisor Don’t Always Know It All.
             </h2>
-            <Button className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-4 bg-base-300 text-base-content">
+            <Link to="/explore" className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-4 bg-base-300 text-base-content">
               Explore
-            </Button>
+            </Link>
           </div>
         </Hero.Content>
       </Hero>
