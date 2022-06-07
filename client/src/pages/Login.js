@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useMutation } from '@apollo/client';
+import { LOGIN_USER } from "../utils/mutation"
 import "font-awesome/css/font-awesome.min.css";
 import "../styles/Login.css";
 import { Button } from "react-daisyui";
@@ -7,11 +9,25 @@ import { Button } from "react-daisyui";
 const Login = () => {
   const [ loginState, setLoginState ] = useState({ username: "", password: "" });
 
+  const [ loginUser, { error }] = useMutation(LOGIN_USER);
+
   function handleChange(e)
   {
     const newLoginState = { username: loginState.username, password: loginState.password }; // Copy state to new object
     newLoginState[e.target.name] = e.target.value; // Overwrite state key that was changed with new property
     setLoginState(newLoginState);
+  }
+
+  async function handleLogin(e)
+  {
+    try {
+      const { token, user } = (await loginUser({ variables: { email: loginState.username, password: loginState.password } })).data.login;
+      console.log(token);
+      console.log(user);
+    }
+    catch(e) {
+      console.error(error);
+    }
   }
 
   return (
@@ -37,7 +53,7 @@ const Login = () => {
             />
           </div>
           <div className="card-actions justify-center text-center">
-            <Button className="btn btn-primary" onClick={() => console.log(loginState)}>Login</Button>
+            <Button className="btn btn-primary" onClick={handleLogin}>Login</Button>
           </div>
           <div className="text-center p-4">
             <h3 className="text-secondary-content text-lg">Don't have an account? </h3>
