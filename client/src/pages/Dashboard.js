@@ -30,7 +30,7 @@ const Dashboard = () => {
             {/* Add onClick function to render AddPost page*/}
             <div className="my-10 mx-10">
               <Link to="/addpost" className="btn rounded-full bg-accent border-none hover:bg-accent-focus text-base-content">
-                Add<i class="fa-solid fa-circle-plus fa-2xl ml-2"></i>
+                Add<i className="fa-solid fa-circle-plus fa-2xl ml-2"></i>
               </Link>
             </div>
           </div>
