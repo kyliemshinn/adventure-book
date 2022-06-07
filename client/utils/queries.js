@@ -22,7 +22,7 @@ export const QUERY_SINGLE_POST = gql`
         skills
     }
 `;
-
+//TODO: if we add posts to user models, add here
 export const QUERY_USER = gql`
     query user {
         user {
