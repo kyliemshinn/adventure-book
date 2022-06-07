@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { Hero } from "react-daisyui";
 import "font-awesome/css/font-awesome.min.css";
 import "../utils/CardStyles.css";
 import DashCard from "../components/Card/DashCard";
 
-const Dashboard = ({ currentPage, handlePageChange }) => {
+const Dashboard = () => {
   return (
     <div>
       <div className="postContainer">
@@ -28,9 +29,9 @@ const Dashboard = ({ currentPage, handlePageChange }) => {
             <DashCard />
             {/* Add onClick function to render AddPost page*/}
             <div className="my-10 mx-10">
-              <button className="btn rounded-full bg-accent border-none hover:bg-accent-focus text-base-content">
+              <Link to="/addpost" className="btn rounded-full bg-accent border-none hover:bg-accent-focus text-base-content">
                 Add<i class="fa-solid fa-circle-plus fa-2xl ml-2"></i>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Home from "../../pages/Home";
 import Dashboard from "../../pages/Dashboard";
 import Explore from "../../pages/Explore";
 import AddPost from "../../pages/AddPost";
+import ViewPost from "../../pages/ViewPost";
 import Contact from '../../pages/Contact';
 import About from '../../pages/About';
 import Login from '../../pages/Login';
@@ -25,6 +26,9 @@ export default function PageContainer() {
     }
     if(currentPage === "AddPost") {
         return <AddPost />
+    }
+    if(currentPage === "ViewPost") {
+      return <ViewPost />
     }
     if(currentPage === "Contact") {
       return <Contact />

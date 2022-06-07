@@ -1,7 +1,14 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { Navbar } from "react-daisyui";
 
-const Nav = ({ currentPage, handlePageChange }) => {
+import Auth from '../../utils/auth';
+
+const Nav = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <Navbar className="navbar bg-primary
     text-primary-content">
@@ -11,13 +18,19 @@ const Nav = ({ currentPage, handlePageChange }) => {
 
       <Navbar.End className="flex-1 px-2 mx-2">
         <div className="md:flex items-stretch space-x-4 font-medium">
-            <a href="#Home" onClick={() => handlePageChange('Home')}>Home</a>
-            <a href="#Explore" onClick={() => handlePageChange('Explore')}>Explore</a>
-            <a href="#Dashboard" onClick={() => handlePageChange('Dashboard')}>Dashboard</a>
-            <a href="#Login" onClick={() => handlePageChange('Login')}>Login</a>
-            <a href="#AddPost" onClick={() => handlePageChange('AddPost')}>Add Post</a>
-            <a href="#Login">Logout</a>
-            <a href="#Signup" onClick={() => handlePageChange('Signup')}>Signup</a>
+        {/* {Auth.loggedIn() ? (
+          <> */}
+            <Link to="/">Home</Link>
+            <Link to="/explore">Explore</Link>
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/logout" onClick={logout}>Logout</Link>
+            {/* </>
+        ) : (
+          <> */}
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
+            {/* </>
+        )} */}
         </div>
       </Navbar.End>
     </Navbar>
