@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "font-awesome/css/font-awesome.min.css";
 import "../styles/Login.css";
 import { Button } from "react-daisyui";
 
 const Login = () => {
+  const [ loginState, setLoginState ] = useState({ username: "", password: "" });
+
   function handleChange(e)
   {
-    console.log(e.target.name);
-    console.log(e.target.value);
+    const newLoginState = { username: loginState.username, password: loginState.password }; // Copy state to new object
+    newLoginState[e.target.name] = e.target.value; // Overwrite state key that was changed with new property
+    setLoginState(newLoginState);
   }
 
   return (
@@ -34,7 +37,7 @@ const Login = () => {
             />
           </div>
           <div className="card-actions justify-center text-center">
-            <Button className="btn btn-primary" onClick={() => console.log("Login!")}>Login</Button>
+            <Button className="btn btn-primary" onClick={() => console.log(loginState)}>Login</Button>
           </div>
           <div className="text-center p-4">
             <h3 className="text-secondary-content text-lg">Don't have an account? </h3>
