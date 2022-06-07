@@ -2,6 +2,11 @@ import React from "react";
 
 import { ReactBingmaps } from 'react-bingmaps-plus';
 
+
+// TO-DO: onClick, handle form submit and add new post to user Dashboard
+// TO-DO: figure out how to allow user to upload pictures from local machine
+// TO-DO: allow user to add location tags to their post based on the map
+
 const AddPost = () => {
     return (
         <div>    <div className="card lg:card-side bg-base-100 shadow-xl m-32">
