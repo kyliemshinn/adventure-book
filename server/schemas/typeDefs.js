@@ -2,9 +2,6 @@ const { gql } = require('apollo-server-express');
 
 //NOTE: added password to users- may not need it
 
-//TODO: will need to add location schema to post/ add location to update post in mutations
-
-//TODO: will need to switch mutations CreatePost to Auth
 const typeDefs = gql`
     type User {
         id: ID!
@@ -38,6 +35,11 @@ const typeDefs = gql`
         content: String!
         post: Post!
         author: User!
+    }
+
+    type Auth {
+        token: String!
+        user: User!
     }
 
     type Query {
