@@ -12,7 +12,7 @@ const Home = () => {
           <div className="max-w-md text-secondary-content">
             <h1 className="appName mt-5 text-7xl">ADVENTURE BOOK</h1>
             {/* <Card> */}
-            <div className="bookContainer">
+            <div className="bookContainer py-32">
               <div className="book">
                 <span className="page turn"></span>
                 <span className="page turn"></span>
@@ -25,12 +25,12 @@ const Home = () => {
                 <span className="cover turn"></span>
               </div>
             </div>
-            {/* </Card> */}
-
-            <h2 className="mt-5 text-4xl">
+            <h2 className="text-4xl">
               Get Inspired<br></br>
               Plan Your Next Adventure
             </h2>
+            {/* </Card> */}
+
             <Link
               to="/explore"
               className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content"

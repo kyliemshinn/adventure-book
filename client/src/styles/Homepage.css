@@ -1,6 +1,10 @@
 body {
     background-color: #4F4E68;
   }
+
+  .bookContainer {
+      position: relative;
+  }
   .book {
     position: absolute;
     top: 0;
@@ -34,13 +38,12 @@ body {
   }
   .page::before, .page::after {
     display: block;
-    border-top: 1px dashed rgba(0, 0, 0, 0.3);
     content: "";
-    padding-bottom: 1rem;
+    /* padding-bottom: 1rem; */
   }
   .cover, .page {
     position: absolute;
-    padding: 1rem;
+    /* padding: 1rem; */
     transform-origin: 100% 0;
     border-radius: 5px 0 0 5px;
     box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2),
