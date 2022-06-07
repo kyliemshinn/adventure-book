@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -22,9 +22,9 @@ const Login = () => {
           <div className="card-actions justify-center">
             <button className="btn btn-primary">Login</button>
             {/* TODO: add in once router is set in App.js with page routes */}
-            {/* <Link to="Signup">
-            <p>Sign Up Today!</p>
-            </Link> */}
+            <Link to="Signup">
+            <h3>Sign Up Today!</h3>
+            </Link>
           </div>
         </div>
       </div>
