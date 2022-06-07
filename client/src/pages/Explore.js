@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Hero } from "react-daisyui";
 import "../App.css";
 import ExploreCard from "../components/Card/ExploreCard";
-import '../utils/CardStyles.css';
+import '../styles/CardStyles.css';
 
 const Explore = () => {
   return (

@@ -1,13 +1,13 @@
 import React from "react";
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
-    <div class="justify-center flex ml-4 mr-4">
+    <div className="justify-center flex ml-4 mr-4">
       <div className="card w-96 bg-base-100 shadow-xl m-36">
         <div className="card-body">
           <h1 className="card-title">Account Login</h1>
-          <h2>Username</h2>
+          <h2 className="text-secondary-content">Username</h2>
           <input
             type="username"
             placeholder="Type here"
@@ -22,9 +22,11 @@ const Login = () => {
           <div className="card-actions justify-center">
             <button className="btn btn-primary">Login</button>
             {/* TODO: add in once router is set in App.js with page routes */}
-            {/* <Link to="Signup">
-            <p>Sign Up Today!</p>
-            </Link> */}
+          </div>
+          <div className="justify-center ">
+            <Link to="/signup">
+            <h3 className="text-secondary-content p-4">Sign Up Today!</h3>
+            </Link>
           </div>
         </div>
       </div>
