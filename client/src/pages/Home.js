@@ -1,17 +1,19 @@
 import React from "react";
 import { Hero, Card, Button } from "react-daisyui";
+import "../App.css";
 
 const Home = () => {
   return (
     <div>
       <Hero className="min-h-screen bg-base-100">
-        
         <Hero.Content className="text-center">
           <div className="max-w-md text-secondary-content">
             <h1 className="appName mt-5 text-7xl">ADVENTURE BOOK</h1>
-            <Card className="my-8">
-              <figure>Hero Image</figure>
+            <Card>
+                <figure>Hero Image</figure>
             </Card>
+              
+
             <h2 className="mt-5 text-4xl">
               Get Inspired<br></br>
               Plan Your Next Adventure

@@ -1,6 +1,7 @@
 import React from "react";
-import { Hero, Card } from "react-daisyui";
+import { Hero } from "react-daisyui";
 import "../App.css";
+import ExploreCard from "../components/Card/ExploreCard";
 import '../utils/CardStyles.css';
 
 const Explore = () => {
@@ -50,98 +51,11 @@ const Explore = () => {
         <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
         <div className="grid grid-cols-4 gap-3 py-8 pl-6 text-secondary-content">
-          <Card className="card w-96 bg-base-100 shadow-xl">
-            <figure>
-              <img
-                src="https://api.lorem.space/image/shoes?w=400&h=225"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Bali</h2>
-              {/* create link to user profile */}
-              <p>Username Link</p>
-              <div className="card-actions justify-end text-accent-content">
-                {/* convert to buttons or links to see other posts with same tags */}
-                <div className="badge badge-outline">#Surfing</div>
-                <div className="badge badge-outline">#Beach</div>
-                <div className="badge badge-outline">#Hiking</div>
-                <div className="badge badge-outline">#Spearfishing</div>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="card w-96 bg-base-100 shadow-xl">
-            <figure>
-              <img
-                src="https://api.lorem.space/image/shoes?w=400&h=225"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Brazil</h2>
-              <p>Username Link</p>
-              <div className="card-actions justify-end text-accent-content">
-                <div className="badge badge-outline">#Carnival</div>
-                <div className="badge badge-outline">#Beach</div>
-                <div className="badge badge-outline">#Hiking</div>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="card w-96 bg-base-100 shadow-xl">
-            <figure>
-              <img
-                src="https://api.lorem.space/image/shoes?w=400&h=225"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Thailand</h2>
-              <p>Username Link</p>
-              <div className="card-actions justify-end text-accent-content">
-                <div className="badge badge-outline">#Food</div>
-                <div className="badge badge-outline">#Elephants</div>
-                <div className="badge badge-outline">#Beach</div>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="card w-96 bg-base-100 shadow-xl">
-            <figure>
-              <img
-                src="https://api.lorem.space/image/shoes?w=400&h=225"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Japan</h2>
-              <p>Username Link</p>
-              <div className="card-actions justify-end text-accent-content">
-                <div className="badge badge-outline">#Sushi</div>
-                <div className="badge badge-outline">#Snowboarding</div>
-                <div className="badge badge-outline">#Boba</div>
-              </div>
-            </div>
-          </Card>
-
-          <Card className="card w-96 bg-base-100 shadow-xl">
-            <figure>
-              <img
-                src="https://api.lorem.space/image/shoes?w=400&h=225"
-                alt="Shoes"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Australia</h2>
-              <p>Username Link</p>
-              <div class="card-actions justify-end text-accent-content">
-                <div class="badge badge-outline">#Fitness</div>
-                <div class="badge badge-outline">#Snorkling</div>
-                <div class="badge badge-outline">#Beach</div>
-              </div>
-            </div>
-          </Card>
+          <ExploreCard />
+          <ExploreCard />
+          <ExploreCard />
+          <ExploreCard />
+          <ExploreCard />
         </div>
       </div>
     </div>
