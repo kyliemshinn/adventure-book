@@ -22,8 +22,10 @@ const Login = () => {
           <div className="card-actions justify-center">
             <button className="btn btn-primary">Login</button>
             {/* TODO: add in once router is set in App.js with page routes */}
-            <Link to="Signup">
-            <h3 className="text-secondary-content">Sign Up Today!</h3>
+          </div>
+          <div className="justify-center ">
+            <Link to="/signup">
+            <h3 className="text-secondary-content p-4">Sign Up Today!</h3>
             </Link>
           </div>
         </div>
