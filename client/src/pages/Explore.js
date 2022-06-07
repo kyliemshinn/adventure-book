@@ -52,11 +52,13 @@ const Explore = () => {
         <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
         <div className="grid grid-cols-4 gap-3 py-8 pl-6 text-secondary-content">
+          {/* update link to view to that specific post */}
           <Link to="viewPost"><ExploreCard /></Link>
-          <ExploreCard />
-          <ExploreCard />
-          <ExploreCard />
-          <ExploreCard />
+          <Link to="viewPost"><ExploreCard /></Link>
+          <Link to="viewPost"><ExploreCard /></Link>
+          <Link to="viewPost"><ExploreCard /></Link>
+          <Link to="viewPost"><ExploreCard /></Link>
+          
         </div>
       </div>
     </div>
