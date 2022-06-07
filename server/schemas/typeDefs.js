@@ -7,14 +7,14 @@ const { gql } = require('apollo-server-express');
 //TODO: will need to switch mutations CreatePost to Auth
 const typeDefs = gql`
     type User {
-        id: Int!
+        id: ID!
         username: String!
         email: String!
         password: String!      
     }
 
     type Post {
-        id: Int!
+        id: ID!
         content: String!
         author: User!
         tags: [String]!
@@ -34,6 +34,7 @@ const typeDefs = gql`
     }
 
     type Comment {
+        id: ID!
         content: String!
         post: Post!
         author: User!
@@ -42,11 +43,11 @@ const typeDefs = gql`
     type Query {
         user: [User]
         posts: [Post]
-        post(id: Int!): Post
+        post(id: ID!): Post
     }
 
     type Mutation {
-        createPost(id: Int!, content: String!, author: String!, tags: [String]!, location: LocationInput! ): Post
+        createPost(id: ID!, content: String!, author: String!, tags: [String]!, location: LocationInput! ): Post
         updatePost(content: String, tags: String): Post
         removePost(postId: ID!): Post
         addComment(postId: ID!, content: String!): Post
