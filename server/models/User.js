@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
   {
@@ -17,9 +18,28 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
-    }
+    },
+    posts: [{
+      type: Schema.Types.ObjectId,
+      ref: "post"
+    }],
   }
 );
+
+// hash user password in preparation for storage
+userSchema.pre('save', async function (next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10; // 10 is a middle-of-the-road balanced number
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+  next();
+});
+
+// custom method to compare and validate password for logging in
+// used to not expose hashed password
+userSchema.methods.isCorrectPassword = async function (password) {
+  return bcrypt.compare(password, this.password);
+};
 
 const User = model("User", userSchema);
 
