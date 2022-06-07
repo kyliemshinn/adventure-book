@@ -48,7 +48,7 @@ export const REMOVE_COMMENT = gql`
 mutation removeComment($postId: ID!) {
     removeSkill(postId: $postId) {
       _id
-      content
+      commentText
     }
   }
 `;
