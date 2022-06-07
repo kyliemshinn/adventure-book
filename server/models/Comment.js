@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const commentSchema = new Schema(
   {
-    content: {
+    commentText: {
       type: String,
       required: true,
       maxLength: 250
@@ -12,7 +12,7 @@ const commentSchema = new Schema(
       ref: "post",
       required: true
     },
-    author: {
+    commentAuthor: {
       type: Schema.Types.ObjectId,
       ref: "user",
       required: true
