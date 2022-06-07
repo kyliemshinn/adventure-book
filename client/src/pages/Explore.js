@@ -57,11 +57,11 @@ const Explore = () => {
         {/* Dynamically update based on most recent posts */}
         <div className="grid grid-cols-4 gap-3 py-8 pl-6 text-secondary-content">
           {/* update link to redirect to that specific post */}
-          <Link to="viewPost"><ExploreCard /></Link>
-          <Link to="viewPost"><ExploreCard /></Link>
-          <Link to="viewPost"><ExploreCard /></Link>
-          <Link to="viewPost"><ExploreCard /></Link>
-          <Link to="viewPost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link>
           
         </div>
       </div>
