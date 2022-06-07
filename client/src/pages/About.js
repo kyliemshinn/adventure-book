@@ -30,6 +30,5 @@ const About = () => {
       </Button>
     </div>
   );
-};
 
 export default About;
