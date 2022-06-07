@@ -1,6 +1,8 @@
 const { gql } = require('apollo-server-express');
 
 //NOTE: added password to users- may not need it
+
+//TODO: will need to add location schema to post/ add location to update post in mutations
 const typeDefs = gql`
     type User {
         id: Int!
@@ -27,10 +29,18 @@ const typeDefs = gql`
     }
 
     type Query {
+        users: [User]
+        posts: [Post]
+        post(id: Int!): Post
 
     }
 
     type Mutation {
-
+        createPost(post: PostData): postResponse
+        updatePost(content: String, tags: String): Post
+        removePost(postId: ID!): Post
+        addComment(postId: ID!, content: String!): Post
+        removeComment(postId: ID!, commentId: ID!): Post
+        login(email: String!, password: String!): Auth
     }
 `
