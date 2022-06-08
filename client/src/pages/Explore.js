@@ -11,7 +11,7 @@ import '../styles/CardStyles.css';
 const Explore = () => {
   return (
     <div className="pageContainer">
-      <Hero className="py-10 bg-base-200">
+      <Hero className="pt-7 pb-2 bg-base-200 place-items-center">
         <div className="text-center mb-20 text-secondary-content">
           <h2 className="text-xl">
             Get Inspired<br></br>
