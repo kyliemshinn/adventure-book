@@ -17,7 +17,7 @@ function AddPost() {
     formData.append("File", selectedFile);
 
 //TODO: change route according to what we will need 
-    fetch("/addpost", {
+    fetch("/addpost/", {
       method: "POST",
       body: formData,
     })
