@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "font-awesome/css/font-awesome.min.css";
 import "../styles/Login.css";
 
 const Signup = () => {
+  /*const [ loginState, setLoginState ] =*/ useState({ username: "", email: "", password: "" });
+
   return (
     <div class="justify-center flex ml-4 mr-4">
       <div className="card w-96 bg-base-100 shadow-xl m-36">
@@ -11,12 +13,19 @@ const Signup = () => {
           <div className="input-icons">
             <i className="fa-solid fa-user text-secondary-content icon"></i>
             <input
-              type="username"
+              name="username"
               placeholder="Username"
+              className="input input-bordered w-full max-w-xs input-field text-secondary-content p-4"
+            />
+            <i className="fa-solid fa-user text-secondary-content icon"></i>
+            <input
+              name="email"
+              placeholder="Email"
               className="input input-bordered w-full max-w-xs input-field text-secondary-content p-4"
             />
             <i class="fa-solid fa-lock text-secondary-content icon"></i>
             <input
+              name="password"
               type="password"
               placeholder="Password"
               className="input input-bordered w-full max-w-xs input-field text-secondary-content p-4"

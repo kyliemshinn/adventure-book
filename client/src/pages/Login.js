@@ -24,7 +24,7 @@ const Login = () => {
   {
     try {
       // TODO save user to state so that we can use it in UI
-      const { token, user } = (await loginUser({ variables: { email: loginState.username, password: loginState.password } })).data.login;
+      const { token/*, user*/ } = (await loginUser({ variables: { email: loginState.username, password: loginState.password } })).data.login;
       //console.log(token);
       //console.log(user);
       Auth.login(token);
