@@ -1,7 +1,8 @@
 import React from "react";
 import { Hero, Textarea, Button } from "react-daisyui";
 import SimpleImageSlider from "react-simple-image-slider";
-import { SliderImages } from "../components/Carousel/SliderData";
+import { CarouselData } from "../components/Carousel/CarouselData";
+// import Carousel from '../components/Carousel/carousel';
 // TO-DO: carousel for images
 // TO-DO: description section
 // TO-DO: comment box
@@ -24,12 +25,13 @@ const ViewPost = () => {
               <SimpleImageSlider
                 width={896}
                 height={900}
-                images={SliderImages}
+                images={CarouselData}
                 showBullets={true}
                 showNavs={true}
                 overflow="hidden"
               />
             </div>
+            
 
             <div className="bg-base-100 ml-14 ">
               <h3>Description</h3>
