@@ -1,8 +1,3 @@
-import React from "react";
-import { Hero, Textarea, Button } from "react-daisyui";
-import SimpleImageSlider from "react-simple-image-slider";
-import { CarouselData } from "../components/Carousel/CarouselData";
-// import Carousel from '../components/Carousel/carousel';
 // TO-DO: carousel for images
 // TO-DO: description section
 // TO-DO: comment box
@@ -11,6 +6,20 @@ import { CarouselData } from "../components/Carousel/CarouselData";
 // TO-DO: handle form submit to post comment
 // TO-DO: allow user to view any tagged locations
 // TO-DO: allow user to save this post to their dashboard
+import React from "react";
+import { Hero } from "react-daisyui";
+
+// import SimpleImageSlider from "react-simple-image-slider";
+// import { CarouselData } from "../components/Carousel/CarouselData";
+// import Carousel from '../components/Carousel/carousel';
+
+// import CommentList from '../components/CommentList';
+import CommentForm from '../components/CommentForm/CommentForm';
+
+// Import useParams Hook
+// import { useParams } from 'react-router-dom';
+// Import useQuery Hook to use Single Post query
+// import { useQuery } from '@apollo/client';
 
 const ViewPost = () => {
   return (
@@ -21,7 +30,7 @@ const ViewPost = () => {
           <h3>Posted by "Username" </h3>
 
           <div className="grid grid-cols-2 gap-5 py-3">
-            <div className="slider h-vh">
+            {/* <div className="slider h-vh">
               <SimpleImageSlider
                 width={896}
                 height={900}
@@ -29,8 +38,8 @@ const ViewPost = () => {
                 showBullets={true}
                 showNavs={true}
                 overflow="hidden"
-              />
-            </div>
+              /> */}
+            
             
 
             <div className="bg-base-100 ml-14 ">
@@ -38,14 +47,16 @@ const ViewPost = () => {
             </div>
           </div>
           <div>
-            <p>Add Comment or Question</p>
+            {/* <p>Add Comment or Question</p>
             <Textarea className="w-full">Comment Section</Textarea>
             <p class="text-sm text-blue-900 float-right">Max 280 characters</p>
             <Button className="btn-sm hover:bg-secondary-focus hover:shadow-lg rounded-full border-none">
               Add Comment
-            </Button>
+            </Button> */}
+            <CommentForm />
           </div>
-        </div>
+          </div>
+        {/* </div> */}
       </Hero>
     </div>
   );
