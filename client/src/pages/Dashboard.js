@@ -2,26 +2,27 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import { Hero } from "react-daisyui";
 import "font-awesome/css/font-awesome.min.css";
+import '../App.css';
 import "../styles/CardStyles.css";
 import DashCard from "../components/Card/DashCard";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="pageContainer">
       <div className="postContainer">
         <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4">
           Dashboard
         </h2>
-        {/* Dynamically update based on most recent posts */}
+        {/* Dynamically update container size based on posts */}
       </div>
 
-      <Hero>
-        <div className="postContainer bg-base-200 mb-10 mt-5 px-6 pb-7">
+      <Hero className="postContainer bg-base-200 mb-10 mt-5 px-6 pb-7">
+        <div>
           <h2 className="text-bold text-lg text-center text-neutral-content my-4">
             My Posts
           </h2>
           {/* Dynamically update based on users recent posts */}
-          <div className="grid grid-cols-3 gap-3 py-3 text-neutral-content">
+          <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content">
             <DashCard />
             <DashCard />
             <DashCard />

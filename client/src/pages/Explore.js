@@ -10,7 +10,7 @@ import '../styles/CardStyles.css';
 
 const Explore = () => {
   return (
-    <div>
+    <div className="pageContainer">
       <Hero className="py-10 bg-base-200">
         <div className="text-center mb-20 text-secondary-content">
           <h2 className="text-xl">
@@ -51,11 +51,12 @@ const Explore = () => {
           </div>
         </div>
       </Hero>
-
-      <div className="postContainer">
+    {/* dynamically update container based on amount of posts */}
+    {/* add scroll reveal animation for addition posts */}
+      <div className="postContainer pb-5">
         <h2 className="text-bold text-2xl text-base-300 text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
-        <div className="grid grid-cols-4 gap-3 py-8 pl-6 text-secondary-content">
+        <div className="grid grid-cols-4 gap-3 py-3 text-secondary-content place-items-center">
           {/* update link to redirect to that specific post */}
           <Link to="viewpost"><ExploreCard /></Link>
           <Link to="viewpost"><ExploreCard /></Link>
