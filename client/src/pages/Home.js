@@ -33,7 +33,7 @@ const Home = () => {
 
             <Link
               to="/explore"
-              className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content"
+              className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-8 bg-accent text-base-content"
             >
               Explore
             </Link>
@@ -53,7 +53,7 @@ const Home = () => {
             </h2>
             <Link
               to="/explore"
-              className="btn hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-4 bg-base-300 text-base-content"
+              className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-4 bg-accent text-base-content"
             >
               Explore
             </Link>

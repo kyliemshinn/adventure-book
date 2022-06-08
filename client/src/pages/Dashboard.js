@@ -21,7 +21,7 @@ const Dashboard = () => {
             My Posts
           </h2>
           {/* Dynamically update based on users recent posts */}
-          <div className="grid grid-cols-3 gap-2 py-3 text-neutral-content">
+          <div className="grid grid-cols-3 gap-3 py-3 text-neutral-content">
             <DashCard />
             <DashCard />
             <DashCard />
@@ -29,7 +29,7 @@ const Dashboard = () => {
             <DashCard />
             {/* Add onClick function to render AddPost page*/}
             <div className="my-10 mx-10">
-              <Link to="/addpost" className="btn rounded-full bg-accent border-none hover:bg-accent-focus text-base-content">
+              <Link to="/addpost" className="btn rounded-full bg-accent border-none hover:bg-accent-focus hover:shadow-lg text-base-content">
                 Add<i className="fa-solid fa-circle-plus fa-2xl ml-2"></i>
               </Link>
             </div>

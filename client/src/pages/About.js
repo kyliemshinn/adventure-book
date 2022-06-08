@@ -25,9 +25,11 @@ const About = () => {
         
         Get out there and create new memories you'll remember forever!
       </h3>
-      <Button className="btn hover:shadow-lg rounded-full border-none mt-4 bg-base-300 text-base-content">
+      <div className="pt-5">
+      <Button className="btn rounded-full bg-accent border-none hover:bg-accent-focus hover:shadow-lg text-base-content">
         Explore
       </Button>
+      </div>
     </div>
   );
 }
