@@ -9,7 +9,7 @@ import Auth from "../../utils/auth";
 
 const CommentForm = ({ commentId }) => {
   const [commentText, setCommentText] = useState("");
-//   const [characterCount, setCharacterCount] = useState(0);
+  const [characterCount, setCharacterCount] = useState(0);
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
@@ -34,7 +34,7 @@ const CommentForm = ({ commentId }) => {
     const { name, value } = event.target;
     if (name === "commentText" && value.length <= 280) {
       setCommentText(value);
-    //   setCharacterCount(value.length);
+      setCharacterCount(value.length);
     }
   };
 
@@ -50,7 +50,15 @@ const CommentForm = ({ commentId }) => {
         >
           Comment Section
         </Textarea>
-        <p class="text-sm text-blue-900 float-right">Max 280 characters</p>
+        {/* <p class="text-sm text-blue-900 float-right">Max 280 characters</p> */}
+        <p
+          className={`text-sm text-black-900 float-right ${
+            characterCount === 280 || error ? "text-danger" : ""
+          }`}
+        >
+          Character Count: {characterCount}/280
+          {error && <span className="ml-2">{error.message}</span>}
+        </p>
         <div>
           <Button className="btn-sm hover:bg-secondary-focus hover:shadow-lg rounded-full border-none">
             Add Comment

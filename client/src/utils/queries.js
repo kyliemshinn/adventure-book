@@ -5,6 +5,7 @@ export const QUERY_POSTS = gql`
     posts {
       _id
       title
+      createdAt
       content
       author
       tags
@@ -20,6 +21,7 @@ export const QUERY_SINGLE_POST = gql`
         _id
         author
         title
+        createdAt
         content
         tags
         comments {
@@ -38,6 +40,7 @@ export const QUERY_USER = gql`
             username
             posts {
               _id
+              title
               content
               author
               tags
