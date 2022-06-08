@@ -53,7 +53,7 @@ const Signup = () => {
               className="input input-bordered w-full max-w-xs input-field text-secondary-content p-4"
               onChange={handleChange}
             />
-            <i class="fa-solid fa-lock text-secondary-content icon"></i>
+            <i className="fa-solid fa-lock text-secondary-content icon"></i>
             <input
               name="password"
               type="password"
