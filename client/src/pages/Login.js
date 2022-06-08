@@ -23,16 +23,17 @@ const Login = () => {
     const { name, value } = e.target;
 
     setLoginState({
-      ...loginState, [name]: value,
+      ...loginState,
+      [name]: value,
     });
   };
 
-  const handleLogin = async (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     console.log(loginState);
     try {
       // TODO save user to state so that we can use it in UI
-      // const { token, user } = 
+      // const { token, user } =
       // (
       //   await loginUser({
       //     variables: {
@@ -52,7 +53,7 @@ const Login = () => {
     }
     // clear form values
     setLoginState({ username: "", password: "" });
-  }
+  };
 
   return (
     <div className="justify-center flex ml-4 mr-4">
@@ -62,43 +63,45 @@ const Login = () => {
             WELCOME BACK
           </h1>
           {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-          <div className="input-icons">
-            <i className="fa-solid fa-user text-secondary-content icon"></i>
-            <input
-              name="username"
-              value={loginState.username}
-              placeholder="Username"
-              className="input input-bordered w-full max-w-xs input-field text-secondary-content"
-              onChange={handleChange}
-            />
-            <i className="fa-solid fa-lock text-secondary-content icon"></i>
-            <input
-              name="password"
-              value={loginState.password}
-              type="password"
-              placeholder="Password"
-              className="input input-bordered w-full max-w-xs input-field text-secondary-content"
-              onChange={handleChange}
-            />
-          </div>
+            <p>
+              Success! You may now head{" "}
+              <Link to="/">back to the homepage.</Link>
+            </p>
+          ) : (
+            <form onSubmit={handleFormSubmit}>
+              <div className="input-icons">
+                <i className="fa-solid fa-user text-secondary-content icon"></i>
+                <input
+                  name="username"
+                  value={loginState.username}
+                  placeholder="Username"
+                  className="input input-bordered w-full max-w-xs input-field text-secondary-content"
+                  onChange={handleChange}
+                />
+                <i className="fa-solid fa-lock text-secondary-content icon"></i>
+                <input
+                  name="password"
+                  value={loginState.password}
+                  type="password"
+                  placeholder="Password"
+                  className="input input-bordered w-full max-w-xs input-field text-secondary-content"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="card-actions justify-center text-center">
+                <Button
+                  className="btn btn-primary"
+                  type="submit"
+                >
+                  Login
+                </Button>
+              </div>
+            </form>
           )}
           {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          <div className="card-actions justify-center text-center">
-            <Button className="btn btn-primary" onClick={handleLogin}>
-              Login
-            </Button>
-          </div>
-          
-          
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          )}
+
           <div className="text-center p-4">
             <h3 className="text-secondary-content text-lg">
               Don't have an account?{" "}
