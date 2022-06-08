@@ -1,10 +1,13 @@
 import { ReactBingmaps } from "react-bingmaps-plus";
 import React, { useState } from "react";
-
+import { useMutation } from "@apollo/client";
+import { CREATE_POST } from "../utils/mutation";
+// import Button from "../components/MainButton/Button"
 
 function AddPost() {
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
+  const [createPost, setPost] = useState({content:"", author:"Kylie", tags:[""], location:{latitude:0, longitude:0}});
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -16,7 +19,7 @@ function AddPost() {
 
     formData.append("File", selectedFile);
 
-//TODO: change route according to what we will need 
+    //TODO: change route according to what we will need
     fetch("/addpost/", {
       method: "POST",
       body: formData,
@@ -30,6 +33,23 @@ function AddPost() {
       });
   };
 
+  const [addPost, { error }] = useMutation(CREATE_POST);
+
+  const handlePostSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const data = await addPost({
+        variables: { content: createPost.content, author: createPost.author, tags: createPost.tags, location: createPost.location },
+      });
+      console.log(data)
+      setPost("");
+    } catch (error) {
+      console.error(error);
+      console.log("is this working")
+    }
+  };
+
   return (
     <div>
       <div>
@@ -38,18 +58,18 @@ function AddPost() {
             <h1 className="card-title justify-center text-secondary-content">
               Add A Post!
             </h1>
-            {/* nested card for adding a photo */}
+            {/* {Auth.loggedIn() ? ( */}
             <div className="card bg-primary text-primary-content justify-center">
               <div className="card-body m-16">
                 <h2 className="card-title justify-center">Add Photo</h2>
 
                 <div className="justify-center">
-                  {/* <input type="file" onChange={changeHandler} />
-                <button onClick={handleSubmission}>upload</button> */}
-                  {/* </div>
-                  {this.fileData()}
-                </div> */}
-                  <input type="file" name="file" onChange={changeHandler} className="justify-center" />
+                  <input
+                    type="file"
+                    name="file"
+                    onChange={changeHandler}
+                    className="justify-center"
+                  />
                   {isFilePicked ? (
                     <div>
                       <img src={selectedFile} alt="selected"></img>
@@ -67,24 +87,30 @@ function AddPost() {
                     <button onClick={handleSubmission}>Submit</button>
                   </div>
                 </div>
-                {/* nested card for adding a description */}
                 <textarea
                   className="textarea textarea-bordered"
                   placeholder="Description of where you went activities, restaurants..."
                 ></textarea>
-                {/* nested for adding a location or title */}
                 <textarea
                   className="textarea textarea-bordered"
                   placeholder="Location or Title"
                 ></textarea>
 
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary rounded-full">
-                    Add Post
+                  <button
+                    onClick={handlePostSubmit}
+                    className="btn btn-primary rounded-full"
+                  >
+                    ADD POST
                   </button>
                 </div>
               </div>
             </div>
+            {/* ) : (
+              <p>
+                You need to be logged in to endorse skills. Please{' '}
+                <Link to="/login">login</Link> or <Link to="/signup">signup.</Link>
+              </p> */}
           </div>
         </div>
       </div>
@@ -99,6 +125,5 @@ function AddPost() {
 }
 
 export default AddPost;
-
 
 //TODO: add backend portion to host images
