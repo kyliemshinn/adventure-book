@@ -17,21 +17,24 @@ module.exports = {
       },
     },
   },
+  // daisyui: {
+  //   themes: ["pastel"]
+  // },
   daisyui: {
     themes: [
       {
         mytheme: {
-          // teal-green
-          primary: "#6ee7b7",
+          // medium-blue
+          primary: "#80CED1",
           "primary-focus": "#6ee7b7", // darker teal-green
-          "primary-content": "#27543f", // dark green for font
-          // blue-purple
-          secondary: "#614CD7",
-          "secondary-focus": "#553be8", // darker blue-purple
+          "primary-content": "#134e4a", // dark green for font
+          // light-orange
+          secondary: "#fdba74",
+          "secondary-focus": "#fb923c", // medium-orange
           "secondary-content": "#333333", // dark grey for font
           // red-pink
           accent: "#fa4c65", 
-          "accent-focus": "#fb7185", // darker pink
+          "accent-focus": "#fb7185", // lighter red-pink
           "accent-content": "#dadbdc", // medium grey for font
           // medium purple-blue
           neutral: "#818cf8",
@@ -40,7 +43,7 @@ module.exports = {
           // shades of light greys
           "base-100": "#ffffff", // white
           "base-200": "#f3f4f6", // lightest grey
-          "base-300": "#614CD7", // blue-purple
+          "base-300": "#d1d5db", // light-md grey
           "base-content": "#ffffff", // white font
 
           info: "#1c92f2",

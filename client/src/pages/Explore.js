@@ -31,7 +31,7 @@ const Explore = () => {
                 placeholder="#sailing #hiking #surfing..."
                 class="input input-bordered"
               />
-              <button className="btn bg-secondary hover:bg-neutral-focus btn-square">
+              <button className="btn bg-accent border-none hover:bg-accent-focus btn-square">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6"
@@ -53,7 +53,7 @@ const Explore = () => {
       </Hero>
 
       <div className="postContainer">
-        <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4">Most Recent Posts</h2>
+        <h2 className="text-bold text-2xl text-base-300 text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
         <div className="grid grid-cols-4 gap-3 py-8 pl-6 text-secondary-content">
           {/* update link to redirect to that specific post */}

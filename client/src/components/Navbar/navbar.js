@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Navbar } from "react-daisyui";
+import logo from '../../images/briefcase.png';
 
 import Auth from '../../utils/auth';
 
@@ -13,7 +14,7 @@ const Nav = () => {
     <Navbar className="navbar bg-primary
     text-primary-content">
       <Navbar.Start className="px-2 mx-2">
-        <span className="text-lg font-bold">Logo</span>
+        <span className="text-lg font-bold"><img src={logo} width="70px" height="70px"></img></span>
       </Navbar.Start>
 
       <Navbar.End className="flex-1 px-2 mx-2">

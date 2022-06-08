@@ -5,7 +5,7 @@ export const CREATE_POST = gql`
     addPost(id: $id, content: $content, author: $author, tags: $tags) {
       token
       post {
-        _id
+        id
         content
         author
         tags
@@ -21,7 +21,7 @@ export const CREATE_POST = gql`
 export const REMOVE_POST = gql`
 mutation removePost($postId: String!) {
     removePost(postId: $postId) {
-      _id
+      id
       content
       author
       tags
@@ -32,7 +32,7 @@ mutation removePost($postId: String!) {
 export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $content: String!) {
     addComment(postId: $postId, commentText: $commentText) {
-      _id
+      id
       content
       author
       comments {
@@ -46,20 +46,34 @@ export const ADD_COMMENT = gql`
 
 export const REMOVE_COMMENT = gql`
 mutation removeComment($postId: ID!) {
-    removeSkill(postId: $postId) {
-      _id
+    removeComment(postId: $postId) {
+      id
       commentText
     }
   }
 `;
 
-export const LOGIN_USER = gql`
+export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       user {
+        id
         username
       }
     }
   }
+`;
+
+// signup
+export const CREATE_USER = gql`
+mutation createUser($username: String!, $email: String!, $password: String!) {
+  createUser(username: $username, email: $email, password: $password) {
+    token
+    user {
+      id
+      username
+    }
+  }
+}
 `;
