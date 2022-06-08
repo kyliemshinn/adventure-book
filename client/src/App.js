@@ -51,7 +51,7 @@ export default function App() {
   return (
     <ApolloProvider client={client}>
     <Router>
-      <div>
+      <div className="pageContainer">
         <Nav />
 
         <Routes>
@@ -66,7 +66,7 @@ export default function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="*" element={<p>Page Not Found</p>} />
         </Routes>
-
+    
         <Foot />
       </div>
     </Router>
