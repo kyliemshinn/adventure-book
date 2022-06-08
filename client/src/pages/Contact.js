@@ -86,7 +86,7 @@ const Contact = () => {
         <div className="flex justify-end py-4">
           <button
             type="submit"
-            class="btn rounded-full btn-secondary border-none"
+            className="btn rounded-full btn-secondary border-none"
           >
             Submit
           </button>
