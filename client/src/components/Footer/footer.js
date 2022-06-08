@@ -1,9 +1,11 @@
 import React from "react-daisyui";
 import { Link } from 'react-router-dom';
 import { Footer, Button } from "react-daisyui";
+// import './footerStyles.css';
 
 const Foot = () => {
   return (
+    
     <Footer className="footer footer-center p-10 bg-primary rounded text-secondary-content">
       <div>
         <div className="font-semibold text-lg">
@@ -32,6 +34,7 @@ const Foot = () => {
       </div>
       </div>
     </Footer>
+    
   );
 };
 

@@ -6,7 +6,7 @@ import "../styles/Homepage.css"
 
 const Home = () => {
   return (
-    <div>
+    <div className="container">
       <Hero className="min-h-screen bg-base-100">
         <Hero.Content className="text-center">
           <div className="max-w-md text-secondary-content">
