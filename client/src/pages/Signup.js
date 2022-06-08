@@ -15,7 +15,7 @@ const Signup = () => {
               placeholder="Username"
               className="input input-bordered w-full max-w-xs input-field text-secondary-content p-4"
             />
-            <i class="fa-solid fa-lock text-secondary-content icon"></i>
+            <i className="fa-solid fa-lock text-secondary-content icon"></i>
             <input
               type="password"
               placeholder="Password"
