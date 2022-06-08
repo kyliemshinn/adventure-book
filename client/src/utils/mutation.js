@@ -46,20 +46,34 @@ export const ADD_COMMENT = gql`
 
 export const REMOVE_COMMENT = gql`
 mutation removeComment($postId: ID!) {
-    removeSkill(postId: $postId) {
+    removeComment(postId: $postId) {
       _id
       commentText
     }
   }
 `;
 
-export const LOGIN_USER = gql`
+export const LOGIN = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
       user {
+        _id
         username
       }
     }
   }
+`;
+
+// signup
+export const CREATE_USER = gql`
+mutation createUser($username: String!, $email: String!, $password: String!) {
+  createUser(username: $username, email: $email, password: $password) {
+    token
+    user {
+      _id
+      username
+    }
+  }
+}
 `;
