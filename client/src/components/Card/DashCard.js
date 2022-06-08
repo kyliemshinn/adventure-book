@@ -14,10 +14,10 @@ const ExploreCard = () => {
         <div className="card-body items-center text-center">
           <h2 className="card-title">Title</h2>
           <div className="card-actions justify-end text-base-content">
-            <Button className="btn-sm rounded-full bg-base-300 border-none text-base-content hover:bg-secondary-focus hover:shadow-lg">
+            <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg">
               Edit
             </Button>
-            <Button className="btn-sm rounded-full bg-base-300 border-none text-base-content hover:bg-secondary-focus hover:shadow-lg">
+            <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg">
               Delete
             </Button>
           </div>

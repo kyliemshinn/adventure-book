@@ -1,11 +1,15 @@
 import React from "react";
-// a contact form with fields for a name, an email address, and a message
+
 // add error notification if invalid email address entered
+// Change to Card component
+// handleFormSubmit
 
 const Contact = () => {
   return (
-    <div className="bg-base-100 p-6 flex flex-col justify-center items-center">
+    <div className="bg-base-100 p-6 flex flex-col justify-center items-center text-secondary-content">
+      <h2 className="text-center text-xl font-bold py-5">Get in Touch</h2>
       <form className="bg-base-200 py-5 px-5">
+      
         <div className="grid grid-cols-2 gap-4 ">
           <div className="flex flex-col">
             <label htmlFor="first-name">First name</label>
@@ -86,7 +90,7 @@ const Contact = () => {
         <div className="flex justify-end py-4">
           <button
             type="submit"
-            className="btn rounded-full btn-secondary border-none"
+            className="btn rounded-full bg-accent border-none hover:bg-accent-focus hover:shadow-lg text-base-content"
           >
             Submit
           </button>

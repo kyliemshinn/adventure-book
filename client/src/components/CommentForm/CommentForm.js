@@ -60,7 +60,7 @@ const CommentForm = ({ commentId }) => {
           {error && <span className="ml-2">{error.message}</span>}
         </p>
         <div>
-          <Button className="btn-sm hover:bg-secondary-focus hover:shadow-lg rounded-full border-none">
+          <Button className="btn-sm hover:bg-neutral-focus hover:shadow-lg rounded-full border-none">
             Add Comment
           </Button>
         </div>

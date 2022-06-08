@@ -90,7 +90,7 @@ const Login = () => {
               </div>
               <div className="card-actions justify-center text-center">
                 <Button
-                  className="btn btn-primary"
+                  className="btn btn-primary rounded-full bg-accent hover:bg-accent-focus hover:shadow-lg border-none text-base-content"
                   type="submit"
                 >
                   Login

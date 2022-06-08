@@ -88,7 +88,7 @@ const Signup = () => {
                 />
               </div>
               <div className="card-actions justify-center">
-                <button className="btn btn-primary" type="submit">
+                <button className="btn btn-primary bg-accent text-base-content hover:bg-accent-focus hover:shadow-lg rounded-full border-none" type="submit">
                   Signup
                 </button>
               </div>

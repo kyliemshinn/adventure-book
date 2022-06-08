@@ -1,7 +1,8 @@
 import React from "react-daisyui";
+import { Link } from 'react-router-dom';
 import { Footer, Button } from "react-daisyui";
 
-const Foot = ({ currentPage, handlePageChange }) => {
+const Foot = () => {
   return (
     <Footer className="footer footer-center p-10 bg-primary rounded text-secondary-content">
       <div>
@@ -9,23 +10,22 @@ const Foot = ({ currentPage, handlePageChange }) => {
           <Footer.Title>Company</Footer.Title>
         </div>
         <div className="sm:flex items-stretch space-x-4 mb-4 mt-4">
-          <a href="#Home" onClick={() => handlePageChange('Home')}>Home</a>
-          <a href="#Explore" onClick={() => handlePageChange('Explore')}>Explore</a>
-          <a href="#Dashboard" onClick={() => handlePageChange('Dashboard')}>Dashboard</a>
-          <a href="#About" onClick={() => handlePageChange('About')}>About</a>
-          <a href="#Login" onClick={() => handlePageChange('Contact')}>Contact</a>
-          <a href="#Login">Login</a>
-          <a href="#Login">Logout</a>
-          <a href="#Login">Signup</a>
+        <Link to="/">Home</Link>
+            <Link to="/explore">Explore</Link>
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+          <Link to="/login">Login</Link>
+            <Link to="/signup">Signup</Link>
         </div>
 
         <div className="font-semibold text-lg">
           <Footer.Title>Social</Footer.Title>
         </div>
         <div className="sm:flex items-stretch space-x-4 mb-5">
-        <Button className="btn-sm hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content text-xs">Facebook</Button>
-        <Button className="btn-sm hover:bg-secondary-focus hover:shadow-lg rounded-full border-none mt-8 bg-base-300 text-base-content text-xs">Instagram</Button>
-        <Button className="btn-sm rounded-full hover:bg-secondary-focus hover:shadow-lg border-none mt-8 bg-base-300 text-base-content text-xs">Twitter</Button>
+        <Button className="btn-sm hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-8 bg-accent text-base-content text-xs">Facebook</Button>
+        <Button className="btn-sm hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-8 bg-accent text-base-content text-xs">Instagram</Button>
+        <Button className="btn-sm rounded-full hover:bg-accent-focus hover:shadow-lg border-none mt-8 bg-accent text-base-content text-xs">Twitter</Button>
         </div>
         <div>
         <p>Copyright © 2022 - Made With Wanderlust</p>
