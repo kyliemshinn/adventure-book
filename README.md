@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# **adventure-book**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ADD BADGES
 
-## Available Scripts
+ADD LINK
 
-In the project directory, you can run:
 
-### `npm start`
+ADD LOGO HERE
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Table Of Contents**
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Features](#features)
+    - [Homepage](#homepage)
+    - [Login](#login)
+    - [Profile Page](#profile-page)
+    - [Project Page](#project-page)
+    - [Code Page](#code-snippet-page)
+5. [Technologies Used](#technologies-used)
+6. [Authors](#author)
+7. [License](#license)
 
-### `npm test`
+## **Description**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+  
+## **Installation**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone down the repo from [this link](https://github.com/jkwalsh127/git-productive) by `git clone git@github.com:jkwalsh127/git-productive.git` in your terminal
+2. To get all necessary packages, run `npm install` in the command line
+3. In the command line, run `mysql -u root -p` to get into MySQL shell
+4. In MySQL shell run `source db/schema.sql` . Once all rows are running correctly, `exit` MySQL shell
+5. Once back at the main command line, run `node seeds/index.js` to seed your data and then `node server.js` to run your server
+ 
+ Please note Node.js is required for the application to run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **Usage**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ 
 
-### `npm run eject`
+## **Features**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **Homepage**
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## **Technologies Used**
 
-### Code Splitting
+* [ReactJS](https://reactjs.org/)
+* [NodeJS](https://nodejs.org/en/) 
+* [JavaScript](https://www.javascript.com/)
+* [Tailwind CSS](https://tailwindcss.com/docs/installation)
+* [Font Awesome](https://fontawesome.com/)
+* [daisyUI](https://daisyui.com/)
+* [Code Pen](https://codepen.io/)
+* [GraphQL](https://graphql.org/)
+* [Sequelize](https://sequelize.org/)
+* [HTML5](https://html.com/html5/)
+* [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* [JWT](https://jwt.io/)
+* [Express](https://expressjs.com/)
+* [BingMaps]()
+* [Cloudinary](https://cloudinary.com/documentation)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## **Authors**
 
-### Analyzing the Bundle Size
+* [John Netzel](https://github.com/CommieDog)
+* [Mia Carmen](https://github.com/Miacarmen)
+* [Kylie Shinn](https://github.com/kyliemshinn)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## **License**
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Git Productive is available under the MIT license. For licensing details see License document.

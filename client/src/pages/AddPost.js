@@ -2,6 +2,7 @@ import { ReactBingmaps } from "react-bingmaps-plus";
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
+
 // import Button from "../components/MainButton/Button"
 
 function AddPost() {
@@ -16,14 +17,14 @@ function AddPost() {
     data.append("file", files[0]);
     data.append("upload-preset", "qufwrwdm");
     setLoading(true);
-    const response = await fetch(
+    const res = await fetch(
       "https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload",
       {
         method: "post",
         body: data,
       }
       );
-      const file = await response.json();
+      const file = await res.json();
       setImage(file.secure_url);
       setLoading(false);
     };
@@ -35,6 +36,7 @@ function AddPost() {
       tags: [""],
       location: { latitude: 0, longitude: 0 },
     });
+
     const [addPost, { error }] = useMutation(CREATE_POST);
     
     const handlePostSubmit = async (event) => {
@@ -105,16 +107,15 @@ function AddPost() {
           </div>
         </div>
       </div>
-      <div style={{ height: "600px", width: "800px" }}>
+      {/* <div style={{ height: "600px", width: "800px" }}>
         <ReactBingmaps
           bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
           key={"A"}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
 
 export default AddPost;
 
-//TODO: add backend portion to host images
