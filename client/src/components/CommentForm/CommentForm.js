@@ -9,7 +9,7 @@ import Auth from "../../utils/auth";
 
 const CommentForm = ({ commentId }) => {
   const [commentText, setCommentText] = useState("");
-  const [characterCount, setCharacterCount] = useState(0);
+//   const [characterCount, setCharacterCount] = useState(0);
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
@@ -34,7 +34,7 @@ const CommentForm = ({ commentId }) => {
     const { name, value } = event.target;
     if (name === "commentText" && value.length <= 280) {
       setCommentText(value);
-      setCharacterCount(value.length);
+    //   setCharacterCount(value.length);
     }
   };
 
@@ -46,7 +46,7 @@ const CommentForm = ({ commentId }) => {
           placeholder="Add a Comment or Question"
           value={commentText}
           onChange={handleChange}
-          className="w-full"
+          className="w-full resize-none border-2 border-base-200"
         >
           Comment Section
         </Textarea>

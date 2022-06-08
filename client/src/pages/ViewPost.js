@@ -1,20 +1,18 @@
-// TO-DO: carousel for images
-// TO-DO: description section
+// TO-DO: update carousel for this posts images
+// TO-DO: update this posts description section
 // TO-DO: comment box
 
-// TO-DO: add comment form submission box
-// TO-DO: handle form submit to post comment
 // TO-DO: allow user to view any tagged locations
 // TO-DO: allow user to save this post to their dashboard
 import React from "react";
 import { Hero } from "react-daisyui";
 
-// import SimpleImageSlider from "react-simple-image-slider";
-// import { CarouselData } from "../components/Carousel/CarouselData";
+import SimpleImageSlider from "react-simple-image-slider";
+import { CarouselData } from "../components/Carousel/CarouselData";
 // import Carousel from '../components/Carousel/carousel';
 
-// import CommentList from '../components/CommentList';
-import CommentForm from '../components/CommentForm/CommentForm';
+import CommentSection from "../components/CommentSection/CommentSection";
+import CommentForm from "../components/CommentForm/CommentForm";
 
 // Import useParams Hook
 // import { useParams } from 'react-router-dom';
@@ -29,34 +27,30 @@ const ViewPost = () => {
           <h2 className="text-bold text-lg text-neutral-content">Post Title</h2>
           <h3>Posted by "Username" </h3>
 
-          <div className="grid grid-cols-2 gap-5 py-3">
-            {/* <div className="slider h-vh">
+          <div className="grid grid-cols-2 gap-5 py-3 pb-9">
+            <div className="slider h-vh">
               <SimpleImageSlider
-                width={896}
-                height={900}
+                width={835}
+                height={865}
                 images={CarouselData}
                 showBullets={true}
                 showNavs={true}
                 overflow="hidden"
-              /> */}
-            
-            
-
+              />
+            </div>
             <div className="bg-base-100 ml-14 ">
               <h3>Description</h3>
             </div>
           </div>
-          <div>
-            {/* <p>Add Comment or Question</p>
-            <Textarea className="w-full">Comment Section</Textarea>
-            <p class="text-sm text-blue-900 float-right">Max 280 characters</p>
-            <Button className="btn-sm hover:bg-secondary-focus hover:shadow-lg rounded-full border-none">
-              Add Comment
-            </Button> */}
-            <CommentForm />
+          <div className="bg-base-100 px-8">
+            <div className="pt-7">
+              <CommentSection />
+            </div>
+            <div className="pb-7">
+              <CommentForm />
+            </div>
           </div>
-          </div>
-        {/* </div> */}
+        </div>
       </Hero>
     </div>
   );
