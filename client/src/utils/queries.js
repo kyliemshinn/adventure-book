@@ -4,6 +4,7 @@ export const QUERY_POSTS = gql`
   query allPosts {
     posts {
       _id
+      title
       content
       author
       tags
@@ -17,12 +18,15 @@ export const QUERY_SINGLE_POST = gql`
     query singlePost($postId: ID!) {
      post(postId: $postId) {
         _id
-        name
+        author
+        title
+        content
+        tags
         comments {
           _id
-          content
+          commentText
           post
-          author
+          commentAuthor
         }
     }
 `;
