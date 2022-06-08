@@ -9,7 +9,7 @@ import "../styles/Login.css";
 import { Button } from "react-daisyui";
 
 const Login = () => {
-  const [loginState, setLoginState] = useState({ username: "", password: "" });
+  const [loginState, setLoginState] = useState({ email: "", password: "" });
 
   const [loginUser, { error, data }] = useMutation(LOGIN);
 
@@ -72,9 +72,9 @@ const Login = () => {
               <div className="input-icons">
                 <i className="fa-solid fa-user text-secondary-content icon"></i>
                 <input
-                  name="username"
+                  name="email"
                   value={loginState.username}
-                  placeholder="Username"
+                  placeholder="Email"
                   className="input input-bordered w-full max-w-xs input-field text-secondary-content"
                   onChange={handleChange}
                 />

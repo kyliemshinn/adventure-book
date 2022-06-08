@@ -62,7 +62,6 @@ const Signup = () => {
                 <i className="fa-solid fa-user text-secondary-content icon"></i>
                 <input
                   name="username"
-                  type="username"
                   placeholder="Username"
                   value={formState.username}
                   onChange={handleChange}
@@ -71,7 +70,6 @@ const Signup = () => {
                 <i class="fa-solid fa-envelope text-secondary-content icon"></i>
                 <input
                   name="email"
-                  type="email"
                   placeholder="Email"
                   value={formState.email}
                   onChange={handleChange}
