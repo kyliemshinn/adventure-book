@@ -1,33 +1,62 @@
 import { ReactBingmaps } from "react-bingmaps-plus";
 import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
+import { CREATE_POST } from "../utils/mutation";
 
+// import Button from "../components/MainButton/Button"
 
 function AddPost() {
-  const [selectedFile, setSelectedFile] = useState();
-  const [isFilePicked, setIsFilePicked] = useState(false);
 
-  const changeHandler = (event) => {
-    setSelectedFile(event.target.files[0]);
-    setIsFilePicked(true);
-  };
+  //setting up upload image
+  const [image, setImage] = useState("");
+  const [loading, setLoading] = useState(false);
+  
+  const uploadImage = async e => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload-preset", "qufwrwdm");
+    setLoading(true);
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload",
+      {
+        method: "post",
+        body: data,
+      }
+      );
+      const file = await res.json();
+      setImage(file.secure_url);
+      setLoading(false);
+    };
+    
+    // when the button is clicked for new post to create - run this function
+    const [createPost, setPost] = useState({
+      content: "",
+      author: "Kylie",
+      tags: [""],
+      location: { latitude: 0, longitude: 0 },
+    });
 
-  const handleSubmission = () => {
-    const formData = new FormData();
+    const [addPost, { error }] = useMutation(CREATE_POST);
+    
+    const handlePostSubmit = async (event) => {
+    event.preventDefault();
 
-    formData.append("File", selectedFile);
-
-//TODO: change route according to what we will need 
-    fetch("/addpost/", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log("Success:", result);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+    try {
+      const data = await addPost({
+        variables: {
+          content: createPost.content,
+          author: createPost.author,
+          tags: createPost.tags,
+          location: createPost.location,
+        },
       });
+      console.log(data);
+      setPost("");
+    } catch (error) {
+      console.error(error);
+      console.log("testing");
+    }
   };
 
   return (
@@ -38,49 +67,39 @@ function AddPost() {
             <h1 className="card-title justify-center text-secondary-content">
               Add A Post!
             </h1>
-            {/* nested card for adding a photo */}
             <div className="card bg-primary text-primary-content justify-center">
               <div className="card-body m-16">
                 <h2 className="card-title justify-center">Add Photo</h2>
 
                 <div className="justify-center">
-                  {/* <input type="file" onChange={changeHandler} />
-                <button onClick={handleSubmission}>upload</button> */}
-                  {/* </div>
-                  {this.fileData()}
-                </div> */}
-                  <input type="file" name="file" onChange={changeHandler} className="justify-center" />
-                  {isFilePicked ? (
-                    <div>
-                      <img src={selectedFile} alt="selected"></img>
-                      <p>Filetype: {selectedFile.type}</p>
-                      <p>Size in bytes: {selectedFile.size}</p>
-                      <p>
-                        lastModifiedDate:{" "}
-                        {selectedFile.lastModifiedDate.toLocaleDateString()}
-                      </p>
-                    </div>
-                  ) : (
-                    <p>Select a file to show details</p>
-                  )}
-                  <div>
-                    <button onClick={handleSubmission}>Submit</button>
-                  </div>
+                  <input
+                    type="file"
+                    name="file"
+                    placeholder="add image"
+                    onChange={uploadImage}
+                    className="justify-center"
+                  />
                 </div>
-                {/* nested card for adding a description */}
+                {loading ? (
+                  <h3>Upload Image</h3>
+                ) : (
+                  <img src={image} style={{ width: "300px" }} alt="selected" />
+                )}
                 <textarea
                   className="textarea textarea-bordered"
                   placeholder="Description of where you went activities, restaurants..."
                 ></textarea>
-                {/* nested for adding a location or title */}
                 <textarea
                   className="textarea textarea-bordered"
                   placeholder="Location or Title"
                 ></textarea>
 
                 <div className="card-actions justify-end">
-                  <button className="btn btn-primary rounded-full">
-                    Add Post
+                  <button
+                    onClick={handlePostSubmit}
+                    className="btn btn-primary rounded-full"
+                  >
+                    ADD POST
                   </button>
                 </div>
               </div>
@@ -88,17 +107,15 @@ function AddPost() {
           </div>
         </div>
       </div>
-      <div style={{ height: "600px", width: "800px" }}>
+      {/* <div style={{ height: "600px", width: "800px" }}>
         <ReactBingmaps
           bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
           key={"A"}
         />
-      </div>
+      </div> */}
     </div>
   );
 }
 
 export default AddPost;
 
-
-//TODO: add backend portion to host images

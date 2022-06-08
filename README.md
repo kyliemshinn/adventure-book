@@ -1,70 +1,89 @@
-# Getting Started with Create React App
+# **adventure-book**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ADD BADGES
 
-## Available Scripts
+ADD LINK
 
-In the project directory, you can run:
 
-### `npm start`
+ADD LOGO HERE
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## **Table Of Contents**
 
-### `npm test`
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Main Features](#main-features)
+    - [Homepage](#homepage)
+    - [Login/Signup](#login)
+    - [Explore Page](#explore-page)
+    - [Dashboard](#dashboard)
+    - [Add Post](#add-post)
+    - [View Post](#view-post)
+5. [Technologies Used](#technologies-used)
+6. [Authors](#author)
+7. [License](#license)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## **Description**
 
-### `npm run build`
+Adventure Book is a modern web application used for travelers who want to get a better understanding of the "must see" places when traveling. Instead of digging through a bunch of separate blogs, travel agents, or websites to find the best spots while traveling, Adventure Book offers the user to create and explore different posts from past travelers, linked by tags. This gives the user a chance to find the less touristy places and understand the worlds culture all that much more in a simple, yet highly effective way.
+  
+## **Installation**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone down the repo from [this link](git@github.com:CommieDog/adventure-book.git) or by `git clone git@github.com:CommieDog/adventure-book.git` in your terminal
+2. To get all necessary packages, run `npm install` in the command line
+5. Then run `npm run develop` to get the program to concurrently run the front and back end of the web application.
+ 
+ Please note Node.js is required for this application to run locally.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## **Usage**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ This web app was deployed using Heroku. Reference the following video for full usage of the web app.
 
-### `npm run eject`
+ ADD GIF HERE
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## **Main Features**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The following sections highlight the functionality of the main pages and components of Adventure Book.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### **Homepage**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### **Login**
 
-## Learn More
+### **Explore Page**
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### **Dashboard**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### **Add Post**
 
-### Code Splitting
+### **View Post**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## **Technologies Used**
 
-### Making a Progressive Web App
+* [ReactJS](https://reactjs.org/)
+* [NodeJS](https://nodejs.org/en/) 
+* [JavaScript](https://www.javascript.com/)
+* [Tailwind CSS](https://tailwindcss.com/docs/installation)
+* [Font Awesome](https://fontawesome.com/)
+* [daisyUI](https://daisyui.com/)
+* [Code Pen](https://codepen.io/)
+* [GraphQL](https://graphql.org/)
+* [Sequelize](https://sequelize.org/)
+* [HTML5](https://html.com/html5/)
+* [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* [JWT](https://jwt.io/)
+* [Express](https://expressjs.com/)
+* [BingMaps]()
+* [Cloudinary](https://cloudinary.com/documentation)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## **Authors**
 
-### Advanced Configuration
+* [John Netzel](https://github.com/CommieDog)
+* [Mia Carmen](https://github.com/Miacarmen)
+* [Kylie Shinn](https://github.com/kyliemshinn)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## **License**
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Adventure Book is available under the MIT license. For licensing details see License document.
