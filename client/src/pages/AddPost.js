@@ -1,4 +1,4 @@
-// import { ReactBingmaps } from "react-bingmaps-plus";
+import { ReactBingmaps } from "react-bingmaps-plus";
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
@@ -116,12 +116,12 @@ function AddPost() {
           </div>
         </div>
       </div>
-      {/* <div style={{ height: "600px", width: "800px" }}>
+      <div style={{ height: "600px", width: "800px" }}>
         <ReactBingmaps
           bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
           key={"A"}
         />
-      </div> */}
+      </div>
     </div>
   );
 }
