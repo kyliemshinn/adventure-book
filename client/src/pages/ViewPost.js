@@ -29,11 +29,12 @@ const ViewPost = () => {
   //   variables: { postId: postId },
   // });
 
-  // const post = data?.post || {};
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+//   const post = data?.post || {};
+
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
 
   return (
     <div className="text-neutral-content">
