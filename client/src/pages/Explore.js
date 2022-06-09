@@ -9,6 +9,14 @@ import '../styles/CardStyles.css';
 // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
 
 const Explore = () => {
+  // temp dummy data
+  const post = {
+    _id: 1,
+    author: 'Mia',
+    title: 'Japan',
+    tags: '#boba'
+  };
+
   return (
     <div className="pageContainer">
       <Hero className="pt-7 pb-2 bg-base-200 place-items-center">
@@ -58,7 +66,9 @@ const Explore = () => {
         {/* Dynamically update based on most recent posts */}
         <div className="grid grid-cols-4 gap-3 py-3 text-secondary-content place-items-center">
           {/* update link to redirect to that specific post */}
-          <Link to="viewpost"><ExploreCard /></Link>
+          {/* map through posts */}
+          <Link to={`/explore/viewpost/${post._id}`} ><ExploreCard title={post.title} author={post.author} tags={post.tags}
+          /></Link>
           <Link to="viewpost"><ExploreCard /></Link>
           <Link to="viewpost"><ExploreCard /></Link>
           <Link to="viewpost"><ExploreCard /></Link>

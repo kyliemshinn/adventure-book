@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Badge } from 'react-daisyui';
 
-const ExploreCard = () => {
+const ExploreCard = ({ author, title, tags }) => {
     return (
         <Card className="card w-96 bg-base-100 shadow-xl">
             <figure>
@@ -11,15 +11,16 @@ const ExploreCard = () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">Bali</h2>
+              <h2 className="card-title">{title}</h2>
               {/* create link to user profile */}
-              <p>Username Link</p>
+              <p>{author}</p>
               <div className="card-actions justify-end text-accent-content">
                 {/* convert to buttons or links to see other posts with same tags */}
-                <Badge className="badge badge-outline">#Surfing</Badge>
-                <div className="badge badge-outline">#Beach</div>
+                {/* map through tags */}
+                <Badge className="badge badge-outline">{tags}</Badge>
+                {/* <div className="badge badge-outline">#Beach</div>
                 <div className="badge badge-outline">#Hiking</div>
-                <div className="badge badge-outline">#Spearfishing</div>
+                <div className="badge badge-outline">#Spearfishing</div> */}
               </div>
             </div>
           </Card>
