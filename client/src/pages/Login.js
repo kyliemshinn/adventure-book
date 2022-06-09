@@ -52,7 +52,7 @@ const Login = () => {
       console.error(error);
     }
     // clear form values
-    setLoginState({ username: "", password: "" });
+    setLoginState({ email: "", password: "" });
   };
 
   //balloons render on page
@@ -110,8 +110,8 @@ const Login = () => {
                   <div className="input-icons">
                     <i className="fa-solid fa-user text-secondary-content icon"></i>
                     <input
-                      name="username"
-                      value={loginState.username}
+                      name="email"
+                      value={loginState.email}
                       placeholder="Username"
                       className="input input-bordered w-full max-w-xs input-field text-secondary-content"
                       onChange={handleChange}
