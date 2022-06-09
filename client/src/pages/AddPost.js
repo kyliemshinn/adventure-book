@@ -27,6 +27,8 @@ function AddPost() {
     { "location":getRandomLocation(), "option":{ color: 'blue', title: 'Randos live here' } }
   ]);
 
+  const [location, setLocation] = useState([0.01, 0.01]);
+
   //setting up upload image
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -105,8 +107,9 @@ function AddPost() {
     <div className="pageContainer">
       <h1>H1</h1>
       <div style={{ height: "600px", width: "800px" }}>
-        <Map height="600px" width="800px" locations={pushPins}/>
+        <Map height="600px" width="800px" locations={pushPins} onClick={setLocation}/>
       </div>
+      <h1 className="text-neutral-content">{location}</h1>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
           <div className="card-body">
