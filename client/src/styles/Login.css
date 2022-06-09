@@ -19,5 +19,14 @@
     margin: 5px;
     padding-left: 50px;
     text-align: left;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
+} 
+
+#loginForm {
+    margin-left: 370px;
 }
+
+#signupForm {
+    margin-left: 600px;
+}
+

@@ -1,4 +1,4 @@
-const { User } = require("../models");
+const { User, Post, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -8,10 +8,12 @@ const resolvers = {
             return user;
         },
         posts: async () => {
-            return "posts";
+            const posts = await Post.find().populate("author");
+            return posts;
         },
-        post: async () => {
-            return "post";
+        post: async (parent, args) => {
+            const post = await Post.findById(args.id).populate("author");
+            return post;
         }
     },
     Mutation: {
@@ -35,29 +37,38 @@ const resolvers = {
             return { token: token, user: user };
         },
         createPost: async (parent, args, context) => {
-            /*const A = await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $addToSet: { savedBooks: { bookId: args.bookId, authors: args.authors, description: args.description, title: args.title, image: args.image, link: args.link }} },
-                { new: true, runValidators: true } // Very important, otherwise it sends back the old document!
-            );*/
-            return "createPost";
+            const post = await Post.create({
+                content: args.content,
+                author: context.user._id,
+                tags: ["Tags"],
+                location: { latitude: 0, longitude: 0 },
+            });
+            await post.populate("author");
+            return post;
         },
-        updatePost: async (parent, args, context) => {
-            /*const user = await User.findOneAndUpdate(
-                { _id: context.user._id },
-                { $pull: { savedBooks: { bookId: args.bookId } } },
-                { new: true } // Very important, otherwise it sends back the old document!
-            );*/
-            return "updatePost";
+        updatePost: async (parent, args) => {
+            const post = await Post.findById(args.postId);
+            post.content = args.content || post.content;
+            post.tags = args.tags || post.tags;
+            post = await post.save();
+            return post;
         },
-        removePost: async () => {
-            return "removePost";
+        removePost: async (parent, args) => {
+            const post = await Post.findByIdAndDelete(args.postId);
+            return post;
         },
-        addComment: async () => {
-            return "addComment";
+        addComment: async (parent, args, context) => {
+            const comment = await Comment.create({
+                commentText: args.commentText,
+                post: args.postId,
+                commentAuthor: context.user._id
+            });
+            await post.populate(["post", "commentAuthor"]);
+            return comment;
         },
-        removeComment: async () => {
-            return "removecomment";
+        removeComment: async (parent, args) => {
+            const comment = await Comment.findByIdAndDelete(args.commentId);
+            return comment;
         },
     }
 }

@@ -15,7 +15,7 @@ import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
 
 // Import useParams Hook
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // Import useQuery Hook to use Single Post query
 // import { useQuery } from "@apollo/client";
 // import { QUERY_SINGLE_POST } from "../utils/queries";
@@ -23,7 +23,8 @@ import CommentForm from "../components/CommentForm/CommentForm";
 
 const ViewPost = () => {
   //Use useParams to retrieve value of the route parameter ':postId'
-  // const { postId } = useParams();
+  const { postId } = useParams();
+  console.log(postId);
   // const { loading, data } = useQuery(QUERY_SINGLE_POST, {
   //   // pass URL parameter
   //   variables: { postId: postId },
@@ -37,17 +38,18 @@ const ViewPost = () => {
 
   return (
     <div className="text-neutral-content">
-      <Hero>
+      <Hero className="mb-28">
         <div className="postContainer bg-base-200 mx-9 my-9 pt-4 px-6 pb-7">
+          <div>
           <h2 className="text-bold text-2xl text-neutral-content">Title </h2>
-          <h3>Posted by </h3>
-          <h3>Created at </h3>
-
-          <div className="grid grid-cols-2 gap-5 py-3 pb-9">
+          <p className="float-right">Created at </p>
+          <p>Posted by </p>
+          </div>
+          <div className="grid grid-cols-2 gap-2 py-3 pb-9">
             <div className="slider h-vh">
               <SimpleImageSlider
-                width={835}
-                height={865}
+                width={720}
+                height={800}
                 images={CarouselData}
                 showBullets={true}
                 showNavs={true}
@@ -58,11 +60,13 @@ const ViewPost = () => {
             <div className="bg-base-100 ml-14 mb-6">
               <h3>Post Content </h3>
             </div>
+            
           </div>
           <div className="bg-base-100 px-8">
-            <div className="pt-7">
+            {/* map through comments *ref thoughtList (26) */}
+            <div className="pt-4">
               <CommentSection />
-              Comment Section
+              
             </div>
             <div className="pb-7">
               <CommentForm />
