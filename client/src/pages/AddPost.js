@@ -92,7 +92,7 @@ function AddPost() {
     <div className="pageContainer">
       <h1>H1</h1>
       <div style={{ height: "600px", width: "800px" }}>
-        <Map locations={pushPins}/>
+        <Map height="600px" width="800px" locations={pushPins}/>
       </div>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">

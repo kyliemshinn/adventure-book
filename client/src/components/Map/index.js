@@ -161,18 +161,16 @@ function Map(props) {
   }
   render() {*/
     return (
-          <div style={{ height: "600px", width: "800px" }}>
-            <h1 className="text-neutral-content">Bingmaps with Pushpin</h1>
-            <ReactBingmaps
-              id = "two" 
-              className = "customClass"
-              bingmapKey = {"AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"}
-              center = {[13.0827, 80.2707]}
-              mapTypeId = {"aerial"}
-              pushPins = {props.locations}
-            > 
-            </ReactBingmaps>
-          </div>
+      <div style={{ height: props.height, width: props.width }}>
+        <ReactBingmaps
+          id = "two" 
+          className = "customClass"
+          bingmapKey = {"AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"}
+          center = {[13.0827, 80.2707]}
+          mapTypeId = {"aerial"}
+          pushPins = {props.locations}
+        /> 
+      </div>
     );
   }
 //}, "addHandler": {"type" : "click", callback: this.callBackMethod }
