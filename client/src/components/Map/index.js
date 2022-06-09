@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { ReactBingmaps } from 'react-bingmaps-plus';
 //import './App.css';
 
-class Map extends Component {
-  constructor(props) {
+function Map() {
+  /*constructor(props) {
     super(props);
     this.state = {
       isVisible : true,
@@ -159,26 +159,26 @@ class Map extends Component {
   GetEventHandled(callbackData){
     console.log(callbackData);
   }
-  render() {
+  render() {*/
+  const [pushPins, getPushPins] = useState([
+    { "location":[13.0827, 80.2707], "option":{ color: 'red', title: 'Chennai, or something' } },
+    { "location":[0.01, 0.01], "option":{ color: 'green', title: 'Secret Area' } }
+  ])
     return (
-      <div>
-        <div>
           <div style={{ height: "600px", width: "800px" }}>
             <h1 className="text-neutral-content">Bingmaps with Pushpin</h1>
             <ReactBingmaps
               id = "two" 
               className = "customClass"
-              bingmapKey = {this.state.bingmapKey}
+              bingmapKey = {"AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"}
               center = {[13.0827, 80.2707]}
               mapTypeId = {"aerial"}
-              pushPins = { this.state.pushPins }
+              pushPins = {pushPins}
             > 
             </ReactBingmaps>
           </div>
-        </div>
-      </div>
     );
   }
-}
+//}, "addHandler": {"type" : "click", callback: this.callBackMethod }
 
 export default Map;
