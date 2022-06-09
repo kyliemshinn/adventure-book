@@ -9,32 +9,32 @@ import { Hero } from "react-daisyui";
 
 import SimpleImageSlider from "react-simple-image-slider";
 import { CarouselData } from "../components/Carousel/CarouselData";
-// import Carousel from '../components/Carousel/carousel';
 
 import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
 
 // Import useParams Hook
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 // Import useQuery Hook to use Single Post query
-import { useQuery } from "@apollo/client";
-import { QUERY_SINGLE_POST } from "../utils/queries";
+// import { useQuery } from "@apollo/client";
+// import { QUERY_SINGLE_POST } from "../utils/queries";
 // import { comment } from "postcss";
 
 const ViewPost = () => {
   //Use useParams to retrieve value of the route parameter ':postId'
-  const { postId } = useParams();
-  console.log(postId);
-  const { loading, data } = useQuery(QUERY_SINGLE_POST, {
-    // pass URL parameter
-    variables: { postId: postId },
-  });
+  // const { postId } = useParams();
+  // console.log(postId);
+  // const { loading, data } = useQuery(QUERY_SINGLE_POST, {
+  //   // pass URL parameter
+  //   variables: { postId: postId },
+  // });
 
-  const post = data?.post || {};
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+//   const post = data?.post || {};
+
+//   if (loading) {
+//     return <div>Loading...</div>;
+//   }
 
   return (
     <div className="text-neutral-content">
