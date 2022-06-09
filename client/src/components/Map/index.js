@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ReactBingmaps } from 'react-bingmaps-plus';
 //import './App.css';
 
-function Map() {
+function Map(props) {
   /*constructor(props) {
     super(props);
     this.state = {
@@ -160,10 +160,6 @@ function Map() {
     console.log(callbackData);
   }
   render() {*/
-  const [pushPins, getPushPins] = useState([
-    { "location":[13.0827, 80.2707], "option":{ color: 'red', title: 'Chennai, or something' } },
-    { "location":[0.01, 0.01], "option":{ color: 'green', title: 'Secret Area' } }
-  ])
     return (
           <div style={{ height: "600px", width: "800px" }}>
             <h1 className="text-neutral-content">Bingmaps with Pushpin</h1>
@@ -173,7 +169,7 @@ function Map() {
               bingmapKey = {"AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"}
               center = {[13.0827, 80.2707]}
               mapTypeId = {"aerial"}
-              pushPins = {pushPins}
+              pushPins = {props.locations}
             > 
             </ReactBingmaps>
           </div>

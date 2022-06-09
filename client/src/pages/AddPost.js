@@ -8,13 +8,10 @@ import Map from "../components/Map"
 
 function AddPost() {
 
-  //Bingmaps
-  /*const [pushpins, setPushpins] = useState([
-      {
-        "location":[0,0], "option":{ color: "red"}
-      }])*/
-  //console.log(this.state);
-  //setState({});
+  const [pushPins, getPushPins] = useState([
+    { "location":[13.0827, 80.2707], "option":{ color: 'red', title: 'Chennai, or something' } },
+    { "location":[0.01, 0.01], "option":{ color: 'green', title: 'Secret Area' } }
+  ])
 
   //setting up upload image
   const [image, setImage] = useState("");
@@ -91,7 +88,7 @@ function AddPost() {
     <div>
       <h1>H1</h1>
       <div style={{ height: "600px", width: "800px" }}>
-        <Map />
+        <Map locations={pushPins}/>
       </div>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
