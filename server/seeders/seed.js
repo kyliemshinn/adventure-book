@@ -25,20 +25,10 @@ db.once('open', async () => {
         e.commentAuthor = randomUser._id;
         e.post = randomPost._id;
     }
-
-    await Comment.insertMany(commentSeed);
-
-    // const posts = await Post.insertMany(postSeed);
-    // const users = await User.insertMany(userSeed);
-
-
-    //NOTE: can randomly generate the posts to users if needed
-
-    // for(newPost of posts) {
-    //     const tempUser = users[Math.floor(Math.random() * users.length)];
-    //     tempPost.users.push(newPost._id);
-    //     await newPost.save();
-    // }
+    
+    const comments = await Comment.insertMany(commentSeed);
+    randomPost.comments = comments;
+    await randomPost.save();
 
     console.log('data has been seeded!')
     process.exit(0);
