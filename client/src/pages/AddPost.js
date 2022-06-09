@@ -52,12 +52,26 @@ function AddPost() {
         },
       });
       console.log(data);
-      setPost("");
+      setPost({
+        content: "",
+        author: "Kylie",
+        tags: [""],
+        location: { latitude: 0, longitude: 0 },
+      });
     } catch (error) {
       console.error(error);
       console.log("testing");
     }
   };
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setPost({
+      ...createPost,
+      [name]: value,
+    });
+  }
 
   return (
     <div>
@@ -86,12 +100,16 @@ function AddPost() {
                   <img src={image} style={{ width: "300px" }} alt="selected" />
                 )}
                 <textarea
+                  name="content"
                   className="textarea textarea-bordered"
                   placeholder="Description of where you went activities, restaurants..."
+                  onChange={handleChange}
                 ></textarea>
                 <textarea
+                  name="title"
                   className="textarea textarea-bordered"
                   placeholder="Location or Title"
+                  onChange={handleChange}
                 ></textarea>
 
                 <div className="card-actions justify-end">
