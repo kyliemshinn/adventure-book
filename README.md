@@ -49,12 +49,38 @@ The following sections highlight the functionality of the main pages and compone
 ### **Homepage**
 
 ### **Login**
+NOTE: add balloon code snipps
 
 ### **Explore Page**
 
 ### **Dashboard**
 
 ### **Add Post**
+
+The Add Post was meant to only be rendered when accessed through the user Dashoboard. This is so it is seen from their personal page as a design preference. Add post was designed with some new technologies, like Cloudinary. Cloudinary was the solution to not storing all the picture storing all our pictures in the server and caching the images. It is a spot where all the pictures will be stored to be used for the site, making it less code to work with. The implementation of Cloudinary was very simple and easy to use as shown below.
+
+``` const uploadImage = async e => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload-preset", "qufwrwdm");
+    setLoading(true);
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload",
+      {
+        method: "post",
+        body: data,
+      }
+      );
+      const file = await res.json();
+      setImage(file.secure_url);
+      setLoading(false);
+    };
+```
+
+The only places where Cloudinary is called on is the `data.append("upload_preset", "kyliedefault")` which is setting the upload preset to an unsigned token, and `"https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload"` which is where it will send the image.
+
+Once all of this is complete and the user submits the new post, the page will render back to the Dashboard.
 
 ### **View Post**
 
