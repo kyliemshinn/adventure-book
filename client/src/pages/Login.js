@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutation";
 import Auth from "../utils/auth";
-import anime from "animejs/lib/anime.es.js";
+import { ReactFloatingBalloons } from "react-floating-balloons";
 
 import "font-awesome/css/font-awesome.min.css";
 import "../styles/Login.css";
@@ -110,11 +110,16 @@ const Login = () => {
             <Link to="/signup">
               <h3 className="text-neutral text-lg">Sign Up!</h3>
             </Link>
+            <ReactFloatingBalloons
+              count={10}
+              msgText="youre now logged in"
+              colors={["yellow", "purple", "red", "blue", "green"]}
+              popVolumeLevel={0.1}
+            />
           </div>
         </div>
       </div>
     </div>
-  
   );
 };
 
