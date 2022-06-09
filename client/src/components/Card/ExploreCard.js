@@ -14,6 +14,7 @@ const ExploreCard = ({ author, title, tags }) => {
               <h2 className="card-title">{title}</h2>
               {/* create link to user profile */}
               <p>{author}</p>
+              
               <div className="card-actions justify-end text-accent-content">
                 {/* convert to buttons or links to see other posts with same tags */}
                 {/* map through tags */}

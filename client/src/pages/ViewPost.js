@@ -61,6 +61,7 @@ const ViewPost = () => {
             </div>
           </div>
           <div className="bg-base-100 px-8">
+            {/* map through comments *ref thoughtList (26) */}
             <div className="pt-7">
               <CommentSection />
               Comment Section

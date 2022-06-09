@@ -10,12 +10,26 @@ import '../styles/CardStyles.css';
 
 const Explore = () => {
   // temp dummy data
-  const post = {
+  const posts = [
+  {
     _id: 1,
-    author: 'Mia',
+    author: 'Mia Carmen',
     title: 'Japan',
-    tags: '#boba'
-  };
+    tags: ['#boba', '#sushi']
+  },
+  {
+    _id: 2,
+    author: 'Brad Pitt',
+    title: 'Australia',
+    tags: '#scubadiving'
+  },
+  {
+    _id: 3,
+    author: 'Ryan Gosling',
+    title: 'Italy',
+    tags: '#vineyards'
+  }
+];
 
   return (
     <div className="pageContainer">
@@ -67,12 +81,15 @@ const Explore = () => {
         <div className="grid grid-cols-4 gap-3 py-3 text-secondary-content place-items-center">
           {/* update link to redirect to that specific post */}
           {/* map through posts */}
-          <Link to={`/explore/viewpost/${post._id}`} ><ExploreCard title={post.title} author={post.author} tags={post.tags}
-          /></Link>
+          {posts && posts.map((post) => (
+            <Link to={`/explore/viewpost/${post._id}`} ><ExploreCard title={post.title} author={post.author} tags={post.tags}
+            /></Link>
+          ))}
+          
+          {/* <Link to="viewpost"><ExploreCard /></Link>
           <Link to="viewpost"><ExploreCard /></Link>
           <Link to="viewpost"><ExploreCard /></Link>
-          <Link to="viewpost"><ExploreCard /></Link>
-          <Link to="viewpost"><ExploreCard /></Link>
+          <Link to="viewpost"><ExploreCard /></Link> */}
           
         </div>
       </div>
