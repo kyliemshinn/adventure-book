@@ -9,10 +9,23 @@ import { Link } from "react-router-dom";
 
 function AddPost() {
 
+  function getRandomLocation() {
+    return [getRandomLatitide(), getRandomLongitude()];
+
+    function getRandomLatitide() {
+      return (Math.random() * 180) - 90;
+    }
+    
+    function getRandomLongitude() {
+      return (Math.random() * 360) - 180;
+    }
+  }
+
   const [pushPins, getPushPins] = useState([
     { "location":[13.0827, 80.2707], "option":{ color: 'red', title: 'Chennai, or something' } },
-    { "location":[0.01, 0.01], "option":{ color: 'green', title: 'Secret Area' } }
-  ])
+    { "location":[0.01, 0.01], "option":{ color: 'green', title: 'Secret Area' } },
+    { "location":getRandomLocation(), "option":{ color: 'blue', title: 'Randos live here' } }
+  ]);
 
   //setting up upload image
   const [image, setImage] = useState("");
