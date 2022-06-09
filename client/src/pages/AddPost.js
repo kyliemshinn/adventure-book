@@ -34,8 +34,7 @@ function AddPost() {
   const [createPost, setPost] = useState({
     title: "",
     content: "",
-    tags: [""],
-    location: { latitude: 0, longitude: 0 },
+    tags: [""]
   });
 
   const [pushPins, setPushPins] = useState([]);
@@ -49,23 +48,15 @@ function AddPost() {
       "option":{ color: 'red' }
     }]);
     setLocation([arg.latitude, arg.longitude]);
-    setPost({
-      title: createPost.title,
-      content: createPost.content,
-      tags: createPost.tags,
-      location: [arg.latitude, arg.longitude]
-    });
-  
-    console.log("A", createPost);
   }
 
-  const [addPost, { error }] = useMutation(CREATE_POST);
+  const [addPost] = useMutation(CREATE_POST);
 
   const handlePostSubmit = async (event) => {
     event.preventDefault();
 
-    const location = { latitude: createPost.location[0], longitude: createPost.location[1] }
-    console.log(createPost.title, createPost.content, createPost.tags, location);
+    const processedLocation = { latitude: location[0], longitude: location[1] }
+    console.log(createPost);
 
     try {
     await addPost({
@@ -73,22 +64,13 @@ function AddPost() {
         title: createPost.title,
         content: createPost.content,
         tags: createPost.tags,
-        location: location,
+        location: processedLocation,
       },
     });
     window.location.assign('/dashboard');
     } catch(e) {
       alert(e);
     }
-
-    /*setPost({
-      title: "",
-      content: "",
-      tags: [""],
-      location: { latitude: 0, longitude: 0 },
-    });
-
-    setPushPins([]);*/
   };
 
   function handleChange(e) {
@@ -100,18 +82,9 @@ function AddPost() {
       ...createPost,
       [name]: value,
     });
-    console.log(createPost);
   }
-/*
-      <div style={{ height: "600px", width: "800px" }}>
-        <ReactBingmaps
-          bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
-          key={"A"}
-        />
-      </div>*/
   return (
     <div className="pageContainer">
-      <h1 className="text-neutral-content">{location[0] + ", " + location[1]}</h1>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
           <div className="card-body">
