@@ -15,7 +15,7 @@ import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
 
 // Import useParams Hook
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // Import useQuery Hook to use Single Post query
 // import { useQuery } from "@apollo/client";
 // import { QUERY_SINGLE_POST } from "../utils/queries";
@@ -23,7 +23,8 @@ import CommentForm from "../components/CommentForm/CommentForm";
 
 const ViewPost = () => {
   //Use useParams to retrieve value of the route parameter ':postId'
-  // const { postId } = useParams();
+  const { postId } = useParams();
+  console.log(postId);
   // const { loading, data } = useQuery(QUERY_SINGLE_POST, {
   //   // pass URL parameter
   //   variables: { postId: postId },
@@ -60,6 +61,7 @@ const ViewPost = () => {
             </div>
           </div>
           <div className="bg-base-100 px-8">
+            {/* map through comments *ref thoughtList (26) */}
             <div className="pt-7">
               <CommentSection />
               Comment Section

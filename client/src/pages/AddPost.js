@@ -54,12 +54,26 @@ function AddPost() {
         },
       });
       console.log(data);
-      setPost("");
+      setPost({
+        content: "",
+        author: "Kylie",
+        tags: [""],
+        location: { latitude: 0, longitude: 0 },
+      });
     } catch (error) {
       console.error(error);
       console.log("testing");
     }
   };
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    console.log(name, value);
+    setPost({
+      ...createPost,
+      [name]: value,
+    });
+  }
 
   return (
     <div>
@@ -87,11 +101,11 @@ function AddPost() {
                   <input type="text" placeholder="#Tags" className="input input-bordered" />
                   <input type="text" placeholder="Location" className="input input-bordered" />
                 <textarea
+                  name="content"
                   className="textarea textarea-bordered"
                   placeholder="Description of where you went activities, restaurants..."
+                  onChange={handleChange}
                 ></textarea>
-                
-
                 <div className="card-actions justify-end">
                   <button
                     onClick={handlePostSubmit}
