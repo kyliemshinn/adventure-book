@@ -1,5 +1,5 @@
 import { ReactBingmaps } from "react-bingmaps-plus";
-import React, { useState, setState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
 import Map from "../components/Map"
@@ -21,16 +21,16 @@ function AddPost() {
     }
   }
 
-  const [pushPins, getPushPins] = useState([
-    { "location":[13.0827, 80.2707], "option":{ color: 'red', title: 'Chennai, or something' } },
-    { "location":[0.01, 0.01], "option":{ color: 'green', title: 'Secret Area' } },
-    { "location":getRandomLocation(), "option":{ color: 'blue', title: 'Randos live here' } }
-  ]);
+  const [pushPins, setPushPins] = useState([]);
 
   const [location, setLocation] = useState([0.01, 0.01]);
 
   function readLocation(arg)
   {
+    setPushPins([{
+      "location":[arg.latitude, arg.longitude],
+      "option":{ color: 'red', title: 'I have no idea where this is!' }
+    }])
     setLocation([arg.latitude, arg.longitude]);
   }
 
@@ -107,10 +107,7 @@ function AddPost() {
       </div>*/
   return (
     <div className="pageContainer">
-      <h1>H1</h1>
-      <div style={{ height: "600px", width: "800px" }}>
-        <Map height="600px" width="800px" locations={pushPins} onClick={readLocation}/>
-      </div>
+      <Map height="600px" width="800px" locations={pushPins} onClick={readLocation}/>
       <h1 className="text-neutral-content">{location[0] + ", " + location[1]}</h1>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
