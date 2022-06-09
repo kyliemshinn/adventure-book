@@ -41,6 +41,7 @@ const CommentForm = ({ commentId }) => {
   return (
     <div className="commentSection">
       <form className="" onSubmit={handleFormSubmit}>
+        <p className="mb-2">Comment Section</p>
         <Textarea
           name="commentText"
           placeholder="Add a Comment or Question"
@@ -48,7 +49,7 @@ const CommentForm = ({ commentId }) => {
           onChange={handleChange}
           className="w-full resize-none border-2 border-base-200"
         >
-          Comment Section
+          {/* <p className="">Comment Section</p> */}
         </Textarea>
         {/* <p class="text-sm text-blue-900 float-right">Max 280 characters</p> */}
         <p
@@ -59,8 +60,8 @@ const CommentForm = ({ commentId }) => {
           Character Count: {characterCount}/280
           {error && <span className="ml-2">{error.message}</span>}
         </p>
-        <div>
-          <Button className="btn-sm hover:bg-neutral-focus hover:shadow-lg rounded-full border-none">
+        <div className="mt-2">
+          <Button className="btn-sm text-base-content hover:bg-neutral-focus hover:shadow-lg rounded-full border-none">
             Add Comment
           </Button>
         </div>

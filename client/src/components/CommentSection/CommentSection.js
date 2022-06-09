@@ -8,10 +8,7 @@ const CommentSection = ({ comments = [] }) => {
 
     return (
         <>
-      <h3
-        className=" display-inline-block"
-        style={{ borderBottom: '1px dotted #1a1a1a' }}
-      >
+      <h3 className="display-inline-block">
         Comments
       </h3>
       <Textarea readonly className="flex-row my-4 w-full resize-none border-2 border-base-200">

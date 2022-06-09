@@ -45,7 +45,7 @@ const ViewPost = () => {
           <p className="float-right">Created at </p>
           <p>Posted by </p>
           </div>
-          <div className="grid grid-cols-2 gap-5 py-3 pb-9">
+          <div className="grid grid-cols-2 gap-2 py-3 pb-9">
             <div className="slider h-vh">
               <SimpleImageSlider
                 width={720}
@@ -66,7 +66,7 @@ const ViewPost = () => {
             {/* map through comments *ref thoughtList (26) */}
             <div className="pt-4">
               <CommentSection />
-              Comment Section
+              
             </div>
             <div className="pb-7">
               <CommentForm />
