@@ -3,6 +3,7 @@ import React, { useState, setState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
 import Map from "../components/Map"
+import { Link } from "react-router-dom";
 
 // import Button from "../components/MainButton/Button"
 
@@ -17,11 +18,11 @@ function AddPost() {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   ///upload image by cloudinary
-  const uploadImage = async e => {
+  const uploadImage = async (e) => {
     const files = e.target.files;
     const data = new FormData();
     data.append("file", files[0]);
-    data.append("upload-preset", "qufwrwdm");
+    data.append("upload_preset", "kyliedefault");
     setLoading(true);
     const res = await fetch(
       "https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload",
@@ -29,29 +30,31 @@ function AddPost() {
         method: "post",
         body: data,
       }
-      );
-      const file = await res.json();
-      setImage(file.secure_url);
-      setLoading(false);
-    };
-    
-    // when the button is clicked for new post to create - run this function
-    const [createPost, setPost] = useState({
-      content: "",
-      tags: [""],
-      location: { latitude: 0, longitude: 0 },
-    });
+    );
+    const file = await res.json();
+    setImage(file.secure_url);
+    setLoading(false);
+  };
 
-    const [addPost, { error }] = useMutation(CREATE_POST);
-    
-    console.log(error)
+  // when the button is clicked for new post to create - run this function
+  const [createPost, setPost] = useState({
+    title: "",
+    content: "",
+    tags: [""],
+    location: { latitude: 0, longitude: 0 },
+  });
 
-    const handlePostSubmit = async (event) => {
+  const [addPost, { error }] = useMutation(CREATE_POST);
+
+  console.log(error);
+
+  const handlePostSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const data = await addPost({
         variables: {
+          title: createPost.title,
           content: createPost.content,
           tags: createPost.tags,
           location: createPost.location,
@@ -59,6 +62,7 @@ function AddPost() {
       });
       console.log(data);
       setPost({
+        title: "",
         content: "",
         tags: [""],
         location: { latitude: 0, longitude: 0 },
@@ -85,7 +89,7 @@ function AddPost() {
         />
       </div>*/
   return (
-    <div>
+    <div className="pageContainer">
       <h1>H1</h1>
       <div style={{ height: "600px", width: "800px" }}>
         <Map locations={pushPins}/>
@@ -99,20 +103,39 @@ function AddPost() {
             <div className="card bg-primary text-primary-content justify-center">
               <div className="card-body m-16 justify-center">
                 <h2 className="card-title justify-center">Add Photo</h2>
-                  <input
-                    type="file"
-                    name="file"
-                    placeholder="add image"
-                    onChange={uploadImage}
-                    className="place-items-center"
-                  />
+                <input
+                  type="file"
+                  name="file"
+                  placeholder="add image"
+                  onChange={uploadImage}
+                  className="place-items-center"
+                />
                 {loading ? (
-                  <h3>Upload Image</h3>
+                  <h3>Uploading Image...</h3>
                 ) : (
                   <img src={image} style={{ width: "300px" }} alt="selected" />
                 )}
-                  <input type="text" placeholder="#Tags" className="input input-bordered" />
-                  <input type="text" placeholder="Location" className="input input-bordered" />
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="#Tags"
+                  className="input input-bordered"
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="tags"
+                  placeholder="#Tags"
+                  className="input input-bordered"
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  name="location"
+                  placeholder="Location"
+                  className="input input-bordered"
+                  onChange={handleChange}
+                />
                 <textarea
                   name="content"
                   className="textarea textarea-bordered"
@@ -120,12 +143,14 @@ function AddPost() {
                   onChange={handleChange}
                 ></textarea>
                 <div className="card-actions justify-end">
-                  <button
-                    onClick={handlePostSubmit}
-                    className="btn btn-primary rounded-full"
-                  >
-                    ADD POST
-                  </button>
+                  <Link to="/dashboard">
+                    <button
+                      onClick={handlePostSubmit}
+                      className="btn btn-primary rounded-full"
+                    >
+                      ADD POST
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -137,4 +162,3 @@ function AddPost() {
 }
 
 export default AddPost;
-
