@@ -3,15 +3,11 @@ import { Link } from "react-router-dom";
 import { Hero } from "react-daisyui";
 import DashCard from "../components/Card/DashCard";
 import Sidebar from "../components/SideMenu/Sidebar";
-//for card info
-// import ViewPost from './ViewPost';
-// import AddPost from './AddPost';
 
 //import for functionality of query
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
-// import Auth from '../utils/auth';
 
 //import styling
 import "font-awesome/css/font-awesome.min.css";
@@ -58,7 +54,6 @@ const Dashboard = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-
   return (
     <div className="pageContainer">
       <div>
@@ -72,8 +67,8 @@ const Dashboard = () => {
 
         <Hero className="postContainer bg-base-200 mb-10 mt-5 px-6 pb-7 overflow-auto mr-4 col-span-6">
           <div>
-            <h2 className="text-bold text-lg text-center text-neutral-content my-4">
-              {user.username} Posts
+            <h2 className="text-bold text-xl text-center text-neutral-content my-4">
+              My Posts
             </h2>
             {/* Dynamically update based on users recent posts */}
             <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content">
@@ -90,11 +85,10 @@ const Dashboard = () => {
             <DashCard />
             <DashCard /> */}
               {/* Add onClick function to render AddPost page*/}
-              <div className="my-10 mx-10">
+              <div className="m-10">
                 <Link
                   to="/addpost"
-                  className="btn rounded-full bg-accent border-none hover:bg-accent-focus hover:shadow-lg text-base-content"
-                >
+                  className="btn rounded-full bg-accent border-none hover:bg-accent-focus hover:shadow-lg text-base-content" >
                   Add<i className="fa-solid fa-circle-plus fa-2xl ml-2"></i>
                 </Link>
               </div>
