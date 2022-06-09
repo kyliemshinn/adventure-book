@@ -3,15 +3,12 @@ import { Textarea } from 'react-daisyui';
 
 const CommentSection = ({ comments = [] }) => {
     if(!comments.length) {
-        return <h3>No Comments Yet</h3>;
+        return <h3 className="py-3">No Comments Yet</h3>;
     }
 
     return (
         <>
-      <h3
-        className="p-5 display-inline-block"
-        style={{ borderBottom: '1px dotted #1a1a1a' }}
-      >
+      <h3 className="display-inline-block">
         Comments
       </h3>
       <Textarea readonly className="flex-row my-4 w-full resize-none border-2 border-base-200">
