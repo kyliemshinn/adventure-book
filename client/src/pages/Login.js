@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutation";
 import Auth from "../utils/auth";
+import anime from "animejs/lib/anime.es.js";
 
 import "font-awesome/css/font-awesome.min.css";
 import "../styles/Login.css";
@@ -113,6 +114,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+  
   );
 };
 
