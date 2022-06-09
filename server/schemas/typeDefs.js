@@ -50,14 +50,14 @@ const typeDefs = gql`
     }
 
     type Mutation {
-        createPost(content: String!, author: String!, tags: [String]! ): Post
-        updatePost(content: String, tags: String): Post
+        createPost(content: String!, tags: [String]!, location: LocationInput!): Post
+        updatePost(postId: ID!, content: String, tags: [String]): Post
         removePost(postId: ID!): Post
-        addComment(postId: ID!, commentText: String!, commentAuthor: String!): Post
-        removeComment(postId: ID!, commentId: ID!): Post
+        addComment(postId: ID!, commentText: String!): Post
+        removeComment(commentId: ID!): Post
         login(email: String!, password: String!): Auth
         createUser(username: String!, email: String!, password: String!): Auth
     }
 `
-//, location: LocationInput!
+
 module.exports = typeDefs;
