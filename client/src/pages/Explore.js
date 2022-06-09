@@ -7,15 +7,21 @@ import '../styles/CardStyles.css';
 
 // TO-DO: onClick of a post redirect to viewPost
 // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
+// import { useQuery } from "@apollo/client";
+// import { QUERY_POSTS } from '../utils/queries';
 
 const Explore = () => {
+  // const { loading, data } = useQuery(QUERY_POSTS);
+
+  // const posts = data?.posts || {};
+
   // temp dummy data
   const posts = [
   {
     _id: 1,
     author: 'Mia Carmen',
     title: 'Japan',
-    tags: ['#boba', '#sushi']
+    tags: '#sushi'
   },
   {
     _id: 2,
@@ -27,8 +33,8 @@ const Explore = () => {
     _id: 3,
     author: 'Ryan Gosling',
     title: 'Italy',
-    tags: '#vineyards'
-  }
+    tags: ["#vineyards", "#pasta"] 
+  },
 ];
 
   return (
@@ -75,12 +81,17 @@ const Explore = () => {
       </Hero>
     {/* dynamically update container based on amount of posts */}
     {/* add scroll reveal animation for addition posts */}
-      <div className="postContainer pb-5">
+    {/* If the data is still loading, render a loading message */}
+    
+      <div className="postContainer pb-5 overflow-auto">
         <h2 className="text-bold text-2xl text-base-300 text-center my-4 pt-4">Most Recent Posts</h2>
         {/* Dynamically update based on most recent posts */}
+        
         <div className="grid grid-cols-4 gap-3 py-3 text-secondary-content place-items-center">
           {/* update link to redirect to that specific post */}
           {/* map through posts */}
+          {/* If the data is still loading, render a loading message */}
+          
           {posts && posts.map((post) => (
             <Link to={`/explore/viewpost/${post._id}`} ><ExploreCard title={post.title} author={post.author} tags={post.tags}
             /></Link>
