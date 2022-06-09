@@ -1,12 +1,32 @@
-// import { ReactBingmaps } from "react-bingmaps-plus";
-import React, { useState } from "react";
+import { ReactBingmaps } from "react-bingmaps-plus";
+import React, { useState, setState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
+import Map from "../components/Map"
 import { Link } from "react-router-dom";
 
 // import Button from "../components/MainButton/Button"
 
 function AddPost() {
+
+  function getRandomLocation() {
+    return [getRandomLatitide(), getRandomLongitude()];
+
+    function getRandomLatitide() {
+      return (Math.random() * 180) - 90;
+    }
+    
+    function getRandomLongitude() {
+      return (Math.random() * 360) - 180;
+    }
+  }
+
+  const [pushPins, getPushPins] = useState([
+    { "location":[13.0827, 80.2707], "option":{ color: 'red', title: 'Chennai, or something' } },
+    { "location":[0.01, 0.01], "option":{ color: 'green', title: 'Secret Area' } },
+    { "location":getRandomLocation(), "option":{ color: 'blue', title: 'Randos live here' } }
+  ]);
+
   //setting up upload image
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -74,9 +94,19 @@ function AddPost() {
       [name]: value,
     });
   }
-
+/*
+      <div style={{ height: "600px", width: "800px" }}>
+        <ReactBingmaps
+          bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
+          key={"A"}
+        />
+      </div>*/
   return (
     <div className="pageContainer">
+      <h1>H1</h1>
+      <div style={{ height: "600px", width: "800px" }}>
+        <Map height="600px" width="800px" locations={pushPins}/>
+      </div>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
           <div className="card-body">
@@ -140,12 +170,6 @@ function AddPost() {
           </div>
         </div>
       </div>
-      {/* <div style={{ height: "600px", width: "800px" }}>
-        <ReactBingmaps
-          bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
-          key={"A"}
-        />
-      </div> */}
     </div>
   );
 }
