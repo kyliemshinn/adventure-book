@@ -32,7 +32,6 @@ function AddPost() {
     // when the button is clicked for new post to create - run this function
     const [createPost, setPost] = useState({
       content: "",
-      author: "Kylie",
       tags: [""],
       location: { latitude: 0, longitude: 0 },
     });
@@ -48,7 +47,6 @@ function AddPost() {
       const data = await addPost({
         variables: {
           content: createPost.content,
-          author: createPost.author,
           tags: createPost.tags,
           location: createPost.location,
         },
@@ -56,7 +54,6 @@ function AddPost() {
       console.log(data);
       setPost({
         content: "",
-        author: "Kylie",
         tags: [""],
         location: { latitude: 0, longitude: 0 },
       });
