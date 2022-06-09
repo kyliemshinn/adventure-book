@@ -8,10 +8,12 @@ const resolvers = {
             return user;
         },
         posts: async () => {
-            return "posts";
+            const posts = await Post.find().populate("author");
+            return posts;
         },
-        post: async () => {
-            return "post";
+        post: async (parent, args) => {
+            const post = await Post.findById(args.id).populate("author");
+            return post;
         }
     },
     Mutation: {
