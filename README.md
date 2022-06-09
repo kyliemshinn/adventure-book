@@ -62,21 +62,42 @@ The following sections highlight the functionality of the main pages and compone
 
 ## **Technologies Used**
 
+### **Packages**
+* [Concurrently](https://www.npmjs.com/package/concurrently)
+* [dotenv](https://www.npmjs.com/package/dotenv)
+* [nodemon](https://www.npmjs.com/package/nodemon)
+* [React Image Carousel](https://www.npmjs.com/package/react-simple-image-slider)
+* [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+
+### **Languages**
+* [JavaScript](https://www.javascript.com/)
+* [HTML5](https://html.com/html5/)
+* [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS)
+* [GraphQL](https://graphql.org/)
+
+### **Third Party API**
+* [BingMaps]()
+* [Cloudinary](https://cloudinary.com/documentation)
+
+### **Frameworks**
 * [ReactJS](https://reactjs.org/)
 * [NodeJS](https://nodejs.org/en/) 
-* [JavaScript](https://www.javascript.com/)
+* [JWT](https://jwt.io/)
+* [Express](https://expressjs.com/)
+
+### **CSS Frameworks**
 * [Tailwind CSS](https://tailwindcss.com/docs/installation)
 * [Font Awesome](https://fontawesome.com/)
 * [daisyUI](https://daisyui.com/)
+
+### **Libraries**
+* [Apollo Client](https://www.apollographql.com/docs/react/)
+* [React Router](https://reactrouter.com/)
 * [Code Pen](https://codepen.io/)
-* [GraphQL](https://graphql.org/)
-* [Sequelize](https://sequelize.org/)
-* [HTML5](https://html.com/html5/)
-* [Bcrypt](https://www.npmjs.com/package/bcrypt)
-* [JWT](https://jwt.io/)
-* [Express](https://expressjs.com/)
-* [BingMaps]()
-* [Cloudinary](https://cloudinary.com/documentation)
+* [Mongoose](https://mongoosejs.com/docs/middleware.html)
+
+
 
 ## **Authors**
 
