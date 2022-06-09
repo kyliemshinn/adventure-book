@@ -15,7 +15,7 @@ function AddPost() {
     const files = e.target.files;
     const data = new FormData();
     data.append("file", files[0]);
-    data.append("upload-preset", "qufwrwdm");
+    data.append("upload_preset", "kyliedefault");
     setLoading(true);
     const res = await fetch(
       "https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload",
@@ -62,7 +62,7 @@ function AddPost() {
   };
 
   return (
-    <div>
+    <div className="pageContainer">
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
           <div className="card-body">
@@ -80,7 +80,7 @@ function AddPost() {
                     className="place-items-center"
                   />
                 {loading ? (
-                  <h3>Upload Image</h3>
+                  <h3>Uploading Image...</h3>
                 ) : (
                   <img src={image} style={{ width: "300px" }} alt="selected" />
                 )}
