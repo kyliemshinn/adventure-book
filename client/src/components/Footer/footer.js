@@ -4,7 +4,8 @@ import { Footer, Button } from "react-daisyui";
 
 const Foot = () => {
   return (
-    <Footer className="footer footer-center p-10 bg-primary rounded text-secondary-content">
+    
+    <Footer className="footer footer-center p-4 bg-primary rounded text-secondary-content">
       <div>
         <div className="font-semibold text-lg">
           <Footer.Title>Company</Footer.Title>
@@ -32,6 +33,7 @@ const Foot = () => {
       </div>
       </div>
     </Footer>
+    
   );
 };
 
