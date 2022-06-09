@@ -37,7 +37,7 @@ const resolvers = {
         createPost: async (parent, args, context) => {
             const post = await Post.create({
                 content: args.content,
-                author: "629fb09bc9e3ff1ec8de3ca6",/*context.user._id,*/
+                author: context.user._id,
                 tags: ["Tags"],
                 location: { latitude: 0, longitude: 0 },
             });
