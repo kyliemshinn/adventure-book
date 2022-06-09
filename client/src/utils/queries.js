@@ -31,6 +31,7 @@ export const QUERY_SINGLE_POST = gql`
           commentAuthor
         }
     }
+}
 `;
 
 export const QUERY_USER = gql`
