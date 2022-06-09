@@ -1,4 +1,4 @@
-import { ReactBingmaps } from "react-bingmaps-plus";
+// import { ReactBingmaps } from "react-bingmaps-plus";
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
@@ -10,7 +10,7 @@ function AddPost() {
   //setting up upload image
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
-  
+  ///upload image by cloudinary
   const uploadImage = async e => {
     const files = e.target.files;
     const data = new FormData();
@@ -39,6 +39,8 @@ function AddPost() {
 
     const [addPost, { error }] = useMutation(CREATE_POST);
     
+    console.log(error)
+
     const handlePostSubmit = async (event) => {
     event.preventDefault();
 
@@ -76,42 +78,34 @@ function AddPost() {
   return (
     <div>
       <div>
-        <div className="card lg:card-side bg-base-100 shadow-xl m-32">
+        <div className="card lg:card-side bg-base-100 shadow-xl m-24">
           <div className="card-body">
-            <h1 className="card-title justify-center text-secondary-content">
+            <h1 className="card-title justify-center text-secondary-content text-3xl p-4">
               Add A Post!
             </h1>
             <div className="card bg-primary text-primary-content justify-center">
-              <div className="card-body m-16">
+              <div className="card-body m-16 justify-center">
                 <h2 className="card-title justify-center">Add Photo</h2>
-
-                <div className="justify-center">
                   <input
                     type="file"
                     name="file"
                     placeholder="add image"
                     onChange={uploadImage}
-                    className="justify-center"
+                    className="place-items-center"
                   />
-                </div>
                 {loading ? (
                   <h3>Upload Image</h3>
                 ) : (
                   <img src={image} style={{ width: "300px" }} alt="selected" />
                 )}
+                  <input type="text" placeholder="#Tags" className="input input-bordered" />
+                  <input type="text" placeholder="Location" className="input input-bordered" />
                 <textarea
                   name="content"
                   className="textarea textarea-bordered"
                   placeholder="Description of where you went activities, restaurants..."
                   onChange={handleChange}
                 ></textarea>
-                <textarea
-                  name="title"
-                  className="textarea textarea-bordered"
-                  placeholder="Location or Title"
-                  onChange={handleChange}
-                ></textarea>
-
                 <div className="card-actions justify-end">
                   <button
                     onClick={handlePostSubmit}
