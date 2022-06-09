@@ -77,15 +77,15 @@ function AddPost() {
                     name="file"
                     placeholder="add image"
                     onChange={uploadImage}
-                    className="text-center"
+                    className="place-items-center"
                   />
                 {loading ? (
                   <h3>Upload Image</h3>
                 ) : (
                   <img src={image} style={{ width: "300px" }} alt="selected" />
                 )}
-                  <input type="text" placeholder="#Tags" class="input input-bordered" />
-                  <input type="text" placeholder="Location" class="input input-bordered" />
+                  <input type="text" placeholder="#Tags" className="input input-bordered" />
+                  <input type="text" placeholder="Location" className="input input-bordered" />
                 <textarea
                   className="textarea textarea-bordered"
                   placeholder="Description of where you went activities, restaurants..."
