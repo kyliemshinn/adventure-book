@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./components/Navbar/navbar";
-import Foot from "./components/Footer/footer";
+import Foot from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Explore from "./pages/Explore";
@@ -60,7 +60,7 @@ export default function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/explore/viewpost" element={<ViewPost />} />
+          <Route path="/explore/viewpost/:postId" element={<ViewPost />} />
           <Route path="/addpost" element={<AddPost />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/explore" element={<Explore />} />
