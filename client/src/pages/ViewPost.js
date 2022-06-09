@@ -15,7 +15,7 @@ import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
 
 // Import useParams Hook
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 // Import useQuery Hook to use Single Post query
 // import { useQuery } from "@apollo/client";
 // import { QUERY_SINGLE_POST } from "../utils/queries";
@@ -23,8 +23,8 @@ import { useParams } from "react-router-dom";
 
 const ViewPost = () => {
   //Use useParams to retrieve value of the route parameter ':postId'
-  const { postId } = useParams();
-  console.log(postId);
+  // const { postId } = useParams();
+  // console.log(postId);
   // const { loading, data } = useQuery(QUERY_SINGLE_POST, {
   //   // pass URL parameter
   //   variables: { postId: postId },
@@ -41,7 +41,12 @@ const ViewPost = () => {
       <Hero className="mb-28">
         <div className="postContainer bg-base-200 mx-9 my-9 pt-4 px-6 pb-7">
           <div>
+            {/* show text of "save" on hover */}
+            {/* onClick, save to collections */}
+            {/* highlight when saved */}
+          <div><i class="fa-solid fa-bookmark fa-xl pt-3 float-right"></i></div>
           <h2 className="text-bold text-2xl text-neutral-content">Title </h2>
+         
           <p className="float-right">Created at </p>
           <p>Posted by </p>
           </div>

@@ -49,6 +49,7 @@ The following sections highlight the functionality of the main pages and compone
 ### **Homepage**
 
 ### **Login**
+NOTE: add balloon code snipps
 
 ### **Explore Page**
 
@@ -56,27 +57,73 @@ The following sections highlight the functionality of the main pages and compone
 
 ### **Add Post**
 
+The Add Post was meant to only be rendered when accessed through the user Dashoboard. This is so it is seen from their personal page as a design preference. Add post was designed with some new technologies, like Cloudinary. Cloudinary was the solution to not storing all the picture storing all our pictures in the server and caching the images. It is a spot where all the pictures will be stored to be used for the site, making it less code to work with. The implementation of Cloudinary was very simple and easy to use as shown below.
+
+``` const uploadImage = async e => {
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload-preset", "qufwrwdm");
+    setLoading(true);
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload",
+      {
+        method: "post",
+        body: data,
+      }
+      );
+      const file = await res.json();
+      setImage(file.secure_url);
+      setLoading(false);
+    };
+```
+
+The only places where Cloudinary is called on is the `data.append("upload_preset", "kyliedefault")` which is setting the upload preset to an unsigned token, and `"https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload"` which is where it will send the image.
+
+Once all of this is complete and the user submits the new post, the page will render back to the Dashboard.
+
 ### **View Post**
 
 
 
 ## **Technologies Used**
 
+### **Packages**
+* [Concurrently](https://www.npmjs.com/package/concurrently)
+* [dotenv](https://www.npmjs.com/package/dotenv)
+* [nodemon](https://www.npmjs.com/package/nodemon)
+* [React Image Carousel](https://www.npmjs.com/package/react-simple-image-slider)
+* [Bcrypt](https://www.npmjs.com/package/bcrypt)
+* [Apollo Server](https://www.apollographql.com/docs/apollo-server/)
+
+### **Languages**
+* [JavaScript](https://www.javascript.com/)
+* [HTML5](https://html.com/html5/)
+* [CSS](https://developer.mozilla.org/en-US/docs/Learn/CSS/First_steps/What_is_CSS)
+* [GraphQL](https://graphql.org/)
+
+### **Third Party API**
+* [BingMaps]()
+* [Cloudinary](https://cloudinary.com/documentation)
+
+### **Frameworks**
 * [ReactJS](https://reactjs.org/)
 * [NodeJS](https://nodejs.org/en/) 
-* [JavaScript](https://www.javascript.com/)
+* [JWT](https://jwt.io/)
+* [Express](https://expressjs.com/)
+
+### **CSS Frameworks**
 * [Tailwind CSS](https://tailwindcss.com/docs/installation)
 * [Font Awesome](https://fontawesome.com/)
 * [daisyUI](https://daisyui.com/)
+
+### **Libraries**
+* [Apollo Client](https://www.apollographql.com/docs/react/)
+* [React Router](https://reactrouter.com/)
 * [Code Pen](https://codepen.io/)
-* [GraphQL](https://graphql.org/)
-* [Sequelize](https://sequelize.org/)
-* [HTML5](https://html.com/html5/)
-* [Bcrypt](https://www.npmjs.com/package/bcrypt)
-* [JWT](https://jwt.io/)
-* [Express](https://expressjs.com/)
-* [BingMaps]()
-* [Cloudinary](https://cloudinary.com/documentation)
+* [Mongoose](https://mongoosejs.com/docs/middleware.html)
+
+
 
 ## **Authors**
 
