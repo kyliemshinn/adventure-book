@@ -3,7 +3,7 @@ import { Card, Badge } from 'react-daisyui';
 
 const ExploreCard = ({ author, title, tags }) => {
     return (
-        <Card className="card w-96 bg-base-100 shadow-xl">
+        <Card className="postCard card w-96 bg-base-100 shadow-xl">
             <figure>
               <img
                 src="https://api.lorem.space/image/shoes?w=400&h=225"
