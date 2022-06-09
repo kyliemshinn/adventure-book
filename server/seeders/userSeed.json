@@ -1,20 +1,32 @@
 [
-    {
-       "username": "Carl Fredricksen" 
-    },
-    {
-        "username": "Russell" 
+     {
+       "username": "Carl Fredricksen",
+       "email": "a@a.com",
+       "password": "Password123"
      },
      {
-        "username": "Dug" 
+        "username": "Russell",
+        "email": "b@b.com",
+        "password": "Password123"
      },
      {
-        "username": "Charles Muntz" 
+        "username": "Dug",
+        "email": "c@c.com",
+        "password": "Password123"
      },
      {
-        "username": "Ellie Fredricksen" 
+        "username": "Charles Muntz",
+        "email": "d@d.com",
+        "password": "Password123"
      },
      {
-        "username": "Jerome Chenette" 
+        "username": "Ellie Fredricksen",
+        "email": "e@e.com",
+        "password": "Password123"
+     },
+     {
+        "username": "Jerome Chenette",
+        "email": "f@f.com",
+        "password": "Password123"
      }
 ]
