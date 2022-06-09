@@ -1,11 +1,20 @@
 import { ReactBingmaps } from "react-bingmaps-plus";
-import React, { useState } from "react";
+import React, { useState, setState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
+import Map from "../components/Map"
 
 // import Button from "../components/MainButton/Button"
 
 function AddPost() {
+
+  //Bingmaps
+  /*const [pushpins, setPushpins] = useState([
+      {
+        "location":[0,0], "option":{ color: "red"}
+      }])*/
+  //console.log(this.state);
+  //setState({});
 
   //setting up upload image
   const [image, setImage] = useState("");
@@ -71,9 +80,19 @@ function AddPost() {
       [name]: value,
     });
   }
-
+/*
+      <div style={{ height: "600px", width: "800px" }}>
+        <ReactBingmaps
+          bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
+          key={"A"}
+        />
+      </div>*/
   return (
     <div>
+      <h1>H1</h1>
+      <div style={{ height: "600px", width: "800px" }}>
+        <Map />
+      </div>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
           <div className="card-body">
@@ -115,12 +134,6 @@ function AddPost() {
             </div>
           </div>
         </div>
-      </div>
-      <div style={{ height: "600px", width: "800px" }}>
-        <ReactBingmaps
-          bingmapKey="AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
-          key={"A"}
-        />
       </div>
     </div>
   );
