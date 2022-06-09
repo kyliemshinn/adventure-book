@@ -32,6 +32,10 @@ const postSchema = new Schema(
       ref: "User",
       required: true
     },
+    images: [{
+      type: String,
+      required: true
+    }],
     tags: [{
       type: String,
       required: true // Must have at least one element
