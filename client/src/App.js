@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./components/Navbar/navbar";
-import Foot from "./components/Footer/footer";
+import Foot from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Explore from "./pages/Explore";

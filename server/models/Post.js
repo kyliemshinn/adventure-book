@@ -19,6 +19,10 @@ const locationSchema = new Schema(
 
 const postSchema = new Schema(
   {
+    title: {
+      type: String,
+      required: true
+    },
     content: {
       type: String,
       required: true
@@ -28,6 +32,10 @@ const postSchema = new Schema(
       ref: "User",
       required: true
     },
+    images: [{
+      type: String,
+      required: true
+    }],
     tags: [{
       type: String,
       required: true // Must have at least one element
