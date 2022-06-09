@@ -31,6 +31,7 @@ function AddPost() {
 
   // when the button is clicked for new post to create - run this function
   const [createPost, setPost] = useState({
+    title: "",
     content: "",
     tags: [""],
     location: { latitude: 0, longitude: 0 },
@@ -95,6 +96,13 @@ function AddPost() {
                 ) : (
                   <img src={image} style={{ width: "300px" }} alt="selected" />
                 )}
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="#Tags"
+                  className="input input-bordered"
+                  onChange={handleChange}
+                />
                 <input
                   type="text"
                   name="tags"
