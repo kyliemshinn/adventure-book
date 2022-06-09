@@ -9,7 +9,6 @@ import { Hero } from "react-daisyui";
 
 import SimpleImageSlider from "react-simple-image-slider";
 import { CarouselData } from "../components/Carousel/CarouselData";
-// import Carousel from '../components/Carousel/carousel';
 
 import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
