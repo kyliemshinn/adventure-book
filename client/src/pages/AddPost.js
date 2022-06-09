@@ -97,24 +97,23 @@ function AddPost() {
                 )}
                 <input
                   type="text"
+                  name="tags"
                   placeholder="#Tags"
                   className="input input-bordered"
                   onChange={handleChange}
-                  value={createPost.tags}
                 />
                 <input
                   type="text"
+                  name="location"
                   placeholder="Location"
                   className="input input-bordered"
                   onChange={handleChange}
-                  value={createPost.location}
                 />
                 <textarea
                   name="content"
                   className="textarea textarea-bordered"
                   placeholder="Description of where you went activities, restaurants..."
                   onChange={handleChange}
-                  value={createPost.content}
                 ></textarea>
                 <div className="card-actions justify-end">
                   <Link to="/dashboard">
