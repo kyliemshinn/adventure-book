@@ -11,7 +11,7 @@ function AddPost() {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   ///upload image by cloudinary
-  const uploadImage = async e => {
+  const uploadImage = async (e) => {
     const files = e.target.files;
     const data = new FormData();
     data.append("file", files[0]);
@@ -23,24 +23,24 @@ function AddPost() {
         method: "post",
         body: data,
       }
-      );
-      const file = await res.json();
-      setImage(file.secure_url);
-      setLoading(false);
-    };
-    
-    // when the button is clicked for new post to create - run this function
-    const [createPost, setPost] = useState({
-      content: "",
-      tags: [""],
-      location: { latitude: 0, longitude: 0 },
-    });
+    );
+    const file = await res.json();
+    setImage(file.secure_url);
+    setLoading(false);
+  };
 
-    const [addPost, { error }] = useMutation(CREATE_POST);
-    
-    console.log(error)
+  // when the button is clicked for new post to create - run this function
+  const [createPost, setPost] = useState({
+    content: "",
+    tags: [""],
+    location: { latitude: 0, longitude: 0 },
+  });
 
-    const handlePostSubmit = async (event) => {
+  const [addPost, { error }] = useMutation(CREATE_POST);
+
+  console.log(error);
+
+  const handlePostSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -83,25 +83,38 @@ function AddPost() {
             <div className="card bg-primary text-primary-content justify-center">
               <div className="card-body m-16 justify-center">
                 <h2 className="card-title justify-center">Add Photo</h2>
-                  <input
-                    type="file"
-                    name="file"
-                    placeholder="add image"
-                    onChange={uploadImage}
-                    className="place-items-center"
-                  />
+                <input
+                  type="file"
+                  name="file"
+                  placeholder="add image"
+                  onChange={uploadImage}
+                  className="place-items-center"
+                />
                 {loading ? (
                   <h3>Uploading Image...</h3>
                 ) : (
                   <img src={image} style={{ width: "300px" }} alt="selected" />
                 )}
-                  <input type="text" placeholder="#Tags" className="input input-bordered" />
-                  <input type="text" placeholder="Location" className="input input-bordered" />
+                <input
+                  type="text"
+                  placeholder="#Tags"
+                  className="input input-bordered"
+                  onChange={handleChange}
+                  value={createPost.tags}
+                />
+                <input
+                  type="text"
+                  placeholder="Location"
+                  className="input input-bordered"
+                  onChange={handleChange}
+                  value={createPost.location}
+                />
                 <textarea
                   name="content"
                   className="textarea textarea-bordered"
                   placeholder="Description of where you went activities, restaurants..."
                   onChange={handleChange}
+                  value={createPost.content}
                 ></textarea>
                 <div className="card-actions justify-end">
                   <Link to="/dashboard">
