@@ -1,5 +1,4 @@
-import { ReactBingmaps } from "react-bingmaps-plus";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
 import Map from "../components/Map"
@@ -8,31 +7,6 @@ import { Link } from "react-router-dom";
 // import Button from "../components/MainButton/Button"
 
 function AddPost() {
-
-  function getRandomLocation() {
-    return [getRandomLatitide(), getRandomLongitude()];
-
-    function getRandomLatitide() {
-      return (Math.random() * 180) - 90;
-    }
-    
-    function getRandomLongitude() {
-      return (Math.random() * 360) - 180;
-    }
-  }
-
-  const [pushPins, setPushPins] = useState([]);
-
-  const [location, setLocation] = useState([0.01, 0.01]);
-
-  function readLocation(arg)
-  {
-    setPushPins([{
-      "location":[arg.latitude, arg.longitude],
-      "option":{ color: 'red', title: 'I have no idea where this is!' }
-    }])
-    setLocation([arg.latitude, arg.longitude]);
-  }
 
   //setting up upload image
   const [image, setImage] = useState("");
@@ -64,39 +38,69 @@ function AddPost() {
     location: { latitude: 0, longitude: 0 },
   });
 
+  const [pushPins, setPushPins] = useState([]);
+
+  const [location, setLocation] = useState([0.01, 0.01]);
+
+  function readLocation(arg)
+  {
+    setPushPins([{
+      "location":[arg.latitude, arg.longitude],
+      "option":{ color: 'red' }
+    }]);
+    setLocation([arg.latitude, arg.longitude]);
+    setPost({
+      title: createPost.title,
+      content: createPost.content,
+      tags: createPost.tags,
+      location: [arg.latitude, arg.longitude]
+    });
+  
+    console.log("A", createPost);
+  }
+
   const [addPost, { error }] = useMutation(CREATE_POST);
 
   const handlePostSubmit = async (event) => {
     event.preventDefault();
 
+    const location = { latitude: createPost.location[0], longitude: createPost.location[1] }
+    console.log(createPost.title, createPost.content, createPost.tags, location);
+
     try {
-      const data = await addPost({
-        variables: {
-          title: createPost.title,
-          content: createPost.content,
-          tags: createPost.tags,
-          location: createPost.location,
-        },
-      });
-      console.log(data);
-      setPost({
-        title: "",
-        content: "",
-        tags: [""],
-        location: { latitude: 0, longitude: 0 },
-      });
-    } catch {
-      console.error("Error!", error);
+    await addPost({
+      variables: {
+        title: createPost.title,
+        content: createPost.content,
+        tags: createPost.tags,
+        location: location,
+      },
+    });
+    window.location.assign('/dashboard');
+    } catch(e) {
+      alert(e);
     }
+
+    /*setPost({
+      title: "",
+      content: "",
+      tags: [""],
+      location: { latitude: 0, longitude: 0 },
+    });
+
+    setPushPins([]);*/
   };
 
   function handleChange(e) {
-    const { name, value } = e.target;
-    console.log(name, value);
+    let { name, value } = e.target;
+    if(name === "tags") {
+      value = value.split(" ");
+    }
     setPost({
       ...createPost,
       [name]: value,
     });
+    console.log(createPost);
   }
 /*
       <div style={{ height: "600px", width: "800px" }}>
@@ -107,7 +111,6 @@ function AddPost() {
       </div>*/
   return (
     <div className="pageContainer">
-      <Map height="600px" width="800px" locations={pushPins} onClick={readLocation}/>
       <h1 className="text-neutral-content">{location[0] + ", " + location[1]}</h1>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
@@ -133,21 +136,15 @@ function AddPost() {
                 <input
                   type="text"
                   name="title"
-                  placeholder="#Tags"
+                  placeholder="Title"
                   className="input input-bordered"
                   onChange={handleChange}
+                  onSubmit={() => {console.log("!!!")}}
                 />
                 <input
                   type="text"
                   name="tags"
                   placeholder="#Tags"
-                  className="input input-bordered"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  name="location"
-                  placeholder="Location"
                   className="input input-bordered"
                   onChange={handleChange}
                 />
@@ -157,6 +154,11 @@ function AddPost() {
                   placeholder="Description of where you went activities, restaurants..."
                   onChange={handleChange}
                 ></textarea>
+                <Map height="600px" width="800px" locations={pushPins} onClick={readLocation}/>
+                <div>
+                  <p>Latitude: {location[0]}</p>
+                  <p>Longitude: {location[1]}</p>
+                </div>
                 <div className="card-actions justify-end">
                   <Link to="/dashboard">
                     <button
