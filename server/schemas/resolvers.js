@@ -8,11 +8,11 @@ const resolvers = {
             return user;
         },
         posts: async () => {
-            const posts = await Post.find().populate("author");
+            const posts = await Post.find().populate(["author", "comments"]);
             return posts;
         },
         post: async (parent, args) => {
-            const post = await Post.findById(args.id).populate("author");
+            const post = await Post.findById(args.id).populate(["author", "comments"]);
             return post;
         }
     },
