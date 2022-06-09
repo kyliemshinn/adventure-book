@@ -57,8 +57,14 @@ const resolvers = {
             const post = await Post.findByIdAndDelete(args.postId);
             return post;
         },
-        addComment: async (parent, args) => {
-            return "addComment";
+        addComment: async (parent, args, context) => {
+            const comment = await Comment.create({
+                commentText: args.commentText,
+                post: args.postId,
+                commentAuthor: context.user._id
+            });
+            await post.populate(["post", "commentAuthor"]);
+            return comment;
         },
         removeComment: async (parent, args) => {
             const comment = await Comment.findByIdAndDelete(args.commentId);
