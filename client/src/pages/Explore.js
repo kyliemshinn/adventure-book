@@ -7,44 +7,47 @@ import "../styles/CardStyles.css";
 
 // TO-DO: onClick of a post redirect to viewPost
 // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
-// import { useQuery } from "@apollo/client";
-// import { QUERY_POSTS } from '../utils/queries';
+import { useQuery } from "@apollo/client";
+import { QUERY_POSTS } from "../utils/queries";
 
 const Explore = () => {
-  // const { loading, data } = useQuery(QUERY_POSTS);
+  const { data } = useQuery(QUERY_POSTS);
 
-  // const posts = data?.posts || {};
-
+  const posts = data?.posts || [];
+  console.log(posts);
+  // if (loading) {
+  //   return <div>Loading...</div>;
+  // }
   // temp dummy data
-  const posts = [
-    {
-      _id: 1,
-      author: "Mia Carmen",
-      title: "Japan",
-      tags: "#sushi",
-    },
-    {
-      _id: 2,
-      author: "Brad Pitt",
-      title: "Australia",
-      tags: "#scubadiving",
-    },
-    {
-      _id: 3,
-      author: "Ryan Gosling",
-      title: "Italy",
-      tags: ["#vineyards", "#pasta"],
-    },
-  ];
+  // const posts = [
+  //   {
+  //     _id: 1,
+  //     author: "Mia Carmen",
+  //     title: "Japan",
+  //     tags: "#sushi",
+  //   },
+  //   {
+  //     _id: 2,
+  //     author: "Brad Pitt",
+  //     title: "Australia",
+  //     tags: "#scubadiving",
+  //   },
+  //   {
+  //     _id: 3,
+  //     author: "Ryan Gosling",
+  //     title: "Italy",
+  //     tags: ["#vineyards", "#pasta"],
+  //   },
+  // ];
 
-// const SearchBar = ({ onFormSubmit }) => {
-//   const [term, setTerm] = useState();
-//   const sendTerm = (event) => {
-//     event.preventDefault();
+  // const SearchBar = ({ onFormSubmit }) => {
+  //   const [term, setTerm] = useState();
+  //   const sendTerm = (event) => {
+  //     event.preventDefault();
 
-//     onFormSubmit(term);
-//   }
-// };
+  //     onFormSubmit(term);
+  //   }
+  // };
 
   return (
     <div className="pageContainer">
@@ -105,16 +108,15 @@ const Explore = () => {
           {/* map through posts */}
           {/* If the data is still loading, render a loading message */}
 
-          {posts &&
-            posts.map((post) => (
-              <Link to={`/explore/viewpost/${post._id}`}>
-                <ExploreCard
-                  title={post.title}
-                  author={post.author}
-                  tags={post.tags}
-                />
-              </Link>
-            ))}
+          {posts.map((post) => (
+            <Link key={post.id} to={`/explore/viewpost/${post.id}`}>
+              <ExploreCard
+                title={post.title}
+                author={post.author.username}
+                tags={post.tags}
+              />
+            </Link>
+          ))}
 
           {/* <Link to="viewpost"><ExploreCard /></Link>
           <Link to="viewpost"><ExploreCard /></Link>
