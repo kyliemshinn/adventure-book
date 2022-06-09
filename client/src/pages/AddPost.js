@@ -47,6 +47,7 @@ function AddPost() {
     try {
       const data = await addPost({
         variables: {
+          title: createPost.title,
           content: createPost.content,
           tags: createPost.tags,
           location: createPost.location,
@@ -54,6 +55,7 @@ function AddPost() {
       });
       console.log(data);
       setPost({
+        title: "",
         content: "",
         tags: [""],
         location: { latitude: 0, longitude: 0 },
