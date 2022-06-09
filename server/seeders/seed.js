@@ -1,8 +1,9 @@
 const db = require('../config/connection');
-const { Post, User } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 const postSeed = require('./postSeed.json');
 const userSeed = require('./userSeed.json');
+const commentSeed = require('./commentSeed.json');
 
 db.once('open', async () => {
     //clean database
@@ -13,15 +14,19 @@ db.once('open', async () => {
     await User.insertMany(userSeed);
 
     const randomUser = await User.findOne({});
-    console.log(randomUser);
-    console.log(randomUser._id);
     for(e of postSeed) {
         e.author = randomUser._id;
         e.location = { latitude: 1, longitude: 2 };
-        console.log(e);
     }
 
     await Post.insertMany(postSeed);
+    const randomPost = await Post.findOne({});
+    for(e of commentSeed) {
+        e.commentAuthor = randomUser._id;
+        e.post = randomPost._id;
+    }
+
+    await Comment.insertMany(commentSeed);
 
     // const posts = await Post.insertMany(postSeed);
     // const users = await User.insertMany(userSeed);
