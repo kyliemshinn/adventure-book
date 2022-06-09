@@ -55,6 +55,8 @@ const Login = () => {
     setLoginState({ username: "", password: "" });
   };
 
+  //balloons render on page
+  //TODO: create function that holds all this and add it to onclick with a delay setting
   function random(num) {
     return Math.floor(Math.random() * num);
   }
