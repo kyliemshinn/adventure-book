@@ -1,10 +1,9 @@
 // TO-DO: update carousel for this posts images
-// TO-DO: update this posts description section
 // TO-DO: comment box
 
 // TO-DO: allow user to view any tagged locations
 // TO-DO: allow user to save this post to their dashboard
-import React from "react";
+import React, { useState } from "react";
 import { Hero } from "react-daisyui";
 
 import SimpleImageSlider from "react-simple-image-slider";
@@ -40,7 +39,7 @@ const ViewPost = () => {
     author: "Ryan Gosling",
     createdAt: "MM-DD-YYYY",
     content:
-      "Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs.",
+      "Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs.",
     title: "Italy",
     location: "Portofino",
     tags: ["#vineyards", "#pasta", "#wine"],
@@ -48,6 +47,12 @@ const ViewPost = () => {
       "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
   };
   console.log(post);
+
+  const [iconState, setIconState] = useState();
+
+  const onIconClick = (event) => {
+
+  }
 
   return (
     <div className="text-neutral-content">
@@ -58,14 +63,14 @@ const ViewPost = () => {
             {/* onClick, save to collections */}
             {/* highlight when saved */}
             <div>
-              <i class="fa-solid fa-bookmark fa-xl pt-3 float-right"></i>
+              <i className="fa-solid fa-bookmark fa-xl pt-3 float-right"></i>
             </div>
             <h2 className="text-bold text-2xl text-neutral-content">
               {post.title}
             </h2>
             <p>{post.author}</p>
           </div>
-          <div className="grid grid-cols-2 gap-2 py-3 pb-9">
+          <div className="grid grid-cols-2 gap-4 py-3 pb-9">
             <div className="slider h-vh">
               <SimpleImageSlider
                 width={720}
@@ -81,11 +86,11 @@ const ViewPost = () => {
                 ))}
             </div>
 
-            <div className="bg-base-100 ml-14 mb-6">
+            <div className="bg-base-100 mb-6 ">
               {/* <p className="float-right">{post.createdAt}</p> */}
-              <div className="truncate">
-                <h3>{post.content}</h3>
-              </div>
+              <div className="max-w-2xl">
+                <h3 className="pl-8 pt-5 overflow-wrap">{post.content}</h3>
+             </div>
             </div>
           </div>
           <div className="bg-base-100 px-8">

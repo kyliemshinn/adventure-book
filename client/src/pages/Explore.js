@@ -37,6 +37,15 @@ const Explore = () => {
   },
 ];
 
+// const SearchBar = ({ onFormSubmit }) => {
+//   const [term, setTerm] = useState();
+//   const sendTerm = (event) => {
+//     event.preventDefault();
+
+//     onFormSubmit(term);
+//   }
+// };
+
   return (
     <div className="pageContainer">
       <Hero className="pt-7 pb-2 bg-base-200 place-items-center">
@@ -53,11 +62,14 @@ const Explore = () => {
         <div className="pt-20 relative mx-auto text-gray-600">
           {/* handle form submit that renders posts with the tags that were searched */}
           <div className="form-control">
+          <form className="form" >
             <div className="input-group">
               <input
                 type="text"
+                
                 placeholder="#sailing #hiking #surfing..."
                 class="input input-bordered"
+               
               />
               <button className="btn bg-accent border-none hover:bg-accent-focus btn-square">
                 <svg
@@ -76,6 +88,7 @@ const Explore = () => {
                 </svg>
               </button>
             </div>
+            </form>
           </div>
         </div>
       </Hero>
