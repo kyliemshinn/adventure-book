@@ -11,6 +11,16 @@ db.once('open', async () => {
 
     //bulk create from the models
     await User.insertMany(userSeed);
+
+    const randomUser = await User.findOne({});
+    console.log(randomUser);
+    console.log(randomUser._id);
+    for(e of postSeed) {
+        e.author = randomUser._id;
+        e.location = { latitude: 1, longitude: 2 };
+        console.log(e);
+    }
+
     await Post.insertMany(postSeed);
 
     // const posts = await Post.insertMany(postSeed);
