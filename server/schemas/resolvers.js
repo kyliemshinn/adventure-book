@@ -38,10 +38,11 @@ const resolvers = {
         },
         createPost: async (parent, args, context) => {
             const post = await Post.create({
+                title: args.title,
                 content: args.content,
                 author: context.user._id,
-                tags: ["Tags"],
-                location: { latitude: 0, longitude: 0 },
+                tags: args.tags,
+                location: args.location,
             });
             await post.populate("author");
             return post;
