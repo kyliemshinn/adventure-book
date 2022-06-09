@@ -29,6 +29,11 @@ function AddPost() {
 
   const [location, setLocation] = useState([0.01, 0.01]);
 
+  function readLocation(arg)
+  {
+    setLocation([arg.latitude, arg.longitude]);
+  }
+
   //setting up upload image
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -61,8 +66,6 @@ function AddPost() {
 
   const [addPost, { error }] = useMutation(CREATE_POST);
 
-  console.log(error);
-
   const handlePostSubmit = async (event) => {
     event.preventDefault();
 
@@ -82,9 +85,8 @@ function AddPost() {
         tags: [""],
         location: { latitude: 0, longitude: 0 },
       });
-    } catch (error) {
-      console.error(error);
-      console.log("testing");
+    } catch {
+      console.error("Error!", error);
     }
   };
 
@@ -107,9 +109,9 @@ function AddPost() {
     <div className="pageContainer">
       <h1>H1</h1>
       <div style={{ height: "600px", width: "800px" }}>
-        <Map height="600px" width="800px" locations={pushPins} onClick={setLocation}/>
+        <Map height="600px" width="800px" locations={pushPins} onClick={readLocation}/>
       </div>
-      <h1 className="text-neutral-content">{location}</h1>
+      <h1 className="text-neutral-content">{location[0] + ", " + location[1]}</h1>
       <div>
         <div className="card lg:card-side bg-base-100 shadow-xl m-24">
           <div className="card-body">

@@ -169,7 +169,7 @@ function Map(props) {
           center = {[13.0827, 80.2707]}
           mapTypeId = {"aerial"}
           pushPins = {props.locations}
-          getLocation = {{ addHandler: "click", callback:() => {console.log("LOL")} }}
+          getLocation = {{ addHandler: "click", callback:props.onClick }}
         /> 
       </div>
     );
