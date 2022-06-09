@@ -1,4 +1,4 @@
-const { User, Post } = require("../models");
+const { User, Post, Comment } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -53,14 +53,16 @@ const resolvers = {
             post = await post.save();
             return post;
         },
-        removePost: async () => {
-            return "removePost";
+        removePost: async (parent, args) => {
+            const post = await Post.findByIdAndDelete(args.postId);
+            return post;
         },
-        addComment: async () => {
+        addComment: async (parent, args) => {
             return "addComment";
         },
-        removeComment: async () => {
-            return "removecomment";
+        removeComment: async (parent, args) => {
+            const comment = await Comment.findByIdAndDelete(args.commentId);
+            return comment;
         },
     }
 }
