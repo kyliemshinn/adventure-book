@@ -18,9 +18,9 @@ const CommentSection = ({ comments = [] }) => {
               <div className="p-3 bg-dark text-light">
                 <h5 className="card-header">
                   {comment.commentAuthor} commented{' '}
-                  <span style={{ fontSize: '0.825rem' }}>
+                  {/* <span style={{ fontSize: '0.825rem' }}>
                     on {comment.createdAt}
-                  </span>
+                  </span> */}
                 </h5>
                 <p className="card-body">{comment.commentText}</p>
               </div>
