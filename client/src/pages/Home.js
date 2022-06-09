@@ -17,7 +17,16 @@ const Home = () => {
                 <span className="page turn"></span>
                 <span className="page turn"></span>
                 <span className="page turn"></span>
-                <span className="page turn"></span>
+                <span className="page turn">
+                  <iframe
+                    src="https://giphy.com/embed/iFqLTjlvndks0"
+                    width="143"
+                    height="200"
+                    frameBorder="0"
+                    class="giphy-embed"
+                    allowFullScreen
+                  ></iframe>
+                </span>
                 <span className="page turn"></span>
                 <span className="page turn"></span>
                 <span className="cover"></span>
@@ -40,27 +49,26 @@ const Home = () => {
           </div>
         </Hero.Content>
       </Hero>
-     
-        <Hero className="bg-base-200">
-          <Hero.Content className="text-center text-neutral-content max-w-screen-md">
-            <div>
-              <h2 className="py-6 text-2xl font-medium">
-                Get Recommendations From Real People <br></br>
-                Who Have Experienced The Places You Want to Go, And The
-                Activities You Want To Do. <br></br>
-                Discover Hidden Gems, Live Like The Locals Do. <br></br>
-                Google and Travel Advisor Don’t Always Know It All.
-              </h2>
-              <Link
-                to="/explore"
-                className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-4 bg-accent text-base-content"
-              >
-                Explore
-              </Link>
-            </div>
-          </Hero.Content>
-        </Hero>
-      
+
+      <Hero className="bg-base-200">
+        <Hero.Content className="text-center text-neutral-content max-w-screen-md">
+          <div>
+            <h2 className="py-6 text-2xl font-medium">
+              Get Recommendations From Real People <br></br>
+              Who Have Experienced The Places You Want to Go, And The Activities
+              You Want To Do. <br></br>
+              Discover Hidden Gems, Live Like The Locals Do. <br></br>
+              Google and Travel Advisor Don’t Always Know It All.
+            </h2>
+            <Link
+              to="/explore"
+              className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-4 bg-accent text-base-content"
+            >
+              Explore
+            </Link>
+          </div>
+        </Hero.Content>
+      </Hero>
     </div>
   );
 };
