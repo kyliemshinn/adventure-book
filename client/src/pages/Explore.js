@@ -29,7 +29,7 @@ const Explore = () => {
           </h2>
           <h3 className="py-5">
             Search for tags to find other user's posts with the activities or
-            palce you want to explore
+            place you want to explore
           </h3>
         </div>
         <div className="pt-20 relative mx-auto text-gray-600">

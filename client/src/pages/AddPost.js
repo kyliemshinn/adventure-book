@@ -62,6 +62,7 @@ function AddPost() {
     try {
     await addPost({
       variables: {
+        images: [image],
         title: createPost.title,
         content: createPost.content,
         tags: createPost.tags,
