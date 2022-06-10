@@ -33,7 +33,6 @@ function AddPost() {
   // when the button is clicked for new post to create - run this function
   const [createPost, setPost] = useState({
     title: "",
-    // images: "",
     content: "",
     tags: [""]
   });
@@ -63,7 +62,7 @@ function AddPost() {
     try {
     await addPost({
       variables: {
-        // images: createPost.images,
+        images: [image],
         title: createPost.title,
         content: createPost.content,
         tags: createPost.tags,

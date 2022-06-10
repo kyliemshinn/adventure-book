@@ -5,6 +5,7 @@ export const QUERY_POSTS = gql`
     posts {
       id
       title
+      images
       author {
         username
       }
@@ -46,13 +47,13 @@ export const QUERY_USER = gql`
     user {
       id
       username
+     # collections
       posts {
         id
         title
+        images
         content
-        author
         tags
-        location
       }
     }
   }  

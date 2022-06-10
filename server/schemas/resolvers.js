@@ -4,7 +4,11 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
     Query: {
         user: async (parent, args, context) => {
+            // console.log('user query')
+            // console.log(context.user._id)
             const user = await User.findById(context.user._id);
+            await user.populate('posts')
+            console.log(user)
             return user;
         },
         posts: async () => {
@@ -48,7 +52,7 @@ const resolvers = {
                 title: args.title,
                 content: args.content,
                 author: context.user._id,
-                // images: args.images,
+                images: args.images,
                 tags: args.tags,
                 location: args.location,
             });

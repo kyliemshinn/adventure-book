@@ -41,13 +41,14 @@ import "../styles/CardStyles.css";
 // ];
 
 const Dashboard = () => {
-  const { postId } = useParams();
+  // const { postId } = useParams();
 
   const { loading, data } = useQuery(QUERY_USER, {
-    variables: { userId: postId },
+    // variables: { userId: postId },
   });
-  const posts = data?.user || [];
-  console.log(posts)
+  const user = data?.user || {};
+  console.log(user)
+  console.log(user.posts)
 
   if (loading) {
     return <div>Loading...</div>;
@@ -73,8 +74,8 @@ const Dashboard = () => {
 
             {/* Dynamically update based on users recent posts */}
             <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content">
-              {posts.map((post) => (
-                    <DashCard image={post.image} title={post.title} post={post} />
+              {user.posts.map((post) => (
+                    <DashCard  title={post.title} post={post} />
                 ))}
           
               {/* Add onClick function to render AddPost page*/}

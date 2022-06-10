@@ -48,14 +48,14 @@ const typeDefs = gql`
     }
 
     type Query {
-        user: [User]
+        user: User
         posts: [Post]
         post(postId: ID!): Post
         postsByTag(tags: [String]!): [Post]
     }
 
     type Mutation {
-        createPost(title: String!, content: String!, tags: [String]!, location: LocationInput!): Post
+        createPost(title: String!, content: String!, tags: [String]!, location: LocationInput!, images: [String]!): Post
         updatePost(postId: ID!, content: String, tags: [String]): Post
 
         removePost(postId: ID!): Post
