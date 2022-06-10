@@ -38,23 +38,22 @@ export const QUERY_SINGLE_POST = gql`
         }
       }
     }
-}
+  }
 `;
 
 export const QUERY_USER = gql`
-    query user {
-        user {
-            id
-            username
-            posts {
-              id
-              title
-              content
-              author
-              tags
-              location
-            }  
-        }
+  query user {
+    user {
+      id
+      username
+      posts {
+        id
+        title
+        content
+        author
+        tags
+        location
+      }
     }
   }
 `;
