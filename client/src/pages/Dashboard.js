@@ -17,8 +17,7 @@ import "../styles/CardStyles.css";
 const posts = [
   {
     _id: 1,
-    image:
-      "https://images.unsplash.com/photo-1654727433983-1b72489e291e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    image: "https://images.unsplash.com/photo-1642175068707-f6e8f45e874c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     author: "Mia Carmen",
     title: "Japan",
     tags: ["#boba", "#sushi"],
@@ -26,7 +25,7 @@ const posts = [
   {
     _id: 2,
     image:
-      "https://images.unsplash.com/photo-1654763001405-e714d19333e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      "https://images.unsplash.com/photo-1654795011363-c97d7ff5a492?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
     author: "Brad Pitt",
     title: "Australia",
     tags: "#scubadiving",
@@ -42,18 +41,18 @@ const posts = [
 ];
 
 const Dashboard = () => {
-  // NOTE: mau need to rename the userId
-  const { userId } = useParams();
+  const { postId } = useParams();
 
   const { loading, data } = useQuery(QUERY_USER, {
-    variables: { userId: userId },
+    variables: { userId: postId },
   });
 
-  const user = data?.user || {};
+  const user = data?.user || [];
 
   if (loading) {
     return <div>Loading...</div>;
   }
+
   return (
     <div className="pageContainer">
       <div>
@@ -72,12 +71,8 @@ const Dashboard = () => {
             </h2>
             {/* Dynamically update based on users recent posts */}
             <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content">
-              {posts &&
-                posts.map((post) => (
-                  <Link to={`/dashboard/viewpost/${post._id}`}>
-                    {" "}
-                    <DashCard image={post.image} title={post.title} />
-                  </Link>
+              {posts.map((post) => (
+                    <DashCard image={post.image} title={post.title} post={post} />
                 ))}
               {/*
             <DashCard />
