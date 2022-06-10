@@ -4,20 +4,21 @@
 } */
 
 .appName {
-  font-family: 'Londrina Solid', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: "Londrina Solid", Impact, Haettenschweiler, "Arial Narrow Bold",
+    sans-serif;
   /* font-family: 'Staatliches', cursive; */
-    
-  }
-
-  .pageContainer {
-    position: relative;
-    min-height: 100vh;
-    padding-bottom: 10rem;
-  }
- 
-  
-  .footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
 }
+
+.pageContainer {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 10rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+

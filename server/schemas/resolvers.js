@@ -12,8 +12,15 @@ const resolvers = {
             return posts;
         },
         post: async (parent, args) => {
-            const post = await Post.findById(args.id).populate(["author", "comments"]);
+            const post = await Post.findById(args.postId).populate(["author", "comments"]);
+            console.log(post);
             return post;
+        },
+        postsByTag: async (parent, args) => {
+            const posts = await Post.find({
+                tags: args.tags[0]
+            });
+            return posts;
         }
     },
     Mutation: {
