@@ -14,31 +14,31 @@ import "font-awesome/css/font-awesome.min.css";
 import "../App.css";
 import "../styles/CardStyles.css";
 
-const posts = [
-  {
-    _id: 1,
-    image: "https://images.unsplash.com/photo-1642175068707-f6e8f45e874c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    author: "Mia Carmen",
-    title: "Japan",
-    tags: ["#boba", "#sushi"],
-  },
-  {
-    _id: 2,
-    image:
-      "https://images.unsplash.com/photo-1654795011363-c97d7ff5a492?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
-    author: "Brad Pitt",
-    title: "Australia",
-    tags: "#scubadiving",
-  },
-  {
-    _id: 3,
-    image:
-      "https://images.unsplash.com/photo-1654721094514-d7c8364178c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-    author: "Ryan Gosling",
-    title: "Italy",
-    tags: "#vineyards",
-  },
-];
+// const posts = [
+//   {
+//     _id: 1,
+//     image: "https://images.unsplash.com/photo-1642175068707-f6e8f45e874c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+//     author: "Mia Carmen",
+//     title: "Japan",
+//     tags: ["#boba", "#sushi"],
+//   },
+//   {
+//     _id: 2,
+//     image:
+//       "https://images.unsplash.com/photo-1654795011363-c97d7ff5a492?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60",
+//     author: "Brad Pitt",
+//     title: "Australia",
+//     tags: "#scubadiving",
+//   },
+//   {
+//     _id: 3,
+//     image:
+//       "https://images.unsplash.com/photo-1654721094514-d7c8364178c9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+//     author: "Ryan Gosling",
+//     title: "Italy",
+//     tags: "#vineyards",
+//   },
+// ];
 
 const Dashboard = () => {
   const { postId } = useParams();
@@ -46,8 +46,8 @@ const Dashboard = () => {
   const { loading, data } = useQuery(QUERY_USER, {
     variables: { userId: postId },
   });
-  console.log(data)
-  // const user = data?.user || [];
+  const posts = data?.user || [];
+  console.log(posts)
 
   if (loading) {
     return <div>Loading...</div>;
