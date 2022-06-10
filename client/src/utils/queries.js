@@ -18,7 +18,9 @@ export const QUERY_SINGLE_POST = gql`
   query singlePost($postId: ID!) {
     post(postId: $postId) {
       id
-      author
+      # author {
+      #   username
+      # }
       title
       createdAt
       content
@@ -31,8 +33,9 @@ export const QUERY_SINGLE_POST = gql`
       comments {
         id
         commentText
-        post
-        commentAuthor
+        commentAuthor {
+          username
+        }
       }
     }
   }
