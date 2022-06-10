@@ -75,9 +75,9 @@ const Signup = () => {
       }
     }
 
-    setTimeout(function(){
-      window.location.replace("/dashboard");
-    }, 5000);
+    // setTimeout(function(){
+    //   window.location.replace("/dashboard");
+    // }, 5000);
   
     createBalloons(100);
   }
@@ -127,7 +127,7 @@ const Signup = () => {
                   <button
                     className="btn btn-primary bg-accent text-base-content hover:bg-accent-focus hover:shadow-lg rounded-full border-none"
                     type="submit"
-                    // onClick={displayBalloons}
+                    onClick={displayBalloons}
                   >
                     Signup
                   </button>
