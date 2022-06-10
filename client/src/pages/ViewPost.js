@@ -1,9 +1,7 @@
 // TO-DO: update carousel for this posts images
-// TO-DO: comment box
-
 // TO-DO: allow user to view any tagged locations
 // TO-DO: allow user to save this post to their dashboard
-import React, { useState } from "react";
+import React from "react";
 import { Hero } from "react-daisyui";
 
 import SimpleImageSlider from "react-simple-image-slider";
@@ -13,46 +11,46 @@ import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
 
 // Import useParams Hook
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // Import useQuery Hook to use Single Post query
-// import { useQuery } from "@apollo/client";
-// import { QUERY_SINGLE_POST } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { QUERY_SINGLE_POST } from "../utils/queries";
 // import { comment } from "postcss";
 
 const ViewPost = () => {
-  //Use useParams to retrieve value of the route parameter ':postId'
-  // const { postId } = useParams();
-  // console.log(postId);
-  // const { loading, data } = useQuery(QUERY_SINGLE_POST, {
-  //   // pass URL parameter
-  //   variables: { postId: postId },
-  // });
-
-  // const post = data?.post || {};
+  // Use useParams to retrieve value of the route parameter ':postId'
+  const { postId } = useParams();
+  console.log(postId);
+  const { data } = useQuery(QUERY_SINGLE_POST, {
+    // pass URL parameter
+    variables: { postId: postId },
+  });
+  console.log(data);
+  const post = data?.post || {};
 
   // if (loading) {
   //   return <div>Loading...</div>;
   // }
-
-  const post = {
-    _id: 3,
-    author: "Ryan Gosling",
-    createdAt: "MM-DD-YYYY",
-    content:
-      "Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs.",
-    title: "Italy",
-    location: "Portofino",
-    tags: ["#vineyards", "#pasta", "#wine"],
-    images:
-      "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
-  };
   console.log(post);
+  // const post = {
+  //   _id: 3,
+  //   author: "Ryan Gosling",
+  //   createdAt: "MM-DD-YYYY",
+  //   content:
+  //     "Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs.",
+  //   title: "Italy",
+  //   location: "Portofino",
+  //   tags: ["#vineyards", "#pasta", "#wine"],
+  //   images:
+  //     "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
+  // };
+  // console.log(post);
 
-  const [iconState, setIconState] = useState();
+  // const [iconState, setIconState] = useState();
 
-  const onIconClick = (event) => {
+  // const onIconClick = (event) => {
 
-  }
+  // }
 
   return (
     <div className="text-neutral-content">
@@ -68,7 +66,7 @@ const ViewPost = () => {
             <h2 className="text-bold text-2xl text-neutral-content">
               {post.title}
             </h2>
-            <p>{post.author}</p>
+            {/* <p>{post.author.username}</p> */}
           </div>
           <div className="grid grid-cols-2 gap-4 py-3 pb-9">
             <div className="slider h-vh">
@@ -80,21 +78,20 @@ const ViewPost = () => {
                 showNavs={true}
                 overflow="hidden"
               />
-              {post.tags &&
-                post.tags.map((tag) => (
-                  <div className="badge badge-outline">{tag}</div>
-                ))}
+
+              <div className="badge badge-outline">{post.tags}</div>
             </div>
 
             <div className="bg-base-100 mb-6 ">
-              {/* <p className="float-right">{post.createdAt}</p> */}
+              <p className="float-right">{post.createdAt}</p>
               <div className="max-w-2xl">
                 <h3 className="pl-8 pt-5 overflow-wrap">{post.content}</h3>
-             </div>
+              </div>
             </div>
           </div>
           <div className="bg-base-100 px-8">
-            {/* map through comments *ref thoughtList (26) */}
+            {" "}
+           
             <div className="pt-4">
               <CommentSection />
             </div>
