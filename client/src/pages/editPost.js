@@ -1,11 +1,9 @@
 import React from "react";
 import { Hero } from "react-daisyui";
 import "../App.css";
-import CommentSection from "../components/CommentSection/CommentSection";
-import CommentForm from "../components/CommentForm/CommentForm";
 
 
-const editPost = () => {
+const EditPost = () => {
 
 
   return (
@@ -39,4 +37,4 @@ const editPost = () => {
   );
 };
 
-export default editPost;
+export default EditPost;
