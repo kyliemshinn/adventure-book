@@ -57,6 +57,11 @@ const resolvers = {
                 location: args.location,
             });
             await post.populate("author");
+            // Don't forget to add to user's posts!
+            const author = await User.findById(context.user._id);
+            author.posts.push(post._id);
+            await author.save();
+            
             return post;
         },
         updatePost: async (parent, args) => {
