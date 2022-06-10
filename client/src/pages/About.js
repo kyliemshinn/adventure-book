@@ -3,7 +3,9 @@ import { Button } from "react-daisyui";
 
 const About = () => {
   return (
-    <div className="container text-secondary-content text-center my-10">
+    <div className="container card text-secondary-content text-center my-10">
+      <div>
+      </div>
       <h2 className="py-6 text-2xl font-extrabold">Welcome to Adventure Book!</h2>
       <p>
         Your one-stop-shop for your travel experiences - from planning to

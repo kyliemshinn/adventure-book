@@ -23,7 +23,7 @@ const Home = () => {
                     width="143"
                     height="200"
                     frameBorder="0"
-                    class="giphy-embed"
+                    className="giphy-embed"
                     allowFullScreen
                   ></iframe>
                 </span>
