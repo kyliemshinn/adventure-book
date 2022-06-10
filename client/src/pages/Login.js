@@ -14,12 +14,12 @@ const Login = () => {
   const [loginUser, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (e) => {
-    // const newLoginState = {
-    //   username: loginState.username,
-    //   password: loginState.password,
-    // }; // Copy state to new object
-    // newLoginState[e.target.name] = e.target.value; // Overwrite state key that was changed with new property
-    // setLoginState(newLoginState);
+    const newLoginState = {
+      username: loginState.username,
+      password: loginState.password,
+    }; // Copy state to new object
+    newLoginState[e.target.name] = e.target.value; // Overwrite state key that was changed with new property
+    setLoginState(newLoginState);
     const { name, value } = e.target;
 
     setLoginState({
@@ -33,20 +33,20 @@ const Login = () => {
     console.log(loginState);
     try {
       // TODO save user to state so that we can use it in UI
-      // const { token, user } =
-      // (
-      //   await loginUser({
-      //     variables: {
-      //       email: loginState.username,
-      //       password: loginState.password,
-      //     },
-      //   })
-      // ).data.login;
+      const { token, user } =
+      (
+        await loginUser({
+          variables: {
+            email: loginState.username,
+            password: loginState.password,
+          },
+        })
+      ).data.login;
       const { data } = await loginUser({
         variables: { ...loginState },
       });
-      //console.log(token);
-      //console.log(user);
+      console.log(token);
+      console.log(user);
       Auth.login(data.login.token);
     } catch (e) {
       console.error(error);
@@ -105,7 +105,7 @@ const Login = () => {
               WELCOME BACK
             </h1>
             {data ? (
-              <p>
+              <p className="text-secondary-context">
                 Success! You may now head{" "}
                 <Link to="/">back to the homepage.</Link>
               </p>

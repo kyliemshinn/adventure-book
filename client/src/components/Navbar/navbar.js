@@ -19,18 +19,18 @@ const Nav = () => {
 
       <Navbar.End className="flex-1 px-2 mx-2">
         <div className="md:flex items-stretch space-x-4 font-medium">
-        {/* {Auth.loggedIn() ? (
-          <> */}
+         {Auth.loggedIn() ? (
+          <> 
             <Link to="/">Home</Link>
             <Link to="/explore">Explore</Link>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/logout" onClick={logout}>Logout</Link>
-            {/* </>
+             </>
         ) : (
-          <> */}
+          <> 
             <Link to="/login">Login</Link>
-            {/* </>
-        )} */}
+             </>
+        )} 
         </div>
       </Navbar.End>
     </Navbar>
