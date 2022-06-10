@@ -93,10 +93,6 @@ function displayBalloons () {
     }
   }
 
-  setTimeout(function(){
-    window.location.replace("/dashboard");
-  }, 5000);
-
   createBalloons(100);
 
 }
