@@ -17,6 +17,7 @@ const typeDefs = gql`
         title: String!
         content: String!
         author: User!
+        createdAt: String
         tags: [String]!
         location: Location!
         collectors: [User]
