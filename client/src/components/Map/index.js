@@ -160,17 +160,26 @@ function Map(props) {
     console.log(callbackData);
   }
   render() {*/
-  let center;
+  
+  
+  /*let center;
   if(props.locations) {
-    center = props.locations[0];
+    center = props.locations;
   }
   else {
-    center = [61, -149.5];
+    center = [61.2, -149.8];
   }
+  console.log(center);*/
+
+  let locations = props.locations.map((location) => {
+      return {"location": location, "option": { color: 'red' }}
+  })
+  console.log("props.locations", locations)
+  //locations = [locations];
 
     return (
       <div style={{ height: props.height, width: props.width }}>
-        <ReactBingmaps
+        {/* <ReactBingmaps
           id = "two" 
           className = "customClass"
           bingmapKey = {"AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"}
@@ -178,7 +187,14 @@ function Map(props) {
           mapTypeId = {"aerial"}
           pushPins = {props.locations}
           getLocation = {{ addHandler: "click", callback:props.onClick }}
-        /> 
+        /> */}
+        <ReactBingmaps
+          bingmapKey = {"AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"}
+          center = {props.center}
+          mapTypeId = {"aerial"}
+          pushPins = {locations}
+          getLocation = {{ addHandler: "click", callback:props.onClick }}
+        />
       </div>
     );
   }
