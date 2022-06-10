@@ -48,6 +48,7 @@ const resolvers = {
                 title: args.title,
                 content: args.content,
                 author: context.user._id,
+                // images: args.images,
                 tags: args.tags,
                 location: args.location,
             });
