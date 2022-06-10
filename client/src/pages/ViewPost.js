@@ -9,6 +9,8 @@ import { CarouselData } from "../components/Carousel/CarouselData";
 
 import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
+import Map from "../components/Map";
+import Bookmark from '../components/Bookmark';
 
 // Import useParams Hook
 import { useParams } from "react-router-dom";
@@ -21,16 +23,16 @@ const ViewPost = () => {
   // Use useParams to retrieve value of the route parameter ':postId'
   const { postId } = useParams();
   console.log(postId);
-  const { data } = useQuery(QUERY_SINGLE_POST, {
+  const { loading, data } = useQuery(QUERY_SINGLE_POST, {
     // pass URL parameter
     variables: { postId: postId },
   });
   console.log(data);
   const post = data?.post || {};
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   console.log(post);
 
   // const [iconState, setIconState] = useState(false);
@@ -44,7 +46,7 @@ const ViewPost = () => {
             {/* onClick, save to collections */}
             {/* highlight when saved */}
             <div>
-             <button className="bookmark" > <i className="fa-solid fa-bookmark fa-xl pt-3 float-right" title="save post"></i></button>
+              <Bookmark />
             </div>
             <h2 className="text-bold text-2xl text-neutral-content">
               {post.title}
@@ -71,9 +73,21 @@ const ViewPost = () => {
                 <h3 className="pl-8 pt-5 overflow-wrap">{post.content}</h3>
               </div>
             </div>
+            <div>
+              <Map
+                height="600px"
+                width="800px"
+                bingmapKey={
+                  "AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
+                }
+                center={[post.location.latitude, post.location.longitude]}
+                mapTypeId={"aerial"}
+                pushPins={[{location: [61, -149.5], option: {color: "red"}}]}
+                getLocation={{ addHandler: "click", callback: () => {} }}
+              />
+            </div>
           </div>
           <div className="bg-base-100 px-8">
-           
             <div className="pt-4">
               <CommentSection />
             </div>
