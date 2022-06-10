@@ -57,6 +57,7 @@ const Login = () => {
 
   //balloons render on page
   //TODO: create function that holds all this and add it to onclick with a delay setting
+function displayBalloons () {
 
   function random(num) {
     return Math.floor(Math.random() * num);
@@ -88,13 +89,16 @@ const Login = () => {
     }
   }
 
-//   setTimeout(function(){
-//     window.location.reload();
-//  }, 5000);
+  setTimeout(function(){
+    window.location.replace("/dashboard");
+  }, 5000);
 
-  window.onload = function () {
-    createBalloons(100);
-  };
+  createBalloons(100);
+
+  // window.onload = function () {
+  //   createBalloons(100);
+  // };
+}
 
   return (
     <div id="balloon-container">
@@ -105,9 +109,9 @@ const Login = () => {
               WELCOME BACK
             </h1>
             {data ? (
-              <p className="text-secondary-context">
+              <p className="accent-context">
                 Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/" className="accent-context">back to the homepage.</Link>
               </p>
             ) : (
               
@@ -135,6 +139,7 @@ const Login = () => {
                     <Button
                       className="btn btn-primary rounded-full bg-accent hover:bg-accent-focus hover:shadow-lg border-none text-base-content"
                       type="submit"
+                      onClick={displayBalloons}
                     >
                       Login
                     </Button>
