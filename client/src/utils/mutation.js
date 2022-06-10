@@ -22,13 +22,9 @@ mutation createPost($title: String!, $content: String!, $tags: [String]!, $locat
 `;*/
 
 export const REMOVE_POST = gql`
-mutation removePost($postId: String!) {
+mutation removePost($postId: ID!) {
     removePost(postId: $postId) {
       id
-      title
-      content
-      author
-      tags
     }
   }
 `;
