@@ -8,7 +8,7 @@ const SearchForm = () => {
                 <input
                   type="text"
                   placeholder="#sailing #hiking #surfing..."
-                  class="input input-bordered"
+                  className="input input-bordered"
                 />
                 <button className="btn bg-accent border-none hover:bg-accent-focus btn-square">
                   <svg

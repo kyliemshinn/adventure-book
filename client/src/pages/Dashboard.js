@@ -66,9 +66,11 @@ const Dashboard = () => {
 
         <Hero className="postContainer bg-base-200 mb-10 mt-5 px-6 pb-7 overflow-auto mr-4 col-span-6">
           <div>
+
             <h2 className="text-bold text-xl text-center text-neutral-content my-4">
               My Posts
             </h2>
+
             {/* Dynamically update based on users recent posts */}
             <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content">
               {posts.map((post) => (
