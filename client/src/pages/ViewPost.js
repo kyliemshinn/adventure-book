@@ -3,7 +3,7 @@
 // TO-DO: allow user to save this post to their dashboard
 import React from "react";
 import { Hero } from "react-daisyui";
-
+import "../App.css";
 import SimpleImageSlider from "react-simple-image-slider";
 import { CarouselData } from "../components/Carousel/CarouselData";
 
@@ -32,25 +32,8 @@ const ViewPost = () => {
   //   return <div>Loading...</div>;
   // }
   console.log(post);
-  // const post = {
-  //   _id: 3,
-  //   author: "Ryan Gosling",
-  //   createdAt: "MM-DD-YYYY",
-  //   content:
-  //     "Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs. Drank wine, ate pasta, partied with some cute italian girls, drove a fiat on the wrong side of the road, gained 5lbs.",
-  //   title: "Italy",
-  //   location: "Portofino",
-  //   tags: ["#vineyards", "#pasta", "#wine"],
-  //   images:
-  //     "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
-  // };
-  // console.log(post);
 
-  // const [iconState, setIconState] = useState();
-
-  // const onIconClick = (event) => {
-
-  // }
+  // const [iconState, setIconState] = useState(false);
 
   return (
     <div className="text-neutral-content">
@@ -61,7 +44,7 @@ const ViewPost = () => {
             {/* onClick, save to collections */}
             {/* highlight when saved */}
             <div>
-              <i className="fa-solid fa-bookmark fa-xl pt-3 float-right"></i>
+             <span className="bookmark"> <i className="fa-solid fa-bookmark fa-xl pt-3 float-right" title="save post"></i></span>
             </div>
             <h2 className="text-bold text-2xl text-neutral-content">
               {post.title}
@@ -90,7 +73,6 @@ const ViewPost = () => {
             </div>
           </div>
           <div className="bg-base-100 px-8">
-            {" "}
            
             <div className="pt-4">
               <CommentSection />

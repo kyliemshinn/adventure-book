@@ -6,10 +6,6 @@ import SearchForm from '../components/SearchForm/SearchForm';
 import "../App.css";
 import "../styles/CardStyles.css";
 
-
-
-// TO-DO: onClick of a post redirect to viewPost
-// TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
 import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
 
@@ -22,15 +18,7 @@ const Explore = () => {
     return <div>Loading...</div>;
   }
 
-  // const SearchBar = ({ onFormSubmit }) => {
-  //   const [term, setTerm] = useState();
-  //   const sendTerm = (event) => {
-  //     event.preventDefault();
-
-  //     onFormSubmit(term);
-  //   }
-  // };
-
+  // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
   return (
     <div className="pageContainer">
       <Hero className="pt-7 pb-2 bg-base-200 place-items-center">
@@ -59,7 +47,7 @@ const Explore = () => {
           {/* map through posts */}
           {posts.map((post) => (
             <Link key={post.id} to={`/explore/viewpost/${post.id}`}>
-              <ExploreCard
+              <ExploreCard key={post.id}
                 title={post.title}
                 author={post.author.username}
                 tags={post.tags}

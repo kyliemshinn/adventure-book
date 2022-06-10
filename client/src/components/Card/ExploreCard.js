@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Badge } from "react-daisyui";
 
 const ExploreCard = ({ author, title, tags }) => {
+
   return (
     <Card className="postCard card w-96 bg-base-100 shadow-xl">
       <figure>
@@ -14,7 +15,9 @@ const ExploreCard = ({ author, title, tags }) => {
         <h2 className="card-title">{title}</h2>
         <p>{author}</p>
         <div className="card-actions justify-end text-accent-content">
-            <Badge className="badge badge-outline"> {tags} </Badge>
+          {/* {tags.map((tag) => ( */}
+            <Badge className="badge badge-outline">{tags}</Badge>
+          {/* ))} */}
         </div>
       </div>
     </Card>

@@ -21,7 +21,7 @@ const Dashboard = () => {
 
         <Hero className="postContainer col-span-6 bg-base-200 mb-10 mt-5 mr-4 px-6 pb-7">
           <div>
-            <div className="">
+            <div >
               <h2 className="text-bold text-lg text-center text-neutral-content my-4">
                 My Posts
               </h2>

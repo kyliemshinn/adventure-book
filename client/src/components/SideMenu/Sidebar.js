@@ -1,6 +1,4 @@
 import React from "react";
-// import * as FaIcons from 'react-icons/fa';
-// import * as AiIcons from 'react-icons/fai';
 
 const Sidebar = () => {
   return (
@@ -9,27 +7,16 @@ const Sidebar = () => {
         <div className="bg-primary">
           <h2 className="pl-2">Saved Posts</h2>
         </div>
-        <div className="pl-3 pt-3">
-          <p>
-            A Post<br></br> Username<br></br>Date Posted
-          </p>
-          <br></br>
-          <p>
-            A Post<br></br> Username<br></br>Date Posted
-          </p>
-          <br></br>
-          <p>
-            A Post<br></br> Username<br></br>Date Posted
-          </p>
-          <br></br>
-          <p>
-            A Post<br></br> Username<br></br>Date Posted
-          </p>
-          <br></br>
-          <p>
-            A Post<br></br> Username<br></br>Date Posted
-          </p>
-          <br></br>
+        <div className="place-items-center">
+        <div className="pl-4 pt-3">
+          <div className="card w-96 h-36 bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h2 className="card-title">Post Title</h2>
+              <p>Username</p>
+              <p>#Tags</p>
+            </div>
+          </div>
+          </div>
         </div>
       </div>
     </div>
