@@ -30,6 +30,7 @@ const Contact = () => {
               width="400"
               height="620"
               className="pt-4"
+              target="_blank"
             />
           </figure>
         </div>
