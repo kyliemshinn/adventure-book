@@ -77,13 +77,9 @@ const ViewPost = () => {
               <Map
                 height="600px"
                 width="800px"
-                bingmapKey={
-                  "AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"
-                }
-                center={[post.location.latitude, post.location.longitude]}
-                mapTypeId={"aerial"}
-                pushPins={[{location: [61, -149.5], option: {color: "red"}}]}
-                getLocation={{ addHandler: "click", callback: () => {} }}
+                center={[61.1, -149.8]}
+                locations={[[61.1, -149.8]]}
+                onClick={() => {}}
               />
             </div>
           </div>

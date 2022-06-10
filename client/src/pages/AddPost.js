@@ -43,10 +43,11 @@ function AddPost() {
 
   function readLocation(arg)
   {
-    setPushPins([{
+    /*setPushPins([{
       "location":[arg.latitude, arg.longitude],
       "option":{ color: 'red' }
-    }]);
+    }]);*/
+    setPushPins([arg.latitude, arg.longitude]);
     setLocation([arg.latitude, arg.longitude]);
   }
 
@@ -127,7 +128,7 @@ function AddPost() {
                   placeholder="Description of where you went activities, restaurants..."
                   onChange={handleChange}
                 ></textarea>
-                <Map height="600px" width="800px" locations={pushPins} onClick={readLocation}/>
+                <Map height="600px" width="800px" locations={[pushPins]} onClick={readLocation}/>
                 <div>
                   <p>Latitude: {location[0]}</p>
                   <p>Longitude: {location[1]}</p>
