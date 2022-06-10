@@ -35,6 +35,9 @@ const DashCard = ({image, title, post}) => {
       alert(error)
     }
   }
+  const handleEditPost  = async (post) => {
+    window.location.assign('/editpost/:postId')
+  }
 
   return (
     <Card className="postCard card w-96 bg-base-100 shadow-xl">
@@ -53,7 +56,7 @@ const DashCard = ({image, title, post}) => {
               View
             </Button>
             </Link>
-            <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg">
+            <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg" onClick={handleEditPost}>
               Edit
             </Button>
             <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg"

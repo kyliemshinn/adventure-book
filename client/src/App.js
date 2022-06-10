@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import EditPost from "./pages/EditPost";
 import "./App.css";
 
 import {
@@ -62,6 +63,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/explore/viewpost/:postId" element={<ViewPost />} />
           <Route path="/addpost" element={<AddPost />} />
+          <Route path="/editpost/postId" element={<EditPost />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="*" element={<p>Page Not Found</p>} />
