@@ -17,9 +17,14 @@ mutation createPost($title: String!, $content: String!, $tags: [String]!, $locat
 }
 `;
 
-/*export const UPDATE_POST = gql`
+export const UPDATE_POST = gql`
+mutation updatePost($postId: ID!, $content: String, $tags: [String]) {
+  updatePost(postId: $postId, content: $content, tags: $tags) {
+    id
+  }
+}
 
-`;*/
+`;
 
 export const REMOVE_POST = gql`
 mutation removePost($postId: ID!) {
