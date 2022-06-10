@@ -60,6 +60,7 @@ const Login = () => {
 
   //balloons render on page
   //TODO: create function that holds all this and add it to onclick with a delay setting
+  
 function displayBalloons () {
 
   function random(num) {
@@ -98,9 +99,6 @@ function displayBalloons () {
 
   createBalloons(100);
 
-  // window.onload = function () {
-  //   createBalloons(100);
-  // };
 }
 
   return (
