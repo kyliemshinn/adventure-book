@@ -77,8 +77,8 @@ const ViewPost = () => {
               <Map
                 height="600px"
                 width="800px"
-                center={[61.1, -149.8]}
-                locations={[[61.1, -149.8]]}
+                center={[post.location.latitude, post.location.longitude]}
+                locations={[[post.location.latitude, post.location.longitude]]}
                 onClick={() => {}}
               />
             </div>
