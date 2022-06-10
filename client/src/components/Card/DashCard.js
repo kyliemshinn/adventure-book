@@ -24,11 +24,14 @@ const DashCard = ({image, title, post}) => {
 
   const handleRemovePost = async (post) => {
     try {
-      const { data } = await removePost({variables: { post },
+      alert(post);
+      console.log(post)
+      const { data } = await removePost({variables: { postId: post.id },
       });
-      console.log(data)
+
+      //console.log(data)
     } catch (err) {
-      console.error(err)
+      //console.error(err)
       alert(error)
     }
   }

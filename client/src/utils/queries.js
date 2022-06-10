@@ -3,7 +3,7 @@ import { gql } from "@apollo/client";
 export const QUERY_POSTS = gql`
   query allPosts {
     posts {
-      _id
+      id
       title
       createdAt
       content
@@ -18,14 +18,14 @@ export const QUERY_POSTS = gql`
 export const QUERY_SINGLE_POST = gql`
     query singlePost($postId: ID!) {
      post(postId: $postId) {
-        _id
+        id
         author
         title
         createdAt
         content
         tags
         comments {
-          _id
+          id
           commentText
           post
           commentAuthor
@@ -37,10 +37,10 @@ export const QUERY_SINGLE_POST = gql`
 export const QUERY_USER = gql`
     query user {
         user {
-            _id
+            id
             username
             posts {
-              _id
+              id
               title
               content
               author
