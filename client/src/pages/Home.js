@@ -18,14 +18,7 @@ const Home = () => {
                 <span className="page turn"></span>
                 <span className="page turn"></span>
                 <span className="page turn">
-                  <iframe
-                    src="https://giphy.com/embed/iFqLTjlvndks0"
-                    width="143"
-                    height="200"
-                    frameBorder="0"
-                    className="giphy-embed"
-                    allowFullScreen
-                  ></iframe>
+               <img src="https://png.clipart.me/previews/8b7/passport-stamp-seal-02-vector-8661.jpg" alt="passport stamps" />
                 </span>
                 <span className="page turn"></span>
                 <span className="page turn"></span>

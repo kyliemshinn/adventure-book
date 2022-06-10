@@ -25,7 +25,7 @@ const resolvers = {
     },
     Mutation: {
         login: async (parent, args) => {
-            const user = await User.findOne({ email: args.email });
+            const user = await User.findOne({ username: args.username });
             if(!user) {
                 console.log("User not found!")
                 return null;

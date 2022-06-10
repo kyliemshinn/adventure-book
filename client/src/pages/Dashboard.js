@@ -46,8 +46,8 @@ const Dashboard = () => {
   const { loading, data } = useQuery(QUERY_USER, {
     variables: { userId: postId },
   });
-
-  const user = data?.user || [];
+  console.log(data)
+  // const user = data?.user || [];
 
   if (loading) {
     return <div>Loading...</div>;
@@ -76,11 +76,7 @@ const Dashboard = () => {
               {posts.map((post) => (
                     <DashCard image={post.image} title={post.title} post={post} />
                 ))}
-              {/*
-            <DashCard />
-            <DashCard />
-            <DashCard />
-            <DashCard /> */}
+          
               {/* Add onClick function to render AddPost page*/}
               <div className="m-10">
                 <Link

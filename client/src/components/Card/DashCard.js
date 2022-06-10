@@ -29,7 +29,7 @@ const DashCard = ({image, title, post}) => {
       const { data } = await removePost({variables: { postId: post.id },
       });
 
-      //console.log(data)
+      console.log(data)
     } catch (err) {
       //console.error(err)
       alert(error)

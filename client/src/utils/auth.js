@@ -28,13 +28,16 @@ class AuthService {
   }
 
   login(idToken) {
+    setTimeout(function() {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/');
+    window.location.assign('/explore');
+    }, 3000)
   }
+  
 
   logout() {
     localStorage.removeItem('id_token');
-    window.location.reload();
+    window.location.assign('/');
   }
 }
 

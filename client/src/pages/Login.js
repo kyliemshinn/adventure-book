@@ -10,7 +10,6 @@ import "../styles/Balloons.css";
 
 const Login = () => {
   const [loginState, setLoginState] = useState({ username: "", password: "" });
-
   const [loginUser, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (e) => {
@@ -20,7 +19,9 @@ const Login = () => {
     // }; // Copy state to new object
     // newLoginState[e.target.name] = e.target.value; // Overwrite state key that was changed with new property
     // setLoginState(newLoginState);
-    const { name, value } = e.target;
+    // const { name, value } = e.target;
+    const { name, value} = e.target;
+
 
     setLoginState({
       ...loginState,
@@ -33,30 +34,34 @@ const Login = () => {
     console.log(loginState);
     try {
       // TODO save user to state so that we can use it in UI
-      // const { token, user } =
-      // (
-      //   await loginUser({
-      //     variables: {
-      //       email: loginState.username,
-      //       password: loginState.password,
-      //     },
-      //   })
-      // ).data.login;
+      const { token, user } =
+      (
+        await loginUser({
+          variables: {
+            username: loginState.username,
+            password: loginState.password,
+          },
+        })
+      ).data.login;
       const { data } = await loginUser({
         variables: { ...loginState },
       });
-      //console.log(token);
-      //console.log(user);
+      console.log(token);
+      console.log(user);
+
       Auth.login(data.login.token);
     } catch (e) {
       console.error(error);
     }
     // clear form values
-    setLoginState({ email: "", password: "" });
+    setLoginState({ username: "", password: "" });
+  
   };
 
   //balloons render on page
   //TODO: create function that holds all this and add it to onclick with a delay setting
+  
+function displayBalloons () {
 
   function random(num) {
     return Math.floor(Math.random() * num);
@@ -88,13 +93,9 @@ const Login = () => {
     }
   }
 
-//   setTimeout(function(){
-//     window.location.reload();
-//  }, 5000);
+  createBalloons(100);
 
-  window.onload = function () {
-    createBalloons(100);
-  };
+}
 
   return (
     <div id="balloon-container">
@@ -105,9 +106,9 @@ const Login = () => {
               WELCOME BACK
             </h1>
             {data ? (
-              <p>
+              <p className="accent-context">
                 Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/" className="accent-context">back to the homepage.</Link>
               </p>
             ) : (
               
@@ -115,8 +116,8 @@ const Login = () => {
                   <div className="input-icons">
                     <i className="fa-solid fa-user text-secondary-content icon"></i>
                     <input
-                      name="email"
-                      value={loginState.email}
+                      name="username"
+                      value={loginState.username}
                       placeholder="Username"
                       className="input input-bordered w-full max-w-xs input-field text-secondary-content"
                       onChange={handleChange}
@@ -135,6 +136,7 @@ const Login = () => {
                     <Button
                       className="btn btn-primary rounded-full bg-accent hover:bg-accent-focus hover:shadow-lg border-none text-base-content"
                       type="submit"
+                      onClick={displayBalloons}
                     >
                       Login
                     </Button>

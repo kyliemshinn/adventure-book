@@ -43,41 +43,44 @@ const Signup = () => {
   };
 
   //to get balloons to render on page
-    //TODO: create function that holds all this and add it to onclick with a delay setting
-  function random(num) {
-    return Math.floor(Math.random() * num);
-  }
+  function displayBalloons() {
 
-  function getRandomStyles() {
-    var r = random(255);
-    var g = random(255);
-    var b = random(255);
-    var mt = random(200);
-    var ml = random(50);
-    var dur = random(5) + 5;
-    return `
+    function random(num) {
+      return Math.floor(Math.random() * num);
+    }
+
+    function getRandomStyles() {
+      var r = random(255);
+      var g = random(255);
+      var b = random(255);
+      var mt = random(200);
+      var ml = random(50);
+      var dur = random(5) + 5;
+      return `
     background-color: rgba(${r},${g},${b},0.7);
     color: rgba(${r},${g},${b},0.7); 
     box-shadow: inset -7px -3px 10px rgba(${r - 10},${g - 10},${b - 10},0.7);
     margin: ${mt}px 0 0 ${ml}px;
     animation: float ${dur}s ease-in infinite
     `;
-  }
-
-  function createBalloons(num) {
-    var balloonContainer = document.getElementById("balloon-container");
-    for (var i = num; i > 0; i--) {
-      var balloon = document.createElement("div");
-      balloon.className = "balloon";
-      balloon.style.cssText = getRandomStyles();
-      balloonContainer.append(balloon);
     }
-  }
 
-  window.onload = function () {
+    function createBalloons(num) {
+      var balloonContainer = document.getElementById("balloon-container");
+      for (var i = num; i > 0; i--) {
+        var balloon = document.createElement("div");
+        balloon.className = "balloon";
+        balloon.style.cssText = getRandomStyles();
+        balloonContainer.append(balloon);
+      }
+    }
+
+    // setTimeout(function(){
+    //   window.location.replace("/dashboard");
+    // }, 5000);
+  
     createBalloons(100);
-  };
-
+  }
   return (
     <div id="balloon-container">
       <div className="justify-center flex ml-4 mr-4" id="signupForm">
@@ -102,7 +105,7 @@ const Signup = () => {
                     onChange={handleChange}
                     className="input input-bordered w-full max-w-xs input-field text-secondary-content p-4"
                   />
-                  <i class="fa-solid fa-envelope text-secondary-content icon"></i>
+                  <i className="fa-solid fa-envelope text-secondary-content icon"></i>
                   <input
                     name="email"
                     placeholder="Email"
@@ -124,6 +127,7 @@ const Signup = () => {
                   <button
                     className="btn btn-primary bg-accent text-base-content hover:bg-accent-focus hover:shadow-lg rounded-full border-none"
                     type="submit"
+                    onClick={displayBalloons}
                   >
                     Signup
                   </button>
