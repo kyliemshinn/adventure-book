@@ -160,13 +160,21 @@ function Map(props) {
     console.log(callbackData);
   }
   render() {*/
+  let center;
+  if(props.locations) {
+    center = props.locations[0];
+  }
+  else {
+    center = [61, -149.5];
+  }
+
     return (
       <div style={{ height: props.height, width: props.width }}>
         <ReactBingmaps
           id = "two" 
           className = "customClass"
           bingmapKey = {"AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"}
-          center = {[13.0827, 80.2707]}
+          center = {center}
           mapTypeId = {"aerial"}
           pushPins = {props.locations}
           getLocation = {{ addHandler: "click", callback:props.onClick }}
