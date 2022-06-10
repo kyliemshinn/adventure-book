@@ -44,7 +44,7 @@ const ViewPost = () => {
             {/* onClick, save to collections */}
             {/* highlight when saved */}
             <div>
-             <span className="bookmark"> <i className="fa-solid fa-bookmark fa-xl pt-3 float-right" title="save post"></i></span>
+             <button className="bookmark" > <i className="fa-solid fa-bookmark fa-xl pt-3 float-right" title="save post"></i></button>
             </div>
             <h2 className="text-bold text-2xl text-neutral-content">
               {post.title}
