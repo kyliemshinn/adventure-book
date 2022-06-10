@@ -10,17 +10,18 @@ import "../styles/Balloons.css";
 
 const Login = () => {
   const [loginState, setLoginState] = useState({ username: "", password: "" });
-
   const [loginUser, { error, data }] = useMutation(LOGIN);
 
   const handleChange = (e) => {
-    const newLoginState = {
-      username: loginState.username,
-      password: loginState.password,
-    }; // Copy state to new object
-    newLoginState[e.target.name] = e.target.value; // Overwrite state key that was changed with new property
-    setLoginState(newLoginState);
-    const { name, value } = e.target;
+    // const newLoginState = {
+    //   username: loginState.username,
+    //   password: loginState.password,
+    // }; // Copy state to new object
+    // newLoginState[e.target.name] = e.target.value; // Overwrite state key that was changed with new property
+    // setLoginState(newLoginState);
+    // const { name, value } = e.target;
+    const { name, value} = e.target;
+
 
     setLoginState({
       ...loginState,
@@ -37,7 +38,7 @@ const Login = () => {
       (
         await loginUser({
           variables: {
-            email: loginState.username,
+            username: loginState.username,
             password: loginState.password,
           },
         })
@@ -47,12 +48,14 @@ const Login = () => {
       });
       console.log(token);
       console.log(user);
+
       Auth.login(data.login.token);
     } catch (e) {
       console.error(error);
     }
     // clear form values
-    setLoginState({ email: "", password: "" });
+    setLoginState({ username: "", password: "" });
+  
   };
 
   //balloons render on page
@@ -119,8 +122,8 @@ function displayBalloons () {
                   <div className="input-icons">
                     <i className="fa-solid fa-user text-secondary-content icon"></i>
                     <input
-                      name="email"
-                      value={loginState.email}
+                      name="username"
+                      value={loginState.username}
                       placeholder="Username"
                       className="input input-bordered w-full max-w-xs input-field text-secondary-content"
                       onChange={handleChange}

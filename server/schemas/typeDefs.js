@@ -61,7 +61,7 @@ const typeDefs = gql`
         removePost(postId: ID!): Post
         addComment(postId: ID!, commentText: String!): Post
         removeComment(commentId: ID!): Post
-        login(email: String!, password: String!): Auth
+        login(username: String!, password: String!): Auth
         createUser(username: String!, email: String!, password: String!): Auth
     }
 `

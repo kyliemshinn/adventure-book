@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "react-daisyui";
-import PassportStamps from '../images/stamps.jpg'
 import "../App.css";
 import "../styles/Homepage.css";
 
