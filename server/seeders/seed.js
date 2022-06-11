@@ -16,7 +16,7 @@ db.once('open', async () => {
     const randomUser = await User.findOne({});
     for(e of postSeed) {
         e.author = randomUser._id;
-        e.location = { latitude: 1, longitude: 2 };
+        e.location = e.location || { latitude: 1, longitude: 2 };
     }
 
     await Post.insertMany(postSeed);
