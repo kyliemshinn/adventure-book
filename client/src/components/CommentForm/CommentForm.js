@@ -22,7 +22,7 @@ const CommentForm = ({ postId, commentId }) => {
       const { data } = await addComment({
         variables: {
           postId,
-          commentText
+          commentText,
         },
       });
       setCommentText("");
@@ -43,17 +43,15 @@ const CommentForm = ({ postId, commentId }) => {
   return (
     <div className="commentSection">
       <form className="" onSubmit={handleFormSubmit}>
-        <p className="mb-2">Comment Section</p>
+        <p className="mb-2">Join the Discussion</p>
         <Textarea
           name="commentText"
           placeholder="Add a Comment or Question"
           value={commentText}
           onChange={handleChange}
           className="w-full resize-none border-2 border-base-200"
-        >
-          {/* <p className="">Comment Section</p> */}
-        </Textarea>
-        {/* <p class="text-sm text-blue-900 float-right">Max 280 characters</p> */}
+        ></Textarea>
+
         <p
           className={`text-sm text-black-900 float-right ${
             characterCount === 280 || error ? "text-danger" : ""

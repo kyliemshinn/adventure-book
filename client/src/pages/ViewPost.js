@@ -60,6 +60,7 @@ const ViewPost = () => {
               <SimpleImageSlider
                 width={820}
                 height={700}
+                // TO_DO: map through post images array
                 images={CarouselData}
                 showBullets={true}
                 showNavs={true}
@@ -86,11 +87,11 @@ const ViewPost = () => {
                 onClick={() => {}}
               />
             </div>
-            <div className="bg-base-100 px-8 mt-4">
-              <div className="pt-4">
+            <div className="bg-base-100 px-8 mt-4 py-3">
+              <div className="">
                 <CommentSection comments={post.comments}/>
               </div>
-              <div className="pb-7">
+              <div className="pb-7 pt-5">
                 <CommentForm postId={postId}/>
               </div>
             </div>
