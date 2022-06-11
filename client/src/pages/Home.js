@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Hero } from "react-daisyui";
 import "../App.css";
 import "../styles/Homepage.css";
+import Stamps from '../images/stamps.png';
 
 const Home = () => {
   return (
@@ -18,7 +19,7 @@ const Home = () => {
                 <span className="page turn"></span>
                 <span className="page turn"></span>
                 <span className="page turn">
-               <img src="https://cpng.pikpng.com/pngl/s/53-535343_passport-stamp-png-clipart.png" alt="passport stamps" />
+               <img src={Stamps} alt="passport stamps" id="stamps"/>
                 </span>
                 <span className="page turn"></span>
                 <span className="page turn"></span>

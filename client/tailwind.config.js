@@ -17,9 +17,7 @@ module.exports = {
       },
     },
   },
-  // daisyui: {
-  //   themes: ["pastel"]
-  // },
+  
   daisyui: {
     themes: [
       {
