@@ -1,6 +1,6 @@
 import React from "react";
 import { Hero } from "react-daisyui";
-import "../App.css";
+import "../../App.css";
 
 
 const EditPost = () => {
