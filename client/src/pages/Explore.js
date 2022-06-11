@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "react-daisyui";
 import ExploreCard from "../components/Card/ExploreCard";
@@ -6,7 +6,7 @@ import SearchForm from '../components/SearchForm/SearchForm';
 import "../App.css";
 import "../styles/CardStyles.css";
 
-import { useQuery, useLazyQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 import { QUERY_POSTS, QUERY_POSTS_WITH_TAG } from "../utils/queries";
 
 const Explore = () => {
@@ -14,19 +14,27 @@ const Explore = () => {
   const [ queryData, setQueryData ] = useState([]);
 
   //const { loading, data: unfilteredData } = useQuery(QUERY_POSTS);
-  const [ getFilteredPosts, { called, loading, data } ] = useLazyQuery(QUERY_POSTS_WITH_TAG);
+  const [ getFilteredPosts ] = useLazyQuery(QUERY_POSTS_WITH_TAG);
+  const [ getUnfilteredPosts] = useLazyQuery(QUERY_POSTS);
 
   function requestSearch(criteria) {
     getFilteredPosts({
       variables: {tags: criteria}
     }).then((res) => {
-      console.log("a", res.data.postsByTag)
       if(res.data.postsByTag) {
-        console.log("Wow!", res.data.postsByTag);
         setQueryData(res.data.postsByTag);
       }
     });
   }
+
+  // Start off with the results of an unfiltered query
+  useEffect(() => {
+    getUnfilteredPosts().then((res) => {
+      if(res.data.posts) {
+        setQueryData(res.data.posts);
+      }
+    })
+  }, [getUnfilteredPosts]);
 
   // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
   return (
