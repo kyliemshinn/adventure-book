@@ -26,7 +26,7 @@ const resolvers = {
     },
     postsByTag: async (parent, args) => {
       const posts = await Post.find({
-        tags: args.tags[0],
+        tags: {$in: args.tags}
       });
       return posts;
     },

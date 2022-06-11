@@ -11,7 +11,7 @@ import { QUERY_POSTS, QUERY_POSTS_WITH_TAG } from "../utils/queries";
 
 const Explore = () => {
 
-  const { loading, data: unfilteredData } = useQuery(QUERY_POSTS);
+  //const { loading, data: unfilteredData } = useQuery(QUERY_POSTS);
   const [ getFilteredPosts, { data: filteredData } ] = useLazyQuery(QUERY_POSTS_WITH_TAG);
 
   function requestSearch(criteria) {
@@ -26,13 +26,13 @@ const Explore = () => {
     postData = filteredData.postsByTag;
   }
   else {
-    postData = unfilteredData?.posts || [];
+    postData = [];//postData = unfilteredData?.posts || [];
   }
   console.log("PostData", postData);
 
-  if (loading) {
+  /*if (loading) {
     return <div>Loading...</div>;
-  }
+  }*/
 
   // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
   return (
