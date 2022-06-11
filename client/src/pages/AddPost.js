@@ -99,6 +99,8 @@ function AddPost() {
                 <input
                   type="file"
                   name="file"
+                  multiple="multiple"
+                  accept='image/jpeg, image/png, image/jpg'
                   placeholder="add image"
                   onChange={uploadImage}
                   className="place-items-center"
@@ -109,7 +111,9 @@ function AddPost() {
                   </>
                 ) : (
                   <>
+                  <div className='grid row'>
                   <img src={images} style={{ width: "300px" }} alt="selected" />
+                  </div>
                   </>
                 )}
                 <input

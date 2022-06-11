@@ -47,7 +47,7 @@ export const QUERY_USER = gql`
     user {
       id
       username
-      collection
+   
       posts {
         id
         title
