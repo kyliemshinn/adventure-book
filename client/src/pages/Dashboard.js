@@ -47,12 +47,12 @@ const Dashboard = () => {
     // variables: { userId: postId },
   });
   const user = data?.user || {};
-  console.log(user)
-  console.log(user.posts)
-
+  
   if (loading) {
     return <div>Loading...</div>;
   }
+  console.log(user)
+  console.log(user.posts)
 
   return (
     <div className="pageContainer">
@@ -74,8 +74,9 @@ const Dashboard = () => {
 
             {/* Dynamically update based on users recent posts */}
             <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content">
+
               {user.posts.map((post) => (
-                    <DashCard  title={post.title} post={post} />
+                <DashCard title={post.title} post={post} />
                 ))}
           
               {/* Add onClick function to render AddPost page*/}

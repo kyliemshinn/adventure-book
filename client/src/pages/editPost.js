@@ -2,11 +2,12 @@ import React, {useState} from "react";
 import { Hero } from "react-daisyui";
 import { UPDATE_POST } from "../utils/mutation";
 import { useMutation } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import "../App.css";
 
 
 const EditPost = () => {
-
+  const params = useParams();
   const [ postState, setPostState ] = useState({});
 
   const handleChange = (e) => {
@@ -24,15 +25,17 @@ const EditPost = () => {
  const handleEditSubmit = async (e) => {
   e.preventDefault();
   try {
-    console.log(postState)
-    await updatePost({
-      varriables: {
-        postId: "1",
+    console.log(params.postId)
+    const updatedPost = await updatePost({
+      variables: {
+        postId: params.postId,
         title: postState.title,
         tags: postState.tags,
         content: postState.content
       }
-    })
+    });
+    console.log(updatedPost.data.updatePost.id)
+    window.location.assign('/dashboard');
   } catch (err) {
     console.error(err)
   }

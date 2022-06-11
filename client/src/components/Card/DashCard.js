@@ -6,6 +6,7 @@ import { REMOVE_POST } from "../../utils/mutation";
 import { QUERY_POSTS } from "../../utils/queries";
 
 const DashCard = ({image, title, post}) => {
+  console.log(post.id)
   //remove post
   const [removePost, { error }] = useMutation(REMOVE_POST, {
     update(cache, {data: {removePost} }) {
@@ -31,7 +32,6 @@ const DashCard = ({image, title, post}) => {
       console.log(data)
     } catch (err) {
       //console.error(err)
-      alert(error)
     }
     window.location.reload();
   }
@@ -39,8 +39,9 @@ const DashCard = ({image, title, post}) => {
     window.location.assign("/explore/viewpost/:postId")
   }
 
-  const handleEditPost  = async (post) => {
-    window.location.assign("/dashboard/editpost/:postId")
+  const handleEditPost  = async () => {
+    window.location.assign("/dashboard/editpost/" + post.id)
+    console.log(post)
   }
 
 

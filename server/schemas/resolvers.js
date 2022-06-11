@@ -65,12 +65,15 @@ const resolvers = {
             return post;
         },
         updatePost: async (parent, args) => {
-            console.log("hello")
-            const post = await Post.findById(args.postId);
-            post.content = args.content || post.content;
-            post.tags = args.tags || post.tags;
-            post = await post.save();
-            return post;
+            try {
+                const postData = {...args};
+                postData.postId = null;
+                const post = await Post.findByIdAndUpdate(args.postId, postData, {new: true});
+                console.log(post)
+                return post;
+            } catch (err) {
+                console.error(err)
+            }
         },
         removePost: async (parent, args) => {
             const post = await Post.findByIdAndDelete(args.postId);
