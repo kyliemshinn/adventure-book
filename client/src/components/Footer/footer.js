@@ -4,6 +4,10 @@ import { Footer, Button } from "react-daisyui";
 import Auth from '../../utils/auth';
 
 const Foot = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     
     <Footer className="footer footer-center p-4 bg-primary rounded text-secondary-content">
@@ -19,7 +23,7 @@ const Foot = () => {
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/logout" onClick={logout}>logout</Link>
           </>
         ) : (
           <> 
