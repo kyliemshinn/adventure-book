@@ -27,7 +27,7 @@ const resolvers = {
     postsByTag: async (parent, args) => {
       const posts = await Post.find({
         tags: {$in: args.tags}
-      });
+      }).populate("author");
       return posts;
     },
   },
