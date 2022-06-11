@@ -3,8 +3,7 @@ import { Hero } from "react-daisyui";
 import { UPDATE_POST } from "../utils/mutation";
 import { useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import "../App.css";
-
+import "../../App.css";
 
 const EditPost = ({ title, tags, content }) => {
   const params = useParams();
