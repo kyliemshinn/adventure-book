@@ -51,7 +51,7 @@ const Dashboard = () => {
             <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content">
 
               {user.posts.map((post) => (
-                <DashCard title={post.title} post={post} />
+                <DashCard title={post.title} post={post} image={post.images[0]} />
                 ))}
           
               {/* Add onClick function to render AddPost page*/}

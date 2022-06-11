@@ -12,6 +12,10 @@ const Login = () => {
   const [loginState, setLoginState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN);
 
+  //for signup text on submit
+  const [isActive, setIsActive] = useState("active");
+
+
   //update state when the input changes for login
   const handleChange = (e) => {
     const { name, value} = e.target;
@@ -40,11 +44,11 @@ const Login = () => {
       password: '',
     });
   
+    setIsActive(current => !current);
+  
   };
 
-  //balloons render on page
-  //TODO: create function that holds all this and add it to onclick with a delay setting
-  
+  //balloons render on page  
 function displayBalloons () {
 
   function random(num) {
@@ -83,14 +87,14 @@ function displayBalloons () {
 
   return (
     <div id="balloon-container">
-      <div className="justify-center flex mr-4" id="loginForm">
+      <div className="justify-center mr-4" id="loginForm">
         <div className="card w-96 bg-base-200 shadow-xl m-36" id="loginForm">
           <div className="card-body p-16">
             <h1 className="card-title p-4 justify-center text-secondary-content">
               WELCOME BACK
             </h1>
             {data ? (
-              <p className="accent-context">
+              <p className="accent-context text-secondary-content">
                 Success! You may now head{" "}
                 <Link to="/" className="accent-context">back to the homepage.</Link>
               </p>
@@ -133,8 +137,7 @@ function displayBalloons () {
                 {error.message}
               </div>
             )}
-
-            <div className="text-center p-4">
+      <div id="signupTxt" className= {isActive ? "active" : "hidden"} styles= {{ padding: 16 }}>
               <h3 className="text-secondary-content text-lg">
                 Don't have an account?{" "}
               </h3>

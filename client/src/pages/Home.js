@@ -19,7 +19,9 @@ const Home = () => {
                 <span className="page turn"></span>
                 <span className="page turn"></span>
                 <span className="page turn">
+
                <img src={Stamps} alt="passport stamps" id="stamps"/>
+
                 </span>
                 <span className="page turn"></span>
                 <span className="page turn"></span>

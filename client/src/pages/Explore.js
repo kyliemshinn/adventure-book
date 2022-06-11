@@ -69,6 +69,7 @@ const Explore = () => {
                 title={post.title}
                 author={post.author.username}
                 tags={post.tags}
+                image={post.images[0]}
               />
             </Link>
           ))}
