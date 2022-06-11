@@ -19,8 +19,11 @@
     margin: 5px;
     padding-left: 50px;
     text-align: left;
-    /* border: 1px solid grey; */
 } 
+
+#signupTxt {
+    text-align:center;
+}
 
 #loginForm {
     margin-left: 370px;

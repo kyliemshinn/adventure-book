@@ -74,10 +74,6 @@ const Signup = () => {
         balloonContainer.append(balloon);
       }
     }
-
-    // setTimeout(function(){
-    //   window.location.replace("/dashboard");
-    // }, 5000);
   
     createBalloons(100);
   }

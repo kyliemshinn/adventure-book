@@ -20,8 +20,6 @@ const Home = () => {
                 <span className="page turn"></span>
                 <span className="page turn">
 
-               <img src="https://media.istockphoto.com/vectors/vector-realistic-isolated-rubber-stamp-of-denied-logo-for-decoration-vector-id1072495986?s=612x612" alt="passport stamps" />
-
                <img src={Stamps} alt="passport stamps" id="stamps"/>
 
                 </span>
