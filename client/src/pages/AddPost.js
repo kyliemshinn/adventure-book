@@ -84,97 +84,92 @@ function AddPost() {
   }
   return (
     <div className="pageContainer">
-      <div>
-        <div className="card lg:card-side bg-base-100 shadow-xl ">
-          <div className="card-body ">
-            <div className="card bg-primary text-primary-content justify-center ">
-            <h1 className="card-title justify-center text-secondary-content text-3xl p-4">
-              Add A Post!
-            </h1>
-              <div className="card-body mt-20 justify-center grid grid-cols-2">
-                <div className="mt-32 mx-10">
-                  {/* <h2 className="card-title">Add Photo</h2> */}
-                  <div className="m-2">
-                  <input
-                    type="file"
-                    name="file"
-                    multiple="multiple"
-                    accept="image/jpeg, image/png, image/jpg"
-                    placeholder="add image"
-                    onChange={uploadImage}
-                    className="place-items-center" 
-                  />
-                  {loading ? (
-                    <>
-                      <h3>Uploading Image...</h3>
-                    </>
-                  ) : (
-                    <>
-                      <div className="grid row">
-                        <img
-                          src={images}
-                          style={{ width: "300px" }}
-                          alt="selected"
-                        />
-                      </div>
-                    </>
-                  )}
-                  </div>
-                  <div className="m-3">
-                  <input
-                    type="text"
-                    name="title"
-                    placeholder="Title"
-                    className="input input-bordered w-full"
-                    onChange={handleChange}
-                    onSubmit={() => {
-                      console.log("!!!");
-                    }}
-                  />
-                  </div>
-                  <div className="m-3">
-                  <input
-                    type="text"
-                    name="tags"
-                    placeholder="#Tags"
-                    className="input input-bordered w-full"
-                    onChange={handleChange}
-                  />
-                  </div>
-                  <div className="m-3">
-                  <textarea
-                    name="content"
-                    className="textarea textarea-bordered w-full"
-                    placeholder="Description of where you went activities, restaurants..."
-                    onChange={handleChange}
-                  ></textarea>
-                  </div>
-                </div>
-                <div className="ml-16">
-                  <h3>Click On The Map To Pin A Location</h3>
-                  <Map
-                    height="480px"
-                    width="650px"
-                    locations={[pushPins]}
-                    onClick={readLocation}
-                  />
-                  <div>
-                    <p>Latitude: {location[0]}</p>
-                    <p>Longitude: {location[1]}</p>
-                  </div>
-                </div>
+      <div className="card-body ">
+        <div className="card bg-primary text-primary-content justify-center ">
+          <h1 className="card-title justify-center text-secondary-content text-3xl p-4 mt-8">
+            Add A Post!
+          </h1>
+          <div className="card-body mt-8 justify-center grid grid-cols-2">
+            <div className="mt-28 mx-10">
+              <div className="m-2">
+                <input
+                  type="file"
+                  name="file"
+                  multiple="multiple"
+                  accept="image/jpeg, image/png, image/jpg"
+                  placeholder="add image"
+                  onChange={uploadImage}
+                  className="place-items-center"
+                />
+                {loading ? (
+                  <>
+                    <h3>Uploading Image...</h3>
+                  </>
+                ) : (
+                  <>
+                    <div className="grid row">
+                      <img
+                        src={images}
+                        style={{ width: "300px" }}
+                        alt="selected"
+                      />
+                    </div>
+                  </>
+                )}
               </div>
-              <div className="card-actions justify-end m-6">
-                    <Link to="/dashboard">
-                      <button
-                        onClick={handlePostSubmit}
-                        className="btn btn-primary rounded-full"
-                      >
-                        ADD POST
-                      </button>
-                    </Link>
-                  </div>
+              <div className="m-3">
+                <input
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                  className="input input-bordered w-full"
+                  onChange={handleChange}
+                  onSubmit={() => {
+                    console.log("!!!");
+                  }}
+                />
+              </div>
+              <div className="m-3">
+                <input
+                  type="text"
+                  name="tags"
+                  placeholder="#Tags"
+                  className="input input-bordered w-full"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="m-3">
+                <textarea
+                  name="content"
+                  className="textarea textarea-bordered w-full"
+                  placeholder="Description of where you went activities, restaurants..."
+                  onChange={handleChange}
+                ></textarea>
+              </div>
             </div>
+            <div className="ml-16">
+              <h3 className="text-lg font-bold">Click On The Map To Pin A Location</h3>
+              <Map
+                height="440px"
+                width="640px"
+                locations={[pushPins]}
+                onClick={readLocation}
+              />
+              <div className="pt-2 text-lg font-bold ">
+                <p>Latitude: {location[0]}</p>
+                <p>Longitude: {location[1]}</p>
+              </div>
+            </div>
+          </div>
+          <div className="card-actions justify-end m-6 mr-16">
+            <Link to="/dashboard">
+              <button
+                onClick={handlePostSubmit}
+                className="btn btn-accent rounded-full"
+              >
+                ADD POST
+              </button>
+            </Link>
           </div>
         </div>
       </div>
