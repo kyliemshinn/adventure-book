@@ -9,7 +9,7 @@ const typeDefs = gql`
         email: String!
         password: String!
         posts: [Post]
-        collection: [Post]
+        userCollection: [Post]
     }
 
     type Post {
@@ -57,11 +57,10 @@ const typeDefs = gql`
     type Mutation {
         createPost(title: String!, content: String!, tags: [String]!, location: LocationInput!, images: [String]!): Post
         updatePost(postId: ID, content: String, tags: [String], title: String): Post
-
         removePost(postId: ID!): Post
 
-        addToCollection(postId: ID!, collectorId: ID!): User
-        removeFromCollection(postId: ID!, collectorId: ID!): User
+        addToCollection(postId: ID!): User
+        removeFromCollection(postId: ID!): User
 
         addComment(postId: ID!, commentText: String!): Post
         removeComment(commentId: ID!): Post
