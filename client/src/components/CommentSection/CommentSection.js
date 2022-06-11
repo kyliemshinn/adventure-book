@@ -11,22 +11,21 @@ const CommentSection = ({ comments = [] }) => {
       <h3 className="display-inline-block w-full">
         Comments
       </h3>
-      <Textarea readonly className="flex my-4  resize-none border-2 border-base-200">
-        {comments &&
+      {/* <Textarea readonly className="flex my-4  resize-none border-2 border-base-200"> */}
+       <div> {comments &&
           comments.map((comment) => (
             <div key={comment._id} className="col-12 mb-3 pb-3">
               <div className="p-3 bg-dark text-light">
                 <h5 className="card-header">
-                  {comment.commentAuthor} commented{' '}
-                  {/* <span style={{ fontSize: '0.825rem' }}>
-                    on {comment.createdAt}
-                  </span> */}
+                  {comment.commentAuthor.username} commented
+                  
                 </h5>
                 <p className="card-body">{comment.commentText}</p>
               </div>
             </div>
           ))}
-      </Textarea>
+          </div>
+      {/* </Textarea> */}
     </>
     )
 };

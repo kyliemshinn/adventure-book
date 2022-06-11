@@ -7,7 +7,8 @@ import { ADD_COMMENT } from "../../utils/mutation";
 // import Auth
 import Auth from "../../utils/auth";
 
-const CommentForm = ({ commentId }) => {
+const CommentForm = ({ postId, commentId }) => {
+  console.log(postId);
   const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -17,14 +18,15 @@ const CommentForm = ({ commentId }) => {
     event.preventDefault();
 
     try {
+      console.log(postId);
       const { data } = await addComment({
         variables: {
-          commentId,
-          commentText,
-          commentAuthor: Auth.getProfile().data.username,
+          postId,
+          commentText
         },
       });
       setCommentText("");
+      alert(data.addComment.id);
     } catch (err) {
       console.error(err);
     }
