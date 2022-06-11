@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import "../App.css";
 
 
-const EditPost = () => {
+const EditPost = ({ title, tags, content }) => {
   const params = useParams();
   const [ postState, setPostState ] = useState({});
 
@@ -56,6 +56,7 @@ const EditPost = () => {
                 name="title"
                 placeholder="Title"
                 className="input input-bordered"
+                value={title}
                 onChange={handleChange}
               />
               <input
@@ -63,12 +64,14 @@ const EditPost = () => {
                 name="tags"
                 placeholder="#Tags"
                 className="input input-bordered"
+                value={tags}
                 onChange={handleChange}
               />
               <textarea
                 name="content"
                 className="textarea textarea-bordered"
                 placeholder="Update Descripton"
+                value={content}
                 onChange={handleChange}
               ></textarea>
                   <button
