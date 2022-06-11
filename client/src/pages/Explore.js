@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "react-daisyui";
 import ExploreCard from "../components/Card/ExploreCard";
@@ -6,17 +6,35 @@ import SearchForm from '../components/SearchForm/SearchForm';
 import "../App.css";
 import "../styles/CardStyles.css";
 
-import { useQuery } from "@apollo/client";
-import { QUERY_POSTS } from "../utils/queries";
+import { useLazyQuery } from "@apollo/client";
+import { QUERY_POSTS, QUERY_POSTS_WITH_TAG } from "../utils/queries";
 
 const Explore = () => {
-  const { loading, data } = useQuery(QUERY_POSTS);
 
-  const posts = data?.posts || [];
-  console.log(posts);
-  if (loading) {
-    return <div>Loading...</div>;
+  const [ queryData, setQueryData ] = useState([]);
+
+  //const { loading, data: unfilteredData } = useQuery(QUERY_POSTS);
+  const [ getFilteredPosts ] = useLazyQuery(QUERY_POSTS_WITH_TAG);
+  const [ getUnfilteredPosts] = useLazyQuery(QUERY_POSTS);
+
+  function requestSearch(criteria) {
+    getFilteredPosts({
+      variables: {tags: criteria}
+    }).then((res) => {
+      if(res.data.postsByTag) {
+        setQueryData(res.data.postsByTag);
+      }
+    });
   }
+
+  // Start off with the results of an unfiltered query
+  useEffect(() => {
+    getUnfilteredPosts().then((res) => {
+      if(res.data.posts) {
+        setQueryData(res.data.posts);
+      }
+    })
+  }, [getUnfilteredPosts]);
 
   // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
   return (
@@ -34,7 +52,7 @@ const Explore = () => {
         </div>
         <div className="pt-20 relative mx-auto text-gray-600">
           {/* handle form submit that renders posts with the tags that were searched */}
-         <SearchForm />
+         <SearchForm onRequestSearch={requestSearch}/>
         </div>
       </Hero>
      
@@ -45,7 +63,7 @@ const Explore = () => {
         <div className="grid grid-cols-4 gap-3 py-3 text-secondary-content place-items-center">
           {/* Dynamically update based on most recent posts */}
           {/* map through posts */}
-          {posts.map((post) => (
+          {queryData.map((post) => (
             <Link key={post.id} to={`/explore/viewpost/${post.id}`}>
               <ExploreCard key={post.id}
                 title={post.title}

@@ -1,14 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const SearchForm = () => {
-    return (
-             <div className="form-control">
-            <form className="searchForm">
+const SearchForm = (props) => {
+  const [ searchCriteria, setSearchCriteria ] = useState([]);
+
+  function onSubmitSearchRequest(e) {
+    e.preventDefault();
+    props.onRequestSearch(searchCriteria);
+  }
+
+  function onSearchCriteriaChanged(e) {
+    let value = e.target.value;
+    
+    value = value.split(" "); // Convert value into an array of strings based on spaces
+    // TODO: possibile limit on number of tags?
+    value = value.filter((tag) => { // Remove empty elements
+      return tag.length > 0;
+    });
+    for(let i = 0; i < value.length; i++) {
+      // Remove the leading hashtag symbol
+      if(value[i].charAt(0) === "#") {
+        value[i] = value[i].substring(1);
+      }
+    }
+
+    setSearchCriteria(value);
+  }
+
+  return (
+    <div className="form-control">
+      <form className="searchForm" onSubmit={onSubmitSearchRequest}>
               <div className="input-group">
                 <input
                   type="text"
+                  name="criteria"
                   placeholder="#sailing #hiking #surfing..."
                   className="input input-bordered"
+                  onChange={onSearchCriteriaChanged}
                 />
                 <button className="btn bg-accent border-none hover:bg-accent-focus btn-square">
                   <svg
@@ -27,9 +54,9 @@ const SearchForm = () => {
                   </svg>
                 </button>
               </div>
-            </form>
-          </div>
-    )
+      </form>
+    </div>
+  )
 }
 
 export default SearchForm;
