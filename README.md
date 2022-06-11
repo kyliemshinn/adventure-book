@@ -18,6 +18,7 @@ ADD LOGO HERE
     - [Login/Signup](#login)
     - [Explore Page](#explore-page)
     - [Dashboard](#dashboard)
+    - [Edit Post](#edit-post)
     - [Add Post](#add-post)
     - [View Post](#view-post)
 5. [Technologies Used](#technologies-used)
@@ -55,9 +56,19 @@ NOTE: add balloon code snipps
 
 ### **Dashboard**
 
+The dashboard of Adventure Book is only visible when the user is logged in. Upon log in, the user can navigate to dashboard from the navbar or footer. Here, is a place to view the current posts the user has already made and view any posts they have saved from other users. They can create, view or delete there posts from here as well. Reference picture below for layout of the dashboard.
+
+ADD PICTURE TO SHOW WHAT IT LOOKS LIKE******
+
+### **Edit Post**
+
+From the dashboard, the user can choose to edit their post which will redirect to the edit post page. Here the user has access to update the title, tags, or description of the post they are trying to edit. The user will not have access to update anything else.
+
+ADD GIF SHOWING FUNCTIONALITY OF EDIT POST
+
 ### **Add Post**
 
-The Add Post was meant to only be rendered when accessed through the user Dashoboard. This is so it is seen from their personal page as a design preference. Add post was designed with some new technologies, like Cloudinary. Cloudinary was the solution to not storing all the picture storing all our pictures in the server and caching the images. It is a spot where all the pictures will be stored to be used for the site, making it less code to work with. The implementation of Cloudinary was very simple and easy to use as shown below.
+The add post page is meant to only be rendered when accessed through the user Dashoboard. This is so it is seen from their personal page as a design preference. Add post was designed with some new technologies, like Cloudinary. Cloudinary was the solution to not storing all the picture storing all our pictures in the server and caching the images. It is a spot where all the pictures will be stored to be used for the site, making it less code to work with. The implementation of Cloudinary was very simple and easy to use as shown below.
 
 ``` const uploadImage = async e => {
     const files = e.target.files;
