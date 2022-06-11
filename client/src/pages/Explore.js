@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "react-daisyui";
 import ExploreCard from "../components/Card/ExploreCard";
@@ -11,28 +11,22 @@ import { QUERY_POSTS, QUERY_POSTS_WITH_TAG } from "../utils/queries";
 
 const Explore = () => {
 
+  const [ queryData, setQueryData ] = useState([]);
+
   //const { loading, data: unfilteredData } = useQuery(QUERY_POSTS);
-  const [ getFilteredPosts, { data: filteredData } ] = useLazyQuery(QUERY_POSTS_WITH_TAG);
+  const [ getFilteredPosts, { called, loading, data } ] = useLazyQuery(QUERY_POSTS_WITH_TAG);
 
   function requestSearch(criteria) {
-    console.log("Request search", criteria);
     getFilteredPosts({
       variables: {tags: criteria}
+    }).then((res) => {
+      console.log("a", res.data.postsByTag)
+      if(res.data.postsByTag) {
+        console.log("Wow!", res.data.postsByTag);
+        setQueryData(res.data.postsByTag);
+      }
     });
   }
-
-  let postData;
-  if(filteredData) {
-    postData = filteredData.postsByTag;
-  }
-  else {
-    postData = [];//postData = unfilteredData?.posts || [];
-  }
-  console.log("PostData", postData);
-
-  /*if (loading) {
-    return <div>Loading...</div>;
-  }*/
 
   // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
   return (
@@ -61,7 +55,7 @@ const Explore = () => {
         <div className="grid grid-cols-4 gap-3 py-3 text-secondary-content place-items-center">
           {/* Dynamically update based on most recent posts */}
           {/* map through posts */}
-          {postData.map((post) => (
+          {queryData.map((post) => (
             <Link key={post.id} to={`/explore/viewpost/${post.id}`}>
               <ExploreCard key={post.id}
                 title={post.title}
