@@ -19,8 +19,8 @@ mutation createPost($title: String!, $content: String!, $tags: [String]!, $locat
 `;
 
 export const UPDATE_POST = gql`
-mutation updatePost($postId: ID!, $content: String, $tags: [String]) {
-  updatePost(postId: $postId, content: $content, tags: $tags) {
+mutation updatePost($postId: ID, $content: String, $tags: [String], $title: String) {
+  updatePost(postId: $postId, content: $content, tags: $tags, title: $title) {
     id
   }
 }
