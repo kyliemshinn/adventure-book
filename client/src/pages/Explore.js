@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "react-daisyui";
 import ExploreCard from "../components/Card/ExploreCard";
@@ -6,26 +6,30 @@ import SearchForm from '../components/SearchForm/SearchForm';
 import "../App.css";
 import "../styles/CardStyles.css";
 
-import { useQuery } from "@apollo/client";
-import { QUERY_POSTS } from "../utils/queries";
+import { useQuery, useLazyQuery } from "@apollo/client";
+import { QUERY_POSTS, QUERY_POSTS_WITH_TAG } from "../utils/queries";
 
 const Explore = () => {
-  const [ searchCriteria, setSearchCriteria ] = useState([]);
 
-  const { loading, data } = useQuery(QUERY_POSTS);
+  const { loading, data: unfilteredData } = useQuery(QUERY_POSTS);
+  const [ getFilteredPosts, { data: filteredData } ] = useLazyQuery(QUERY_POSTS_WITH_TAG);
 
-  function onSetSearchCriteria(criteria)
-  {
-    setSearchCriteria(criteria);
+  function requestSearch(criteria) {
+    console.log("Request search", criteria);
+    getFilteredPosts({
+      variables: {tags: criteria}
+    });
   }
 
-  function doTagSearch()
-  {
-    console.log("Implement me!");
+  let postData;
+  if(filteredData) {
+    postData = filteredData.postsByTag;
   }
+  else {
+    postData = unfilteredData?.posts || [];
+  }
+  console.log("PostData", postData);
 
-  const posts = data?.posts || [];
-  //console.log(posts);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -46,11 +50,7 @@ const Explore = () => {
         </div>
         <div className="pt-20 relative mx-auto text-gray-600">
           {/* handle form submit that renders posts with the tags that were searched */}
-         <SearchForm onSetSearchCriteria={onSetSearchCriteria} onDoTagSearch={doTagSearch}/>
-         {searchCriteria.map((criterion) => {
-           return <p>{criterion}</p>
-         })}
-
+         <SearchForm onRequestSearch={requestSearch}/>
         </div>
       </Hero>
      
@@ -61,7 +61,7 @@ const Explore = () => {
         <div className="grid grid-cols-4 gap-3 py-3 text-secondary-content place-items-center">
           {/* Dynamically update based on most recent posts */}
           {/* map through posts */}
-          {posts.map((post) => (
+          {postData.map((post) => (
             <Link key={post.id} to={`/explore/viewpost/${post.id}`}>
               <ExploreCard key={post.id}
                 title={post.title}
