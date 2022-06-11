@@ -65,6 +65,7 @@ const resolvers = {
             return post;
         },
         updatePost: async (parent, args) => {
+            console.log("hello")
             const post = await Post.findById(args.postId);
             post.content = args.content || post.content;
             post.tags = args.tags || post.tags;
