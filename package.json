@@ -10,6 +10,7 @@
     "seed": "node server/seeders/seed.js"
   },
   "dependencies": {
+    "concurrently": "^7.2.1",
     "react-floating-balloons": "^3.0.1"
   }
 }
