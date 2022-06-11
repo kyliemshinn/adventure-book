@@ -47,7 +47,7 @@ export const QUERY_USER = gql`
     user {
       id
       username
-     # collections
+      collection
       posts {
         id
         title
@@ -56,5 +56,5 @@ export const QUERY_USER = gql`
         tags
       }
     }
-  }  
+  }
 `;
