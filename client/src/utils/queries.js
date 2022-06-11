@@ -15,6 +15,21 @@ export const QUERY_POSTS = gql`
   }
 `;
 
+export const QUERY_POSTS_WITH_TAG = gql`
+  query postsByTag($tags: [String]!) {
+    postsByTag(tags: $tags) {
+      id
+      title
+      images
+      author {
+        username
+      }
+      tags
+      images
+    }
+  }
+`;
+
 export const QUERY_SINGLE_POST = gql`
   query singlePost($postId: ID!) {
     post(postId: $postId) {
