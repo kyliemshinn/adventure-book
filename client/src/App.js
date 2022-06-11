@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import EditPost from "./pages/editPost";
+import EditPost from "./pages/EditPost";
 import "./App.css";
 
 import {

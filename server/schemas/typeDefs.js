@@ -59,8 +59,13 @@ const typeDefs = gql`
         updatePost(postId: ID, content: String, tags: [String], title: String): Post
 
         removePost(postId: ID!): Post
+
+        addToCollection(postId: ID!, collectorId: ID!): User
+        removeFromCollection(postId: ID!, collectorId: ID!): User
+
         addComment(postId: ID!, commentText: String!): Post
         removeComment(commentId: ID!): Post
+
         login(username: String!, password: String!): Auth
         createUser(username: String!, email: String!, password: String!): Auth
     }

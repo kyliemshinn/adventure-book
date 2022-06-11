@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Hero } from "react-daisyui";
-import { UPDATE_POST } from "../utils/mutation";
+import { UPDATE_POST } from "../../utils/mutation";
 import { useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import "../../App.css";
