@@ -52,6 +52,7 @@ const DashCard = ({image, title, post}) => {
           <img
             src={image}
             alt="img"
+            className="dashImage"
           />
         </figure>
         <div className="postCard card-body items-center text-center">

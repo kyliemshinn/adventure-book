@@ -2,8 +2,7 @@
 
 ADD BADGES
 
-ADD LINK
-
+**[See the live site here](https://fathomless-savannah-08300.herokuapp.com/)**
 
 ADD LOGO HERE
 
