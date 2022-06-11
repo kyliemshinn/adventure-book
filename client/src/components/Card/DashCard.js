@@ -6,6 +6,7 @@ import { REMOVE_POST } from "../../utils/mutation";
 import { QUERY_POSTS } from "../../utils/queries";
 
 const DashCard = ({image, title, post}) => {
+  console.log(post.id)
   //remove post
   const [removePost, { error }] = useMutation(REMOVE_POST, {
     update(cache, {data: {removePost} }) {
@@ -24,7 +25,6 @@ const DashCard = ({image, title, post}) => {
 
   const handleRemovePost = async (post) => {
     try {
-      alert(post);
       console.log(post)
       const { data } = await removePost({variables: { postId: post.id },
       });
@@ -32,12 +32,18 @@ const DashCard = ({image, title, post}) => {
       console.log(data)
     } catch (err) {
       //console.error(err)
-      alert(error)
     }
+    window.location.reload();
   }
-  const handleEditPost  = async (post) => {
-    window.location.assign('/editpost/:postId')
+  const handleViewPost  = async (post) => {
+    window.location.assign("/explore/viewpost/:postId")
   }
+
+  const handleEditPost  = async () => {
+    window.location.assign("/dashboard/editpost/" + post.id)
+    console.log(post)
+  }
+
 
   return (
     <Card className="postCard card w-96 bg-base-100 shadow-xl">
@@ -51,11 +57,12 @@ const DashCard = ({image, title, post}) => {
         <div className="postCard card-body items-center text-center">
           <h2 className="card card-title p-4">{title}</h2>
           <div className="card-actions justify-end text-base-content">
-          <Link key={post.id} to={`/dashboard/viewpost/${post.id}`}>
-          <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg">
+          {/* <Link key={post.id} to={`/dashboard/viewpost/${post.id}`}> */}
+          <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg"
+          onClick={() => handleViewPost(post)}>
               View
             </Button>
-            </Link>
+            {/* </Link> */}
             <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg" onClick={handleEditPost}>
               Edit
             </Button>

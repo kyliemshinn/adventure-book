@@ -23,6 +23,10 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Post"
     }],
+    // collection: [{
+    //   type: Schema.Types.ObjectId,
+    //   ref: "Post"
+    // }]
   }
 );
 
