@@ -51,11 +51,11 @@ const ViewPost = () => {
             <h2 className="text-bold text-2xl text-neutral-content">
               {post.title}
             </h2>
-            <div className="badge badge-outline">{post.tags}</div>
             {/* <p>{post.author.username}</p> */}
+            <div className="badge badge-outline">{post.tags}</div>
           </div>
-          
-          <div className=" py-3 px-3">
+
+          <div className=" px-3">
             <div className="slider h-vh py-4">
               <SimpleImageSlider
                 width={820}
@@ -66,16 +66,16 @@ const ViewPost = () => {
                 overflow="hidden"
               />
 
-              
-            <div className="pt-6">
-              <div className="bg-base-100 mb-3">
-                <p className="">{post.createdAt}</p>
-                <div className="max-w-xl">
-                  <h3 className="pl-8 pt-5 overflow-auto">{post.content}</h3>
+              <div className="pt-6 ">
+                <div className="bg-base-100 mb-3 place-items-center">
+                  <p className="">{post.createdAt}</p>
+                  <div className="">
+                    <h3 className="pl-8 py-6 max-w-2xl overflow-auto">
+                      {post.content}
+                    </h3>
+                  </div>
                 </div>
               </div>
-              
-            </div>
             </div>
             <div>
               <Map
@@ -87,22 +87,15 @@ const ViewPost = () => {
               />
             </div>
             <div className="bg-base-100 px-8 mt-4">
-            <div className="pt-4">
-              <CommentSection />
-            </div>
-            <div className="pb-7">
-              <CommentForm />
+              <div className="pt-4">
+                <CommentSection comments={post.comments}/>
+              </div>
+              <div className="pb-7">
+                <CommentForm postId={postId}/>
+              </div>
             </div>
           </div>
-          </div>
-          {/* <div className="bg-base-100 px-3 w-6/12">
-            <div className="pt-4">
-              <CommentSection />
-            </div>
-            <div className="pb-7">
-              <CommentForm />
-            </div>
-          </div> */}
+          
         </div>
       </Hero>
     </div>
