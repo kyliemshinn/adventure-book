@@ -13,6 +13,12 @@ const EditPost = () => {
     content: ""
   });
   let [ originalPostState, setOriginialPostState ] = useState({});
+  function expandTagsArray() {
+    let value = postState.tags;
+    value = value.join(" ");
+    value.replace("#", ""); // remove hashtags
+    return value;
+  }
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -59,7 +65,7 @@ const EditPost = () => {
   if(loading) {
     return (<p>Loading...</p>)
   }
-  
+
   return (
     <div className="pageContainer">
     <div>
@@ -83,7 +89,7 @@ const EditPost = () => {
                 name="tags"
                 placeholder="#Tags"
                 className="input input-bordered"
-                value={postState.tags}
+                value={expandTagsArray()}
                 onChange={handleChange}
               />
               <textarea
