@@ -1,14 +1,18 @@
 import React from "react";
 import { Card, Badge } from "react-daisyui";
 
-const ExploreCard = ({ author, title, tags }) => {
+
+const ExploreCard = ({ author, title, tags, image }) => {
 
   return (
     <Card className="postCard card w-96 bg-base-100 shadow-xl">
       <figure>
         <img
-          src="https://api.lorem.space/image/shoes?w=400&h=225"
-          alt="Shoes"
+          // src="https://api.lorem.space/image/shoes?w=400&h=225"
+          // alt="Shoes"
+          src={image}
+          alt="img"
+          className="cardImage"
         />
       </figure>
       <div className="card-body">
