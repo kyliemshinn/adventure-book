@@ -1,12 +1,18 @@
 import React from 'react'
 
 const SearchForm = () => {
-    return (
-             <div className="form-control">
-            <form className="searchForm">
+  function onSubmitSearchRequest(e) {
+    e.preventDefault();
+    console.log("value", e);
+  }
+
+  return (
+    <div className="form-control">
+      <form className="searchForm" onSubmit={onSubmitSearchRequest}>
               <div className="input-group">
                 <input
                   type="text"
+                  name="criteria"
                   placeholder="#sailing #hiking #surfing..."
                   className="input input-bordered"
                 />
@@ -27,9 +33,9 @@ const SearchForm = () => {
                   </svg>
                 </button>
               </div>
-            </form>
-          </div>
-    )
+      </form>
+    </div>
+  )
 }
 
 export default SearchForm;

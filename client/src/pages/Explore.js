@@ -13,7 +13,7 @@ const Explore = () => {
   const { loading, data } = useQuery(QUERY_POSTS);
 
   const posts = data?.posts || [];
-  console.log(posts);
+  //console.log(posts);
   if (loading) {
     return <div>Loading...</div>;
   }
