@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const SearchForm = () => {
+  const [criteria, setCriteria] = useState([]);
+
   function onSubmitSearchRequest(e) {
     e.preventDefault();
-    console.log("value", e);
+    console.log("criteria", criteria);
+  }
+
+  function onSearchCriteriaChanged(e) {
+    console.log(e.target.value);
+    setCriteria([e.target.value])
   }
 
   return (
@@ -15,6 +22,7 @@ const SearchForm = () => {
                   name="criteria"
                   placeholder="#sailing #hiking #surfing..."
                   className="input input-bordered"
+                  onChange={onSearchCriteriaChanged}
                 />
                 <button className="btn bg-accent border-none hover:bg-accent-focus btn-square">
                   <svg
