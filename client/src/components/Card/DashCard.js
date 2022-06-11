@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Card, Button } from 'react-daisyui';
 import { useMutation } from '@apollo/client';
 import { REMOVE_POST } from "../../utils/mutation";
