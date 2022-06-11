@@ -111,7 +111,7 @@ function AddPost() {
                       <img
                         src={images}
                         style={{ width: "300px" }}
-                        alt="selected"
+                        alt=" "
                       />
                     </div>
                   </>
