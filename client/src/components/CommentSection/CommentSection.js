@@ -8,10 +8,10 @@ const CommentSection = ({ comments = [] }) => {
 
     return (
         <>
-      <h3 className="display-inline-block">
+      <h3 className="display-inline-block w-full">
         Comments
       </h3>
-      <Textarea readonly className="flex-row my-4 w-full resize-none border-2 border-base-200">
+      <Textarea readonly className="flex my-4  resize-none border-2 border-base-200">
         {comments &&
           comments.map((comment) => (
             <div key={comment._id} className="col-12 mb-3 pb-3">

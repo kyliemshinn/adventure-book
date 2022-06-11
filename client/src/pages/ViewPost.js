@@ -10,7 +10,7 @@ import { CarouselData } from "../components/Carousel/CarouselData";
 import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
 import Map from "../components/Map";
-import Bookmark from '../components/Bookmark';
+import Bookmark from "../components/Bookmark";
 
 // Import useParams Hook
 import { useParams } from "react-router-dom";
@@ -40,7 +40,7 @@ const ViewPost = () => {
   return (
     <div className="text-neutral-content">
       <Hero className="mb-28">
-        <div className="postContainer bg-base-200 mx-9 my-9 pt-4 px-6 pb-7">
+        <div className="postContainer bg-base-200 mx-7 my-9 pt-4 px-5 pb-7">
           <div>
             {/* show text of "save" on hover */}
             {/* onClick, save to collections */}
@@ -51,39 +51,42 @@ const ViewPost = () => {
             <h2 className="text-bold text-2xl text-neutral-content">
               {post.title}
             </h2>
+            <div className="badge badge-outline">{post.tags}</div>
             {/* <p>{post.author.username}</p> */}
           </div>
-          <div className="grid grid-cols-2 gap-4 py-3 pb-9">
-            <div className="slider h-vh">
+          
+          <div className=" py-3 px-3">
+            <div className="slider h-vh py-4">
               <SimpleImageSlider
-                width={720}
-                height={800}
+                width={820}
+                height={700}
                 images={CarouselData}
                 showBullets={true}
                 showNavs={true}
                 overflow="hidden"
               />
 
-              <div className="badge badge-outline">{post.tags}</div>
-            </div>
-
-            <div className="bg-base-100 mb-6 ">
-              <p className="float-right">{post.createdAt}</p>
-              <div className="max-w-2xl">
-                <h3 className="pl-8 pt-5 overflow-wrap">{post.content}</h3>
+              
+            <div className="pt-6">
+              <div className="bg-base-100 mb-3">
+                <p className="">{post.createdAt}</p>
+                <div className="max-w-xl">
+                  <h3 className="pl-8 pt-5 overflow-auto">{post.content}</h3>
+                </div>
               </div>
+              
+            </div>
             </div>
             <div>
               <Map
                 height="600px"
-                width="800px"
+                width="820px"
                 center={[post.location.latitude, post.location.longitude]}
                 locations={[[post.location.latitude, post.location.longitude]]}
                 onClick={() => {}}
               />
             </div>
-          </div>
-          <div className="bg-base-100 px-8">
+            <div className="bg-base-100 px-8 mt-4">
             <div className="pt-4">
               <CommentSection />
             </div>
@@ -91,6 +94,15 @@ const ViewPost = () => {
               <CommentForm />
             </div>
           </div>
+          </div>
+          {/* <div className="bg-base-100 px-3 w-6/12">
+            <div className="pt-4">
+              <CommentSection />
+            </div>
+            <div className="pb-7">
+              <CommentForm />
+            </div>
+          </div> */}
         </div>
       </Hero>
     </div>
