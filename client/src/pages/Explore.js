@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Hero } from "react-daisyui";
 import ExploreCard from "../components/Card/ExploreCard";
@@ -10,7 +10,19 @@ import { useQuery } from "@apollo/client";
 import { QUERY_POSTS } from "../utils/queries";
 
 const Explore = () => {
+  const [ searchCriteria, setSearchCriteria ] = useState([]);
+
   const { loading, data } = useQuery(QUERY_POSTS);
+
+  function onSetSearchCriteria(criteria)
+  {
+    setSearchCriteria(criteria);
+  }
+
+  function doTagSearch()
+  {
+    console.log("Implement me!");
+  }
 
   const posts = data?.posts || [];
   //console.log(posts);
@@ -34,7 +46,11 @@ const Explore = () => {
         </div>
         <div className="pt-20 relative mx-auto text-gray-600">
           {/* handle form submit that renders posts with the tags that were searched */}
-         <SearchForm />
+         <SearchForm onSetSearchCriteria={onSetSearchCriteria} onDoTagSearch={doTagSearch}/>
+         {searchCriteria.map((criterion) => {
+           return <p>{criterion}</p>
+         })}
+
         </div>
       </Hero>
      

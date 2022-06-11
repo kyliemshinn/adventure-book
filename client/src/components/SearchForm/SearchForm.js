@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 
-const SearchForm = () => {
-  const [criteria, setCriteria] = useState([]);
-
+const SearchForm = (props) => {
   function onSubmitSearchRequest(e) {
     e.preventDefault();
-    console.log("criteria", criteria);
+    props.onDoTagSearch();
   }
 
   function onSearchCriteriaChanged(e) {
@@ -23,7 +21,7 @@ const SearchForm = () => {
       }
     }
 
-    setCriteria(value);
+    props.onSetSearchCriteria(value);
   }
 
   return (
