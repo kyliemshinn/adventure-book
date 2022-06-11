@@ -36,7 +36,7 @@ const DashCard = ({image, title, post}) => {
     window.location.reload();
   }
   const handleViewPost  = async (post) => {
-    window.location.assign("/explore/viewpost/:postId")
+    window.location.assign("/explore/viewpost/" + post.id)
   }
 
   const handleEditPost  = async () => {

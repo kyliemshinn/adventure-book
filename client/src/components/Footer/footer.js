@@ -1,8 +1,13 @@
 import React from "react-daisyui";
 import { Link } from 'react-router-dom';
 import { Footer, Button } from "react-daisyui";
+import Auth from '../../utils/auth';
 
 const Foot = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     
     <Footer className="footer footer-center p-4 bg-primary rounded text-secondary-content">
@@ -11,12 +16,21 @@ const Foot = () => {
           <Footer.Title>Company</Footer.Title>
         </div>
         <div className="sm:flex items-stretch space-x-4 mb-4 mt-4">
+        {Auth.loggedIn() ? (
+          <>
         <Link to="/">Home</Link>
             <Link to="/explore">Explore</Link>
             <Link to="/dashboard">Dashboard</Link>
             <Link to="/about">About</Link>
           <Link to="/contact">Contact</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/logout" onClick={logout}>logout</Link>
+          </>
+        ) : (
+          <> 
+                <Link to="/">Home</Link>
+            <Link to="/login">Login</Link>
+            </>
+        )} 
         </div>
 
         <div className="font-semibold text-lg">
