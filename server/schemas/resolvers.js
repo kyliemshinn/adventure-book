@@ -92,6 +92,24 @@ const resolvers = {
             const comment = await Comment.findByIdAndDelete(args.commentId);
             return comment;
         },
+        addToCollection: async (parent, args, context) => {
+            console.log("ABCD");
+            const user = User.findOneAndUpdate(context.user._id, {
+                $addToSet: { userCollection: args.postId }
+            }, {
+                new: true
+            });
+            return user;
+        },
+        removeFromCollection: async (parent, args, context) => {
+            console.log("EFGH");
+            const user = User.findOneAndUpdate(context.user._id, {
+                $pull: { userCollection: args.postId }
+            }, {
+                new: true
+            });
+            return user;
+        }
     }
 }
 

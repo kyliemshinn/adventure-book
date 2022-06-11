@@ -23,10 +23,11 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Post"
     }],
-    // collection: [{
-    //   type: Schema.Types.ObjectId,
-    //   ref: "Post"
-    // }]
+    // can't be "collection", baybe reserved by Mongoose?
+    userCollection: [{
+      type: Schema.Types.ObjectId,
+      ref: "Post"
+    }]
   }
 );
 

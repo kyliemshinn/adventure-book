@@ -34,7 +34,7 @@ const Login = () => {
     console.log(loginState);
     try {
       // TODO save user to state so that we can use it in UI
-      const { token, user } =
+      /*const { token, user } =
       (
         await loginUser({
           variables: {
@@ -42,12 +42,12 @@ const Login = () => {
             password: loginState.password,
           },
         })
-      ).data.login;
+      ).data.login;*/
       const { data } = await loginUser({
         variables: { ...loginState },
       });
-      console.log(token);
-      console.log(user);
+      /*console.log(token);
+      console.log(user);*/
 
       Auth.login(data.login.token);
     } catch (e) {
