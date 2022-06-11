@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Card, Button } from 'react-daisyui';
 import { useMutation } from '@apollo/client';
 import { REMOVE_POST } from "../../utils/mutation";
@@ -36,7 +36,7 @@ const DashCard = ({image, title, post}) => {
     window.location.reload();
   }
   const handleViewPost  = async (post) => {
-    window.location.assign("/explore/viewpost/:postId")
+    window.location.assign("/explore/viewpost/" + post.id)
   }
 
   const handleEditPost  = async () => {

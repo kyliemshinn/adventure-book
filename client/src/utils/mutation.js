@@ -36,7 +36,8 @@ mutation removePost($postId: ID!) {
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($postId: ID!, $content: String!) {
+# changed content to commentText
+  mutation addComment($postId: ID!, $commentText: String!) {
     addComment(postId: $postId, commentText: $commentText) {
       id
       content
