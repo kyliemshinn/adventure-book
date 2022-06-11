@@ -104,9 +104,13 @@ function AddPost() {
                   className="place-items-center"
                 />
                 {loading ? (
+                  <>
                   <h3>Uploading Image...</h3>
+                  </>
                 ) : (
+                  <>
                   <img src={images} style={{ width: "300px" }} alt="selected" />
+                  </>
                 )}
                 <input
                   type="text"
