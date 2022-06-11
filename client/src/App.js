@@ -63,7 +63,7 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/explore/viewpost/:postId" element={<ViewPost />} />
           <Route path="/addpost" element={<AddPost />} />
-          <Route path="/editpost/postId" element={<EditPost />} />
+          <Route path="/dashboard/editpost/:postId" element={<EditPost />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="*" element={<p>Page Not Found</p>} />

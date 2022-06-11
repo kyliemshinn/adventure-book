@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function AddPost() {
 
   //setting up upload image
-  const [image, setImage] = useState("");
+  const [images, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   ///upload image by cloudinary
   const uploadImage = async (e) => {
@@ -62,7 +62,7 @@ function AddPost() {
     try {
     await addPost({
       variables: {
-        images: [image],
+        images: [images],
         title: createPost.title,
         content: createPost.content,
         tags: createPost.tags,
@@ -106,7 +106,7 @@ function AddPost() {
                 {loading ? (
                   <h3>Uploading Image...</h3>
                 ) : (
-                  <img src={image} style={{ width: "300px" }} alt="selected" />
+                  <img src={images} style={{ width: "300px" }} alt="selected" />
                 )}
                 <input
                   type="text"

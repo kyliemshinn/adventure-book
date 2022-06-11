@@ -35,9 +35,14 @@ const DashCard = ({image, title, post}) => {
     }
     window.location.reload();
   }
-  const handleEditPost  = async (post) => {
-    window.location.assign('/editpost/:postId')
+  const handleViewPost  = async (post) => {
+    window.location.assign("/explore/viewpost/:postId")
   }
+
+  const handleEditPost  = async (post) => {
+    window.location.assign("/dashboard/editpost/:postId")
+  }
+
 
   return (
     <Card className="postCard card w-96 bg-base-100 shadow-xl">
@@ -51,11 +56,12 @@ const DashCard = ({image, title, post}) => {
         <div className="postCard card-body items-center text-center">
           <h2 className="card card-title p-4">{title}</h2>
           <div className="card-actions justify-end text-base-content">
-          <Link key={post.id} to={`/dashboard/viewpost/${post.id}`}>
-          <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg">
+          {/* <Link key={post.id} to={`/dashboard/viewpost/${post.id}`}> */}
+          <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg"
+          onClick={() => handleViewPost(post)}>
               View
             </Button>
-            </Link>
+            {/* </Link> */}
             <Button className="btn-sm rounded-full bg-secondary border-none text-base-content hover:bg-secondary-focus hover:shadow-lg" onClick={handleEditPost}>
               Edit
             </Button>
