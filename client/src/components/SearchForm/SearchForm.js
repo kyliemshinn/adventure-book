@@ -9,8 +9,21 @@ const SearchForm = () => {
   }
 
   function onSearchCriteriaChanged(e) {
-    console.log(e.target.value);
-    setCriteria([e.target.value])
+    let value = e.target.value;
+    
+    value = value.split(" "); // Convert value into an array of strings based on spaces
+    // TODO: possibile limit on number of tags?
+    value = value.filter((tag) => { // Remove empty elements
+      return tag.length > 0;
+    });
+    for(let i = 0; i < value.length; i++) {
+      // Remove the leading hashtag symbol
+      if(value[i].charAt(0) === "#") {
+        value[i] = value[i].substring(1);
+      }
+    }
+
+    setCriteria(value);
   }
 
   return (
