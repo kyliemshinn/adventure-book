@@ -18,7 +18,7 @@ const Home = () => {
                 <span className="page turn"></span>
                 <span className="page turn"></span>
                 <span className="page turn">
-               <img src="https://png.clipart.me/previews/8b7/passport-stamp-seal-02-vector-8661.jpg" alt="passport stamps" />
+               <img src="https://cpng.pikpng.com/pngl/s/53-535343_passport-stamp-png-clipart.png" alt="passport stamps" />
                 </span>
                 <span className="page turn"></span>
                 <span className="page turn"></span>

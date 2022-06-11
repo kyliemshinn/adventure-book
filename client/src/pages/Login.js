@@ -10,18 +10,11 @@ import "../styles/Balloons.css";
 
 const Login = () => {
   const [loginState, setLoginState] = useState({ username: "", password: "" });
-  const [loginUser, { error, data }] = useMutation(LOGIN);
+  const [login, { error, data }] = useMutation(LOGIN);
 
+  //update state when the input changes for login
   const handleChange = (e) => {
-    // const newLoginState = {
-    //   username: loginState.username,
-    //   password: loginState.password,
-    // }; // Copy state to new object
-    // newLoginState[e.target.name] = e.target.value; // Overwrite state key that was changed with new property
-    // setLoginState(newLoginState);
-    // const { name, value } = e.target;
     const { name, value} = e.target;
-
 
     setLoginState({
       ...loginState,
@@ -32,29 +25,20 @@ const Login = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     console.log(loginState);
-    try {
-      // TODO save user to state so that we can use it in UI
-      const { token, user } =
-      (
-        await loginUser({
-          variables: {
-            username: loginState.username,
-            password: loginState.password,
-          },
-        })
-      ).data.login;
-      const { data } = await loginUser({
-        variables: { ...loginState },
-      });
-      console.log(token);
-      console.log(user);
 
+    try {
+      const { data } = await login({
+        variables: {...loginState},
+      });
       Auth.login(data.login.token);
-    } catch (e) {
-      console.error(error);
+    } catch(err) {
+      console.error(err)
     }
     // clear form values
-    setLoginState({ username: "", password: "" });
+    setLoginState({
+      username: '',
+      password: '',
+    });
   
   };
 
