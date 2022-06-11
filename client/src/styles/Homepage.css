@@ -1,3 +1,8 @@
+  #stamps {
+    opacity: 0.5;
+    transform: scaleX(-1);
+    padding-top: 1.3rem;
+  }
 
   .bookContainer {
       position: relative;
@@ -65,6 +70,7 @@
   .page:nth-of-type(4) {
     animation: bookOpen150deg 3s forwards;
     animation-delay: 0.99s;
+    background-image: ;
   }
   .page:nth-of-type(5) {
     animation: bookOpen30deg 3s forwards;
