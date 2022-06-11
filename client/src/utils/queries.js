@@ -47,7 +47,6 @@ export const QUERY_USER = gql`
     user {
       id
       username
-   
       posts {
         id
         title

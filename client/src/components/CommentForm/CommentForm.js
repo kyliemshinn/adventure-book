@@ -7,7 +7,8 @@ import { ADD_COMMENT } from "../../utils/mutation";
 // import Auth
 import Auth from "../../utils/auth";
 
-const CommentForm = ({ commentId }) => {
+const CommentForm = ({ postId, commentId }) => {
+  console.log(postId);
   const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -17,14 +18,15 @@ const CommentForm = ({ commentId }) => {
     event.preventDefault();
 
     try {
+      console.log(postId);
       const { data } = await addComment({
         variables: {
-          commentId,
+          postId,
           commentText,
-          commentAuthor: Auth.getProfile().data.username,
         },
       });
       setCommentText("");
+      alert(data.addComment.id);
     } catch (err) {
       console.error(err);
     }
@@ -41,17 +43,15 @@ const CommentForm = ({ commentId }) => {
   return (
     <div className="commentSection">
       <form className="" onSubmit={handleFormSubmit}>
-        <p className="mb-2">Comment Section</p>
+        <p className="mb-2">Join the Discussion</p>
         <Textarea
           name="commentText"
           placeholder="Add a Comment or Question"
           value={commentText}
           onChange={handleChange}
           className="w-full resize-none border-2 border-base-200"
-        >
-          {/* <p className="">Comment Section</p> */}
-        </Textarea>
-        {/* <p class="text-sm text-blue-900 float-right">Max 280 characters</p> */}
+        ></Textarea>
+
         <p
           className={`text-sm text-black-900 float-right ${
             characterCount === 280 || error ? "text-danger" : ""
