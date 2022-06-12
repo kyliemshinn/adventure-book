@@ -49,10 +49,12 @@ const Bookmark = (props) => {
 
   return (
     <div>
-      <div className="bookmark">
+      
+      <div className="bookmark ">
         {/* if post is NOT favorited, display as Black */}
-
+        <div className="tooltiptext"></div>
         <BsFillBookmarkHeartFill
+        title="Save Post"
           className="float-right"
           onClick={handleClick}
           style={{ color: colorToggle }}

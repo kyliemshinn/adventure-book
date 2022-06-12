@@ -44,11 +44,8 @@ const ViewPost = () => {
     return imageData;
   }
 
-  // const [iconState, setIconState] = useState(false);
-
-
   return (
-    <div className="text-neutral-content">
+    <div className="container text-neutral-content">
       <Hero className="mb-28">
         <div className="postContainer bg-base-200 mx-7 my-9 pt-4 px-5 pb-7">
           <div>
