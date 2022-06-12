@@ -20,18 +20,20 @@ import { QUERY_SINGLE_POST } from "../utils/queries";
 const ViewPost = () => {
   // Use useParams to retrieve value of the route parameter ':postId'
   const { postId } = useParams();
-  console.log(postId);
-  const { loading, data } = useQuery(QUERY_SINGLE_POST, {
+  const query = useQuery(QUERY_SINGLE_POST, {
     // pass URL parameter
     variables: { postId: postId },
   });
-  console.log(data);
+  const { loading, data } = query;
   const post = data?.post || {};
+  
+  function requeryPost() {
+    query.refetch();
+  }
 
   if (loading) {
     return <div>Loading...</div>;
   }
-  console.log(post);
 
 
   function makeCarouselImageData(images) {
@@ -97,7 +99,7 @@ const ViewPost = () => {
             </div>
             <div className="bg-base-100 px-8 mt-4 py-3">
               <div className="">
-                <CommentSection comments={post.comments}/>
+                <CommentSection comments={post.comments} onUpdatePost={requeryPost} />
               </div>
               <div className="pb-7 pt-5">
                 <CommentForm postId={postId}/>

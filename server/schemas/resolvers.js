@@ -4,11 +4,8 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     user: async (parent, args, context) => {
-      // console.log('user query')
-      // console.log(context.user._id)
       const user = await User.findById(context.user._id);
       await user.populate("posts");
-      console.log(user);
       return user;
     },
     posts: async () => {
@@ -17,11 +14,9 @@ const resolvers = {
     },
     post: async (parent, args) => {
       const post = await Post.findById(args.postId).populate([
-        "author",
+        "author", "comments",
         { path: "comments", populate: { path: "commentAuthor" } },
       ]);
-      // post.comments.commentAuthor.populate("author");
-      console.log(post);
       return post;
     },
     postsByTag: async (parent, args) => {
@@ -79,7 +74,6 @@ const resolvers = {
         const post = await Post.findByIdAndUpdate(args.postId, postData, {
           new: true,
         });
-        console.log(post);
         return post;
       } catch (err) {
         console.error(err);
@@ -96,21 +90,25 @@ const resolvers = {
           post: args.postId,
           commentAuthor: context.user._id,
         });
-        await comment.populate(["post", "commentAuthor"]);
-        await Post.findOneAndUpdate(args.postId, {$addToSet: {comments: comment}})
-        return comment;
+        const post = await Post.findOneAndUpdate({_id: args.postId}, {$addToSet: {comments: comment._id}}, { new: true })
+          .populate([ "author", "comments",
+          { path: "comments", populate: { path: "commentAuthor" } }],
+        );
+        return post;
       } catch (err) {
-        console.log(err);
+        console.error(err);
         return null;
       }
     },
     removeComment: async (parent, args) => {
       const comment = await Comment.findByIdAndDelete(args.commentId);
-      await Post.findOneAndUpdate(args.postId, {$pull: {comments: comment}})
-      return comment;
+      const post = await Post.findOneAndUpdate({_id: comment.post}, {$pull: {comments: comment._id}}, {new: true})
+        .populate([ "author", "comments",
+        { path: "comments", populate: { path: "commentAuthor" } }],
+      );;
+      return post;
     },
     addToCollection: async (parent, args, context) => {
-      console.log("ABCD");
       const user = User.findOneAndUpdate(
         context.user._id,
         {

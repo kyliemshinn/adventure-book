@@ -1,31 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Textarea, Button } from "react-daisyui";
 
 import { useMutation } from "@apollo/client";
 // import mutations to add or remove a comment
 import { ADD_COMMENT } from "../../utils/mutation";
 
-const CommentForm = ({ postId, commentId }) => {
-  console.log(postId);
+const CommentForm = ({ postId }) => {
   const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
-  
+  useEffect(() => {
+    setCharacterCount(commentText.length);
+  }, [commentText])
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    if(characterCount === 0)
+    {
+      alert("Comments must have a body!");
+      return;
+    }
+    
     try {
-      console.log(postId);
-      const { data } = await addComment({
+      await addComment({
         variables: {
           postId,
           commentText,
         },
       });
       setCommentText("");
-      alert(data.addComment.id);
     } catch (err) {
       console.error(err);
     }
@@ -35,7 +39,7 @@ const CommentForm = ({ postId, commentId }) => {
     const { name, value } = event.target;
     if (name === "commentText" && value.length <= 280) {
       setCommentText(value);
-      setCharacterCount(value.length);
+      //setCharacterCount(value.length); // Now handled by useEffect
     }
   };
 
