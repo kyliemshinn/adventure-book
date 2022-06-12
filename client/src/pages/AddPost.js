@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
-import Map from "../components/Map";
+import { collapseTagsString } from "../utils/tagConversion";
+import Map from "../components/Map"
 import { Link } from "react-router-dom";
 // import Button from "../components/MainButton/Button"
 
@@ -74,8 +75,9 @@ function AddPost() {
 
   function handleChange(e) {
     let { name, value } = e.target;
-    if (name === "tags") {
-      value = value.split(" ");
+    if(name === "tags") {
+      //value = value.split(" ");
+    value = collapseTagsString(value);
     }
     setPost({
       ...createPost,
