@@ -49,7 +49,7 @@ const Dashboard = () => {
             </h2>
 
             {/* Dynamically update based on users recent posts */}
-            <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content">
+            <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content dashboardCards">
 
               {user.posts.map((post) => (
                 <DashCard title={post.title} post={post} image={post.images[0]} />

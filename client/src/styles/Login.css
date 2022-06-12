@@ -29,8 +29,10 @@
     margin-left: 370px;
 }
 
-#signupForm {
-    margin-left: 600px;
+.signupForm {
+    display: flex;
+    align-items: center;
+    margin-left: 375px;
 }
  
 @media screen and (max-width: 768px) {
@@ -67,11 +69,11 @@
    }
 
 @media screen and (max-width: 1280px) {
-  .loginCard {
+  /* .loginCard {
     flex-wrap: wrap;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
     
 
-  }
+  /* } */
 }
