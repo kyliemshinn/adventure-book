@@ -19,10 +19,11 @@ const Nav = () => {
       </Navbar.Start>
 
       <Navbar.End className="flex-1 px-2 mx-2">
+      <Menu />
         <div className="md:flex items-stretch space-x-4 font-medium">
          {Auth.loggedIn() ? (
           <> 
-            <Menu />
+            
             <Link to="/">Home</Link>
             <Link to="/explore">Explore</Link>
             <Link to="/dashboard">Dashboard</Link>
