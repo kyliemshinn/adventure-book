@@ -8,26 +8,35 @@ import { Link } from "react-router-dom";
 
 function AddPost() {
   //setting up upload image
-  const [images, setImage] = useState("");
+  const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
+
   ///upload image by cloudinary
-  const uploadImage = async (e) => {
+  const uploadImage = (e) => {
     const files = e.target.files;
-    const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "kyliedefault");
+    const filePromises = [];
+    const fileUrls = [];
     setLoading(true);
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload",
-      {
-        method: "post",
-        body: data
+    for(let file of files) {
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", "kyliedefault");
+      const promise = fetch("https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload",
+        {
+          method: "post",
+          body: data
+        }
+      ).then((res) => res.json()
+      ).then((data) => {fileUrls.push(data.secure_url);console.log("Data", data.secure_url);});
+      filePromises.push(promise);
+    }
+    Promise.all(filePromises).then(() => {
+      console.log("fileUrls", fileUrls);
+      setImages(fileUrls);
+      setLoading(false);
       }
     );
-    const file = await res.json();
-    setImage(file.secure_url);
-    setLoading(false);
-  };
+  }
 
   // when the button is clicked for new post to create - run this function
   const [createPost, setPost] = useState({
@@ -60,7 +69,7 @@ function AddPost() {
     try {
       await addPost({
         variables: {
-          images: [images],
+          images: images,
           title: createPost.title,
           content: createPost.content,
           tags: createPost.tags,
@@ -105,7 +114,7 @@ function AddPost() {
                 />
                 {loading ? (
                   <>
-                    <h3>Uploading Image...</h3>
+                    <h3>Uploading Images...</h3>
                   </>
                 ) : (
                   <>
