@@ -21,18 +21,15 @@ import { QUERY_SINGLE_POST } from "../utils/queries";
 const ViewPost = () => {
   // Use useParams to retrieve value of the route parameter ':postId'
   const { postId } = useParams();
-  console.log(postId);
   const { loading, data } = useQuery(QUERY_SINGLE_POST, {
     // pass URL parameter
     variables: { postId: postId },
   });
-  console.log(data);
   const post = data?.post || {};
 
   if (loading) {
     return <div>Loading...</div>;
   }
-  console.log(post);
 
   function makeCarouselImageData(images) {
     const imageData = [];

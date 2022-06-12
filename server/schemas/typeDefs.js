@@ -62,7 +62,7 @@ const typeDefs = gql`
         addToCollection(postId: ID!): User
         removeFromCollection(postId: ID!): User
 
-        addComment(postId: ID!, commentText: String!): Comment
+        addComment(postId: ID!, commentText: String!): Post
         removeComment(commentId: ID!): Post
 
         login(username: String!, password: String!): Auth

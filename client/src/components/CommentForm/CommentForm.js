@@ -8,7 +8,6 @@ import { ADD_COMMENT } from "../../utils/mutation";
 import Auth from "../../utils/auth";
 
 const CommentForm = ({ postId, commentId }) => {
-  console.log(postId);
   const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -18,7 +17,6 @@ const CommentForm = ({ postId, commentId }) => {
     event.preventDefault();
 
     try {
-      console.log(postId);
       const { data } = await addComment({
         variables: {
           postId,
@@ -26,7 +24,6 @@ const CommentForm = ({ postId, commentId }) => {
         },
       });
       setCommentText("");
-      alert(data.addComment.id);
     } catch (err) {
       console.error(err);
     }

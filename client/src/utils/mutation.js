@@ -36,21 +36,20 @@ mutation removePost($postId: ID!) {
 `;
 
 export const ADD_COMMENT = gql`
-# changed content to commentText
   mutation addComment($postId: ID!, $commentText: String!) {
     addComment(postId: $postId, commentText: $commentText) {
       id
-      # content
-      # author {
-      #   username
-      # }
-      # comments {
-      #   id
-      #   commentText
-      #   commentAuthor {
-      #     username
-      #   }
-      # }
+      content
+      author {
+        username
+      }
+      comments {
+        id
+        commentText
+        commentAuthor {
+          username
+        }
+      }
     }
   }
 `;
