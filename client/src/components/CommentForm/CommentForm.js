@@ -16,7 +16,12 @@ const CommentForm = ({ postId }) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    if(characterCount === 0)
+    {
+      alert("Comments must have a body!");
+      return;
+    }
+    
     try {
       await addComment({
         variables: {
