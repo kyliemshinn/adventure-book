@@ -94,6 +94,10 @@ The only places where Cloudinary is called on is the `data.append("upload_preset
 
 Once all of this is complete and the user submits the new post, the page will render back to the Dashboard.
 
+Video below to reference adding a post
+
+![add post gif](./client/src/images/addpostgif.gif)
+
 ### **View Post**
 
 

@@ -79,8 +79,8 @@ const Signup = () => {
   }
   return (
     <div id="balloon-container">
-      <div className="justify-center ml-4 mr-4" id="signupForm">
-        <div className="card w-96 bg-base-200 shadow-xl m-36">
+      <div className="justify-center ml-4 mr-4 signupForm">
+        <div className="card w-96 bg-base-200 shadow-xl m-36 signupForm">
           <div className="card-body p-10">
             <h1 className="card-title p-4 justify-center text-secondary-content">
               PLEASE SIGN UP
