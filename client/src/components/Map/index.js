@@ -174,7 +174,7 @@ function Map(props) {
   let locations = props.locations.map((location) => {
       return {"location": location, "option": { color: 'red' }}
   })
-  console.log("props.locations", locations)
+
   //locations = [locations];
 
     return (

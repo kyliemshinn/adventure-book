@@ -1,9 +1,5 @@
 /* Media screen for dashboard */
 @media screen and (max-width: 768px) {
-  /* .dashComps {
-
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  } */
   .dashboardCards {
     
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

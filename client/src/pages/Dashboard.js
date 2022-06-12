@@ -27,8 +27,6 @@ const Dashboard = () => {
   if (loading) {
     return <div>Loading...</div>;
   }
-  console.log(user)
-  console.log(user.posts)
 
   return (
     <div className="pageContainer flex-wrap">
