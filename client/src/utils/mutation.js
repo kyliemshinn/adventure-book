@@ -43,6 +43,14 @@ export const ADD_TO_COLLECTION = gql`
   }
 `;
 
+export const REMOVE_FROM_COLLECTION = gql`
+  mutation removeFromCollection($postId: ID!) {
+    removeFromCollection(postId: $postId) {
+      id
+    }
+  }
+`;
+
 export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $commentText: String!) {
     addComment(postId: $postId, commentText: $commentText) {
