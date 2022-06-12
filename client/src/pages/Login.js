@@ -87,8 +87,8 @@ function displayBalloons () {
 
   return (
     <div id="balloon-container">
-      <div className="justify-center mr-4" id="loginForm">
-        <div className="card w-96 bg-base-200 shadow-xl m-36" id="loginForm">
+      <div className="justify-center mr-4 loginForm">
+        <div className="card w-96 bg-base-200 shadow-xl m-36 loginForm">
           <div className="card-body p-16">
             <h1 className="card-title p-4 justify-center text-secondary-content">
               WELCOME BACK

@@ -21,15 +21,25 @@
     text-align: left;
 } 
 
-#signupTxt {
+.signupTxt {
     text-align:center;
 }
 
-#loginForm {
+.loginForm {
     margin-left: 370px;
 }
 
 #signupForm {
     margin-left: 600px;
 }
-
+ 
+@media screen and (max-width: 768px) {
+ .loginForm, .signupForm {
+    display: flex;
+    margin: 0;
+    padding:0;
+    height: fit-content;
+    width: fit-content;
+    align-items: center;
+ }
+}
