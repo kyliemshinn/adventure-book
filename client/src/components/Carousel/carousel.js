@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import ImageData from './CarouselData';
 
 const Carousel = () => {
+  console.log("CAROUSEL!!!");
   const maxScrollWidth = useRef(0);
   const [currentIndex, setCurrentIndex] = useState(0);
   const carousel = useRef(null);
