@@ -3,7 +3,7 @@ import { TiDelete } from 'react-icons/ti';
 import { useMutation } from "@apollo/client";
 import { REMOVE_COMMENT } from "../../utils/mutation";
 
-const CommentEntry = ({ comment }) => {
+const CommentEntry = ({ comment, onUpdatePost }) => {
   const [deleteComment, { error }] = useMutation(REMOVE_COMMENT);
 
   // TODO move to view post page component
@@ -14,8 +14,9 @@ const CommentEntry = ({ comment }) => {
       await deleteComment({
         variables: { commentId: comment.id }
       });
-      // TODO modify comment array state
-    } catch {
+      onUpdatePost();
+    } catch (err) {
+      console.error(err);
       console.error(error);
     }
   };

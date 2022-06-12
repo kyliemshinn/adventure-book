@@ -4,10 +4,8 @@ import { Textarea, Button } from "react-daisyui";
 import { useMutation } from "@apollo/client";
 // import addComment mutation
 import { ADD_COMMENT } from "../../utils/mutation";
-// import Auth
-import Auth from "../../utils/auth";
 
-const CommentForm = ({ postId, commentId }) => {
+const CommentForm = ({ postId }) => {
   const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
 

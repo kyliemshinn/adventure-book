@@ -1,7 +1,7 @@
 // TO-DO: update carousel for this posts images
 // TO-DO: allow user to view any tagged locations
 // TO-DO: allow user to save this post to their dashboard
-import React from "react";
+import React, {useEffect} from "react";
 import { Hero } from "react-daisyui";
 import "../App.css";
 import SimpleImageSlider from "react-simple-image-slider";
@@ -21,11 +21,16 @@ import { QUERY_SINGLE_POST } from "../utils/queries";
 const ViewPost = () => {
   // Use useParams to retrieve value of the route parameter ':postId'
   const { postId } = useParams();
-  const { loading, data } = useQuery(QUERY_SINGLE_POST, {
+  const query = useQuery(QUERY_SINGLE_POST, {
     // pass URL parameter
     variables: { postId: postId },
   });
+  const { loading, data } = query;
   const post = data?.post || {};
+  
+  function requeryPost() {
+    query.refetch();
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -93,7 +98,7 @@ const ViewPost = () => {
             </div>
             <div className="bg-base-100 px-8 mt-4 py-3">
               <div className="">
-                <CommentSection comments={post.comments}/>
+                <CommentSection comments={post.comments} onUpdatePost={requeryPost} />
               </div>
               <div className="pb-7 pt-5">
                 <CommentForm postId={postId}/>

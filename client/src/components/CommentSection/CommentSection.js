@@ -1,7 +1,7 @@
 import React from "react";
 import CommentEntry from './CommentEntry';
 
-const CommentSection = ({ comments = [] }) => {
+const CommentSection = ({ comments = [], onUpdatePost }) => {
   if (!comments.length) {
     return <h3 className="py-3">No Comments Yet</h3>;
   }
@@ -19,7 +19,7 @@ const CommentSection = ({ comments = [] }) => {
       <div className="ml-5">
         {comments &&
           comments.map((comment) => (
-            <CommentEntry comment={comment} />
+            <CommentEntry comment={comment} onUpdatePost={onUpdatePost}/>
           ))}
       </div>
     </>
