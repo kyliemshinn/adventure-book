@@ -25,8 +25,9 @@
         "password": "Password123"
      },
      {
-        "username": "Jerome Chenette",
-        "email": "f@f.com",
-        "password": "Password123"
-     }
+      "username": "Jerome Chenette",
+      "email": "f@f.com",
+      "password": "Password123"
+   }
+     
 ]

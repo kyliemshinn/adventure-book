@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import { Textarea, Button } from "react-daisyui";
 
 import { useMutation } from "@apollo/client";
-// import addComment mutation
+// import mutations to add or remove a comment
 import { ADD_COMMENT } from "../../utils/mutation";
-// import Auth
-import Auth from "../../utils/auth";
 
 const CommentForm = ({ postId, commentId }) => {
   console.log(postId);
   const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
+  
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
@@ -39,6 +38,8 @@ const CommentForm = ({ postId, commentId }) => {
       setCharacterCount(value.length);
     }
   };
+
+ 
 
   return (
     <div className="commentSection">

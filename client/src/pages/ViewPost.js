@@ -1,8 +1,7 @@
 // TO-DO: update carousel for this posts images
-// TO-DO: allow user to view any tagged locations
 // TO-DO: allow user to save this post to their dashboard
 import React from "react";
-import { Hero } from "react-daisyui";
+import { Hero, Badge } from "react-daisyui";
 import "../App.css";
 import SimpleImageSlider from "react-simple-image-slider";
 
@@ -16,7 +15,7 @@ import { useParams } from "react-router-dom";
 // Import useQuery Hook to use Single Post query
 import { useQuery } from "@apollo/client";
 import { QUERY_SINGLE_POST } from "../utils/queries";
-// import { comment } from "postcss";
+
 
 const ViewPost = () => {
   // Use useParams to retrieve value of the route parameter ':postId'
@@ -34,6 +33,7 @@ const ViewPost = () => {
   }
   console.log(post);
 
+
   function makeCarouselImageData(images) {
     const imageData = [];
     for(let image of images) {
@@ -43,6 +43,7 @@ const ViewPost = () => {
   }
 
   // const [iconState, setIconState] = useState(false);
+
 
   return (
     <div className="text-neutral-content">
@@ -59,7 +60,7 @@ const ViewPost = () => {
               {post.title}
             </h2>
             {/* <p>{post.author.username}</p> */}
-            <div className="badge badge-outline">{post.tags}</div>
+            {post.tags.map((tag) => ( <Badge className="badge badge-outline text-base-300 mr-1">{tag}</Badge> ))}
           </div>
 
           <div className=" px-3">

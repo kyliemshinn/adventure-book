@@ -13,6 +13,7 @@ import Signup from "./pages/Signup";
 import EditPost from "./pages/EditPost";
 import "./App.css";
 
+import Menu from './components/Navbar/navMenu';
 import {
   ApolloClient,
   InMemoryCache,
@@ -53,8 +54,8 @@ export default function App() {
     <ApolloProvider client={client}>
     <Router>
       <div className="pageContainer">
-        <Nav />
-
+        {/* <Nav /> */}
+    <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
