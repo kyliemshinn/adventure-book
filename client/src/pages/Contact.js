@@ -1,37 +1,30 @@
 import React from "react";
-import Button from "../components/MainButton/Button";
-// import { Textarea, Button } from 'react-daisyui';
+import { Card } from 'react-daisyui';
 
-// add error notification if invalid email address entered
-// Change to Card component
+import Logo from "../images/logo.png";
+
 // handleFormSubmit
 
 const Contact = () => {
   return (
     <div className="bg-base-100 px-6 flex flex-col pt-7 pb-36 justify-center items-center text-secondary-content">
-      <div className="grid grid-cols-2">
-        <div className="bg-base-200 px-16">
-          <h1 className="text-xl font-bold pt-6">
+      <div className="card grid grid-cols-2">
+        <div className="bg-base-200 px-16 text-center">
+          <h1 className="text-xl font-bold pt-14 pb-4">
             Let's Talk About Everything!
           </h1>
           <p>
             Hate forms? Send us an{" "}
             <span className="underline">
-              {" "}
-              <a href="https://mail.google.com/mail/u/2/?ogbl#inbox?compose=CllgCJlDTWfQTJNfsdzbFRQKFPjwqJRbmPXMlNqCQBBwFzJkMtdJBZgMWxMdJHxPMXJLhGCnmRL"> email</a>
-              
-            </span>{" "}
+              <a href="https://mail.google.com/mail/u/2/?ogbl#inbox?compose=CllgCJlDTWfQTJNfsdzbFRQKFPjwqJRbmPXMlNqCQBBwFzJkMtdJBZgMWxMdJHxPMXJLhGCnmRL">
+                email
+              </a>
+            </span>
+            {" "}
             instead.
           </p>
-          <figure>
-            <img
-              src="https://media.istockphoto.com/vectors/open-book-with-air-balloon-and-clouds-vector-id1090884690?k=20&m=1090884690&s=612x612&w=0&h=HgP4IZ6P-DDC8lP1L7sC0hXvt02Gn4gVwq-TK76l9Qc="
-              alt="hot air balloons"
-              width="400"
-              height="620"
-              className="pt-4"
-              target="_blank"
-            />
+          <figure className="py-12">
+          <img src={Logo} alt="logo" width="400px" height="400px"/>
           </figure>
         </div>
         <form className="bg-base-200 py-8 px-16">
