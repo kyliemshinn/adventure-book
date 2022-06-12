@@ -62,7 +62,7 @@ const ViewPost = () => {
               {post.title}
             </h2>
             {/* <p>{post.author.username}</p> */}
-            {post.tags.map((tag) => ( <Badge className="badge badge-outline text-base-300 mr-1">{tag}</Badge> ))}
+            {post.tags.map((tag) => ( <Badge key={tag} className="badge badge-outline text-base-300 mr-1">{tag}</Badge> ))}
           </div>
 
           <div className=" px-3">
@@ -70,7 +70,6 @@ const ViewPost = () => {
               <SimpleImageSlider
                 width={820}
                 height={700}
-                // TO_DO: map through post images array
                 images={makeCarouselImageData(post.images)}
                 showBullets={true}
                 showNavs={true}

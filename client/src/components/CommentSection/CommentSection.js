@@ -19,7 +19,7 @@ const CommentSection = ({ comments = [], onUpdatePost }) => {
       <div className="ml-5">
         {comments &&
           comments.map((comment) => (
-            <CommentEntry comment={comment} onUpdatePost={onUpdatePost}/>
+            <CommentEntry key={comment.id} comment={comment} onUpdatePost={onUpdatePost}/>
           ))}
       </div>
     </>
