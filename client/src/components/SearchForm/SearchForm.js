@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { collapseTagsString } from "../../utils/tagConversion";
 
 const SearchForm = (props) => {
   const [ searchCriteria, setSearchCriteria ] = useState([]);
@@ -10,19 +11,7 @@ const SearchForm = (props) => {
 
   function onSearchCriteriaChanged(e) {
     let value = e.target.value;
-    
-    value = value.split(" "); // Convert value into an array of strings based on spaces
-    // TODO: possibile limit on number of tags?
-    value = value.filter((tag) => { // Remove empty elements
-      return tag.length > 0;
-    });
-    for(let i = 0; i < value.length; i++) {
-      // Remove the leading hashtag symbol
-      if(value[i].charAt(0) === "#") {
-        value[i] = value[i].substring(1);
-      }
-    }
-
+    value = collapseTagsString(value);
     setSearchCriteria(value);
   }
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { QUERY_SINGLE_POST } from "../../utils/queries";
 import { UPDATE_POST } from "../../utils/mutation";
+import { expandTagsArray, collapseTagsString } from "../../utils/tagConversion";
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import "../../App.css";
@@ -12,19 +13,9 @@ const EditPost = () => {
     tags: [],
     content: ""
   });
-  let [ originalPostState, setOriginialPostState ] = useState({});
-  function expandTagsArray() {
-    let value = postState.tags;
-    value = value.join(" ");
-    value.replace("#", ""); // remove hashtags
-    return value;
-  }
 
   const handleChange = (e) => {
     let { name, value } = e.target;
-    if(name === "tags") {
-      value = value.split(" ");
-    }
     setPostState({
       ...postState,
       [name]: value,
@@ -36,8 +27,9 @@ const EditPost = () => {
   });
   useEffect(() => {
     if(data) {
-      setPostState(data.post);
-      setOriginialPostState(data.post);
+      setPostState({
+        ...data.post, tags: expandTagsArray(data.post.tags) // Expand tags array into string for manipulation
+      });
     }
   }, [data])
   const [updatePost] = useMutation(UPDATE_POST);
@@ -51,7 +43,7 @@ const EditPost = () => {
         variables: {
           postId: params.postId,
           title: postState.title,
-          tags: postState.tags,
+          tags: collapseTagsString(postState.tags), // Collapse tags string into array for storage
           content: postState.content
         }
       });
@@ -89,7 +81,7 @@ const EditPost = () => {
                 name="tags"
                 placeholder="#Tags"
                 className="input input-bordered"
-                value={expandTagsArray()}
+                value={postState.tags}
                 onChange={handleChange}
               />
               <textarea
