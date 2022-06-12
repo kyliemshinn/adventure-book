@@ -119,11 +119,14 @@ function AddPost() {
                 ) : (
                   <>
                     <div className="grid row">
-                      <img
-                        src={images}
+                    {images.map((image, index) => {
+                      return <img
+                        key={index}
+                        src={image}
                         style={{ width: "300px" }}
-                        alt=" "
+                        alt="Loaded preview"
                       />
+                    })}
                     </div>
                   </>
                 )}
