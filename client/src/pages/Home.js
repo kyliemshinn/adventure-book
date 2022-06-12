@@ -45,21 +45,21 @@ const Home = () => {
         </Hero.Content>
       </Hero>
 
-      <div className="bg-primary card rounded-full pb-6">
-        <div className="text-center text-neutral-content rounded-full">
+      <div className="bg-primary card md:rounded-full pt-4 pb-6 ">
+        <div className="text-center text-neutral-content  ">
           <div>
-            <h2 className="py-6 text-2xl font-medium">
+            <h2 className="py-12 text-lg font-light m-auto md:font-semibold md:text-2xl">
               Get Recommendations From Real People <br></br>
               Who Have Experienced The Places You Want to Go, And The Activities
               You Want To Do. <br></br>
-              Discover Hidden Gems, Live Like The Locals Do. <br></br>
+              <p className=" text-indigo-500">Discover Hidden Gems, Live Like The Locals Do.</p> 
               Google and Travel Advisor Don’t Always Know It All.
             </h2>
             <Link
               to="/explore"
               className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-4 bg-accent text-base-content"
             >
-              EXPLORE
+              GET STARTED
             </Link>
           </div>
         </div>
