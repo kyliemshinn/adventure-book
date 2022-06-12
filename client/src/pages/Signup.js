@@ -11,7 +11,7 @@ const Signup = () => {
   const [formState, setFormState] = useState({
     username: "",
     email: "",
-    password: "",
+    password: ""
   });
 
   const [createUser, { error, data }] = useMutation(CREATE_USER);
@@ -22,7 +22,7 @@ const Signup = () => {
 
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -33,7 +33,7 @@ const Signup = () => {
 
     try {
       const { data } = await createUser({
-        variables: { ...formState },
+        variables: { ...formState }
       });
 
       Auth.login(data.createUser.token);
@@ -44,7 +44,6 @@ const Signup = () => {
 
   //to get balloons to render on page
   function displayBalloons() {
-
     function random(num) {
       return Math.floor(Math.random() * num);
     }
@@ -74,15 +73,15 @@ const Signup = () => {
         balloonContainer.append(balloon);
       }
     }
-  
+
     createBalloons(100);
   }
   return (
-    <div id="balloon-container">
-      <div className="justify-center ml-4 mr-4 signupForm">
-        <div className="card w-96 bg-base-200 shadow-xl m-36 signupForm">
-          <div className="card-body p-10">
-            <h1 className="card-title p-4 justify-center text-secondary-content">
+    <div id="balloon-container container">
+      <div className="justify-center signupForm">
+        <div className="card w-96 bg-base-200 shadow-xl signupForm">
+          <div className="card-body p-10 cardBody">
+            <h1 className="card-title justify-center text-secondary-content">
               PLEASE SIGN UP
             </h1>
             {data ? (

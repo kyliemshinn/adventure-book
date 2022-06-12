@@ -1,79 +1,62 @@
 .input-icons i {
-    position: absolute;
+  position: absolute;
 }
- 
+
 .input-icons {
-    width: 100%;
-    margin-bottom: 10px;
+  width: 100%;
+  margin-bottom: 10px;
 }
- 
+
 .icon {
-    margin: 13px;
-    padding: 10px;
-    min-width: 55px;
+  margin: 13px;
+  padding: 10px;
+  min-width: 55px;
 }
- 
+
 .input-field {
-    width: 100%;
-    padding: 10px;
-    margin: 5px;
-    padding-left: 50px;
-    text-align: left;
-} 
+  width: 100%;
+  padding: 10px;
+  margin: 5px;
+  padding-left: 50px;
+  text-align: left;
+}
 
 .signupTxt {
-    text-align:center;
+  text-align: center;
 }
-
-.loginForm {
-    margin-left: 370px;
+.signupForm, .loginForm {
+    margin: auto;
+    padding-top: 50px;
 }
 
 .signupForm {
-    display: flex;
-    align-items: center;
-    margin-left: 375px;
+  display: flex;
+  align-items: center;
+  margin-left: 375px;
 }
- 
+
+/* media screens for login and sign up pages */
 @media screen and (max-width: 768px) {
- .loginForm, .signupForm {
-    display: flex;
-    margin: 0;
-    padding:0;
-    height: fit-content;
-    width: fit-content;
-    align-items: center;
- }
- .login {
-    justify-content: center;
- }
+  .balloon-container {
+    margin: auto;
+  }
+  .loginForm,
+  .signupForm {
+    margin: auto;
+    /* padding-top: 30px; */
+  }
 }
 
-@media screen and (max-width: 1024px) {
-    .loginForm, .signupForm {
-       display: flex;
-       margin: 0;
-       padding:0;
-       height: fit-content;
-       width: fit-content;
-       justify-content: center;
-    }
-    .loginCard, .input {
-        align-items: center;
-        justify-content: center;
-    }
-    .icon {
-        visibility: hidden;
-
-    }
-   }
-
-@media screen and (max-width: 1280px) {
-  /* .loginCard {
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center; */
-    
-
-  /* } */
+@media screen and (max-width: 1430px) {
+ .loginForm {
+    padding-top: 50px;
+ }
+  .loginForm,
+  .signupForm {
+    margin: auto;
+    /* padding: 0; */
+  }
+  .icon {
+    visibility: hidden;
+  }
 }

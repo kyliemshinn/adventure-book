@@ -1,12 +1,19 @@
 # **adventure-book**
 
-ADD BADGES
-
-**[See the live site here](https://fathomless-savannah-08300.herokuapp.com/)**
-
-ADD LOGO HERE
+![jsBadge](https://img.shields.io/github/languages/top/jkwalsh127/git-productive?style=plastic)
+![languages](https://img.shields.io/github/languages/count/jkwalsh127/git-productive)
+![License](https://img.shields.io/github/license/jkwalsh127/)
 
 
+
+### **See The Live Site [Here!](https://fathomless-savannah-08300.herokuapp.com/)**
+
+<img src= "./client/src/images/logo.png" height="200px" width="200px">
+
+  
+  
+    
+      
 ## **Table Of Contents**
 
 1. [Description](#description)

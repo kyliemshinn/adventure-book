@@ -57,10 +57,6 @@ function AddPost() {
   const [location, setLocation] = useState([0.01, 0.01]);
 
   function readLocation(arg) {
-    /*setPushPins([{
-      "location":[arg.latitude, arg.longitude],
-      "option":{ color: 'red' }
-    }]);*/
     setPushPins([arg.latitude, arg.longitude]);
     setLocation([arg.latitude, arg.longitude]);
   }
