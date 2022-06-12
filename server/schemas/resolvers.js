@@ -5,7 +5,8 @@ const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       const user = await User.findById(context.user._id);
-      await user.populate(["posts", "userCollection"]);
+      await user.populate(["posts", "userCollection", 
+      { path: "userCollection", populate: { path: "author" } },]);
       return user;
     },
     posts: async () => {

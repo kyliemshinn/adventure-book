@@ -72,6 +72,10 @@ export const QUERY_USER = gql`
       userCollection {
         id
         title
+        tags
+        author {
+          username
+        }
       }
     }
   }
