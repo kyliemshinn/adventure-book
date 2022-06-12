@@ -23,7 +23,7 @@ const Dashboard = () => {
     // variables: { userId: postId },
   });
   const user = data?.user || {};
-  
+  console.log(user);
   if (loading) {
     return <div>Loading...</div>;
   }
