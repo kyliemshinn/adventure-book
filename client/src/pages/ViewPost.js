@@ -56,7 +56,7 @@ const ViewPost = () => {
             {/* onClick, save to collections */}
             {/* highlight when saved */}
             <div>
-              <Bookmark />
+              <Bookmark postId={postId}/>
             </div>
             <h2 className="text-bold text-2xl text-neutral-content">
               {post.title}

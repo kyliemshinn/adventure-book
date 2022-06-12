@@ -3,16 +3,16 @@ import React, { useState } from "react";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 // import axios from "axios";
 
-const Bookmark = () => {
+const Bookmark = (props) => {
   // set toggle state to false
   const [colorToggle, setColorToggle] = useState("black");
   //   const [favList, setFavList] = useState([]);
 
-  // const handleClick = (event) => {
-  //     console.log('button clicked');
-  //     event.target.style.color = "red";
-  //     console.log(event.target);
-  // }
+  const handleClick = () => {
+      console.log('button clicked');
+      setColorToggle("red");
+      console.log("postId", props.postId);
+  }
 
   // const addToFaveList = () => {
   // .GET favorite collection
@@ -28,9 +28,7 @@ const Bookmark = () => {
 
         <BsFillBookmarkHeartFill
           className="float-right"
-          onClick={() => {
-            setColorToggle("red");
-          }}
+          onClick={handleClick}
           style={{ color: colorToggle }}
           size={30}
         />
