@@ -2,7 +2,8 @@ import React from "react";
 import '../../styles/Dashboard.css';
 import { Badge } from "react-daisyui";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+  console.log("Sidebar", props.userCollection)
   return (
     <div className="grid col-span-2 mt-5 mb-10">
       <div className="bg-base-200 ">
@@ -41,6 +42,11 @@ const Sidebar = () => {
               <Badge className="badge badge-outline">#whitesaltbeaches</Badge>
             </div>
           </div>
+
+          <p>Queried collections:</p>
+          {props.userCollection.map((post) => {
+            return <p>{post.id}</p>
+          })}
 
           </div>
         </div>
