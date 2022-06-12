@@ -5,7 +5,6 @@ import DashCard from "../components/Card/DashCard";
 import Sidebar from "../components/SideMenu/Sidebar";
 
 //import for functionality of query
-import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
 import '../styles/Dashboard.css'
@@ -30,8 +29,8 @@ const Dashboard = () => {
   return (
     <div className="pageContainer flex-wrap">
       <div>
-        <h2 className="text-bold text-2xl text-accent-content text-center my-4 pt-4 ">
-          Dashboard
+        <h2 className="text-bold text-2xl text-base-300 text-center my-4 pt-4 ">
+          My Adventure Book
         </h2>
         {/* Dynamically update container size based on posts */}
       </div>

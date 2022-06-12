@@ -9,14 +9,14 @@
 
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 820px) {
     .navLinks {
         display: none;
     }
     
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 820px) {
     
     .mobile-nav {
         display: block;

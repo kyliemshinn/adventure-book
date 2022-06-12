@@ -4,12 +4,12 @@ import { Card, Badge } from "react-daisyui";
 const ExploreCard = ({ author, title, tags, image }) => {
 
   return (
-    <Card className="postCard card w-96 bg-base-100 shadow-xl">
+    <Card className="postCard card w-96 mb-3 bg-base-100 shadow-xl">
       <figure>
         <img
           src={image}
           alt={title}
-          className="cardImage"
+          className="cardImage "
         />
       </figure>
       

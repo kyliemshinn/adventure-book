@@ -80,7 +80,7 @@ const ViewPost = () => {
                 <div className="bg-base-100 mb-3 place-items-center">
                   <p className="">{post.createdAt}</p>
                   <div className="">
-                    <h3 className="pl-8 py-6 max-w-2xl overflow-auto">
+                    <h3 className="pl-8 py-6 max-w-2xl overflow-auto md:scroll-auto">
                       {post.content}
                     </h3>
                   </div>

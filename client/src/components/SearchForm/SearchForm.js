@@ -16,14 +16,14 @@ const SearchForm = (props) => {
   }
 
   return (
-    <div className="form-control">
-      <form className="searchForm" onSubmit={onSubmitSearchRequest}>
-              <div className="input-group">
+    <div className="container form-control">
+      <form className="searchForm max-w-xs" onSubmit={onSubmitSearchRequest}>
+              <div className="input-group input-group-sm md:input-group-lg">
                 <input
                   type="text"
                   name="criteria"
                   placeholder="#sailing #hiking #surfing..."
-                  className="input input-bordered"
+                  className="input input-bordered "
                   onChange={onSearchCriteriaChanged}
                 />
                 <button className="btn bg-accent border-none hover:bg-accent-focus btn-square">
