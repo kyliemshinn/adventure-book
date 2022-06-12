@@ -18,7 +18,7 @@ const EditPost = () => {
     let { name, value } = e.target;
     setPostState({
       ...postState,
-      [name]: value,
+      [name]: value
     });
   }
 
@@ -52,6 +52,10 @@ const EditPost = () => {
     } catch (err) {
       console.error(err)
     }
+  }
+
+  const goBack = (e) => {
+    window.location.assign('/dashboard');
   }
 
   if(loading) {
@@ -91,12 +95,17 @@ const EditPost = () => {
                 value={postState.content}
                 onChange={handleChange}
               ></textarea>
+              <div className="flex justify-center">
+                  <button onClick={goBack} className="btn btn-accent rounded-full m-1">
+                  ⬅ Go Back
+                  </button>
                   <button
                     onClick={handleEditSubmit}
-                    className="btn btn-primary rounded-full"
+                    className="btn btn-accent fit-content rounded-full m-1"
                   >
                     Update POST
                   </button>
+                  </div>
               </div>
             </div>
           </div>
