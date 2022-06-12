@@ -1,7 +1,7 @@
 // TO-DO: update carousel for this posts images
 // TO-DO: allow user to view any tagged locations
 // TO-DO: allow user to save this post to their dashboard
-import React, {useEffect} from "react";
+import React from "react";
 import { Hero } from "react-daisyui";
 import "../App.css";
 import SimpleImageSlider from "react-simple-image-slider";

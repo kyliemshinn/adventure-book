@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Textarea, Button } from "react-daisyui";
 
 import { useMutation } from "@apollo/client";
@@ -8,6 +8,9 @@ import { ADD_COMMENT } from "../../utils/mutation";
 const CommentForm = ({ postId }) => {
   const [commentText, setCommentText] = useState("");
   const [characterCount, setCharacterCount] = useState(0);
+  useEffect(() => {
+    setCharacterCount(commentText.length);
+  }, [commentText])
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
 
@@ -31,7 +34,7 @@ const CommentForm = ({ postId }) => {
     const { name, value } = event.target;
     if (name === "commentText" && value.length <= 280) {
       setCommentText(value);
-      setCharacterCount(value.length);
+      //setCharacterCount(value.length); // Now handled by useEffect
     }
   };
 
