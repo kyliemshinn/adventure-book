@@ -1,4 +1,5 @@
 import React from "react";
+import '../../styles/Dashboard.css'
 // import { Link } from "react-router-dom";
 import { Card, Button } from 'react-daisyui';
 import { useMutation } from '@apollo/client';
@@ -46,7 +47,7 @@ const DashCard = ({image, title, post}) => {
 
 
   return (
-    <Card className="postCard card w-96 bg-base-100 shadow-xl">
+    // <Card className="postCard card w-96 bg-base-100 shadow-xl">
       <div className="postCard card w-96 ">
         <figure>
           <img
@@ -75,7 +76,7 @@ const DashCard = ({image, title, post}) => {
           </div>
         </div>
       </div>
-    </Card>
+    // </Card>
   );
 };
 

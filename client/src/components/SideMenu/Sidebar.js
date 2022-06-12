@@ -1,4 +1,5 @@
 import React from "react";
+import '../../styles/Dashboard.css'
 
 const Sidebar = () => {
   return (
@@ -9,7 +10,7 @@ const Sidebar = () => {
         </div>
         <div className="place-items-center">
         <div className="pl-3 pt-3">
-          <div className="card w-96 h-36 bg-base-100 shadow-xl">
+          <div className="card w-96 h-36 bg-base-100 shadow-xl savePost">
             <div className="card-body">
               <h2 className="card-title">Post Title</h2>
               <p>Username</p>
