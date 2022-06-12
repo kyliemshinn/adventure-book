@@ -175,7 +175,7 @@ function Map(props) {
       return {"location": location, "option": { color: 'red' }}
   })
 
-  //locations = [locations];
+  const apiKey = process.env.REACT_APP_BING_MAPS_API_KEY || process.env.BING_MAPS_API_KEY;
 
     return (
       <div style={{ height: props.height, width: props.width }}>
@@ -189,7 +189,7 @@ function Map(props) {
           getLocation = {{ addHandler: "click", callback:props.onClick }}
         /> */}
         <ReactBingmaps
-          bingmapKey = {"AuobAMXGIQwgjimas4B-M6-ohLbmLaLNDIUojn2nI-VCDEh1VxaL__j48GUmEu-C"}
+          bingmapKey = {apiKey}
           center = {props.center}
           mapTypeId = {"aerial"}
           pushPins = {locations}
