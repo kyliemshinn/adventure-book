@@ -18,7 +18,7 @@ const Sidebar = (props) => {
                   <h2 className="card-title">{post.title}</h2>
                   <p>{post.author.username}</p>
                   {post.tags.map((tag) => {
-                    return <Badge className="badge badge-outline">#{tag}</Badge>
+                    return <Badge key={tag} className="badge badge-outline">#{tag}</Badge>
                   })}
                 </div>
               </div>
