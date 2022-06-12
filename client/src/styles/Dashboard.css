@@ -1,3 +1,4 @@
+/* Media screen for dashboard */
 @media screen and (max-width: 768px) {
   .dashComps {
     display: flex;
@@ -76,3 +77,45 @@
         justify-content: center;
       }
 }
+/* Media screen for Update Post */
+@media screen and (max-width: 768px) {
+    .update {
+        margin: 0;
+        width: fit-content;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .updateCard {
+        margin: 0;
+        padding: 0;
+        max-width: 100vw;
+    }
+    .updateContent {
+        margin: 0;
+        padding: 0;
+        width: 100vw;
+    }
+    .updateInput {
+        display: flex;
+        width: max-content;
+        justify-content: center;
+        margin: 0;
+        padding: 14px;
+    }
+    .input {
+        width: 90vw;
+    }
+    .updateBtns {
+        padding: 0;
+        margin: 0;
+    }
+
+  }
+  
+  @media screen and (max-width: 1024px) {
+    
+    
+  }
+  
+  @media screen and (max-width: 1280px) {
+
+  }
