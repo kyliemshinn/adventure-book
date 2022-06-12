@@ -4,7 +4,6 @@ import React from "react";
 import { Hero, Badge } from "react-daisyui";
 import "../App.css";
 import SimpleImageSlider from "react-simple-image-slider";
-import { CarouselData } from "../components/Carousel/CarouselData";
 
 import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
@@ -35,6 +34,16 @@ const ViewPost = () => {
   console.log(post);
 
 
+  function makeCarouselImageData(images) {
+    const imageData = [];
+    for(let image of images) {
+      imageData.push({ url: image });
+    }
+    return imageData;
+  }
+
+  // const [iconState, setIconState] = useState(false);
+
 
   return (
     <div className="text-neutral-content">
@@ -60,7 +69,7 @@ const ViewPost = () => {
                 width={820}
                 height={700}
                 // TO_DO: map through post images array
-                images={CarouselData}
+                images={makeCarouselImageData(post.images)}
                 showBullets={true}
                 showNavs={true}
                 overflow="hidden"

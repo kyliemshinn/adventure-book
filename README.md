@@ -30,7 +30,7 @@ Adventure Book is a modern web application used for travelers who want to get a 
   
 ## **Installation**
 
-1. Clone down the repo from [this link](git@github.com:CommieDog/adventure-book.git) or by `git clone git@github.com:CommieDog/adventure-book.git` in your terminal
+1. Clone down the repo from [the repository](git@github.com:CommieDog/adventure-book.git) or by `git clone git@github.com:CommieDog/adventure-book.git` in your terminal
 2. To get all necessary packages, run `npm install` in the command line
 5. Then run `npm run develop` to get the program to concurrently run the front and back end of the web application.
  
@@ -49,6 +49,7 @@ The following sections highlight the functionality of the main pages and compone
 ### **Homepage**
 
 ### **Login**
+
 NOTE: add balloon code snipps
 
 ### **Explore Page**
@@ -57,7 +58,8 @@ NOTE: add balloon code snipps
 
 The dashboard of Adventure Book is only visible when the user is logged in. Upon log in, the user can navigate to dashboard from the navbar or footer. Here, is a place to view the current posts the user has already made and view any posts they have saved from other users. They can create, view or delete there posts from here as well. Reference picture below for layout of the dashboard.
 
-ADD PICTURE TO SHOW WHAT IT LOOKS LIKE******
+
+<img src= "./client/src/images/dashboard%20photo.PNG" height="200px" width="400px">
 
 ### **Edit Post**
 
@@ -91,6 +93,10 @@ The add post page is meant to only be rendered when accessed through the user Da
 The only places where Cloudinary is called on is the `data.append("upload_preset", "kyliedefault")` which is setting the upload preset to an unsigned token, and `"https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload"` which is where it will send the image.
 
 Once all of this is complete and the user submits the new post, the page will render back to the Dashboard.
+
+Video below to reference adding a post
+
+![add post gif](./client/src/images/addpostgif.gif)
 
 ### **View Post**
 
