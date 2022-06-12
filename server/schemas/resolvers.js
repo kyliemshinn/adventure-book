@@ -5,7 +5,8 @@ const resolvers = {
   Query: {
     user: async (parent, args, context) => {
       const user = await User.findById(context.user._id);
-      await user.populate("posts");
+      await user.populate(["posts", "userCollection", 
+      { path: "userCollection", populate: { path: "author" } },]);
       return user;
     },
     posts: async () => {
@@ -109,8 +110,8 @@ const resolvers = {
       return post;
     },
     addToCollection: async (parent, args, context) => {
-      const user = User.findOneAndUpdate(
-        context.user._id,
+      const user = await User.findOneAndUpdate(
+        { _id: context.user._id} ,
         {
           $addToSet: { userCollection: args.postId },
         },
@@ -121,9 +122,8 @@ const resolvers = {
       return user;
     },
     removeFromCollection: async (parent, args, context) => {
-      console.log("EFGH");
-      const user = User.findOneAndUpdate(
-        context.user._id,
+      const user = await User.findOneAndUpdate(
+        { _id: context.user._id} ,
         {
           $pull: { userCollection: args.postId },
         },

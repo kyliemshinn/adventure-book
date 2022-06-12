@@ -22,7 +22,6 @@ const Dashboard = () => {
     // variables: { userId: postId },
   });
   const user = data?.user || {};
-  
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -36,7 +35,7 @@ const Dashboard = () => {
         {/* Dynamically update container size based on posts */}
       </div>
       <div className="grid grid-cols-8 gap-4 text-neutral-content mr-12 dashComps">
-        <Sidebar className="sideBar" />
+        <Sidebar className="sideBar" userCollection={user.userCollection} />
 
         <Hero className="postContainer bg-base-200 mb-10 mt-5 px-6 pb-7 overflow-auto mr-4 col-span-6 myPosts">
           <div>
@@ -49,7 +48,7 @@ const Dashboard = () => {
             <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content dashboardCards">
 
               {user.posts.map((post) => (
-                <DashCard title={post.title} post={post} image={post.images[0]} />
+                <DashCard key={post.id} title={post.title} post={post} image={post.images[0]} />
                 ))}
           
                 </div>
