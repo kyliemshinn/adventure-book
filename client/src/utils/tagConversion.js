@@ -5,12 +5,10 @@ function expandTagsArray(array) {
     }
     let string = newArray.join(" ");
     string.replace("#", ""); // remove hashtags
-    console.log("expandTagsArray", string);
     return string;
 }
 
 function collapseTagsString(string) {
-    console.log(string);
     let array = string.split(" "); // Convert value into an array of strings based on spaces
     // TODO: possibile limit on number of tags?
     array = array.filter((tag) => { // Remove empty elements
@@ -22,7 +20,6 @@ function collapseTagsString(string) {
         array[i] = array[i].substring(1);
       }
     }
-    console.log("collapseTagsString", array);
     return array;
 }
 
