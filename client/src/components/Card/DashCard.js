@@ -1,5 +1,5 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import '../../styles/Dashboard.css'
 import { Card, Button } from 'react-daisyui';
 import { useMutation } from '@apollo/client';
 import { REMOVE_POST } from "../../utils/mutation";
@@ -46,7 +46,7 @@ const DashCard = ({image, title, post}) => {
 
 
   return (
-    <Card className="postCard card w-96 bg-base-100 shadow-xl">
+    // <Card className="postCard card w-96 bg-base-100 shadow-xl">
       <div className="postCard card w-96 ">
         <figure>
           <img
@@ -55,7 +55,7 @@ const DashCard = ({image, title, post}) => {
             className="cardImage"
           />
         </figure>
-        <div className="postCard card-body items-center text-center">
+        <div className="dashPost card-body items-center text-center">
           <h2 className="card card-title p-4">{title}</h2>
           <div className="card-actions justify-end text-base-content">
           {/* <Link key={post.id} to={`/dashboard/viewpost/${post.id}`}> */}
@@ -75,7 +75,7 @@ const DashCard = ({image, title, post}) => {
           </div>
         </div>
       </div>
-    </Card>
+    // </Card>
   );
 };
 

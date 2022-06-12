@@ -7,13 +7,13 @@ import Stamps from '../images/stamps.png';
 
 const Home = () => {
   return (
-    <div className="container mb-28">
-      <Hero className="min-h-screen bg-base-100">
+    <div className="container mb-32">
+      <Hero className="min-h-screen bg-base-100 align-top">
         <Hero.Content className="text-center">
-          <div className="max-w-md text-secondary-content">
-            <h1 className="appName mt-5 text-7xl">ADVENTURE BOOK</h1>
-            {/* <Card> */}
-            <div className="bookContainer py-32">
+          <div className="max-w-lg text-secondary-content">
+            <h1 className="appName text-7xl pb-8">ADVENTURE BOOK</h1>
+          
+            <div className="bookContainer py-40">
               <div className="book">
                 <span className="page turn"></span>
                 <span className="page turn"></span>
@@ -31,23 +31,22 @@ const Home = () => {
               </div>
             </div>
             <h2 className="text-4xl">
-              Get Inspired<br></br>
-              Plan Your Next Adventure
+              <p className="pt-5 pb-2">Get Inspired</p>
+              <p>Plan Your Next Adventure</p>
             </h2>
-            {/* </Card> */}
 
             <Link
               to="/explore"
               className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-8 bg-accent text-base-content"
             >
-              Explore
+              EXPLORE
             </Link>
           </div>
         </Hero.Content>
       </Hero>
 
-      <Hero className="bg-base-200">
-        <Hero.Content className="text-center text-neutral-content max-w-screen-md">
+      <div className="bg-primary card rounded-full pb-6">
+        <div className="text-center text-neutral-content rounded-full">
           <div>
             <h2 className="py-6 text-2xl font-medium">
               Get Recommendations From Real People <br></br>
@@ -60,11 +59,11 @@ const Home = () => {
               to="/explore"
               className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-4 bg-accent text-base-content"
             >
-              Explore
+              EXPLORE
             </Link>
           </div>
-        </Hero.Content>
-      </Hero>
+        </div>
+      </div>
     </div>
   );
 };

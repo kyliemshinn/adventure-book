@@ -39,7 +39,7 @@ const Explore = () => {
   // TO-DO: handle form submit of search bar that renders most recent posts with tags that were searched
   return (
     <div className="pageContainer">
-      <Hero className="pt-7 pb-2 bg-base-200 place-items-center">
+      <Hero className="pt-12 pb-4 bg-base-200 place-items-center">
         <div className="text-center mb-20 text-secondary-content">
           <h2 className="text-xl">
             Get Inspired<br></br>
