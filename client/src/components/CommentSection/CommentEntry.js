@@ -1,7 +1,24 @@
 import React from "react";
 import { TiDelete } from 'react-icons/ti';
+import { useMutation } from "@apollo/client";
+import { REMOVE_COMMENT } from "../../utils/mutation";
 
 const CommentEntry = ({ comment }) => {
+  const [deleteComment, { error }] = useMutation(REMOVE_COMMENT);
+
+  // TODO move to view post page component
+  const handleDeleteComment = async (event) => {
+    event.preventDefault();
+
+    try {
+      await deleteComment({
+        variables: { commentId: comment.id }
+      });
+      // TODO modify comment array state
+    } catch {
+      console.error(error);
+    }
+  };
   return (
     <div key={comment.id}>
       <div>
@@ -12,7 +29,7 @@ const CommentEntry = ({ comment }) => {
         <p className="comment-body bg-base-200 rounded-full pl-3 ml-3">
           {comment.commentText} 
           <TiDelete className="float-right mr-1 text-accent hover:text-accent-focus" size={23}
-            onClick={() => console.log("DELETE'D", comment.id)}/>
+            onClick={handleDeleteComment}/>
         </p>
       </div>
     </div>

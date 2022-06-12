@@ -17,7 +17,6 @@ const resolvers = {
         "author", "comments",
         { path: "comments", populate: { path: "commentAuthor" } },
       ]);
-      console.log("ABCD", post);
       return post;
     },
     postsByTag: async (parent, args) => {
@@ -91,23 +90,22 @@ const resolvers = {
           post: args.postId,
           commentAuthor: context.user._id,
         });
-        const post = await Post.findOneAndUpdate({_id: args.postId}, {$addToSet: {comments: comment.id}}, { new: true })
+        const post = await Post.findOneAndUpdate({_id: args.postId}, {$addToSet: {comments: comment._id}}, { new: true })
         .populate([ "author", "comments",
             { path: "comments", populate: { path: "commentAuthor" } }],
         );
         return post;
       } catch (err) {
-        console.log(err);
+        console.error(err);
         return null;
       }
     },
     removeComment: async (parent, args) => {
       const comment = await Comment.findByIdAndDelete(args.commentId);
-      await Post.findOneAndUpdate(args.postId, {$pull: {comments: comment}})
-      return comment;
+      const post = await Post.findOneAndUpdate({_id: comment.post}, {$pull: {comments: comment._id}}, {new: true});
+      return post;
     },
     addToCollection: async (parent, args, context) => {
-      console.log("ABCD");
       const user = User.findOneAndUpdate(
         context.user._id,
         {
