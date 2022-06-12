@@ -13,7 +13,6 @@ ADD LOGO HERE
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Main Features](#main-features)
-    - [Homepage](#homepage)
     - [Login/Signup](#login)
     - [Explore Page](#explore-page)
     - [Dashboard](#dashboard)
@@ -46,7 +45,6 @@ Adventure Book is a modern web application used for travelers who want to get a 
 
 The following sections highlight the functionality of the main pages and components of Adventure Book.
 
-### **Homepage**
 
 ### **Login**
 
@@ -90,7 +88,7 @@ The add post page is meant to only be rendered when accessed through the user Da
     };
 ```
 
-The only places where Cloudinary is called on is the `data.append("upload_preset", "kyliedefault")` which is setting the upload preset to an unsigned token, and `"https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload"` which is where it will send the image.
+The only places where Cloudinary is called on is the `data.append("upload_preset", "kyliedefault")` which is setting the upload preset to an unsigned token, and `"https://api.cloudinary.com/v1_1/dw5epcgjt/image/upload"` which is where it will send the images. To work Cloudinary only being able to upload one picture per call, we had to call it multiple times, capping it at 4 images per post to get an array of images.
 
 Once all of this is complete and the user submits the new post, the page will render back to the Dashboard.
 
