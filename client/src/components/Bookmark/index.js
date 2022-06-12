@@ -1,17 +1,25 @@
 import React, { useState } from "react";
-// import React from 'react';
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
-// import axios from "axios";
+import { useMutation } from "@apollo/client";
+import { ADD_TO_COLLECTION } from "../../utils/mutation";
 
 const Bookmark = (props) => {
   // set toggle state to false
   const [colorToggle, setColorToggle] = useState("black");
   //   const [favList, setFavList] = useState([]);
 
-  const handleClick = () => {
+  const [addToCollection, { error }] = useMutation(ADD_TO_COLLECTION);
+
+  const handleClick = async () => {
       console.log('button clicked');
       setColorToggle("red");
-      console.log("postId", props.postId);
+      //console.log("postId", props.postId);
+      try {
+        const data = await addToCollection({ variables: { postId: props.postId }});
+        console.log(data.data.addToCollection.id);
+      } catch (err) {
+        console.error(error || err);
+      }
   }
 
   // const addToFaveList = () => {
