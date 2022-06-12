@@ -33,6 +33,22 @@ mutation removePost($postId: ID!) {
       id
     }
   }
+`
+
+export const ADD_TO_COLLECTION = gql`
+  mutation addToCollection($postId: ID!) {
+    addToCollection(postId: $postId) {
+      id
+    }
+  }
+`;
+
+export const REMOVE_FROM_COLLECTION = gql`
+  mutation removeFromCollection($postId: ID!) {
+    removeFromCollection(postId: $postId) {
+      id
+    }
+  }
 `;
 
 export const ADD_COMMENT = gql`

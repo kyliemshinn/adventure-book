@@ -1,18 +1,44 @@
 import React, { useState } from "react";
-// import React from 'react';
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
-// import axios from "axios";
+import { useMutation } from "@apollo/client";
+import { ADD_TO_COLLECTION, REMOVE_FROM_COLLECTION } from "../../utils/mutation";
 
-const Bookmark = () => {
+const Bookmark = (props) => {
   // set toggle state to false
   const [colorToggle, setColorToggle] = useState("black");
-  //   const [favList, setFavList] = useState([]);
+  const [collected, setCollected] = useState(false);
 
-  // const handleClick = (event) => {
-  //     console.log('button clicked');
-  //     event.target.style.color = "red";
-  //     console.log(event.target);
-  // }
+  const [addToCollection, { error: addError }] = useMutation(ADD_TO_COLLECTION);
+  const [removeFromCollection, { error: removeError }] = useMutation(REMOVE_FROM_COLLECTION);
+
+  const handleClick = async () => {
+    if(collected) {
+      await removeFromUserCollection();
+    }
+    else {
+      await addToUserCollection();
+    }
+  }
+  async function addToUserCollection() {
+    try {
+      setColorToggle("red");
+      await addToCollection({ variables: { postId: props.postId }});
+      setCollected(true);
+    } catch (err) {
+      console.error(addError ? addError : err);
+      setColorToggle("black");
+    }
+  }
+  async function removeFromUserCollection() {
+    try {
+      setColorToggle("black");
+      await removeFromCollection({ variables: { postId: props.postId }});
+      setCollected(false);
+    } catch (err) {
+      console.error(removeError ? removeError : err);
+      setColorToggle("red");
+    }
+  }
 
   // const addToFaveList = () => {
   // .GET favorite collection
@@ -28,9 +54,7 @@ const Bookmark = () => {
 
         <BsFillBookmarkHeartFill
           className="float-right"
-          onClick={() => {
-            setColorToggle("red");
-          }}
+          onClick={handleClick}
           style={{ color: colorToggle }}
           size={30}
         />
