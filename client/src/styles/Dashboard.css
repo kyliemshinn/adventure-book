@@ -19,12 +19,6 @@
   .sideBar {
     display: none;
   }
-  .postCard {
-    margin: auto;
-    padding: 15px;
-    width: min-content;
-    justify-content: center;
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -42,17 +36,9 @@
       .sideBar {
         width: 100vw;
       }
-      .postCard {
-        display: flex;
-        flex-direction: column;
-        margin: 20px;
-        padding: 10px;
-        width:300px;
-        justify-content: center;
-      }
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1630px) {
     .dashComps {
         display: flex;
         flex-wrap: wrap;
@@ -73,14 +59,6 @@
       }
       .sideBar {
         width: 100vw;
-      }
-      .postCard {
-        display: flex;
-        flex-direction: column;
-        margin: 20px;
-        padding: 10px;
-        width:300px;
-        justify-content: center;
       }
 }
 /* Media screen for Update Post */
