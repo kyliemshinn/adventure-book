@@ -1,0 +1,6 @@
+@media only screen and (max-width: 768px) {
+    .cardContainer {
+        display: block;
+        margin-left: 40px;
+    }
+}
