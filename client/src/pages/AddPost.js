@@ -14,6 +14,13 @@ function AddPost() {
   ///upload image by cloudinary
   const uploadImage = (e) => {
     const files = e.target.files;
+    // Abort if more than 4 files
+    if(files.length > 4) {
+      alert("Too many files!");
+      setImages([]);
+      e.target.value = null;
+      return;
+    }
     const filePromises = [];
     const fileUrls = [];
     setLoading(true);
@@ -27,11 +34,10 @@ function AddPost() {
           body: data
         }
       ).then((res) => res.json()
-      ).then((data) => {fileUrls.push(data.secure_url);console.log("Data", data.secure_url);});
+      ).then((data) => fileUrls.push(data.secure_url));
       filePromises.push(promise);
     }
     Promise.all(filePromises).then(() => {
-      console.log("fileUrls", fileUrls);
       setImages(fileUrls);
       setLoading(false);
       }
@@ -64,9 +70,14 @@ function AddPost() {
     event.preventDefault();
 
     const processedLocation = { latitude: location[0], longitude: location[1] };
-    console.log(createPost);
 
     try {
+      if(images.length === 0) {
+        throw new Error("Must have at least one image");
+      }
+      if(images.length > 4) {
+        throw new Error("Can't have more than 4 images");
+      }
       await addPost({
         variables: {
           images: images,
@@ -85,7 +96,6 @@ function AddPost() {
   function handleChange(e) {
     let { name, value } = e.target;
     if(name === "tags") {
-      //value = value.split(" ");
     value = collapseTagsString(value);
     }
     setPost({
@@ -138,9 +148,6 @@ function AddPost() {
                   placeholder="Title"
                   className="input input-bordered w-full"
                   onChange={handleChange}
-                  onSubmit={() => {
-                    console.log("!!!");
-                  }}
                 />
               </div>
               <div className="m-3">
