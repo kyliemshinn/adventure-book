@@ -21,13 +21,58 @@
     width: min-content;
     justify-content: center;
   }
-  .addBtn {
-    margin: 20px;
-  }
 }
 
 @media screen and (max-width: 1024px) {
+    .dashComps {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: start;
+      }
+      .myPosts {
+        width: 100vw;
+      }
+      .savePost {
+        width: 95vw;
+        margin-right: 4px;
+      }
+      .sideBar {
+        width: 100vw;
+      }
+      .postCard {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        padding: 10px;
+        width:300px;
+        justify-content: center;
+      }
 }
 
 @media screen and (max-width: 1280px) {
+    .dashComps {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: start;
+      }
+      .myPosts {
+        width: 100vw;
+      }
+      .savePost {
+        width: 95vw;
+        margin-right: 4px;
+      }
+      .sideBar {
+        width: 100vw;
+      }
+      .postCard {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+        padding: 10px;
+        width:300px;
+        justify-content: center;
+      }
 }
