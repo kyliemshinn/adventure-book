@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
 import '../../styles/Dashboard.css'
 import { Card, Button } from 'react-daisyui';
 import { useMutation } from '@apollo/client';
@@ -6,6 +7,7 @@ import { REMOVE_POST } from "../../utils/mutation";
 import { QUERY_POSTS } from "../../utils/queries";
 
 const DashCard = ({image, title, post}) => {
+  const navigate = useNavigate();
   //remove post
   const [removePost, { error }] = useMutation(REMOVE_POST, {
     update(cache, {data: {removePost} }) {
@@ -30,17 +32,20 @@ const DashCard = ({image, title, post}) => {
 
       console.log(data)
     } catch (err) {
-      //console.error(err)
+      console.error(err)
     }
-    window.location.reload();
+    //window.location.reload();
+    navigate("/dashboard", {replace: true});
   }
   const handleViewPost  = async (post) => {
-    window.location.assign("/explore/viewpost/" + post.id)
+    navigate("/explore/viewpost/" + post.id, {replace: true});
+    //window.location.assign("/explore/viewpost/" + post.id)
   }
 
   const handleEditPost  = async () => {
-    window.location.assign("/dashboard/editpost/" + post.id)
-    console.log(post)
+    navigate("/dashboard/editpost/" + post.id, {replace: true});
+    //window.location.assign("/dashboard/editpost/" + post.id)
+    //console.log(post)
   }
 
 

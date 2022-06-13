@@ -3,11 +3,12 @@ import { QUERY_SINGLE_POST } from "../../utils/queries";
 import { UPDATE_POST } from "../../utils/mutation";
 import { expandTagsArray, collapseTagsString } from "../../utils/tagConversion";
 import { useQuery, useMutation } from "@apollo/client";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../../styles/Dashboard.css";
 import "../../App.css";
 
 const EditPost = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const [postState, setPostState] = useState({
     title: "",
@@ -40,7 +41,7 @@ const EditPost = () => {
     console.log("Original post data:" + data.post);
     try {
       console.log(params.postId);
-      const updatedPost = await updatePost({
+      await updatePost({
         variables: {
           postId: params.postId,
           title: postState.title,
@@ -48,15 +49,17 @@ const EditPost = () => {
           content: postState.content
         }
       });
-      console.log(updatedPost.data.updatePost.id);
-      window.location.assign("/dashboard");
+      //console.log(updatedPost.data.updatePost.id);
+      navigate("/dashboard");
+      //window.location.assign("/dashboard");
     } catch (err) {
       console.error(err);
     }
   };
 
   const goBack = (e) => {
-    window.location.assign("/dashboard");
+    //window.location.assign("/dashboard");
+    navigate("/dashboard");
   };
 
   if (loading) {

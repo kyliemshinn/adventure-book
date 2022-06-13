@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Navbar, Button } from "react-daisyui";
 import Logo from "../../images/logo.png";
 import Menu from "./navMenu";
@@ -8,9 +8,12 @@ import "../../styles/navStyles.css";
 import Auth from "../../utils/auth";
 
 const Nav = () => {
+  const navigate = useNavigate();
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    navigate("/", {replace: true});
   };
 
 

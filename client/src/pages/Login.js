@@ -42,8 +42,6 @@ const Login = () => {
         //setRedirect(true);
         navigate("/explore", {replace: true});
       }, 3000);
-      //alert("Redirecting...");
-      //setRedirect(true);
     } catch(err) {
       console.error(err)
     }

@@ -3,13 +3,14 @@ import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
 import { collapseTagsString } from "../utils/tagConversion";
 import Map from "../components/Map";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Dashboard.css";
 
 function AddPost() {
   //setting up upload image
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   ///upload image by cloudinary
   const uploadImage = (e) => {
@@ -24,6 +25,7 @@ function AddPost() {
     const filePromises = [];
     const fileUrls = [];
     setLoading(true);
+    // The Cloudinary API doesn't support multiple files in one go, so we need a separate fetch for each image
     for (let file of files) {
       const data = new FormData();
       data.append("file", file);
@@ -39,6 +41,7 @@ function AddPost() {
         .then((data) => fileUrls.push(data.secure_url));
       filePromises.push(promise);
     }
+    // Proceed only once all files have confirmed being uploaded
     Promise.all(filePromises).then(() => {
       setImages(fileUrls);
       setLoading(false);
@@ -88,7 +91,8 @@ function AddPost() {
           location: processedLocation
         }
       });
-      window.location.assign("/dashboard");
+      //window.location.assign("/dashboard");
+      navigate("/dashboard", {replace: true});
     } catch (e) {
       alert(e);
     }
