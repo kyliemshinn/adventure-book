@@ -56,7 +56,7 @@ const Home = () => {
       <div className="bg-primary card md:rounded-full pt-4 pb-6 ">
         <div className="text-center text-neutral-content  ">
           <div>
-            <h2 className="py-12 text-lg font-light m-auto md:font-semibold md:text-2xl">
+            <h2 className="py-9 text-lg font-light m-auto md:font-semibold md:text-2xl">
               Get Recommendations From Real People <br></br>
               Who Have Experienced The Places You Want to Go, And The Activities
               You Want To Do. <br></br>
@@ -68,7 +68,7 @@ const Home = () => {
             {Auth.loggedIn() ? (
               <Link
                 to="/explore"
-                className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-4 bg-accent text-base-content"
+                className="btn hover:bg-accent-focus hover:shadow-lg rounded-full border-none mt-2 bg-accent text-base-content"
               >
                 GET STARTED
               </Link>
