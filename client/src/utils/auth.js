@@ -37,7 +37,7 @@ class AuthService {
 
   logout() {
     localStorage.removeItem('id_token');
-    alert("Redirect: logout");
+    //alert("Redirect: logout");
     // window.location.assign('/'); // Incompatible with React Router
   }
 }

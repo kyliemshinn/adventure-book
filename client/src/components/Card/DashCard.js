@@ -26,7 +26,8 @@ const DashCard = ({image, title, post}) => {
   const handleRemovePost = async (post) => {
     try {
       await removePost({variables: { postId: post.id }});
-      navigate("/dashboard", {replace: true});
+      alert("Watch carefully!");
+      navigate("/dashboard", {replace: true, state:{num: Math.random()}});
     } catch (err) {
       alert(err)
     }
