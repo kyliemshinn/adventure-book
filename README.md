@@ -1,17 +1,16 @@
 # **adventure-book**
 
-![jsBadge](https://img.shields.io/github/languages/top/jkwalsh127/git-productive?style=plastic)
-![languages](https://img.shields.io/github/languages/count/jkwalsh127/git-productive)
-![License](https://img.shields.io/github/license/jkwalsh127/)
+![js](https://img.shields.io/github/languages/top/CommieDog/adventure-book?style=plastic)
+![languages](https://img.shields.io/github/languages/count/CommieDog/adventure-book)
+![License](https://img.shields.io/github/license/CommieDog/adventure-book)
+![issuesopen](https://img.shields.io/github/issues/CommieDog/adventure-book)
+![forks](https://img.shields.io/github/forks/CommieDog/adventure-book)
 
 
 
 ### **See The Live Site [Here!](https://fathomless-savannah-08300.herokuapp.com/)**
 
 <img src= "./client/src/images/logo.png" height="200px" width="200px">
-
-  
-  
     
       
 ## **Table Of Contents**
@@ -44,9 +43,9 @@ Adventure Book is a modern web application used for travelers who want to get a 
 
 ## **Usage**
 
- This web app was deployed using Heroku. Reference the following video for full usage of the web app.
+ This web app was deployed using [Heroku](https://www.heroku.com/). Reference the following video for full usage of the web app.
 
- ADD GIF HERE
+![full usage](./client/src/images/adventurebookfullgif.gif)
 
 ## **Main Features**
 
@@ -55,7 +54,16 @@ The following sections highlight the functionality of the main pages and compone
 
 ### **Login**
 
-NOTE: add balloon code snipps
+The submit button was created with functionality from [animeJS](https://animejs.com/). To get the balloons to render on submit of either to signup or login form, the screen will delay redirect and display balloons floating through the screen. To get the to work as anticipated, we added the following lines of code to create time for this action.
+```  
+login(idToken) {
+    setTimeout(function() {
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/explore');
+    }, 3000)
+  }
+```
+With this, we were able to add what could be a simple login to something that fit the theme of the web app.
 
 ### **Explore Page**
 
@@ -141,7 +149,7 @@ Video below to reference adding a post
 ### **Libraries**
 * [Apollo Client](https://www.apollographql.com/docs/react/)
 * [React Router](https://reactrouter.com/)
-* [Code Pen](https://codepen.io/)
+* [animeJS](https://animejs.com/)
 * [Mongoose](https://mongoosejs.com/docs/middleware.html)
 
 

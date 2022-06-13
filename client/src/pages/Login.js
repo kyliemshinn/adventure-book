@@ -11,8 +11,9 @@ import "../styles/Balloons.css";
 const Login = () => {
   const [loginState, setLoginState] = useState({ username: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN);
+  console.log(data)
 
-  //for signup text on submit
+//get rid of box when hit submit
   const [isActive, setIsActive] = useState("active");
 
   //update state when the input changes for login
@@ -82,68 +83,60 @@ const Login = () => {
   }
 
   return (
-    <div id="balloon-container container">
-      <div className="justify-center mr-4 loginForm">
-        <div className="card w-96 bg-base-200 shadow-xl m-36 loginForm">
-          <div className=" card-body p-14 loginCard">
-            <h1 className="card-title justify-center text-secondary-content">
-              WELCOME BACK
-            </h1>
-            {data ? (
-              <p className="accent-context text-secondary-content">
-                Success! You may now head{" "}
-                <Link to="/" className="accent-context">
-                  back to the homepage.
+    <div id="balloon-container">
+      <div className="loginForm">
+        <div
+          id="signupTxt"
+          className={isActive ? "active" : "hidden"}
+        >
+          <div className="card w-96 bg-base-200 shadow-xl">
+            <div className=" card-body p-16 loginCard">
+              <h1 className="card-title p-4 justify-center text-secondary-content">
+                WELCOME BACK
+              </h1>
+                <form onSubmit={handleFormSubmit}>
+                  <div className="input-icons">
+                    <i className="fa-solid fa-user text-secondary-content icon"></i>
+                    <input
+                      name="username"
+                      value={loginState.username}
+                      placeholder="Username"
+                      className="input input-bordered w-full max-w-xs input-field text-secondary-content"
+                      onChange={handleChange}
+                    />
+                    <i className="fa-solid fa-lock text-secondary-content icon"></i>
+                    <input
+                      name="password"
+                      value={loginState.password}
+                      type="password"
+                      placeholder="Password"
+                      className="input input-bordered w-full max-w-xs input-field text-secondary-content"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <div className="card-actions justify-center text-center">
+                    <Button
+                      className="btn btn-primary rounded-full bg-accent hover:bg-accent-focus hover:shadow-lg border-none text-base-content"
+                      type="submit"
+                      onClick={displayBalloons}
+                    >
+                      Login
+                    </Button>
+                  </div>
+                </form>
+              {error && (
+                <div className="my-3 p-3 bg-danger text-white">
+                  {error.message}
+                </div>
+              )}
+              <div>
+                <h3 className="text-secondary-content text-lg">
+                  Don't have an account?{" "}
+                </h3>
+                <Link to="/signup">
+                  <h3 className="text-neutral text-lg">Sign Up!</h3>
                 </Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <div className="input-icons">
-                  <i className="fa-solid fa-user text-secondary-content icon"></i>
-                  <input
-                    name="username"
-                    value={loginState.username}
-                    placeholder="Username"
-                    className="input input-bordered w-full max-w-xs input-field text-secondary-content"
-                    onChange={handleChange}
-                  />
-                  <i className="fa-solid fa-lock text-secondary-content icon"></i>
-                  <input
-                    name="password"
-                    value={loginState.password}
-                    type="password"
-                    placeholder="Password"
-                    className="input input-bordered w-full max-w-xs input-field text-secondary-content"
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className="card-actions justify-center text-center">
-                  <Button
-                    className="btn btn-primary rounded-full bg-accent hover:bg-accent-focus hover:shadow-lg border-none text-base-content"
-                    type="submit"
-                    onClick={displayBalloons}
-                  >
-                    Login
-                  </Button>
-                </div>
-              </form>
-            )}
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
               </div>
-            )}
-            <div
-              id="signupTxt"
-              className={isActive ? "active" : "hidden"}
-              styles={{ padding: 16 }}
-            >
-              <h3 className="text-secondary-content text-lg">
-                Don't have an account?{" "}
-              </h3>
-              <Link to="/signup">
-                <h3 className="text-neutral text-lg">Sign Up!</h3>
-              </Link>
             </div>
           </div>
         </div>

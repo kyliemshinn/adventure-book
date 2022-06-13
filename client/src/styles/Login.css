@@ -24,37 +24,27 @@
 .signupTxt {
   text-align: center;
 }
-.signupForm, .loginForm {
-    margin: auto;
-    padding-top: 50px;
-}
-
-.signupForm {
-  display: flex;
-  align-items: center;
-  margin-left: 375px;
+.signupForm,
+.loginForm {
+  margin: auto;
 }
 
 /* media screens for login and sign up pages */
 @media screen and (max-width: 768px) {
-  .balloon-container {
-    margin: auto;
-  }
+ 
   .loginForm,
   .signupForm {
     margin: auto;
-    /* padding-top: 30px; */
   }
 }
 
 @media screen and (max-width: 1430px) {
- .loginForm {
+  .loginForm {
     padding-top: 50px;
- }
+  }
   .loginForm,
   .signupForm {
     margin: auto;
-    /* padding: 0; */
   }
   .icon {
     visibility: hidden;
