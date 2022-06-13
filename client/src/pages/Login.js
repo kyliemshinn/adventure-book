@@ -10,8 +10,7 @@ import "../styles/Balloons.css";
 
 const Login = () => {
   const [loginState, setLoginState] = useState({ username: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN);
-  console.log(data)
+  const [login, { error }] = useMutation(LOGIN);
 
 //get rid of box when hit submit
   const [isActive, setIsActive] = useState("active");
@@ -35,8 +34,11 @@ const Login = () => {
         variables: { ...loginState }
       });
       Auth.login(data.login.token);
-    } catch (err) {
-      console.error(err);
+      setTimeout(() => {
+        window.location.assign('/explore');
+      }, 3000);
+    } catch(err) {
+      console.error(err)
     }
     // clear form values
     setLoginState({

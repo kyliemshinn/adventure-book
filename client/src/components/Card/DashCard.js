@@ -6,15 +6,16 @@ import { REMOVE_POST } from "../../utils/mutation";
 import { QUERY_POSTS } from "../../utils/queries";
 
 const DashCard = ({ image, title, post }) => {
+
   //remove post
-  const [removePost, { error }] = useMutation(REMOVE_POST, {
+  const [removePost] = useMutation(REMOVE_POST, {
     update(cache, { data: { removePost } }) {
       try {
+        // TODO -- Investigate this method
         cache.writeQuery({
           query: QUERY_POSTS,
           data: { post: removePost },
         });
-        console.log(error);
       } catch (e) {
         console.error(e);
       }
@@ -24,11 +25,12 @@ const DashCard = ({ image, title, post }) => {
   const handleRemovePost = async (post) => {
     try {
       console.log(post);
-      const { data } = await removePost({ variables: { postId: post.id } });
+      await removePost({ variables: { postId: post.id } });
 
-      console.log(data);
-    } catch (err) {}
-    window.location.reload();
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+    }
   };
   const handleViewPost = async (post) => {
     window.location.assign("/explore/viewpost/" + post.id);

@@ -8,9 +8,13 @@ import "../../styles/navStyles.css";
 import Auth from "../../utils/auth";
 
 const Nav = () => {
+  //const navigate = useNavigate();
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
+    window.location.assign('/');
+    //navigate("/", {replace: true});
   };
 
 

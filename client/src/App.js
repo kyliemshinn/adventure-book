@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "./components/Navbar/navbar";
 import Foot from "./components/Footer/footer";
 import Home from "./pages/Home";
@@ -48,25 +48,27 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
 export default function App() {
+  const [dummy, setDummy] = useState();
+  const resetDummyState = React.useCallback(() => setDummy({}), []);
+
   return (
     <ApolloProvider client={client}>
-    <Router>
-      <div className="pageContainer">
+    <Router forceRefresh={true}>
+      <div key={dummy} className="pageContainer">
         {/* <Nav /> */}
-    <Nav />
+    <Nav refresh={resetDummyState} />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/explore/viewpost/:postId" element={<ViewPost />} />
-          <Route path="/addpost" element={<AddPost />} />
-          <Route path="/dashboard/editpost/:postId" element={<EditPost />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/explore" element={<Explore />} />
+          <Route path="/" element={<Home refresh={resetDummyState}/>} />
+          <Route path="/login" element={<Login refresh={resetDummyState} />} />
+          <Route path="/signup" element={<Signup refresh={resetDummyState} />} />
+          <Route path="/about" element={<About refresh={resetDummyState} />} />
+          <Route path="/contact" element={<Contact refresh={resetDummyState} />} />
+          <Route path="/explore/viewpost/:postId" element={<ViewPost refresh={resetDummyState} />} />
+          <Route path="/addpost" element={<AddPost refresh={resetDummyState} />} />
+          <Route path="/dashboard/editpost/:postId" element={<EditPost refresh={resetDummyState} />} />
+          <Route path="/dashboard" element={<Dashboard key={dummy} dummy={dummy} refresh={resetDummyState} />} />
+          <Route path="/explore" element={<Explore refresh={resetDummyState} />} />
           <Route path="*" element={<p>Page Not Found</p>} />
         </Routes>
     

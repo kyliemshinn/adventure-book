@@ -24,6 +24,7 @@ function AddPost() {
     const filePromises = [];
     const fileUrls = [];
     setLoading(true);
+    // The Cloudinary API doesn't support multiple files in one go, so we need a separate fetch for each image
     for (let file of files) {
       const data = new FormData();
       data.append("file", file);
@@ -39,6 +40,7 @@ function AddPost() {
         .then((data) => fileUrls.push(data.secure_url));
       filePromises.push(promise);
     }
+    // Proceed only once all files have confirmed being uploaded
     Promise.all(filePromises).then(() => {
       setImages(fileUrls);
       setLoading(false);
@@ -85,6 +87,7 @@ function AddPost() {
         }
       });
       window.location.assign("/dashboard");
+      //navigate("/dashboard", {replace: true});
     } catch (e) {
       alert(e);
     }

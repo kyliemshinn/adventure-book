@@ -67,6 +67,7 @@ With this, we were able to add what could be a simple login to something that fi
 
 ### **Explore Page**
 
+
 ### **Dashboard**
 
 The dashboard of Adventure Book is only visible when the user is logged in. Upon log in, the user can navigate to dashboard from the navbar or footer. Here, is a place to view the current posts the user has already made and view any posts they have saved from other users. They can create, view or delete there posts from here as well. Reference picture below for layout of the dashboard.
@@ -78,11 +79,11 @@ The dashboard of Adventure Book is only visible when the user is logged in. Upon
 
 From the dashboard, the user can choose to edit their post which will redirect to the edit post page. Here the user has access to update the title, tags, or description of the post they are trying to edit. The user will not have access to update anything else.
 
-ADD GIF SHOWING FUNCTIONALITY OF EDIT POST
+<img src= "./client/src/images/updatepostAB.gif" height="200px" width="400px">
 
 ### **Add Post**
 
-The add post page is meant to only be rendered when accessed through the user Dashoboard. This is so it is seen from their personal page as a design preference. Add post was designed with some new technologies, like Cloudinary. Cloudinary was the solution to not storing all the picture storing all our pictures in the server and caching the images. It is a spot where all the pictures will be stored to be used for the site, making it less code to work with. The implementation of Cloudinary was very simple and easy to use as shown below.
+The add post page is meant to only be rendered when accessed through the user Dashboard. This is so it is seen from their personal page as a design preference. Add post was designed with some new technologies, like Cloudinary. Cloudinary was the solution to not storing all the picture storing all our pictures in the server and caching the images. It is a spot where all the pictures will be stored to be used for the site, making it less code to work with. The implementation of Cloudinary was very simple and easy to use as shown below.
 
 ``` const uploadImage = async e => {
     const files = e.target.files;
@@ -109,7 +110,7 @@ Once all of this is complete and the user submits the new post, the page will re
 
 Video below to reference adding a post
 
-![add post gif](./client/src/images/addpostgif.gif)
+<img src= "./client/src/images/addpostgif.gif" height="200px" width="400px">
 
 ### **View Post**
 
