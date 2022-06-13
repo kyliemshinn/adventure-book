@@ -2,7 +2,6 @@ import React from "react";
 import { Hero, Badge } from "react-daisyui";
 import "../App.css";
 import SimpleImageSlider from "react-simple-image-slider";
-import "../styles/slider.css";
 
 import CommentSection from "../components/CommentSection/CommentSection";
 import CommentForm from "../components/CommentForm/CommentForm";
