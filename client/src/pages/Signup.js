@@ -37,6 +37,9 @@ const Signup = () => {
       });
 
       Auth.login(data.createUser.token);
+      setTimeout(() => {
+        window.location.assign('/explore');
+      }, 3000);
     } catch (e) {
       console.error(e);
     }
