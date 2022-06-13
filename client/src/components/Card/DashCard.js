@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom"
 import '../../styles/Dashboard.css'
 import { Button } from 'react-daisyui';
 import { useMutation } from '@apollo/client';
@@ -7,9 +6,9 @@ import { REMOVE_POST } from "../../utils/mutation";
 import { QUERY_POSTS } from "../../utils/queries";
 
 const DashCard = ({image, title, post, refresh, dummy}) => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   //remove post
-  const [removePost] = useMutation(REMOVE_POST/*, {
+  const [removePost] = useMutation(REMOVE_POST, {
     update(cache, {data: {removePost} }) {
       try {
         // TODO -- Investigate this method
@@ -21,27 +20,24 @@ const DashCard = ({image, title, post, refresh, dummy}) => {
         console.error(e);
       }
     },
-  }*/);
+  });
 
   const handleRemovePost = async (post) => {
     try {
       await removePost({variables: { postId: post.id }});
-      //alert("Watch carefully!");
-      refresh();
-      //navigate("/dashboard", {replace: true, state:{num: Math.random()}});
+      window.location.reload();//assign("/dashboard");
     } catch (err) {
       alert(err)
     }
   }
   const handleViewPost  = async (post) => {
-    navigate("/explore/viewpost/" + post.id, {replace: true});
-    //window.location.assign("/explore/viewpost/" + post.id)
+    //navigate("/explore/viewpost/" + post.id, {replace: true});
+    window.location.assign("/explore/viewpost/" + post.id)
   }
 
   const handleEditPost  = async () => {
-    navigate("/dashboard/editpost/" + post.id, {replace: true});
-    //window.location.assign("/dashboard/editpost/" + post.id)
-    //console.log(post)
+    //navigate("/dashboard/editpost/" + post.id, {replace: true});
+    window.location.assign("/dashboard/editpost/" + post.id)
   }
 
 
