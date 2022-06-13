@@ -45,11 +45,10 @@ const ViewPost = () => {
   }
 
   return (
-    <div className="container text-neutral-content">
+    <div className="container text-neutral-content flex">
       <Hero className="mb-28">
-        <div className="postContainer bg-base-200 mx-7 my-9 pt-4 px-5 pb-7">
+        <div className="postContainer bg-base-200 m-auto">
           <div>
-            {/* show text of "save" on hover */}
             {/* onClick, save to collections */}
             {/* highlight when saved */}
             <div>
@@ -77,14 +76,14 @@ const ViewPost = () => {
                 <div className="bg-base-100 mb-3 place-items-center">
                   <p className="">{post.createdAt}</p>
                   <div className="">
-                    <h3 className="pl-8 py-6 max-w-2xl overflow-auto md:scroll-auto">
+                    <h3 className="pl-8 py-6 max-w-lg md:max-w-2xl overflow-auto md:scroll-auto">
                       {post.content}
                     </h3>
                   </div>
                 </div>
               </div>
             </div>
-            <div>
+            <div title="Drop a Pin">
               <Map
                 height="600px"
                 width="820px"
