@@ -12,12 +12,11 @@ const DashCard = ({image, title, post}) => {
   const [removePost, { error }] = useMutation(REMOVE_POST, {
     update(cache, {data: {removePost} }) {
       try {
+        // TODO -- Investigate this method
         cache.writeQuery({
           query: QUERY_POSTS,
           data: { post: removePost }
         });
-        console.log(error);
-
       } catch (e) {
         console.error(e);
       }
@@ -26,16 +25,11 @@ const DashCard = ({image, title, post}) => {
 
   const handleRemovePost = async (post) => {
     try {
-      console.log(post)
-      const { data } = await removePost({variables: { postId: post.id },
-      });
-
-      console.log(data)
+      await removePost({variables: { postId: post.id }});
+      navigate("/dashboard", {replace: true});
     } catch (err) {
-      console.error(err)
+      alert(err)
     }
-    //window.location.reload();
-    navigate("/dashboard", {replace: true});
   }
   const handleViewPost  = async (post) => {
     navigate("/explore/viewpost/" + post.id, {replace: true});
