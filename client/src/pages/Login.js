@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN } from "../utils/mutation";
 import Auth from "../utils/auth";
@@ -10,7 +10,8 @@ import "../styles/Balloons.css";
 
 const Login = () => {
   const [loginState, setLoginState] = useState({ username: "", password: "" });
-  const [redirect, setRedirect] = useState(false);
+  //const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
   const [login, { error, data }] = useMutation(LOGIN);
 
   //for signup text on submit
@@ -37,9 +38,10 @@ const Login = () => {
       });
       Auth.login(data.login.token);
       setTimeout(() => {
-        //alert("Redirecting...");
-        setRedirect(true);
-      }, 3000)
+        alert("Redirecting...");
+        //setRedirect(true);
+        navigate("/explore", {replace: true});
+      }, 3000);
       //alert("Redirecting...");
       //setRedirect(true);
     } catch(err) {
@@ -91,9 +93,9 @@ function displayBalloons () {
   createBalloons(100);
 
 }
-if(redirect) {
+/*if(redirect) {
   return <Navigate to="/" replace />
-}
+}*/
 
   return (
     <div id="balloon-container">
