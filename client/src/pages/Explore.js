@@ -62,8 +62,6 @@ const Explore = () => {
             Most Recent Posts
           </h2>
           <div className="cardContainer md:pl-24 flex-wrap grid grid-cols-4 gap-3 py-3 text-secondary-content place-items-center md:flex">
-            {/* Dynamically update based on most recent posts */}
-
             {/* map through posts */}
             {queryData.map((post) => (
               <Link key={post.id} to={`/explore/viewpost/${post.id}`}>
