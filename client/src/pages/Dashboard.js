@@ -15,7 +15,7 @@ import "../App.css";
 import "../styles/CardStyles.css";
 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   // const { postId } = useParams();
 
   const { loading, data } = useQuery(QUERY_USER, {
@@ -48,7 +48,7 @@ const Dashboard = () => {
             <div className="grid grid-cols-3 gap-4 place-items-center py-3 text-neutral-content dashboardCards">
 
               {user.posts.map((post) => (
-                <DashCard key={post.id} title={post.title} post={post} image={post.images[0]} />
+                <DashCard key={post.id} title={post.title} post={post} image={post.images[0]} refresh={props.refresh} dummy={props.dummy}/>
                 ))}
           
                 </div>

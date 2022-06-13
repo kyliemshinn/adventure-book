@@ -38,9 +38,7 @@ const Login = () => {
       });
       Auth.login(data.login.token);
       setTimeout(() => {
-        alert("Redirecting...");
-        //setRedirect(true);
-        navigate("/explore", {replace: true});
+        window.location.assign('/explore');
       }, 3000);
     } catch(err) {
       console.error(err)

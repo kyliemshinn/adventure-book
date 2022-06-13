@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"
 import '../../styles/Dashboard.css'
-import { Card, Button } from 'react-daisyui';
+import { Button } from 'react-daisyui';
 import { useMutation } from '@apollo/client';
 import { REMOVE_POST } from "../../utils/mutation";
 import { QUERY_POSTS } from "../../utils/queries";
 
-const DashCard = ({image, title, post}) => {
+const DashCard = ({image, title, post, refresh, dummy}) => {
   const navigate = useNavigate();
   //remove post
-  const [removePost, { error }] = useMutation(REMOVE_POST, {
+  const [removePost] = useMutation(REMOVE_POST/*, {
     update(cache, {data: {removePost} }) {
       try {
         // TODO -- Investigate this method
@@ -21,13 +21,14 @@ const DashCard = ({image, title, post}) => {
         console.error(e);
       }
     },
-  });
+  }*/);
 
   const handleRemovePost = async (post) => {
     try {
       await removePost({variables: { postId: post.id }});
-      alert("Watch carefully!");
-      navigate("/dashboard", {replace: true, state:{num: Math.random()}});
+      //alert("Watch carefully!");
+      refresh();
+      //navigate("/dashboard", {replace: true, state:{num: Math.random()}});
     } catch (err) {
       alert(err)
     }

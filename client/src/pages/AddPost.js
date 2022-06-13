@@ -91,8 +91,8 @@ function AddPost() {
           location: processedLocation
         }
       });
-      //window.location.assign("/dashboard");
-      navigate("/dashboard", {replace: true});
+      window.location.assign("/dashboard");
+      //navigate("/dashboard", {replace: true});
     } catch (e) {
       alert(e);
     }
