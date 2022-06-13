@@ -85,11 +85,11 @@
     margin: 0;
   }
 
-  .map {
+  /* .map {
     margin: 0;
     padding: 0;
     width: 50vw;
-  }
+  } */
 }
 
 /* Media screen for Add Post */
@@ -99,9 +99,6 @@
   }
   .addCard {
     margin: auto;
-     /* width: max-content; 
-     display: block;
-    justify-content: center;  */
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .mapDiv {

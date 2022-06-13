@@ -57,10 +57,6 @@ function AddPost() {
   const [location, setLocation] = useState([0.01, 0.01]);
 
   function readLocation(arg) {
-    /*setPushPins([{
-      "location":[arg.latitude, arg.longitude],
-      "option":{ color: 'red' }
-    }]);*/
     setPushPins([arg.latitude, arg.longitude]);
     setLocation([arg.latitude, arg.longitude]);
   }
@@ -176,7 +172,6 @@ function AddPost() {
                 Click On The Map To Pin A Location
               </h3>
               <Map
-                className="mapComponent"
                 height="440px"
                 width="43vw"
                 locations={[pushPins]}

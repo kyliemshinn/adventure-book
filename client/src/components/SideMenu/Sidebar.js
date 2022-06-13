@@ -1,5 +1,5 @@
 import React from "react";
-import '../../styles/Dashboard.css';
+import "../../styles/Dashboard.css";
 import { Badge } from "react-daisyui";
 
 const Sidebar = (props) => {
