@@ -41,7 +41,7 @@ const EditPost = () => {
     console.log("Original post data:" + data.post);
     try {
       console.log(params.postId);
-      const updatedPost = await updatePost({
+      await updatePost({
         variables: {
           postId: params.postId,
           title: postState.title,
@@ -49,7 +49,8 @@ const EditPost = () => {
           content: postState.content
         }
       });
-      console.log(updatedPost.data.updatePost.id);
+      //console.log(updatedPost.data.updatePost.id);
+      //navigate("/dashboard");
       window.location.assign("/dashboard");
     } catch (err) {
       console.error(err);
@@ -58,6 +59,7 @@ const EditPost = () => {
 
   const goBack = (e) => {
     window.location.assign("/dashboard");
+    //navigate("/dashboard");
   };
 
   if (loading) {

@@ -28,16 +28,17 @@ class AuthService {
   }
 
   login(idToken) {
-    setTimeout(function() {
+    //setTimeout(function() {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/explore');
-    }, 3000)
+    //window.location.assign('/explore'); // Incompatible with React Router
+    //}, 3000)
   }
   
 
   logout() {
     localStorage.removeItem('id_token');
-    window.location.assign('/');
+    //alert("Redirect: logout");
+    // window.location.assign('/'); // Incompatible with React Router
   }
 }
 

@@ -6,7 +6,10 @@ function Map(props) {
     return { location: location, option: { color: "red" } };
   });
 
+  //alert("process.env.REACT_APP_BING_MAPS_API_KEY is: " + process.env.REACT_APP_BING_MAPS_API_KEY);
+  //alert("process.env.BING_MAPS_API_KEY is: " + process.env.BING_MAPS_API_KEY);
   const apiKey = process.env.REACT_APP_BING_MAPS_API_KEY || process.env.BING_MAPS_API_KEY;
+  //alert("apiKey is: " + apiKey);
 
     return (
       <div style={{ height: props.height, width: props.width }}>
