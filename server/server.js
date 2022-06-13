@@ -19,6 +19,15 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
+app.get('/*', function(req, res) {
+  console.log("Hitting wildcard route!");
+  res.sendFile(path.join(__dirname, '/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
 const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
 
