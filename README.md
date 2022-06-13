@@ -79,7 +79,7 @@ The dashboard of Adventure Book is only visible when the user is logged in. Upon
 
 From the dashboard, the user can choose to edit their post which will redirect to the edit post page. Here the user has access to update the title, tags, or description of the post they are trying to edit. The user will not have access to update anything else.
 
-ADD GIF SHOWING FUNCTIONALITY OF EDIT POST
+<img src= "./client/src/images/updatepostAB.gif" height="200px" width="400px">
 
 ### **Add Post**
 
@@ -110,7 +110,7 @@ Once all of this is complete and the user submits the new post, the page will re
 
 Video below to reference adding a post
 
-![add post gif](./client/src/images/addpostgif.gif)
+<img src= "./client/src/images/addpostgif.gif" height="200px" width="400px">
 
 ### **View Post**
 
