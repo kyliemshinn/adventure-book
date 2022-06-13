@@ -1,18 +1,23 @@
 import React, { useState } from "react";
-// import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 // import { AiOutlineBars } from 'react-icons/ai';
+import Auth from "../../utils/auth";
 
 const Menu = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
+  
   const [expandMenu, setExpandMenu] = useState(false);
-  // const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
-    <div className="dropdown mobile-nav">
+    <div className="dropdown dropdown-left mobile-nav">
       <label
         tabindex="0"
         type="checkbox"
         className="dropMenu btn btn-ghost btn-circle"
-        onClick={() => setExpandMenu(!expandMenu)}
+        onClick={() => setExpandMenu(expandMenu)}
       >
         {/* toggle menu state on click */}
         <svg
@@ -23,20 +28,40 @@ const Menu = () => {
           stroke="currentColor"
         >
           <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
             d="M4 6h16M4 12h16M4 18h7"
           />
         </svg>
       </label>
-      <ul
-        tabindex="0"
-        className=" menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-      >
-        <li>Home</li>
-        <li>Login</li>
-      </ul>
+      {Auth.loggedIn() ? (
+        <ul
+          tabindex="0"
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 "
+        >
+          <Link to="/" className="hover:text-indigo-500 ">
+            Home
+          </Link>
+          <Link to="/explore" className="hover:text-indigo-500">
+            Explore
+          </Link>
+          <Link to="/dashboard" className="hover:text-indigo-500">
+            Dashboard
+          </Link>
+          <Link to="/logout" className="hover:text-indigo-500" onClick={logout}>
+            Logout
+          </Link>
+        </ul>
+      ) : (
+        <ul
+          tabindex="0"
+          className=" menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li>Home</li>
+          <li>Login</li>
+        </ul>
+      )}
     </div>
   );
 };
