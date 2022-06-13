@@ -11,18 +11,18 @@ const Signup = () => {
   const [formState, setFormState] = useState({
     username: "",
     email: "",
-    password: "",
+    password: ""
   });
 
   const [createUser, { error, data }] = useMutation(CREATE_USER);
-
+  const [isActive, setIsActive] = useState("active");
   // update state based on form input change
   const handleChange = (event) => {
     const { name, value } = event.target;
 
     setFormState({
       ...formState,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -33,18 +33,18 @@ const Signup = () => {
 
     try {
       const { data } = await createUser({
-        variables: { ...formState },
+        variables: { ...formState }
       });
 
       Auth.login(data.createUser.token);
     } catch (e) {
       console.error(e);
     }
+    setIsActive((current) => !current);
   };
 
   //to get balloons to render on page
   function displayBalloons() {
-
     function random(num) {
       return Math.floor(Math.random() * num);
     }
@@ -74,15 +74,19 @@ const Signup = () => {
         balloonContainer.append(balloon);
       }
     }
-  
+
     createBalloons(100);
   }
   return (
     <div id="balloon-container">
-      <div className="justify-center ml-4 mr-4 signupForm">
-        <div className="card w-96 bg-base-200 shadow-xl m-36 signupForm">
-          <div className="card-body p-10">
-            <h1 className="card-title p-4 justify-center text-secondary-content">
+      <div className="signupForm">
+        <div
+          id="signupTxt"
+          className={isActive ? "active" : "hidden"}
+        >
+        <div className="card w-96 bg-base-200 shadow-xl">
+          <div className="card-body p-16 cardBody">
+            <h1 className="card-title justify-center text-secondary-content">
               PLEASE SIGN UP
             </h1>
             {data ? (
@@ -139,6 +143,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

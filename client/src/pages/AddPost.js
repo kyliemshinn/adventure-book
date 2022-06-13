@@ -3,14 +3,13 @@ import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "../utils/mutation";
 import { collapseTagsString } from "../utils/tagConversion";
 import Map from "../components/Map";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/Dashboard.css";
 
 function AddPost() {
   //setting up upload image
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   ///upload image by cloudinary
   const uploadImage = (e) => {
@@ -60,10 +59,6 @@ function AddPost() {
   const [location, setLocation] = useState([0.01, 0.01]);
 
   function readLocation(arg) {
-    /*setPushPins([{
-      "location":[arg.latitude, arg.longitude],
-      "option":{ color: 'red' }
-    }]);*/
     setPushPins([arg.latitude, arg.longitude]);
     setLocation([arg.latitude, arg.longitude]);
   }
@@ -180,7 +175,6 @@ function AddPost() {
                 Click On The Map To Pin A Location
               </h3>
               <Map
-                className="mapComponent"
                 height="440px"
                 width="43vw"
                 locations={[pushPins]}

@@ -1,12 +1,18 @@
 # **adventure-book**
 
-ADD BADGES
+![js](https://img.shields.io/github/languages/top/CommieDog/adventure-book?style=plastic)
+![languages](https://img.shields.io/github/languages/count/CommieDog/adventure-book)
+![License](https://img.shields.io/github/license/CommieDog/adventure-book)
+![issuesopen](https://img.shields.io/github/issues/CommieDog/adventure-book)
+![forks](https://img.shields.io/github/forks/CommieDog/adventure-book)
 
-**[See the live site here](https://fathomless-savannah-08300.herokuapp.com/)**
-
-ADD LOGO HERE
 
 
+### **See The Live Site [Here!](https://fathomless-savannah-08300.herokuapp.com/)**
+
+<img src= "./client/src/images/logo.png" height="200px" width="200px">
+    
+      
 ## **Table Of Contents**
 
 1. [Description](#description)
@@ -37,9 +43,9 @@ Adventure Book is a modern web application used for travelers who want to get a 
 
 ## **Usage**
 
- This web app was deployed using Heroku. Reference the following video for full usage of the web app.
+ This web app was deployed using [Heroku](https://www.heroku.com/). Reference the following video for full usage of the web app.
 
- ADD GIF HERE
+![full usage](./client/src/images/adventurebookfullgif.gif)
 
 ## **Main Features**
 
@@ -48,9 +54,19 @@ The following sections highlight the functionality of the main pages and compone
 
 ### **Login**
 
-NOTE: add balloon code snipps
+The submit button was created with functionality from [animeJS](https://animejs.com/). To get the balloons to render on submit of either to signup or login form, the screen will delay redirect and display balloons floating through the screen. To get the to work as anticipated, we added the following lines of code to create time for this action.
+```  
+login(idToken) {
+    setTimeout(function() {
+    localStorage.setItem('id_token', idToken);
+    window.location.assign('/explore');
+    }, 3000)
+  }
+```
+With this, we were able to add what could be a simple login to something that fit the theme of the web app.
 
 ### **Explore Page**
+
 
 ### **Dashboard**
 
@@ -63,11 +79,11 @@ The dashboard of Adventure Book is only visible when the user is logged in. Upon
 
 From the dashboard, the user can choose to edit their post which will redirect to the edit post page. Here the user has access to update the title, tags, or description of the post they are trying to edit. The user will not have access to update anything else.
 
-ADD GIF SHOWING FUNCTIONALITY OF EDIT POST
+<img src= "./client/src/images/updatepostAB.gif" height="200px" width="400px">
 
 ### **Add Post**
 
-The add post page is meant to only be rendered when accessed through the user Dashoboard. This is so it is seen from their personal page as a design preference. Add post was designed with some new technologies, like Cloudinary. Cloudinary was the solution to not storing all the picture storing all our pictures in the server and caching the images. It is a spot where all the pictures will be stored to be used for the site, making it less code to work with. The implementation of Cloudinary was very simple and easy to use as shown below.
+The add post page is meant to only be rendered when accessed through the user Dashboard. This is so it is seen from their personal page as a design preference. Add post was designed with some new technologies, like Cloudinary. Cloudinary was the solution to not storing all the picture storing all our pictures in the server and caching the images. It is a spot where all the pictures will be stored to be used for the site, making it less code to work with. The implementation of Cloudinary was very simple and easy to use as shown below.
 
 ``` const uploadImage = async e => {
     const files = e.target.files;
@@ -94,7 +110,7 @@ Once all of this is complete and the user submits the new post, the page will re
 
 Video below to reference adding a post
 
-![add post gif](./client/src/images/addpostgif.gif)
+<img src= "./client/src/images/addpostgif.gif" height="200px" width="400px">
 
 ### **View Post**
 
@@ -134,7 +150,7 @@ Video below to reference adding a post
 ### **Libraries**
 * [Apollo Client](https://www.apollographql.com/docs/react/)
 * [React Router](https://reactrouter.com/)
-* [Code Pen](https://codepen.io/)
+* [animeJS](https://animejs.com/)
 * [Mongoose](https://mongoosejs.com/docs/middleware.html)
 
 

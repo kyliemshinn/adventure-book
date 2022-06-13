@@ -1,5 +1,6 @@
 import React from "react";
-import { Card } from 'react-daisyui';
+// import { Card } from 'react-daisyui';
+import '../styles/Contact.css'
 
 import Logo from "../images/logo.png";
 
@@ -7,8 +8,8 @@ import Logo from "../images/logo.png";
 
 const Contact = () => {
   return (
-    <div className="bg-base-100 flex flex-col pt-7 pb-36 justify-center items-center text-secondary-content">
-      <div className="card grid grid-cols-2 px-24 pb-8 rounded-full bg-base-200">
+    <div className="bg-base-100 flex flex-col pt-7 pb-36 justify-center items-center text-secondary-content mainComp">
+      <div className="card grid grid-cols-2 px-24 pb-8 rounded-full bg-base-200 contactForm">
         <div className=" px-16 text-center">
           <h1 className="text-xl font-bold pt-14 pb-4">
             Let's Talk About Everything!
@@ -27,7 +28,7 @@ const Contact = () => {
           <img src={Logo} alt="logo" width="400px" height="400px"/>
           </figure>
         </div>
-        <form className="bg-base-200 py-8 px-16">
+        <form className="bg-base-200 py-8 px-16 contactDiv">
           <h2 className="text-center text-xl font-bold py-4">Get in Touch</h2>
 
           <div>
@@ -67,7 +68,7 @@ const Contact = () => {
             <textarea className="w-full h-32 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline" />
           </div>
           <div className="mt-3">
-            <button className="btn text-sm font-bold bg-neutral text-base-100 p-3 rounded-full w-full ">
+            <button className="btn text-sm font-bold bg-neutral text-base-100 p-3 rounded-full w-full contactBtn">
               SEND
             </button>
           </div>
