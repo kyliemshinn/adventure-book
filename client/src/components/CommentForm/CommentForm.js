@@ -58,7 +58,7 @@ const CommentForm = ({ postId }) => {
         ></Textarea>
 
         <p
-          className={`text-sm text-black-900 float-right ${
+          className={`text-sm text-indigo-700 float-right ${
             characterCount === 280 || error ? "text-danger" : ""
           }`}
         >
