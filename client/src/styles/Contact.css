@@ -1,0 +1,19 @@
+@media screen and (max-width: 768px) {
+  .mainComp {
+    margin: auto;
+  }
+  .contactForm {
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .contactDiv {
+    width: max-content;
+    margin: auto;
+  }
+  .contactBtn {
+    margin-left: 100px;
+    width: fit-content;
+  }
+}
