@@ -52,7 +52,7 @@ const client = new ApolloClient({
 export default function App() {
   return (
     <ApolloProvider client={client}>
-    <Router>
+    <Router forceRefresh={true}>
       <div className="pageContainer">
         {/* <Nav /> */}
     <Nav />
