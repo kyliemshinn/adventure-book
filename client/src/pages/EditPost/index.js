@@ -27,9 +27,10 @@ const EditPost = () => {
     variables: { postId: params.postId }
   });
   useEffect(() => {
-    if(data) {
+    if (data) {
       setPostState({
-        ...data.post, tags: expandTagsArray(data.post.tags) // Expand tags array into string for manipulation
+        ...data.post,
+        tags: expandTagsArray(data.post.tags) // Expand tags array into string for manipulation
       });
     }
   }, [data]);
