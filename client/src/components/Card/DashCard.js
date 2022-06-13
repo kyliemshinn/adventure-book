@@ -5,8 +5,7 @@ import { useMutation } from "@apollo/client";
 import { REMOVE_POST } from "../../utils/mutation";
 import { QUERY_POSTS } from "../../utils/queries";
 
-const DashCard = ({ image, title, post }) => {
-  console.log(post.id);
+const DashCard = ({image, title, post}) => {
   //remove post
   const [removePost, { error }] = useMutation(REMOVE_POST, {
     update(cache, { data: { removePost } }) {

@@ -69,6 +69,14 @@ export const QUERY_USER = gql`
         content
         tags
       }
+      userCollection {
+        id
+        title
+        tags
+        author {
+          username
+        }
+      }
     }
   }
 `;

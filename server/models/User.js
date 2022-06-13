@@ -23,7 +23,7 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Post"
     }],
-    // can't be "collection", baybe reserved by Mongoose?
+    // can't be "collection", maybe reserved by Mongoose?
     userCollection: [{
       type: Schema.Types.ObjectId,
       ref: "Post"
